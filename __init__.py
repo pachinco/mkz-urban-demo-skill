@@ -5,7 +5,7 @@ from mycroft.util import play_wav
 class MkzUrbanDemo(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        self.sound_file_path = Path(__file__).parent.joinpath("sounds", "mkz-welcome-chime.wav")
+        self.sound_file_path = Path(__file__).parent.joinpath("sounds", "mkz-welcome-chime2.wav")
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
