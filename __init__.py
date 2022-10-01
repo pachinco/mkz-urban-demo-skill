@@ -10,6 +10,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.mkzdemo_img = Path(__file__).parent.joinpath("images", "mkz_homescreen.png")
         self.settings['wallpaper_file']="custom-wallpaper.jpg"
         self.settings['wallpaper_url']=str(self.mkzdemo_img)
+        self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
 
 #    @resting_screen_handler('MKZ homescreen')
 #    def handle_homescreen(self, message):
@@ -20,9 +21,10 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
 #        self.gui.show_image(self,str(self.mkzdemo_img),fill=Stretch,override_idle=True)
-        self.gui.show_image(str(self.mkzdemo_img))
+#        self.gui.show_image(str(self.mkzdemo_img))
         play_proc = play_wav(str(self.sound_file_path))
         self.speak_dialog('demo.urban.mkz')
+        self.gui.show_page(str(self.mkz_ui), override_idle=True)
 
 def create_skill():
     return MkzUrbanDemo()
