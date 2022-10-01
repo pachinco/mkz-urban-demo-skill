@@ -21,7 +21,7 @@ import Mycroft 1.0 as Mycroft
 
 Mycroft.Delegate{
     id: root
-    anchor.fill parent
+    anchor.fill: parent
     property var actionsModel: sessionData.actionsList
 
     Image {
