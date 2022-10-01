@@ -10,12 +10,12 @@ Mycroft.Delegate {
     skillBackgroundSource: sessionData.exampleImage
     ColumnLayout {
         anchors.fill: parent
-        parent.padding: 0 0 0 0;
-        parent.border-spacing: 0px 0px;
-        parent.margin: 0px;
 
         Image {
             id: imageId
+            parent.padding: 0 0 0 0;
+            parent.border-spacing: 0px 0px;
+            parent.margin: 0px;
             Layout.fillWidth: true
             Layout.fillHeight: true
             source: Qt.resolvedUrl("../images/mkz_homescreen.png")
