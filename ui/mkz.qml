@@ -21,13 +21,15 @@ Mycroft.ScrollableDelegate{
             source: Qt.resolvedUrl("../images/mkz_homescreen.png")
         }
         Kirigami.ScrollablePage {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             Rectangle {
                 width: parent.width*2
                 height: parent.height/2
                 radius: 20
                 color: "#00ffff"
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
+//                anchors.horizontalCenter: parent.horizontalCenter
+//                anchors.verticalCenter: parent.verticalCenter
                 Label {
                     id: labelId
                     Layout.fillWidth: true
