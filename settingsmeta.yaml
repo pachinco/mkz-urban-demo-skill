@@ -6,7 +6,7 @@ skillMetadata:
         - name: background_img
           type: text
           label: Background image url
-          value:
+          value: "images/mkz_homescreen.png"
     - name: Wallpaper
       fields:
         - type: label
