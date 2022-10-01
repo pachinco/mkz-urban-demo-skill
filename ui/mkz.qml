@@ -10,6 +10,13 @@ Mycroft.Delegate {
     skillBackgroundSource: sessionData.exampleImage
     ColumnLayout {
         anchors.fill: parent
+        Rectangle {
+            width: 1000
+            height: 500
+            color: "#00ffff"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+        }
         Image {
             id: imageId
             Layout.fillWidth: true
