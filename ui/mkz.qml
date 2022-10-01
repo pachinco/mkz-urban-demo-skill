@@ -14,7 +14,7 @@ Mycroft.Delegate {
             id: imageId
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-            source: "images/mkz_homescreen.png"
+            source: "mkz_homescreen.png"
          }
          Label {
             id: labelId
