@@ -9,15 +9,15 @@ import Mycroft 1.0 as Mycroft
  Mycroft.Delegate{
     anchors.fill: parent
 
-   Image {
-       id: imageId
-        width: parent.width
-        height: parent.height
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        source: Qt.resolvedUrl("../images/mkz_homescreen.png")
-    }
-}
+//    Image {
+//        id: imageId
+//         width: parent.width
+//         height: parent.height
+//         anchors.horizontalCenter: parent.horizontalCenter
+//         anchors.verticalCenter: parent.verticalCenter
+//         source: Qt.resolvedUrl("../images/mkz_homescreen.png")
+//     }
+// }
 
 Mycroft.ScrollableDelegate{
     id: root
