@@ -12,10 +12,10 @@ import Mycroft 1.0 as Mycroft
 
     Image {
         id: imageId
-        leftPadding: 0
-        rightPadding: 0
-        topPadding: 0
-        bottomPadding: 0
+//         leftPadding: 0
+//         rightPadding: 0
+//         topPadding: 0
+//         bottomPadding: 0
         Layout.fillWidth: true
         Layout.fillHeight: true
         anchors.horizontalCenter: parent.horizontalCenter
