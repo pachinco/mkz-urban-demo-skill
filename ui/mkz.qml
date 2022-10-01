@@ -9,6 +9,9 @@ import Mycroft 1.0 as Mycroft
  Mycroft.Delegate{
     anchors.fill: parent
 
+    skillBackgroundSource: sessionData.background
+    property var actionsModel: sessionData.actionsList
+
    Image {
 //        id: imageId
         width: parent.width
@@ -20,14 +23,12 @@ import Mycroft 1.0 as Mycroft
 
     Mycroft.ScrollableDelegate{
         id: actionsList
-        skillBackgroundSource: parent.sessionData.background
-        property var sampleModel: parent.sessionData.actionsList
 
         Kirigami.CardsListView {
             id: exampleListView
             Layout.fillWidth: true
             Layout.fillHeight: true
-            model: sampleModel.actions
+            model: actionsModel.actions
             delegate: Kirigami.AbstractCard {
                 id: rootCard
                 implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
