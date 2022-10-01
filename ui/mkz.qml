@@ -14,7 +14,7 @@ Mycroft.Delegate {
             id: imageId
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-            source: "https://source.unsplash.com/1920x1080/?+autumn"
+            source: "images/mkz_homescreen.png"
          }
          Label {
             id: labelId
