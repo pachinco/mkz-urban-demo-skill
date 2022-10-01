@@ -6,9 +6,9 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
- Mycroft.Delegate{
-    anchors.fill: parent
-
+//  Mycroft.Delegate{
+//     anchors.fill: parent
+// 
 //    Image {
 //        id: imageId
 //         width: parent.width
