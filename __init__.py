@@ -1,7 +1,7 @@
-from mycroft import MycroftSkill, intent_file_handler, resting_screen_handler
+from mycroft import MycroftSkill, intent_file_handler
 from pathlib import Path
 from mycroft.util import play_wav
-#from mycroft.skills import resting_screen_handler
+from mycroft.skills import resting_screen_handler
 
 class MkzUrbanDemo(MycroftSkill):
     def __init__(self):
