@@ -20,8 +20,8 @@ import Mycroft 1.0 as Mycroft
 
     Mycroft.ScrollableDelegate{
         id: actionsList
-        skillBackgroundSource: sessionData.background
-        property var sampleModel: sessionData.actionsList
+        skillBackgroundSource: parent.sessionData.background
+        property var sampleModel: parent.sessionData.actionsList
 
         Kirigami.CardsListView {
             id: exampleListView
