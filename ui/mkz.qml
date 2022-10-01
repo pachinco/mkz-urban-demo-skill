@@ -21,10 +21,10 @@ import Mycroft 1.0 as Mycroft
 
 Mycroft.Delegate{
     id: root
-    property var actionsModel: sessionData.actionsBlob
+    property var actionsModel: sessionData.actionsList
 
     Kirigami.CardsListView {
-        id: restaurantsListView
+        id: actionsListView
         Layout.fillWidth: true
         Layout.fillHeight: true
         model: actionsModel
@@ -42,7 +42,7 @@ Mycroft.Delegate{
                     anchors.top: parent.top
                     spacing: Kirigami.Units.smallSpacing
                     Kirigami.Heading {
-                        id: restaurantNameLabel
+                        id: actionNameLabel
                         Layout.fillWidth: true
                         text: modelData.name
                         level: 3
@@ -54,28 +54,28 @@ Mycroft.Delegate{
                     RowLayout {
                         Layout.fillWidth: true
                         Layout.preferredHeight: form.implicitHeight
-                        Image {
-                            id: placeImage
-                            source: modelData.image
-                            Layout.fillHeight: true
-                            Layout.preferredWidth: placeImage.implicitHeight + Kirigami.Units.gridUnit * 2
-                            fillMode: Image.PreserveAspectFit
-                        }
-                        Kirigami.Separator {
-                            Layout.fillHeight: true
-                        }
+//                         Image {
+//                             id: placeImage
+//                             source: modelData.image
+//                             Layout.fillHeight: true
+//                             Layout.preferredWidth: placeImage.implicitHeight + Kirigami.Units.gridUnit * 2
+//                             fillMode: Image.PreserveAspectFit
+//                         }
+//                         Kirigami.Separator {
+//                             Layout.fillHeight: true
+//                         }
                         Kirigami.FormLayout {
                             id: form
                             Layout.fillWidth: true
                             Layout.minimumWidth: aCard.implicitWidth
                             Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
-                            Label {
-                                Kirigami.FormData.label: "Description:"
-                                Layout.fillWidth: true
-                                wrapMode: Text.WordWrap
-                                elide: Text.ElideRight
-                                text: modelData.restaurantDescription
-                            }
+//                             Label {
+//                                 Kirigami.FormData.label: "Description:"
+//                                 Layout.fillWidth: true
+//                                 wrapMode: Text.WordWrap
+//                                 elide: Text.ElideRight
+//                                 text: modelData.restaurantDescription
+//                             }
                             Label {
                                 Kirigami.FormData.label: "Phone:"
                                 Layout.fillWidth: true
