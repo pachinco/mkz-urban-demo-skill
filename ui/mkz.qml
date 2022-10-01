@@ -17,8 +17,8 @@ Mycroft.Delegate {
 //            Layout.fillHeight: true
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-//            width: parent.width*0.8
-//            height: parent.height*0.8
+            width: parent.width*0.6
+            height: parent.height*0.6
             source: Qt.resolvedUrl("../images/mkz_homescreen.png")
         }
         Rectangle {
@@ -31,7 +31,7 @@ Mycroft.Delegate {
             Label {
                 id: labelId
                 Layout.fillWidth: true
-                Layout.preferredHeight: Kirigami.Units.gridUnit * 4
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 10
                 color: "#000000"
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."            
             }
