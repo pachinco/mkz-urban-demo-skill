@@ -21,7 +21,7 @@ Mycroft.Delegate {
         Image {
             id: imageId
             Layout.fillWidth: true
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+            Layout.fillHeight: true
             source: Qt.resolvedUrl("../images/mkz_homescreen.png")
          }
          Label {
