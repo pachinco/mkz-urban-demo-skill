@@ -20,7 +20,7 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
 #        self.gui.show_image(self,str(self.mkzdemo_img),fill=Stretch,override_idle=True)
-#        self.gui.show_image(str(self.mkzdemo_img))
+        self.gui.show_image(str(self.mkzdemo_img))
         play_proc = play_wav(str(self.sound_file_path))
         self.speak_dialog('demo.urban.mkz')
 
