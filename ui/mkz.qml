@@ -6,81 +6,82 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
-Mycroft.ScrollableDelegate{
-//Mycroft.Delegate {
-   skillBackgroundSource: sessionData.exampleImage
-    ColumnLayout {
-        anchors.fill: parent
+// Mycroft.ScrollableDelegate{
+// Mycroft.Delegate {
+//     skillBackgroundSource: sessionData.exampleImage
+//     ColumnLayout {
+//         anchors.fill: parent
 
-        Image {
-            id: imageId
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            source: Qt.resolvedUrl("../images/mkz_homescreen.png")
+//         Image {
+//             id: imageId
+//             Layout.fillWidth: true
+//             Layout.fillHeight: true
+//             anchors.horizontalCenter: parent.horizontalCenter
+//             anchors.verticalCenter: parent.verticalCenter
+//             source: Qt.resolvedUrl("../images/mkz_homescreen.png")
+//         }
+
+Kirigami.ScrollablePage {
+    title: i18n("Address book (prototype)")
+
+    Kirigami.CardsGridView {
+        id: view
+
+        model: ListModel {
+            id: mainModel
         }
-        Kirigami.ScrollablePage {
-            title: i18n("Address book (prototype)")
 
-            Kirigami.CardsGridView {
-                id: view
+        delegate: card
+    }
 
-                model: ListModel {
-                    id: mainModel
+    Component.onCompleted: {
+        mainModel.append({"firstname": "Pablo", "lastname": "Doe", "cellphone": "6300000002", "email" : "jane-doe@example.com", "photo": "qrc:/konqi.jpg"});
+        mainModel.append({"firstname": "Paul", "lastname": "Adams", "cellphone": "6300000003", "email" : "paul-adams@example.com", "photo": "qrc:/katie.jpg"});
+        mainModel.append({"firstname": "John", "lastname": "Doe", "cellphone": "6300000001", "email" : "john-doe@example.com", "photo": "qrc:/konqi.jpg"});
+        mainModel.append({"firstname": "Ken", "lastname": "Brown", "cellphone": "6300000004", "email" : "ken-brown@example.com", "photo": "qrc:/konqi.jpg"});
+        mainModel.append({"firstname": "Al", "lastname": "Anderson", "cellphone": "6300000005", "email" : "al-anderson@example.com", "photo": "qrc:/katie.jpg"});
+        mainModel.append({"firstname": "Kate", "lastname": "Adams", "cellphone": "6300000005", "email" : "kate-adams@example.com", "photo": "qrc:/konqi.jpg"});
+    }
+
+    Component {
+        id: card
+
+        Kirigami.Card {
+
+            height: view.cellHeight - Kirigami.Units.largeSpacing
+
+            banner {
+                title: model.firstname + " " + model.lastname
+                titleIcon: "im-user"
+            }
+
+            contentItem: Column {
+                id: content
+
+                spacing: Kirigami.Units.smallSpacing
+
+                Controls.Label {
+                    wrapMode: Text.WordWrap
+                    text: "Mobile: " + model.cellphone
                 }
 
-                delegate: card
-            }
-
-            Component.onCompleted: {
-                mainModel.append({"firstname": "Pablo", "lastname": "Doe", "cellphone": "6300000002", "email" : "jane-doe@example.com", "photo": "qrc:/konqi.jpg"});
-                mainModel.append({"firstname": "Paul", "lastname": "Adams", "cellphone": "6300000003", "email" : "paul-adams@example.com", "photo": "qrc:/katie.jpg"});
-                mainModel.append({"firstname": "John", "lastname": "Doe", "cellphone": "6300000001", "email" : "john-doe@example.com", "photo": "qrc:/konqi.jpg"});
-                mainModel.append({"firstname": "Ken", "lastname": "Brown", "cellphone": "6300000004", "email" : "ken-brown@example.com", "photo": "qrc:/konqi.jpg"});
-                mainModel.append({"firstname": "Al", "lastname": "Anderson", "cellphone": "6300000005", "email" : "al-anderson@example.com", "photo": "qrc:/katie.jpg"});
-                mainModel.append({"firstname": "Kate", "lastname": "Adams", "cellphone": "6300000005", "email" : "kate-adams@example.com", "photo": "qrc:/konqi.jpg"});
-            }
-
-            Component {
-                id: card
-
-                Kirigami.Card {
-
-                    height: view.cellHeight - Kirigami.Units.largeSpacing
-
-                    banner {
-                        title: model.firstname + " " + model.lastname
-                        titleIcon: "im-user"
-                    }
-
-                    contentItem: Column {
-                        id: content
-
-                        spacing: Kirigami.Units.smallSpacing
-
-                        Controls.Label {
-                            wrapMode: Text.WordWrap
-                            text: "Mobile: " + model.cellphone
-                        }
-
-                        Controls.Label {
-                            wrapMode: Text.WordWrap
-                            text: "Email: " + model.email
-                        }
-                    }
-
-                    actions: [
-                        Kirigami.Action {
-                            text: "Call"
-                            icon.name: "call-start"
-
-                            onTriggered: { showPassiveNotification("Calling " + model.firstname + " " + model.lastname + " ...") }
-                        }
-                    ]
+                Controls.Label {
+                    wrapMode: Text.WordWrap
+                    text: "Email: " + model.email
                 }
             }
+
+            actions: [
+                Kirigami.Action {
+                    text: "Call"
+                    icon.name: "call-start"
+
+                    onTriggered: { showPassiveNotification("Calling " + model.firstname + " " + model.lastname + " ...") }
+                }
+            ]
         }
+    }
+}
 //        Kirigami.ScrollablePage {
 //            Layout.fillWidth: true
 //            Layout.fillHeight: true
@@ -145,8 +146,8 @@ Mycroft.ScrollableDelegate{
 //                 }
 //             }
 //         }
-    }
-}
+//     }
+// }
 
 // Mycroft.ScrollableDelegate{
 //     id: root
