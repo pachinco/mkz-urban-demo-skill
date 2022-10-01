@@ -30,7 +30,7 @@ import Mycroft 1.0 as Mycroft
                 height: parent.height/2
                 radius: 20
                 color: "#00ffff"
-                horizontalScrollBarPolicy: Qt::ScrollBarAsNeeded
+//                horizontalScrollBarPolicy: Qt::ScrollBarAsNeeded
 //                anchors.horizontalCenter: parent.horizontalCenter
 //                anchors.verticalCenter: parent.verticalCenter
 //                 Label {
