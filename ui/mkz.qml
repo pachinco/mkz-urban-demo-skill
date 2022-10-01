@@ -18,7 +18,7 @@ import Mycroft 1.0 as Mycroft
 //         source: Qt.resolvedUrl("../images/mkz_homescreen.png")
 //     }
 // }
- 
+
 Mycroft.Delegate{
     id: root
     property var actionsModel: sessionData.actionsBlob
@@ -28,6 +28,7 @@ Mycroft.Delegate{
         Layout.fillWidth: true
         Layout.fillHeight: true
         model: actionsModel
+        color: "#00ffff"
         delegate: Kirigami.AbstractCard {
             id: rootCard
             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
