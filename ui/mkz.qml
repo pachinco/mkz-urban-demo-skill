@@ -17,8 +17,8 @@ Mycroft.Delegate {
 //            Layout.fillHeight: true
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            width: parent.width*0.6
-            height: parent.height*0.6
+            Layout.width: parent.width*0.6
+            Layout.height: parent.height*0.6
             source: Qt.resolvedUrl("../images/mkz_homescreen.png")
         }
         Rectangle {
