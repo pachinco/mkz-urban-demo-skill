@@ -13,8 +13,8 @@ Mycroft.Delegate {
 
         Image {
             id: imageId
-//            Layout.fillWidth: true
-//            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             width: parent.width
