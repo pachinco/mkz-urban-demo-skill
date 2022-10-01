@@ -33,7 +33,7 @@ class MkzUrbanDemo(MycroftSkill):
                        "image": "https://c1.staticflickr.com/8/7246/13792463963_817450e973_b.jpg"}]
         actionsObject['actions'] = actionsList
         self.gui['actionsList'] = actionsObject
-        self.gui['background'] = str(self.sound_file_path)
+        self.gui['background'] = str(self.mkzdemo_img)
         self.gui.show_page(str(self.mkz_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz')
  
