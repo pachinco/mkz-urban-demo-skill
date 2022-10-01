@@ -21,10 +21,11 @@ import Mycroft 1.0 as Mycroft
 
 Mycroft.Delegate{
     id: root
+    anchor.fill parent
     property var actionsModel: sessionData.actionsList
 
-   Image {
-       id: imageId
+    Image {
+        id: imageId
         width: parent.width
         height: parent.height
         anchors.horizontalCenter: parent.horizontalCenter
@@ -32,70 +33,56 @@ Mycroft.Delegate{
         source: Qt.resolvedUrl("../images/mkz_homescreen.png")
     }
     
-    Kirigami.CardsListView {
-        id: actionsListView
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        model: actionsModel
-        color: "#00ffff"
-        delegate: Kirigami.AbstractCard {
-            id: rootCard
-            implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
-            contentItem: Item {
-                implicitWidth: parent.implicitWidth
-                implicitHeight: parent.implicitHeight
-                ColumnLayout {
-                    id: delegateItem
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading {
-                        id: actionNameLabel
-                        Layout.fillWidth: true
-                        text: modelData.name
-                        level: 3
-                        wrapMode: Text.WordWrap
-                    }
-                    Kirigami.Separator {
-                        Layout.fillWidth: true
-                    }
-                    RowLayout {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: form.implicitHeight
-//                         Image {
-//                             id: placeImage
-//                             source: modelData.image
-//                             Layout.fillHeight: true
-//                             Layout.preferredWidth: placeImage.implicitHeight + Kirigami.Units.gridUnit * 2
-//                             fillMode: Image.PreserveAspectFit
-//                         }
+//     Kirigami.CardsListView {
+//         id: actionsListView
+//         Layout.fillWidth: true
+//         Layout.fillHeight: true
+//         model: actionsModel
+//         color: "#00ffff"
+//         delegate: Kirigami.AbstractCard {
+//             id: rootCard
+//             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
+//             contentItem: Item {
+//                 implicitWidth: parent.implicitWidth
+//                 implicitHeight: parent.implicitHeight
+//                 ColumnLayout {
+//                     id: delegateItem
+//                     anchors.left: parent.left
+//                     anchors.right: parent.right
+//                     anchors.top: parent.top
+//                     spacing: Kirigami.Units.smallSpacing
+//                     Kirigami.Heading {
+//                         id: actionNameLabel
+//                         Layout.fillWidth: true
+//                         text: modelData.name
+//                         level: 3
+//                         wrapMode: Text.WordWrap
+//                     }
+//                     Kirigami.Separator {
+//                         Layout.fillWidth: true
+//                     }
+//                     RowLayout {
+//                         Layout.fillWidth: true
+//                         Layout.preferredHeight: form.implicitHeight
 //                         Kirigami.Separator {
 //                             Layout.fillHeight: true
 //                         }
-                        Kirigami.FormLayout {
-                            id: form
-                            Layout.fillWidth: true
-                            Layout.minimumWidth: aCard.implicitWidth
-                            Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
+//                         Kirigami.FormLayout {
+//                             id: form
+//                             Layout.fillWidth: true
+//                             Layout.minimumWidth: aCard.implicitWidth
+//                             Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
 //                             Label {
-//                                 Kirigami.FormData.label: "Description:"
+//                                 Kirigami.FormData.label: "Phone:"
 //                                 Layout.fillWidth: true
 //                                 wrapMode: Text.WordWrap
 //                                 elide: Text.ElideRight
-//                                 text: modelData.restaurantDescription
+//                                 text: modelData.phone
 //                             }
-                            Label {
-                                Kirigami.FormData.label: "Phone:"
-                                Layout.fillWidth: true
-                                wrapMode: Text.WordWrap
-                                elide: Text.ElideRight
-                                text: modelData.phone
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
 }
