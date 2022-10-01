@@ -24,21 +24,23 @@ import Mycroft 1.0 as Mycroft
        Kirigami.ScrollablePage {
 //            Layout.fillWidth: true
 //            Layout.fillHeight: true
+            
             Rectangle {
                 width: parent.width*2
                 height: parent.height/2
                 radius: 20
                 color: "#00ffff"
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-                Label {
-                    id: labelId
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: Kirigami.Units.gridUnit * 10
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    color: "#000000"
-                    text: "U Power Autonomous Driving System"            
-                }
+                horizontalScrollBarPolicy: Qt::ScrollBarAsNeeded
+//                anchors.horizontalCenter: parent.horizontalCenter
+//                anchors.verticalCenter: parent.verticalCenter
+//                 Label {
+//                     id: labelId
+//                     Layout.fillWidth: true
+//                     Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+//                     anchors.horizontalCenter: parent.horizontalCenter
+//                     color: "#000000"
+//                     text: "U Power Autonomous Driving System"            
+//                 }
             }
         }
 //         Kirigami.CardsListView {
