@@ -10,6 +10,10 @@ Mycroft.Delegate {
     skillBackgroundSource: sessionData.exampleImage
     ColumnLayout {
         anchors.fill: parent
+        parent.padding: 0 0 0 0;
+        parent.border-spacing: 0px 0px;
+        parent.margin: 0px;
+
         Image {
             id: imageId
             Layout.fillWidth: true
@@ -27,6 +31,7 @@ Mycroft.Delegate {
                 id: labelId
                 Layout.fillWidth: true
                 Layout.preferredHeight: Kirigami.Units.gridUnit * 4
+                color: "#000000"
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."            
             }
         }
