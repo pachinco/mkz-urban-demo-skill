@@ -30,8 +30,9 @@ Mycroft.Delegate {
                 id: labelId
                 Layout.fillWidth: true
                 Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+                anchors.horizontalCenter: parent.horizontalCenter
                 color: "#000000"
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."            
+                text: "U Power Autonomous Driving System"            
             }
         }
     }
