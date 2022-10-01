@@ -12,11 +12,11 @@ class MkzUrbanDemo(MycroftSkill):
     @resting_screen_handler("Personalised homescreen")
     def handle_homescreen(self, message):
         background_img = self.settings.get("background_img", self.mkzdemo_img)
-        self.gui.show_image(str(background_img))
+        self.gui.show_image(str(background_img),fill=Stretch,override_idle=True)
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
-        self.gui.show_image(str(self.mkzdemo_img))
+        self.gui.show_image(str(background_img),fill=Stretch,override_idle=True)
         play_proc = play_wav(str(self.sound_file_path))
         self.speak_dialog('demo.urban.mkz')
 
