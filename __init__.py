@@ -20,13 +20,23 @@ class MkzUrbanDemo(MycroftSkill):
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
-#        self.gui.show_image(self,str(self.mkzdemo_img),fill=Stretch,override_idle=True)
-#        self.gui.show_image(str(self.mkzdemo_img))
+        self.gui.clear()
+        #self.enclosure.display_manager.remove_active()
         play_proc = play_wav(str(self.sound_file_path))
-        self.speak_dialog('demo.urban.mkz')
-        self.gui["actionsList"] = '{{"name":"Setting","phone":"(444) 444-4444"},{"name":"Drive","phone":"(555) 555-5555"}}'
+        #self.gui["actionsList"] = [{{"name":"Setting","phone":"(444) 444-4444"},{"name":"Drive","phone":"(555) 555-5555"}}]
+        actionsObject = {}
+        actionsList = [{"text": "Praesent id leo felis",
+                       "image": "https://c1.staticflickr.com/8/7246/13792463963_817450e973_b.jpg"},
+                      {"text": "Cras egestas tempus tempus",
+                       "image": "https://c1.staticflickr.com/8/7246/13792463963_817450e973_b.jpg"},
+                      {"text": "Habitasse platea dictumst",
+                       "image": "https://c1.staticflickr.com/8/7246/13792463963_817450e973_b.jpg"}]
+        actionsObject['actions'] = actionsList
+        self.gui['actionsList'] = actionsObject
+        self.gui['background'] = str(self.sound_file_path)
         self.gui.show_page(str(self.mkz_ui), override_idle=True)
-
+        self.speak_dialog('demo.urban.mkz')
+ 
 def create_skill():
     return MkzUrbanDemo()
 
