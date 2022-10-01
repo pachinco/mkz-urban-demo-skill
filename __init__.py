@@ -24,7 +24,7 @@ class MkzUrbanDemo(MycroftSkill):
 #        self.gui.show_image(str(self.mkzdemo_img))
         play_proc = play_wav(str(self.sound_file_path))
         self.speak_dialog('demo.urban.mkz')
-        self.gui["actionsBlob"] = '{{"name":"ABC","image":"mkz_homescreen.png","phone":"(123) 456-7890"},{"name":"DEF","image":"mkz_homescreen.png","phone":(555) 555-5555"}}'
+        self.gui["actionsBlob"] = "{{'name':'ABC','image':'mkz_homescreen.png','phone':'(123) 456-7890'},{'name':'DEF','image':'mkz_homescreen.png','phone':'(555) 555-5555'}}"
         self.gui.show_page(str(self.mkz_ui), override_idle=True)
 
 def create_skill():
