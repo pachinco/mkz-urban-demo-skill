@@ -7,7 +7,7 @@ import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
 Mycroft.Delegate {
-    skillBackgroundSource: sessionData.exampleImage
+//    skillBackgroundSource: sessionData.exampleImage
     ColumnLayout {
         anchors.fill: parent
 
