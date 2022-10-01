@@ -10,6 +10,12 @@ Mycroft.Delegate {
     skillBackgroundSource: sessionData.exampleImage
     ColumnLayout {
         anchors.fill: parent
+        Image {
+            id: imageId
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            source: Qt.resolvedUrl("../images/mkz_homescreen.png")
+        }
         Rectangle {
             width: parent.width/2
             height: parent.height/2
@@ -17,18 +23,12 @@ Mycroft.Delegate {
             color: "#00ffff"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-        }
-        Image {
-            id: imageId
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            source: Qt.resolvedUrl("../images/mkz_homescreen.png")
-         }
-         Label {
-            id: labelId
-            Layout.fillWidth: true
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 4
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."            
+            Label {
+                id: labelId
+                Layout.fillWidth: true
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 4
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."            
+            }
         }
     }
 }
