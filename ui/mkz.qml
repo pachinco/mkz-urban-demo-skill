@@ -23,14 +23,14 @@ Mycroft.Delegate{
     id: root
     property var actionsModel: sessionData.actionsList
 
-    Image {
-        id: imageId
-        width: parent.width
-        height: parent.height
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        source: Qt.resolvedUrl("../images/mkz_homescreen.png")
-    }
+//     Image {
+//         id: imageId
+//         width: parent.width
+//         height: parent.height
+//         anchors.horizontalCenter: parent.horizontalCenter
+//         anchors.verticalCenter: parent.verticalCenter
+//         source: Qt.resolvedUrl("../images/mkz_homescreen.png")
+//     }
     
     Kirigami.CardsListView {
         id: actionsListView
