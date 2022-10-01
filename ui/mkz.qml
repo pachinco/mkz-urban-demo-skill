@@ -21,24 +21,22 @@ import Mycroft 1.0 as Mycroft
 
 Mycroft.Delegate{
     id: root
-//     anchor.fill: parent
     property var actionsModel: sessionData.actionsList
 
-    Image {
-        id: imageId
-        width: parent.width
-        height: parent.height
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        source: Qt.resolvedUrl("../images/mkz_homescreen.png")
-    }
+//     Image {
+//         id: imageId
+//         width: parent.width
+//         height: parent.height
+//         anchors.horizontalCenter: parent.horizontalCenter
+//         anchors.verticalCenter: parent.verticalCenter
+//         source: Qt.resolvedUrl("../images/mkz_homescreen.png")
+//     }
     
     Kirigami.CardsListView {
         id: actionsListView
         Layout.fillWidth: true
         Layout.fillHeight: true
         model: actionsModel
-//         color: "#00ffff"
         delegate: Kirigami.AbstractCard {
             id: rootCard
             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
