@@ -13,11 +13,12 @@ Mycroft.Delegate {
 
         Image {
             id: imageId
-//            padding: 0 0 0 0;
-//            border-spacing: 0px 0px;
-//            margin: 0px;
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            Layout.fillHeight: true
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            width: parent.width
+            height: parent.height
             source: Qt.resolvedUrl("../images/mkz_homescreen.png")
         }
         Rectangle {
