@@ -11,8 +11,9 @@ Mycroft.Delegate {
     ColumnLayout {
         anchors.fill: parent
         Rectangle {
-            width: 1000
-            height: 500
+            width: parent.width/2
+            height: parent.height/2
+            radius: 20
             color: "#00ffff"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
