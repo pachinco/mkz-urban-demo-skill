@@ -21,25 +21,86 @@ Mycroft.ScrollableDelegate{
             source: Qt.resolvedUrl("../images/mkz_homescreen.png")
         }
         Kirigami.ScrollablePage {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Rectangle {
-                width: parent.width*2
-                height: parent.height/2
-                radius: 20
-                color: "#00ffff"
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                anchors.verticalCenter: parent.verticalCenter
-                Label {
-                    id: labelId
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: Kirigami.Units.gridUnit * 10
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    color: "#000000"
-                    text: "U Power Autonomous Driving System"            
+            title: i18n("Address book (prototype)")
+
+            Kirigami.CardsGridView {
+                id: view
+
+                model: ListModel {
+                    id: mainModel
+                }
+
+                delegate: card
+            }
+
+            Component.onCompleted: {
+                mainModel.append({"firstname": "Pablo", "lastname": "Doe", "cellphone": "6300000002", "email" : "jane-doe@example.com", "photo": "qrc:/konqi.jpg"});
+                mainModel.append({"firstname": "Paul", "lastname": "Adams", "cellphone": "6300000003", "email" : "paul-adams@example.com", "photo": "qrc:/katie.jpg"});
+                mainModel.append({"firstname": "John", "lastname": "Doe", "cellphone": "6300000001", "email" : "john-doe@example.com", "photo": "qrc:/konqi.jpg"});
+                mainModel.append({"firstname": "Ken", "lastname": "Brown", "cellphone": "6300000004", "email" : "ken-brown@example.com", "photo": "qrc:/konqi.jpg"});
+                mainModel.append({"firstname": "Al", "lastname": "Anderson", "cellphone": "6300000005", "email" : "al-anderson@example.com", "photo": "qrc:/katie.jpg"});
+                mainModel.append({"firstname": "Kate", "lastname": "Adams", "cellphone": "6300000005", "email" : "kate-adams@example.com", "photo": "qrc:/konqi.jpg"});
+            }
+
+            Component {
+                id: card
+
+                Kirigami.Card {
+
+                    height: view.cellHeight - Kirigami.Units.largeSpacing
+
+                    banner {
+                        title: model.firstname + " " + model.lastname
+                        titleIcon: "im-user"
+                    }
+
+                    contentItem: Column {
+                        id: content
+
+                        spacing: Kirigami.Units.smallSpacing
+
+                        Controls.Label {
+                            wrapMode: Text.WordWrap
+                            text: "Mobile: " + model.cellphone
+                        }
+
+                        Controls.Label {
+                            wrapMode: Text.WordWrap
+                            text: "Email: " + model.email
+                        }
+                    }
+
+                    actions: [
+                        Kirigami.Action {
+                            text: "Call"
+                            icon.name: "call-start"
+
+                            onTriggered: { showPassiveNotification("Calling " + model.firstname + " " + model.lastname + " ...") }
+                        }
+                    ]
                 }
             }
         }
+//        Kirigami.ScrollablePage {
+//            Layout.fillWidth: true
+//            Layout.fillHeight: true
+//             Rectangle {
+//                 width: parent.width*2
+//                 height: parent.height/2
+//                 radius: 20
+//                 color: "#00ffff"
+//                 anchors.horizontalCenter: parent.horizontalCenter
+//                 anchors.verticalCenter: parent.verticalCenter
+//                 Label {
+//                     id: labelId
+//                     Layout.fillWidth: true
+//                     Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+//                     anchors.horizontalCenter: parent.horizontalCenter
+//                     color: "#000000"
+//                     text: "U Power Autonomous Driving System"            
+//                 }
+//             }
+//         }
 //         Kirigami.CardsListView {
 //             id: exampleListView
 //             Layout.fillWidth: true
