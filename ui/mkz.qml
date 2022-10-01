@@ -13,9 +13,9 @@ Mycroft.Delegate {
 
         Image {
             id: imageId
-            parent.padding: 0 0 0 0;
-            parent.border-spacing: 0px 0px;
-            parent.margin: 0px;
+            padding: 0 0 0 0;
+//            border-spacing: 0px 0px;
+            margin: 0px;
             Layout.fillWidth: true
             Layout.fillHeight: true
             source: Qt.resolvedUrl("../images/mkz_homescreen.png")
