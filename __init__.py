@@ -7,7 +7,7 @@ class MkzUrbanDemo(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
         self.sound_file_path = Path(__file__).parent.joinpath("sounds", "mkz-welcome-chime2.wav")
-        self.mkzdemo_img = Path(__file__).parent.joinpath("images", "mkz-homescreen.png")
+        self.mkzdemo_img = Path(__file__).parent.joinpath("images", "mkz_homescreen.png")
 
     @resting_screen_handler("Personalised homescreen")
     def handle_homescreen(self, message):
