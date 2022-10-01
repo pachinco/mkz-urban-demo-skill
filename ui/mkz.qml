@@ -18,8 +18,8 @@ import Mycroft 1.0 as Mycroft
 //         bottomPadding: 0
 //         Layout.fillWidth: true
 //         Layout.fillHeight: true
-        fillWidth: true
-        fillHeight: true
+        width: parent.width
+        height: parent.height
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         source: Qt.resolvedUrl("../images/mkz_homescreen.png")
