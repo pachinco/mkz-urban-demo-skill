@@ -32,10 +32,6 @@ class MkzUrbanDemo(MycroftSkill):
                        "image": str(self.mkzdemo_img)},
                       {"text": "Habitasse platea dictumst",
                        "image": str(self.mkzdemo_img)},
-                      {"text": "Praesent id leo felis",
-                       "image": str(self.mkzdemo_img)},
-                      {"text": "Cras egestas tempus tempus",
-                       "image": str(self.mkzdemo_img)},
                       {"text": "Habitasse platea dictumst",
                        "image": str(self.mkzdemo_img)}]
         actionsObject['actions'] = actionsList

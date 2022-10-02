@@ -47,13 +47,13 @@ Mycroft.ScrollableDelegate{
                     spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 5
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 4
                     }
                     Image {
                         id: placeImage
                         source: modelData.image
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 15
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 14
                         fillMode: Image.PreserveAspectCrop
                     }
                     Kirigami.Separator {
@@ -68,7 +68,7 @@ Mycroft.ScrollableDelegate{
                     }
                     Item {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 5
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 4
                     }
                 }
             }
