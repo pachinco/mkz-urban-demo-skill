@@ -41,6 +41,7 @@ Mycroft.Delegate{
        
         Image {
             width: parent.width-20
+            anchors.horizontalCenter: parent.horizontalCenter
             opacity: 1.0
             source: Qt.resolvedUrl("../images/settings-icon-10.png")
             fillMode: Image.PreserveAspectCrop
@@ -70,6 +71,7 @@ Mycroft.Delegate{
        
         Image {
             width: parent.width-20
+            anchors.horizontalCenter: parent.horizontalCenter
             opacity: 1.0
             source: Qt.resolvedUrl("../images/settings-icon-10.png")
             fillMode: Image.PreserveAspectCrop
@@ -99,6 +101,7 @@ Mycroft.Delegate{
        
         Image {
             width: parent.width-20
+            anchors.horizontalCenter: parent.horizontalCenter
             opacity: 1.0
             source: Qt.resolvedUrl("../images/settings-icon-10.png")
             fillMode: Image.PreserveAspectCrop
