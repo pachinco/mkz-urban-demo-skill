@@ -120,10 +120,10 @@ Mycroft.ScrollableDelegate{
         delegate: Mycroft.CardDelegate {
             id: rootCard
             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
-            leftPadding: 10
-            rightPadding: 10
-            topPadding: 10
-            bottomPadding: 10
+            leftMargin: 10
+            rightMargin: 10
+//             topPadding: 10
+//             bottomPadding: 10
             width: Kirigami.Units.gridUnit * 16
             contentItem: Item {
                 implicitWidth: parent.implicitWidth
@@ -137,7 +137,7 @@ Mycroft.ScrollableDelegate{
 //                     spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 3
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
                     }
                     Image {
                         id: placeImage
@@ -145,8 +145,8 @@ Mycroft.ScrollableDelegate{
 //                         width: Kirigami.Units.gridUnit * 6
 //                         height: Kirigami.Units.gridUnit * 6
                         Layout.fillWidth: true
-//                         Layout.preferredHeight: Kirigami.Units.gridUnit * 10
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 12
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 12
+//                         Layout.preferredWidth: Kirigami.Units.gridUnit * 12
                         fillMode: Image.PreserveAspectCrop
                     }
                     Kirigami.Heading {
@@ -159,7 +159,7 @@ Mycroft.ScrollableDelegate{
                     }
                     Item {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 9
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 8
                     }
                 }
             }
