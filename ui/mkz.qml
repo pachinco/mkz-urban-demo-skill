@@ -119,11 +119,8 @@ Mycroft.ScrollableDelegate{
 //         delegate: Kirigami.AbstractCard {
         delegate: Mycroft.CardDelegate {
             id: rootCard
-//             leftPadding: 0
-//             rightPadding: 0
-//             topPadding: 0
-//             bottomPadding: 0
             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
+            radius: 20
             contentItem: Item {
                 implicitWidth: parent.implicitWidth
                 implicitHeight: parent.implicitHeight
