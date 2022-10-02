@@ -33,7 +33,7 @@ class MkzUrbanDemo(MycroftSkill):
                       {"text": "Proceed",
                        "image": "../images/Forward-button.png"},
                       {"text": "Other",
-                       "image": "../images/settings-icon-10.png"}]
+                       "image": "../images/Settings-symbol.png"}]
         actionsObject['actions'] = actionsList
         self.gui['actionsList'] = actionsObject
         self.gui['background'] = str(self.mkzdemo_img)
