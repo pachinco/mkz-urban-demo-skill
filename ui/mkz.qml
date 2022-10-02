@@ -124,7 +124,7 @@ Mycroft.ScrollableDelegate{
             rightPadding: 10
             topPadding: 10
             bottomPadding: 10
-            width: Kirigami.Units.gridUnit * 12
+            width: Kirigami.Units.gridUnit * 20
             contentItem: Item {
                 implicitWidth: parent.implicitWidth
                 implicitHeight: parent.implicitHeight
