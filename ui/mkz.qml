@@ -37,6 +37,7 @@ Mycroft.ScrollableDelegate{
                 implicitWidth: parent.implicitWidth
                 implicitHeight: parent.implicitHeight
                 radius: 20
+                color: "#777777"
                 ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
