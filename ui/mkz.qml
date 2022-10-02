@@ -25,7 +25,7 @@ Mycroft.Delegate{
         anchors.top: parent.verticalCenter-100
         anchors.horizontalCenterOffset: settingsBox.width/2
 //         anchors.horizontalCenter: parent.width*0.25
-        x: parent.width*0.1
+        x: parent.width*0.05
         color: "#ff00ff"
         opacity: 0.5
         layer.enabled: true
@@ -54,7 +54,7 @@ Mycroft.Delegate{
         anchors.top: parent.verticalCenter-100
         anchors.horizontalCenterOffset: drivingBox.width/2
 //         anchors.horizontalCenter: parent.width/2
-        x: parent.width*0.4
+        x: parent.width*0.35
         color: "#00ffff"
         opacity: 0.5
         layer.enabled: true
@@ -83,7 +83,7 @@ Mycroft.Delegate{
         anchors.top: parent.verticalCenter-100
         anchors.horizontalCenterOffset: statusBox.width/2
 //         anchors.horizontalCenter: parent.width*0.75
-        x: parent.width*0.7
+        x: parent.width*0.65
         color: "#ffff00"
         opacity: 0.5
         layer.enabled: true
