@@ -24,7 +24,7 @@ Mycroft.Delegate{
         height: parent.height
         anchors.top: parent.verticalCenter-100
         anchors.horizontalCenter: parent.horizontalCenter/2
-        color: "#cccccc"
+        color: "#00ffff80"
         radius: 20
 
         YAnimator {
@@ -51,7 +51,7 @@ Mycroft.Delegate{
         height: parent.height
         anchors.top: parent.verticalCenter-100
         anchors.horizontalCenter: parent.horizontalCenter
-        color: "#cccccc"
+        color: "#00ffff80"
         radius: 20
 
         YAnimator {
