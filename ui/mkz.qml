@@ -134,7 +134,7 @@ Mycroft.ScrollableDelegate{
                     anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    spacing: Kirigami.Units.largeSpacing/2
+//                     spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillWidth: true
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 1
