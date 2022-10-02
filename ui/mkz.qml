@@ -23,7 +23,7 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenter: parent.horizontalCenter/4
+        anchors.horizontalCenter: parent.horizontalCenter/3
         color: "#cccccc"
         radius: 20
 
@@ -50,12 +50,12 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.right: parent.horizontalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
         color: "#cccccc"
         radius: 20
 
         YAnimator {
-            target: settingsBox;
+            target: drivingBox;
             from: 1000;
             to: 100;
             duration: 8000
