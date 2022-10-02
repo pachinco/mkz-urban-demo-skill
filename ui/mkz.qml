@@ -15,7 +15,7 @@ import Mycroft 1.0 as Mycroft
         height: parent.height
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        source: Qt.resolvedUrl("../images/mkz_background.png")
+        source: Qt.resolvedUrl("../images/mkz_background2.png")
     }
 }
 
