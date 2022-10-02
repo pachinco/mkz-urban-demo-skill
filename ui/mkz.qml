@@ -115,13 +115,14 @@ Mycroft.ScrollableDelegate{
         id: exampleListView
         Layout.fillWidth: true
         Layout.fillHeight: true
+        cellWidth: parent.width / 4
         model: actionsModel.actions
 //         delegate: Kirigami.AbstractCard {
         delegate: Mycroft.CardDelegate {
             id: rootCard
             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
-            leftMargin: 10
-            rightMargin: 10
+            leftPadding: 10
+            rightPadding: 10
 //             topPadding: 10
 //             bottomPadding: 10
             width: Kirigami.Units.gridUnit * 16
