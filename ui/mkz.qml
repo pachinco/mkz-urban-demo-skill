@@ -23,8 +23,9 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenter: parent.width*0.25
-//         x: parent.width*0.25
+        anchors.horizontalCenterOffset: width/2
+//         anchors.horizontalCenter: parent.width*0.25
+        x: parent.width*0.25
         color: "#ff00ff"
         opacity: 50
         layer.enabled: true
@@ -50,8 +51,9 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenter: parent.width/2
-//         x: parent.width*0.5
+        anchors.horizontalCenterOffset: width/2
+//         anchors.horizontalCenter: parent.width/2
+        x: parent.width*0.5
         color: "#00ffff"
         opacity: 50
         layer.enabled: true
@@ -77,8 +79,9 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenter: parent.width*0.75
-//         x: parent.width*0.75
+        anchors.horizontalCenterOffset: width/2
+//         anchors.horizontalCenter: parent.width*0.75
+        x: parent.width*0.75
         color: "#ffff00"
         opacity: 50
         layer.enabled: true
