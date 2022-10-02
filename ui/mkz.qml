@@ -23,7 +23,8 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenter: parent.horizontalCenter/2
+//         anchors.horizontalCenter: parent.horizontalCenter/2
+        x: parent.width/4
         color: "#00ffffc0"
         radius: 20
 
@@ -47,7 +48,8 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenter: parent.horizontalCenter
+//         anchors.horizontalCenter: parent.horizontalCenter
+        x: parent.width/2
         color: "#00ffffc0"
         radius: 20
 
@@ -71,7 +73,8 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenter: parent.horizontalCenter+parent.horizontalCenter/2
+//         anchors.horizontalCenter: parent.horizontalCenter+parent.horizontalCenter/2
+        x: parent.width/2+parent.width/4
         color: "#00ffffc0"
         radius: 20
 
