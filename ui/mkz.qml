@@ -23,7 +23,7 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.right: parent.horizontalCenter/3
+        anchors.horizontalCenter: parent.horizontalCenter/2
         color: "#cccccc"
         radius: 20
 
