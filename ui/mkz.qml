@@ -23,7 +23,7 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenter: parent.horizontalCenter/3
+        anchors.right: parent.horizontalCenter/3
         color: "#cccccc"
         radius: 20
 
@@ -58,7 +58,7 @@ Mycroft.Delegate{
             target: drivingBox;
             from: 1000;
             to: 100;
-            duration: 8000
+            duration: 10000
             running: true
         }
        
