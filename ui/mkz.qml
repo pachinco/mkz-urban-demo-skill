@@ -137,7 +137,7 @@ Mycroft.ScrollableDelegate{
 //                     spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 1
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
                     }
                     Image {
                         id: placeImage
@@ -145,8 +145,8 @@ Mycroft.ScrollableDelegate{
 //                         width: Kirigami.Units.gridUnit * 6
 //                         height: Kirigami.Units.gridUnit * 6
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 14
-//                         Layout.preferredWidth: Kirigami.Units.gridUnit * 12
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 12
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 12
 //                         fillMode: Image.PreserveAspectCrop
                     }
                     Kirigami.Heading {
@@ -159,7 +159,7 @@ Mycroft.ScrollableDelegate{
                     }
                     Item {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 7
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 8
                     }
                 }
             }
