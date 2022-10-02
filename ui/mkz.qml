@@ -30,7 +30,6 @@ Mycroft.Delegate{
         opacity: 0.5
         layer.enabled: true
         radius: 20
-        children: settingsImage
 
         YAnimator {
             target: settingsBox;
@@ -44,15 +43,12 @@ Mycroft.Delegate{
                 period: 0.5
             }
         }
-    }
-    Image {
-        id: settingsImage
-        width: settingsBox.width-20
-        anchors.top: settingsBox.top
-        anchors.horizontalCenter: settingsBox.horizontalCenter
-        opacity: 1.0
-        source: Qt.resolvedUrl("../images/settings-icon-10.png")
-        fillMode: Image.PreserveAspectCrop
+        Image {
+            width: settingsBox.width-20
+            opacity: 1.0
+            source: Qt.resolvedUrl("../images/settings-icon-10.png")
+            fillMode: Image.PreserveAspectCrop
+        }
     }
 
     Rectangle {
