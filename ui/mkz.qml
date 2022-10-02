@@ -30,6 +30,7 @@ Mycroft.Delegate{
         opacity: 0.5
         layer.enabled: true
         radius: 20
+        children: settingsImage
 
         YAnimator {
             target: settingsBox;
@@ -39,12 +40,13 @@ Mycroft.Delegate{
             running: true
             easing {
                 type: Easing.OutElastic
-                amplitude: 1.0
+                amplitude: 0.5
                 period: 0.5
             }
         }
     }
     Image {
+        id: settingsImage
         width: settingsBox.width-20
         anchors.top: settingsBox.top
         anchors.horizontalCenter: settingsBox.horizontalCenter
