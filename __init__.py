@@ -26,12 +26,12 @@ class MkzUrbanDemo(MycroftSkill):
         play_proc = play_wav(str(self.sound_file_path))
         #self.gui["actionsList"] = [{{"name":"Setting","phone":"(444) 444-4444"},{"name":"Drive","phone":"(555) 555-5555"}}]
         actionsObject = {}
-        actionsList = [{"text": "Drive",
-                       "image": "../images/settings-icon-10.png"},
-                      {"text": "System",
-                       "image": "../images/settings-icon-10.png"},
-                      {"text": "Settings",
-                       "image": "../images/settings-icon-10.png"},
+        actionsList = [{"text": "Power",
+                       "image": "../images/Power-button.png"},
+                      {"text": "Drive",
+                       "image": "../images/Start-button.png"},
+                      {"text": "Proceed",
+                       "image": "../images/Forward-button.png"},
                       {"text": "Other",
                        "image": "../images/settings-icon-10.png"}]
         actionsObject['actions'] = actionsList
