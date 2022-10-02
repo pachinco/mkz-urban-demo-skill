@@ -19,13 +19,22 @@ Mycroft.Delegate{
     }
 
     Rectangle {
+        id: settingsBox
         width: parent.width/4
         height: parent.height
         anchors.verticalCenter: parent.verticalCenter+100
         anchors.horizontalCenter: parent.horizontalCenter/4
         color: "#cccccc"
         radius: 20
-        
+
+        YAnimator {
+            target: settingsBox;
+            from: 100;
+            to: 0;
+            duration: 1000
+            running: true
+        }
+       
         Image {
             width: parent.width-20
 //             height: parent.height
