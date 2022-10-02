@@ -30,7 +30,7 @@ Mycroft.Delegate{
         YAnimator {
             target: settingsBox;
             from: 800;
-            to: 200;
+            to: 0;
             duration: 8000
             running: true
         }
