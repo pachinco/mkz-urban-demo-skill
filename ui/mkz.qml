@@ -32,7 +32,7 @@ Mycroft.ScrollableDelegate{
         model: actionsModel.actions
         delegate: Kirigami.AbstractCard {
             id: rootCard
-            implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
+//             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
             contentItem: Item {
                 implicitWidth: parent.implicitWidth
                 implicitHeight: parent.implicitHeight
