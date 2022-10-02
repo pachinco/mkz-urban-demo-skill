@@ -11,8 +11,8 @@ import Mycroft 1.0 as Mycroft
 
    Image {
        id: imageId
-        width: parent.width+10
-        height: parent.height+10
+        width: parent.width+20
+        height: parent.height+20
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         source: Qt.resolvedUrl("../images/mkz_background2.png")
