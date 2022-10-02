@@ -132,7 +132,7 @@ Mycroft.ScrollableDelegate{
                     spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 4
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
                     }
                     Image {
                         id: placeImage
@@ -147,6 +147,7 @@ Mycroft.ScrollableDelegate{
                         text: modelData.text
                         level: 2
                         wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
                     }
                     Item {
                         Layout.fillWidth: true
