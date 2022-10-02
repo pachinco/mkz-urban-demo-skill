@@ -43,16 +43,20 @@ Mycroft.ScrollableDelegate{
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     spacing: Kirigami.Units.largeSpacing
+                    Item {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+                    }
                     Image {
                         id: placeImage
                         source: modelData.image
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 20
                         fillMode: Image.PreserveAspectCrop
                     }
-                    Kirigami.Separator {
-                        Layout.fillWidth: true
-                    }
+//                     Kirigami.Separator {
+//                         Layout.fillWidth: true
+//                     }
                     Kirigami.Heading {
                         id: restaurantNameLabel
                         Layout.fillWidth: true
@@ -62,7 +66,7 @@ Mycroft.ScrollableDelegate{
                     }
                     Item {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 1
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 10
                     }
                 }
             }
