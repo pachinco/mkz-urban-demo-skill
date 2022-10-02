@@ -31,7 +31,7 @@ Mycroft.Delegate{
             target: settingsBox;
             from: 800;
             to: 0;
-            duration: 2000
+            duration: 8000
             running: true
         }
        
