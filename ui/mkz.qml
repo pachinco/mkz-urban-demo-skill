@@ -46,6 +46,24 @@ Mycroft.Delegate{
         opacity: 1.0
         source: Qt.resolvedUrl("../images/settings-icon-10.png")
         fillMode: Image.PreserveAspectCrop
+        property variant t;
+        UniformAnimator {
+            target: shader
+            uniform: "t"
+            from: 0
+            to: 1
+            duration: 1000
+            running: true
+        }
+        fragmentShader:
+        "
+            uniform lowp float t;
+            varying highp vec2 qt_TexCoord0;
+            void main() {
+                lowp float c = qt_TexCoord0.y;
+                gl_FragColor = vec4(0, 0, c * t, 1);
+            }
+        "
     }
 
     Rectangle {
