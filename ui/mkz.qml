@@ -33,9 +33,10 @@ Mycroft.ScrollableDelegate{
         delegate: Kirigami.AbstractCard {
             id: rootCard
             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
-            contentItem: Item {
+            contentItem: Rectangle {
                 implicitWidth: parent.implicitWidth
                 implicitHeight: parent.implicitHeight
+                radius: 20
                 ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
@@ -43,7 +44,6 @@ Mycroft.ScrollableDelegate{
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     spacing: Kirigami.Units.largeSpacing
-                    radius: 20
                     Item {
                         Layout.fillWidth: true
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 10
