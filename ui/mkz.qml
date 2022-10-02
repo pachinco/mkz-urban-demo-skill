@@ -45,7 +45,7 @@ Mycroft.ScrollableDelegate{
                     spacing: Kirigami.Units.largeSpacing
                     Image {
                         id: placeImage
-                        source: modelData.imaged
+                        source: modelData.image
                         Layout.fillWidth: true
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 10
                         fillMode: Image.PreserveAspectCrop
