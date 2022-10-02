@@ -26,13 +26,13 @@ Mycroft.Delegate{
         color: "#cccccc"
         radius: 20
         
-        Image {
-            width: parent.width
-            height: parent.height
-            anchor.verticalCenter: parent.verticalCenter
-            anchor.horizontalCenter: parent.horizontalCenter
-            source: Qt.resolvedUrl("../images/settings-icon-10.png")
-        }
+//         Image {
+//             width: parent.width
+//             height: parent.height
+//             anchor.verticalCenter: parent.verticalCenter
+//             anchor.horizontalCenter: parent.horizontalCenter
+//             source: Qt.resolvedUrl("../images/settings-icon-10.png")
+//         }
     }
 }
 
