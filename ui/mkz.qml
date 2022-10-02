@@ -23,9 +23,9 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenterOffset: settingsBox.width/2
+//         anchors.horizontalCenterOffset: settingsBox.width/2
 //         anchors.horizontalCenter: parent.width*0.25
-        x: parent.width*0.05
+        x: parent.width*0.075
         color: "#ff00ff"
         opacity: 0.5
         layer.enabled: true
@@ -52,9 +52,9 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenterOffset: drivingBox.width/2
+//         anchors.horizontalCenterOffset: drivingBox.width/2
 //         anchors.horizontalCenter: parent.width/2
-        x: parent.width*0.35
+        x: parent.width*0.375
         color: "#00ffff"
         opacity: 0.5
         layer.enabled: true
@@ -81,9 +81,9 @@ Mycroft.Delegate{
         width: parent.width/4
         height: parent.height
         anchors.top: parent.verticalCenter-100
-        anchors.horizontalCenterOffset: statusBox.width/2
+//         anchors.horizontalCenterOffset: statusBox.width/2
 //         anchors.horizontalCenter: parent.width*0.75
-        x: parent.width*0.65
+        x: parent.width*0.675
         color: "#ffff00"
         opacity: 0.5
         layer.enabled: true
