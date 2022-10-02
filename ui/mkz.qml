@@ -38,14 +38,14 @@ Mycroft.Delegate{
             duration: 8000
             running: true
         }
-       
-        Image {
-            width: parent.width-20
-            anchors.horizontalCenter: parent.horizontalCenter
-            opacity: 1.0
-            source: Qt.resolvedUrl("../images/settings-icon-10.png")
-            fillMode: Image.PreserveAspectCrop
-        }
+    }
+    Image {
+        width: settingsBox.width-20
+        anchors.top: settingsBox.top
+        anchors.horizontalCenter: settingsBox.horizontalCenter
+        opacity: 1.0
+        source: Qt.resolvedUrl("../images/settings-icon-10.png")
+        fillMode: Image.PreserveAspectCrop
     }
 
     Rectangle {
@@ -68,14 +68,14 @@ Mycroft.Delegate{
             duration: 10000
             running: true
         }
-       
-        Image {
-            width: parent.width-20
-            anchors.horizontalCenter: parent.horizontalCenter
-            opacity: 1.0
-            source: Qt.resolvedUrl("../images/settings-icon-10.png")
-            fillMode: Image.PreserveAspectCrop
-        }
+    }
+    Image {
+        width: drivingBox.width-20
+        anchors.top: drivingBox.top
+        anchors.horizontalCenter: drivingBox.horizontalCenter
+        opacity: 1.0
+        source: Qt.resolvedUrl("../images/settings-icon-10.png")
+        fillMode: Image.PreserveAspectCrop
     }
 
     Rectangle {
@@ -98,14 +98,14 @@ Mycroft.Delegate{
             duration: 12000
             running: true
         }
-       
-        Image {
-            width: parent.width-20
-            anchors.horizontalCenter: parent.horizontalCenter
-            opacity: 1.0
-            source: Qt.resolvedUrl("../images/settings-icon-10.png")
-            fillMode: Image.PreserveAspectCrop
-        }
+    }
+    Image {
+        width: statusBox.width-20
+        anchors.top: statusBox.top
+        anchors.horizontalCenter: statusBox.horizontalCenter
+        opacity: 1.0
+        source: Qt.resolvedUrl("../images/settings-icon-10.png")
+        fillMode: Image.PreserveAspectCrop
     }
 }
 
