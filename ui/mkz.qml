@@ -21,18 +21,19 @@ Mycroft.Delegate{
     Rectangle {
         width: parent.width/4
         height: parent.height
-        anchors.verticalCenter: parent.verticalCenter*1.5
+        anchors.verticalCenter: parent.verticalCenter+50
         anchors.horizontalCenter: parent.horizontalCenter/4
         color: "#cccccc"
         radius: 20
         
-//         Image {
-//             width: parent.width
-//             height: parent.height
+        Image {
+            width: parent.width
+            height: parent.height
 //             anchor.verticalCenter: parent.verticalCenter
 //             anchor.horizontalCenter: parent.horizontalCenter
-//             source: Qt.resolvedUrl("../images/settings-icon-10.png")
-//         }
+            source: Qt.resolvedUrl("../images/settings-icon-10.png")
+            fillMode: Image.PreserveAspectCrop
+        }
     }
 }
 
