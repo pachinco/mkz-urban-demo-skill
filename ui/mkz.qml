@@ -146,8 +146,8 @@ Mycroft.ScrollableDelegate{
 //                         height: Kirigami.Units.gridUnit * 6
                         Layout.fillWidth: true
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 12
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 12
-//                         fillMode: Image.PreserveAspectCrop
+//                         Layout.preferredWidth: Kirigami.Units.gridUnit * 12
+                        Layout.fillMode: Image.PreserveAspectCrop
                     }
                     Kirigami.Heading {
                         id: actionsLabel
