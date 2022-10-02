@@ -30,7 +30,34 @@ Mycroft.Delegate{
         YAnimator {
             target: settingsBox;
             from: 800;
-            to: 200;
+            to: 100;
+            duration: 8000
+            running: true
+        }
+       
+        Image {
+            width: parent.width-20
+//             height: parent.height
+//             anchor.verticalCenter: parent.verticalCenter
+//             anchor.horizontalCenter: parent.horizontalCenter
+            source: Qt.resolvedUrl("../images/settings-icon-10.png")
+            fillMode: Image.PreserveAspectCrop
+        }
+    }
+
+    Rectangle {
+        id: drivingBox
+        width: parent.width/4
+        height: parent.height
+        anchors.top: parent.verticalCenter-100
+        anchors.right: parent.horizontalCenter
+        color: "#cccccc"
+        radius: 20
+
+        YAnimator {
+            target: settingsBox;
+            from: 1000;
+            to: 100;
             duration: 8000
             running: true
         }
