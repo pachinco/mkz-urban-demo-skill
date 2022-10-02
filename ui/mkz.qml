@@ -24,7 +24,7 @@ Mycroft.Delegate{
         height: parent.height
         anchors.top: parent.verticalCenter-100
         anchors.horizontalCenter: parent.horizontalCenter/2
-        color: "#00ffff80"
+        color: "#00ffffc0"
         radius: 20
 
         YAnimator {
@@ -37,9 +37,6 @@ Mycroft.Delegate{
        
         Image {
             width: parent.width-20
-//             height: parent.height
-//             anchor.verticalCenter: parent.verticalCenter
-//             anchor.horizontalCenter: parent.horizontalCenter
             source: Qt.resolvedUrl("../images/settings-icon-10.png")
             fillMode: Image.PreserveAspectCrop
         }
@@ -51,7 +48,7 @@ Mycroft.Delegate{
         height: parent.height
         anchors.top: parent.verticalCenter-100
         anchors.horizontalCenter: parent.horizontalCenter
-        color: "#00ffff80"
+        color: "#00ffffc0"
         radius: 20
 
         YAnimator {
@@ -64,9 +61,30 @@ Mycroft.Delegate{
        
         Image {
             width: parent.width-20
-//             height: parent.height
-//             anchor.verticalCenter: parent.verticalCenter
-//             anchor.horizontalCenter: parent.horizontalCenter
+            source: Qt.resolvedUrl("../images/settings-icon-10.png")
+            fillMode: Image.PreserveAspectCrop
+        }
+    }
+
+    Rectangle {
+        id: statusBox
+        width: parent.width/4
+        height: parent.height
+        anchors.top: parent.verticalCenter-100
+        anchors.horizontalCenter: parent.horizontalCenter+parent.horizontalCenter/2
+        color: "#00ffffc0"
+        radius: 20
+
+        YAnimator {
+            target: statusBox;
+            from: 1200;
+            to: 100;
+            duration: 12000
+            running: true
+        }
+       
+        Image {
+            width: parent.width-20
             source: Qt.resolvedUrl("../images/settings-icon-10.png")
             fillMode: Image.PreserveAspectCrop
         }
