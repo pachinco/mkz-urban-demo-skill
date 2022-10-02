@@ -32,7 +32,7 @@ Mycroft.ScrollableDelegate{
         model: actionsModel.actions
         delegate: Kirigami.AbstractCard {
             id: rootCard
-//             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
+            implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
             contentItem: Item {
                 implicitWidth: parent.implicitWidth
                 implicitHeight: parent.implicitHeight
@@ -41,23 +41,24 @@ Mycroft.ScrollableDelegate{
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.top: parent.top
+                    anchors.bottom: parent.bottom
                     spacing: Kirigami.Units.largeSpacing
+                    Image {
+                        id: placeImage
+                        source: modelData.image
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+                        fillMode: Image.PreserveAspectCrop
+                    }
+                    Kirigami.Separator {
+                        Layout.fillWidth: true
+                    }
                     Kirigami.Heading {
                         id: restaurantNameLabel
                         Layout.fillWidth: true
                         text: modelData.text
                         level: 2
                         wrapMode: Text.WordWrap
-                    }
-                    Kirigami.Separator {
-                        Layout.fillWidth: true
-                    }
-                    Image {
-                        id: placeImage
-                        source: modelData.image
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 3
-                        fillMode: Image.PreserveAspectCrop
                     }
                     Item {
                         Layout.fillWidth: true
