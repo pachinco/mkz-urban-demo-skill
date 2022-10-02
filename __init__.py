@@ -27,11 +27,11 @@ class MkzUrbanDemo(MycroftSkill):
         #self.gui["actionsList"] = [{{"name":"Setting","phone":"(444) 444-4444"},{"name":"Drive","phone":"(555) 555-5555"}}]
         actionsObject = {}
         actionsList = [{"text": "Praesent id leo felis",
-                       "image": "https://c1.staticflickr.com/8/7246/13792463963_817450e973_b.jpg"},
+                       "image": str(self.mkzdemo_img)},
                       {"text": "Cras egestas tempus tempus",
-                       "image": "https://c1.staticflickr.com/8/7246/13792463963_817450e973_b.jpg"},
+                       "image": str(self.mkzdemo_img)},
                       {"text": "Habitasse platea dictumst",
-                       "image": "https://c1.staticflickr.com/8/7246/13792463963_817450e973_b.jpg"}]
+                       "image": str(self.mkzdemo_img)}]
         actionsObject['actions'] = actionsList
         self.gui['actionsList'] = actionsObject
         self.gui['background'] = str(self.mkzdemo_img)
