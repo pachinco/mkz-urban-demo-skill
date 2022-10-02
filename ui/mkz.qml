@@ -22,7 +22,7 @@ Mycroft.Delegate{
         id: settingsBox
         width: parent.width/4
         height: parent.height
-        anchors.verticalCenter: parent.verticalCenter+100
+        anchors.top: parent.verticalCenter-100
         anchors.horizontalCenter: parent.horizontalCenter/4
         color: "#cccccc"
         radius: 20
