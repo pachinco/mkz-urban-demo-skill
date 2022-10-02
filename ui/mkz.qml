@@ -25,7 +25,7 @@ Mycroft.ScrollableDelegate{
     skillBackgroundSource: sessionData.background
     property var actionsModel: sessionData.actionsList
 
-    Kirigami.CardsListView {
+    Kirigami.CardsGridView {
         id: exampleListView
         Layout.fillWidth: true
         Layout.fillHeight: true
