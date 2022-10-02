@@ -21,7 +21,7 @@ Mycroft.Delegate{
     Rectangle {
         width: parent.width/4
         height: parent.height
-        anchors.verticalCenter: parent.verticalCenter+50
+        anchors.verticalCenter: parent.verticalCenter+100
         anchors.horizontalCenter: parent.horizontalCenter/4
         color: "#cccccc"
         radius: 20
