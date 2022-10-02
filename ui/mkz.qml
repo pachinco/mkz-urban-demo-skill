@@ -27,7 +27,7 @@ Mycroft.Delegate{
 //         anchors.horizontalCenter: parent.width*0.25
         x: parent.width*0.25
         color: "#ff00ff"
-        opacity: 50
+        opacity: 0.5
         layer.enabled: true
         radius: 20
 
@@ -55,7 +55,7 @@ Mycroft.Delegate{
 //         anchors.horizontalCenter: parent.width/2
         x: parent.width*0.5
         color: "#00ffff"
-        opacity: 50
+        opacity: 0.5
         layer.enabled: true
         radius: 20
 
@@ -83,7 +83,7 @@ Mycroft.Delegate{
 //         anchors.horizontalCenter: parent.width*0.75
         x: parent.width*0.75
         color: "#ffff00"
-        opacity: 50
+        opacity: 0.5
         layer.enabled: true
         radius: 20
 
