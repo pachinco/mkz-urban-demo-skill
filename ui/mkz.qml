@@ -124,10 +124,11 @@ Mycroft.ScrollableDelegate{
             rightPadding: 10
 //             topPadding: 10
 //             bottomPadding: 10
+            width: view.width/4
             contentItem: Item {
 //                 implicitWidth: parent.implicitWidth
                 implicitHeight: parent.implicitHeight
-                width: parent.width/4
+                width: parent.width
                 ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
