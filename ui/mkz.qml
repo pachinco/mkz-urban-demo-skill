@@ -124,18 +124,16 @@ Mycroft.ScrollableDelegate{
             rightPadding: 10
 //             topPadding: 10
 //             bottomPadding: 10
-            width: view.width/4
             contentItem: Item {
-//                 implicitWidth: parent.implicitWidth
+                implicitWidth: parent.implicitWidth
                 implicitHeight: parent.implicitHeight
-                width: parent.width
                 ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-//                     spacing: Kirigami.Units.largeSpacing
+                    spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillWidth: true
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 2
@@ -143,12 +141,10 @@ Mycroft.ScrollableDelegate{
                     Image {
                         id: placeImage
                         source: modelData.image
-//                         width: Kirigami.Units.gridUnit * 6
-//                         height: Kirigami.Units.gridUnit * 6
                         Layout.fillWidth: true
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 12
-//                         Layout.preferredWidth: Kirigami.Units.gridUnit * 12
-                        fillMode: Image.PreserveAspectCrop
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 12
+//                         fillMode: Image.PreserveAspectCrop
                     }
                     Kirigami.Heading {
                         id: actionsLabel
