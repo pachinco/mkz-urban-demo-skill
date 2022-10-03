@@ -30,8 +30,8 @@ class MkzUrbanDemo(MycroftSkill):
                        "image": "../images/Power-button.png"},
                       {"text": "Drive",
                        "image": "../images/Start-button.png"},
-                      {"text": "Proceed",
-                       "image": "../images/Forward-button.png"},
+                      #{"text": "Proceed",
+                       #"image": "../images/Forward-button.png"},
                       {"text": "Other",
                        "image": "../images/Settings-symbol.png"}]
         actionsObject['actions'] = actionsList
