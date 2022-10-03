@@ -116,8 +116,7 @@ Mycroft.ScrollableDelegate{
         Layout.fillWidth: true
         Layout.fillHeight: true
         model: actionsModel.actions
-        anchors.horizontalCenter: parent.horizontalCenter
-        colums: 3
+        maximumColumns: 3
 //         delegate: Kirigami.AbstractCard {
         delegate: Mycroft.CardDelegate {
             id: rootCard
