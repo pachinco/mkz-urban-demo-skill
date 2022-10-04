@@ -19,12 +19,12 @@ Mycroft.ScrollableDelegate{
         delegate: Mycroft.CardDelegate {
             id: rootCard
             implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing
-//             layer.enabled: true
-//             layer.effect: DropShadow {
-//                 transparentBorder: true
-//                 horizontalOffset: 8
-//                 verticalOffset: 8
-//             }
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 8
+                verticalOffset: 8
+            }
             contentItem: Rectangle {
                 color: "#f1c0c3"
                 radius: 20
