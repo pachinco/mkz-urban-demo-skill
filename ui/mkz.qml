@@ -111,7 +111,7 @@ Mycroft.ScrollableDelegate{
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
     property var actionsModel: sessionData.actionsList
 
-    Mycroft.CardsGridView {
+    Kirigami.CardsGridView {
         id: actionsListView
         Layout.fillWidth: true
         Layout.fillHeight: true
@@ -131,10 +131,11 @@ Mycroft.ScrollableDelegate{
                 radius: 20
                 ColumnLayout {
                     id: delegateItem
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
+                    anchors.fill: parent
+//                     anchors.left: parent.left
+//                     anchors.right: parent.right
+//                     anchors.top: parent.top
+//                     anchors.bottom: parent.bottom
                     spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillWidth: true
