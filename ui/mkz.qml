@@ -25,7 +25,7 @@ Mycroft.ScrollableDelegate{
 //                 horizontalOffset: 8
 //                 verticalOffset: 8
 //             }
-            contentItem: Item {
+            contentItem: Rectangle {
                 color: "#f1c0c3"
                 radius: 20
                 RowLayout {
