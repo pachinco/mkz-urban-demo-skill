@@ -124,7 +124,8 @@ Mycroft.ScrollableDelegate{
             bottomPadding: 10
             leftPadding: 10
             rightPadding: 10
-            color: "#f1c0c3"
+            opacity: 1
+            background.color: "#f1c0c3"
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
