@@ -124,6 +124,12 @@ Mycroft.ScrollableDelegate{
             bottomPadding: 10
             leftPadding: 10
             rightPadding: 10
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 8
+                verticalOffset: 8
+            }
             contentItem: Item {
                 ColumnLayout {
                     id: delegateItem
