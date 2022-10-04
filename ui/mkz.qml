@@ -126,8 +126,8 @@ Mycroft.ScrollableDelegate{
 //             topPadding: 10
 //             bottomPadding: 10
             contentItem: Item {
-                implicitWidth: parent.implicitWidth
-                implicitHeight: parent.implicitHeight
+//                 implicitWidth: parent.implicitWidth
+//                 implicitHeight: parent.implicitHeight
                 ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
@@ -145,9 +145,9 @@ Mycroft.ScrollableDelegate{
 //                         Layout.fillWidth: true
 //                         Layout.preferredHeight: Kirigami.Units.gridUnit * 11
 //                         Layout.preferredWidth: Kirigami.Units.gridUnit * 8
-//                         Layout.height: Kirigami.Units.gridUnit * 11
+                        height: Kirigami.Units.gridUnit * 4
                         width: Kirigami.Units.gridUnit * 4
-                        fillMode: Image.PreserveAspectCrop
+//                         fillMode: Image.PreserveAspectCrop
                     }
                     Item {
                         Layout.fillWidth: true
