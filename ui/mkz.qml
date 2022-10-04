@@ -13,7 +13,7 @@ Mycroft.ScrollableDelegate{
 
     Kirigami.CardsListView {
         id: actionsListView
-//         Layout.fillWidth: true
+        Layout.fillWidth: true
         Layout.fillHeight: true
         model: actionsModel.actions
         delegate: Mycroft.CardDelegate {
@@ -57,7 +57,7 @@ Mycroft.ScrollableDelegate{
                         text: modelData.text
                         level: 2
 //                         color: "#202020"
-                        font.pixelSize: parent.height * 0.1
+                        font.pixelSize: parent.height * 0.2
                     }
                     Item {
                         Layout.fillHeight: true
