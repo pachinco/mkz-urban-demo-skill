@@ -188,7 +188,7 @@ Mycroft.ScrollableDelegate{
             contentItem: Rectangle {
                 color: "#f1c0c3"
                 radius: 20
-                width: view.width/2
+//                 width: view.width/2
                 ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
