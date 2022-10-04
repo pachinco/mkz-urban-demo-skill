@@ -26,11 +26,11 @@ Mycroft.ScrollableDelegate{
 //                 verticalOffset: 8
 //             }
             contentItem: Rectangle {
+                id: delegateItem
                 color: "#f1c0c3"
                 radius: 20
 //                 height: parent.height/4
                 RowLayout {
-                    id: delegateItem
                     anchors.fill: parent
                     spacing: Kirigami.Units.largeSpacing
                     Item {
