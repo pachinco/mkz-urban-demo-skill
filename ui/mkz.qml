@@ -111,7 +111,7 @@ Mycroft.ScrollableDelegate{
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
     property var actionsModel: sessionData.actionsList
 
-    Kirigami.CardsGridView {
+    Mycroft.CardsGridView {
         id: actionsListView
         Layout.fillWidth: true
         Layout.fillHeight: true
