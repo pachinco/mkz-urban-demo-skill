@@ -57,7 +57,7 @@ Mycroft.ScrollableDelegate{
                         text: modelData.text
                         level: 2
 //                         color: "#202020"
-                        font.pixelSize: parent.width * 0.1
+                        font.pixelSize: parent.height * 0.1
                     }
                     Item {
                         Layout.fillHeight: true
