@@ -18,7 +18,7 @@ Mycroft.ScrollableDelegate{
         model: actionsModel.actions
         delegate: Mycroft.CardDelegate {
             id: rootCard
-//             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
+            implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing
 //             layer.enabled: true
 //             layer.effect: DropShadow {
 //                 transparentBorder: true
