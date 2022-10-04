@@ -162,7 +162,7 @@ Mycroft.ScrollableDelegate{
                     }
                     Item {
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 6
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 7
                     }
                 }
             }
