@@ -111,93 +111,25 @@ Mycroft.ScrollableDelegate{
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
     property var actionsModel: sessionData.actionsList
 
-//     Kirigami.CardsGridView {
-//         id: actionsListView
-//         Layout.fillWidth: true
-//         Layout.fillHeight: true
-//         model: actionsModel.actions
-//         maximumColumns: 3
-//         delegate: Mycroft.CardDelegate {
-//             id: rootCard
-//             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
-//             layer.enabled: true
-//             layer.effect: DropShadow {
-//                 transparentBorder: true
-//                 horizontalOffset: 8
-//                 verticalOffset: 8
-//             }
-//             contentItem: Rectangle {
-//                 color: "#f1c0c3"
-//                 radius: 20
-//                 ColumnLayout {
-//                     id: delegateItem
-//                     anchors.left: parent.left
-//                     anchors.right: parent.right
-//                     anchors.top: parent.top
-//                     anchors.bottom: parent.bottom
-//                     spacing: Kirigami.Units.largeSpacing
-//                     Item {
-//                         Layout.fillWidth: true
-//                         Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-//                     }
-//                     Image {
-//                         id: placeImage
-//                         source: modelData.image
-//                         Layout.fillWidth: true
-//                         Layout.preferredHeight: Kirigami.Units.gridUnit * 8
-//                         fillMode: Image.PreserveAspectFit
-//                     }
-//                     Item {
-//                         Layout.fillWidth: true
-//                         Layout.preferredHeight: Kirigami.Units.gridUnit * 1
-//                     }
-//                     Kirigami.Heading {
-//                         id: actionsLabel
-//                         Layout.fillWidth: true
-//                         text: modelData.text
-//                         level: 2
-//                         color: "#202020"
-//                         wrapMode: Text.WordWrap
-//                         horizontalAlignment: Text.AlignHCenter
-//                         font.pixelSize: parent.width * 0.15
-//                     }
-//                     Item {
-//                         Layout.fillWidth: true
-//                         Layout.preferredHeight: Kirigami.Units.gridUnit * 3
-//                     }
-//                 }
-//             }
-//         }
-
-    Kirigami.CardsListView {
+    Kirigami.CardsGridView {
         id: actionsListView
-//         width: parent.width/2
-//         height: parent.height/4
-        Layout.fillWidth: false
+        Layout.fillWidth: true
         Layout.fillHeight: true
         model: actionsModel.actions
-//         maximumColumns: 3
+        maximumColumns: 3
         delegate: Mycroft.CardDelegate {
             id: rootCard
-            leftPadding: 20
-            rightPadding: 20
-            topPadding: 20
-            bottomPadding: 20
-//             implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing
-            width: view.width/2
-//             height: parent.height/4
+            implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
                 horizontalOffset: 8
                 verticalOffset: 8
             }
-            contentItem: Item {
-//                 color: "#f1c0c3"
-//                 radius: 15
-//                 width: view.width/2
-//                 height: view.height/4
-                RowLayout {
+            contentItem: Rectangle {
+                color: "#f1c0c3"
+                radius: 20
+                ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
                     anchors.right: parent.right
@@ -205,37 +137,36 @@ Mycroft.ScrollableDelegate{
                     anchors.bottom: parent.bottom
                     spacing: Kirigami.Units.largeSpacing
                     Item {
-                        Layout.fillHeight: true
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
                     }
                     Image {
                         id: placeImage
                         source: modelData.image
-                        Layout.fillHeight: true
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 4
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 8
                         fillMode: Image.PreserveAspectFit
                     }
                     Item {
-                        Layout.fillHeight: true
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 1
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 1
                     }
                     Kirigami.Heading {
                         id: actionsLabel
-                        Layout.fillHeight: true
+                        Layout.fillWidth: true
                         text: modelData.text
                         level: 2
-//                         color: "#202020"
-//                         wrapMode: Text.WordWrap
-//                         horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize: parent.width * 0.1
+                        color: "#202020"
+                        wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
+                        font.pixelSize: parent.width * 0.15
                     }
                     Item {
-                        Layout.fillHeight: true
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 3
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 3
                     }
                 }
             }
         }
     }
 }
-
