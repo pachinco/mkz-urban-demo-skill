@@ -117,17 +117,12 @@ Mycroft.ScrollableDelegate{
         Layout.fillHeight: true
         model: actionsModel.actions
         maximumColumns: 3
-//         delegate: Kirigami.AbstractCard {
         delegate: Mycroft.CardDelegate {
             id: rootCard
             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
             leftPadding: 20
             rightPadding: 20
-//             topPadding: 10
-//             bottomPadding: 10
             contentItem: Item {
-//                 implicitWidth: parent.implicitWidth
-//                 implicitHeight: parent.implicitHeight
                 ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
@@ -143,10 +138,7 @@ Mycroft.ScrollableDelegate{
                         id: placeImage
                         source: modelData.image
                         Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 11
-//                         Layout.preferredWidth: Kirigami.Units.gridUnit * 8
-//                         height: Kirigami.Units.gridUnit * 4
-//                         width: parent.width/2
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 8
                         fillMode: Image.PreserveAspectFit
                     }
                     Item {
@@ -160,7 +152,7 @@ Mycroft.ScrollableDelegate{
                         level: 2
                         wrapMode: Text.WordWrap
                         horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize: parent.width * 0.20
+                        font.pixelSize: parent.width * 0.15
                     }
                     Item {
                         Layout.fillWidth: true
