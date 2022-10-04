@@ -30,11 +30,11 @@ Mycroft.ScrollableDelegate{
                 radius: 20
                 RowLayout {
                     id: delegateItem
-                    anchors.fill: parent
-//                     anchors.left: parent.left
-//                     anchors.right: parent.right
-//                     anchors.top: parent.top
-//                     anchors.bottom: parent.bottom
+//                     anchors.fill: parent
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
                     spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillHeight: true
