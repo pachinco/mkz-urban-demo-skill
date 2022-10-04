@@ -179,7 +179,8 @@ Mycroft.ScrollableDelegate{
 //         maximumColumns: 3
         delegate: Mycroft.CardDelegate {
             id: rootCard
-            implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing*2
+//             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
+            height: view.height/4
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
