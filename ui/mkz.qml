@@ -172,7 +172,8 @@ Mycroft.ScrollableDelegate{
     Kirigami.CardsListView {
         id: actionsListView
         width: parent.width/2
-//         Layout.fillWidth: true
+        height: parent.height/4
+        Layout.fillWidth: false
         Layout.fillHeight: true
         model: actionsModel.actions
 //         maximumColumns: 3
@@ -204,7 +205,7 @@ Mycroft.ScrollableDelegate{
                         id: placeImage
                         source: modelData.image
                         Layout.fillHeight: true
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 4
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 6
                         fillMode: Image.PreserveAspectFit
                     }
                     Item {
