@@ -183,7 +183,7 @@ Mycroft.ScrollableDelegate{
             rightPadding: 20
             topPadding: 20
             bottomPadding: 20
-            implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing
+//             implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing
 //             height: parent.height/4
             layer.enabled: true
             layer.effect: DropShadow {
