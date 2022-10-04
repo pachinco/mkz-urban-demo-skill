@@ -132,13 +132,13 @@ Mycroft.ScrollableDelegate{
                 verticalOffset: 8
             }
             contentItem: Rectangle {
+                color: "#f1c0c3"
                 ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    color: "#f1c0c3"
                     spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillWidth: true
