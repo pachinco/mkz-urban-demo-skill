@@ -191,11 +191,11 @@ Mycroft.ScrollableDelegate{
                 horizontalOffset: 8
                 verticalOffset: 8
             }
-            contentItem: Rectangle {
-                color: "#f1c0c3"
-                radius: 20
-                width: view.width/2
-                height: view.height/4
+            contentItem: Item {
+//                 color: "#f1c0c3"
+//                 radius: 15
+//                 width: view.width/2
+//                 height: view.height/4
                 RowLayout {
                     id: delegateItem
                     anchors.left: parent.left
@@ -224,7 +224,7 @@ Mycroft.ScrollableDelegate{
                         Layout.fillHeight: true
                         text: modelData.text
                         level: 2
-                        color: "#202020"
+//                         color: "#202020"
 //                         wrapMode: Text.WordWrap
 //                         horizontalAlignment: Text.AlignHCenter
                         font.pixelSize: parent.width * 0.1
