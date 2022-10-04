@@ -112,7 +112,7 @@ Mycroft.ScrollableDelegate{
     property var actionsModel: sessionData.actionsList
 
     Kirigami.CardsGridView {
-        id: exampleListView
+        id: actionsListView
         Layout.fillWidth: true
         Layout.fillHeight: true
         model: actionsModel.actions
@@ -120,7 +120,7 @@ Mycroft.ScrollableDelegate{
 //         delegate: Kirigami.AbstractCard {
         delegate: Mycroft.CardDelegate {
             id: rootCard
-//             implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
+            implicitHeight: delegateItem.implicitHeight + Kirigami.Units.largeSpacing
             leftPadding: 10
             rightPadding: 10
 //             topPadding: 10
@@ -145,9 +145,9 @@ Mycroft.ScrollableDelegate{
 //                         Layout.fillWidth: true
 //                         Layout.preferredHeight: Kirigami.Units.gridUnit * 11
 //                         Layout.preferredWidth: Kirigami.Units.gridUnit * 8
-                        height: Kirigami.Units.gridUnit * 4
+//                         height: Kirigami.Units.gridUnit * 4
                         width: view.width/6
-//                         fillMode: Image.PreserveAspectCrop
+                        fillMode: Image.PreserveAspectCrop
                     }
                     Item {
                         Layout.fillWidth: true
