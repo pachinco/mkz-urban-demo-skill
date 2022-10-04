@@ -189,7 +189,7 @@ Mycroft.ScrollableDelegate{
                 color: "#f1c0c3"
                 radius: 20
 //                 width: view.width/2
-                ColumnLayout {
+                RowLayout {
                     id: delegateItem
                     anchors.left: parent.left
                     anchors.right: parent.right
@@ -197,33 +197,33 @@ Mycroft.ScrollableDelegate{
                     anchors.bottom: parent.bottom
                     spacing: Kirigami.Units.largeSpacing
                     Item {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                        Layout.fillHeight: true
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     }
                     Image {
                         id: placeImage
                         source: modelData.image
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 8
+                        Layout.fillHeight: true
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 4
                         fillMode: Image.PreserveAspectFit
                     }
                     Item {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 1
+                        Layout.fillHeight: true
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 1
                     }
                     Kirigami.Heading {
                         id: actionsLabel
-                        Layout.fillWidth: true
+                        Layout.fillHeight: true
                         text: modelData.text
                         level: 2
                         color: "#202020"
-                        wrapMode: Text.WordWrap
-                        horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize: parent.width * 0.15
+//                         wrapMode: Text.WordWrap
+//                         horizontalAlignment: Text.AlignHCenter
+                        font.pixelSize: parent.width * 0.1
                     }
                     Item {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 3
+                        Layout.fillHeight: true
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 3
                     }
                 }
             }
