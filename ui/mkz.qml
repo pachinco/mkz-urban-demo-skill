@@ -177,7 +177,6 @@ Mycroft.ScrollableDelegate{
 //         Layout.fillHeight: true
         model: actionsModel.actions
 //         maximumColumns: 3
-//         rowSpacing: Kirigami.Units.largeSpacing
         delegate: Mycroft.CardDelegate {
             id: rootCard
 //             leftPadding: 20
