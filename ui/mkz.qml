@@ -125,20 +125,20 @@ Mycroft.ScrollableDelegate{
             leftPadding: 10
             rightPadding: 10
             opacity: 1
-//             color: "#f1c0c3"
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
                 horizontalOffset: 8
                 verticalOffset: 8
             }
-            contentItem: Item {
+            contentItem: Rectangle {
                 ColumnLayout {
                     id: delegateItem
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
+                    color: "#f1c0c3"
                     spacing: Kirigami.Units.largeSpacing
                     Item {
                         Layout.fillWidth: true
