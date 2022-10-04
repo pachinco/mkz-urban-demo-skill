@@ -30,7 +30,7 @@ Mycroft.ScrollableDelegate{
                 color: "#f1c0c3"
                 radius: 20
                 width: parent.width/2
-                height: parent.height/4
+                height: parent.height
                 RowLayout {
                     anchors.fill: parent
                     spacing: Kirigami.Units.largeSpacing
