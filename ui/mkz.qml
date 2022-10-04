@@ -14,7 +14,7 @@ Mycroft.ScrollableDelegate{
     Kirigami.CardsListView {
         id: actionsListView
 //         Layout.fillWidth: true
-//         Layout.fillHeight: true
+        Layout.fillHeight: true
         model: actionsModel.actions
         delegate: Mycroft.CardDelegate {
             id: rootCard
