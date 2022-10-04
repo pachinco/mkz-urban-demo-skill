@@ -173,17 +173,18 @@ Mycroft.ScrollableDelegate{
         id: actionsListView
 //         width: parent.width/2
 //         height: parent.height/4
-        Layout.fillWidth: false
-        Layout.fillHeight: true
+//         Layout.fillWidth: false
+//         Layout.fillHeight: true
         model: actionsModel.actions
 //         maximumColumns: 3
+        rowSpacing: Kirigami.Units.largeSpacing
         delegate: Mycroft.CardDelegate {
             id: rootCard
-            leftPadding: 20
-            rightPadding: 20
-            topPadding: 20
-            bottomPadding: 20
-            implicitWidth: delegateItem.implicitWidth/2 // + Kirigami.Units.largeSpacing
+//             leftPadding: 20
+//             rightPadding: 20
+//             topPadding: 20
+//             bottomPadding: 20
+            implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing*2
 //             height: parent.height/4
             layer.enabled: true
             layer.effect: DropShadow {
