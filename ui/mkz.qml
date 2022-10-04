@@ -124,6 +124,7 @@ Mycroft.ScrollableDelegate{
             bottomPadding: 10
             leftPadding: 10
             rightPadding: 10
+            color: "#f1c0c3"
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
@@ -158,6 +159,7 @@ Mycroft.ScrollableDelegate{
                         Layout.fillWidth: true
                         text: modelData.text
                         level: 2
+                        color: "#202020"
                         wrapMode: Text.WordWrap
                         horizontalAlignment: Text.AlignHCenter
                         font.pixelSize: parent.width * 0.15
