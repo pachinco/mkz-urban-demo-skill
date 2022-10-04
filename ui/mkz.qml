@@ -171,7 +171,8 @@ Mycroft.ScrollableDelegate{
 
     Kirigami.CardsListView {
         id: actionsListView
-        Layout.fillWidth: true
+        width: parent.width/2
+//         Layout.fillWidth: true
         Layout.fillHeight: true
         model: actionsModel.actions
 //         maximumColumns: 3
