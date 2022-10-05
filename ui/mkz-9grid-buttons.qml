@@ -6,56 +6,62 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
-Mycroft.ScrollableDelegate{
-    id: actionsList
+Mycroft.CardDelegate {
+    id: actionFrame
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+
     property var actionsModel: sessionData.actionsList
 
-    Kirigami.CardsGridView {
-        id: actionsListView
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+    Component {
+        id: actionDelegate
+        Rectangle {
+            id: delegateItem
+            color: "#f1c0c3"
+            radius: 20
+            width: view.cellWidth
+            height: view. cellHeight
+            Image {
+                id: actionIcon
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                source: modelData.image
+                width: Kirigami.Units.gridUnit * 3
+                fillMode: Image.PreserveAspectFit
+            }
+            Item {
+                id: actionSpacer
+                anchors.left: actionIcon.right
+                anchors.verticalCenter: parent.verticalCenter
+                width: Kirigami.Units.gridUnit * 1
+            }
+            Kirigami.Heading {
+                id: actionsLabel
+                anchors.left: actionSpacer.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: modelData.text
+                color: "#202020"
+                font.pixelSize: Kirigami.Units.gridUnit
+            }
+        }
+    }
+
+    GridView {
+        id: view
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width - Kirigami.Units.gridUnit * 2
+        height: parent.height
         model: actionsModel.actions
-        maximumColumns: 3
-        delegate: Kirigami.CardDelegate {
-            id: rootCard
-                implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing
+//         maximumColumns: 3
+        delegate: actionDelegate
 //             layer.enabled: true
 //             layer.effect: DropShadow {
 //                 transparentBorder: true
 //                 horizontalOffset: 8
 //                 verticalOffset: 8
 //             }
-            contentItem: Rectangle {
-                id: delegateItem
-                color: "#f1c0c3"
-                opacity: 1
-                radius: 20
-                Image {
-                    id: actionIcon
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: modelData.image
-                    width: Kirigami.Units.gridUnit * 3
-                    fillMode: Image.PreserveAspectFit
-                }
-                Item {
-                    id: actionSpacer
-                    anchors.left: actionIcon.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: Kirigami.Units.gridUnit * 1
-                }
-                Kirigami.Heading {
-                    id: actionsLabel
-                    anchors.left: actionSpacer.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: modelData.text
-                    color: "#202020"
-//                         wrapMode: Text.WordWrap
-//                         horizontalAlignment: Text.AlignHCenter
-                    font.pixelSize: Kirigami.Units.gridUnit
-                }
-            }
-        }
     }
 }
