@@ -73,13 +73,12 @@ Mycroft.ScrollableDelegate{
         id: view
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-//         anchors.fill: parent
-        width: parent.width-Kirigami.Units.gridUnit*2
-        height: parent.height
+        anchors.fill: parent
+//         width: parent.width-Kirigami.Units.gridUnit*2
+//         height: parent.height
         model: actionsModel.actions
         delegate: actionDelegate
         cellWidth: width
         cellHeight: 100
-//         spacing: Kirigami.Units.largeSpacing
     }
 }
