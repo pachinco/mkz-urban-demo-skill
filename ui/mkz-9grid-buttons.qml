@@ -25,7 +25,6 @@ Mycroft.ScrollableDelegate{
             radius: 20
             width: view.cellWidth
             height: view. cellHeight
-            border.width: 20
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
@@ -65,5 +64,7 @@ Mycroft.ScrollableDelegate{
         model: actionsModel.actions
 //         maximumColumns: 3
         delegate: actionDelegate
+        cellWidth: width/3
+        cellHeight: view.height/3
     }
 }
