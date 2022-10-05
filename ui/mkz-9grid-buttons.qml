@@ -19,8 +19,8 @@ Mycroft.ScrollableDelegate{
     property var actionsModel: sessionData.actionsList
 
     Component {
+        id: actionDelegate
         Item {
-            id: actionDelegate
             width: view.cellWidth
             height: view. cellHeight
             Rectangle {
