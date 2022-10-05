@@ -24,6 +24,7 @@ Mycroft.ScrollableDelegate{
             width: view.cellWidth
             height: view. cellHeight
             border.width: Kirigami.Units.gridUnit
+            opacity: 0
             Rectangle {
                 color: "#f1c0c3"
                 radius: 20
@@ -37,23 +38,29 @@ Mycroft.ScrollableDelegate{
                     horizontalOffset: 8
                     verticalOffset: 8
                 }
+                Item {
+                    id: actionSpacer1
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: Kirigami.Units.gridUnit * 1
+                }
                 Image {
                     id: actionIcon
-                    anchors.left: parent.left
+                    anchors.left: actionSpacer1.right
                     anchors.verticalCenter: parent.verticalCenter
                     source: modelData.image
                     width: Kirigami.Units.gridUnit * 3
                     fillMode: Image.PreserveAspectFit
                 }
                 Item {
-                    id: actionSpacer
+                    id: actionSpacer2
                     anchors.left: actionIcon.right
                     anchors.verticalCenter: parent.verticalCenter
                     width: Kirigami.Units.gridUnit * 1
                 }
                 Kirigami.Heading {
                     id: actionsLabel
-                    anchors.left: actionSpacer.right
+                    anchors.left: actionSpacer2.right
                     anchors.verticalCenter: parent.verticalCenter
                     text: modelData.text
                     color: "#202020"
