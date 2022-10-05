@@ -27,6 +27,7 @@ Mycroft.ScrollableDelegate{
                 verticalOffset: 8
             }
             contentItem: Rectangle {
+                id: delegateItem
                 color: "#f1c0c3"
                 radius: 20
                 Image {
