@@ -25,8 +25,7 @@ Mycroft.ScrollableDelegate{
             radius: 20
             width: view.cellWidth
             height: view. cellHeight
-            leftPadding: 20
-            rightPadding: 20
+            border.width: 20
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
