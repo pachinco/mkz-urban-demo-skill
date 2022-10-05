@@ -34,6 +34,7 @@ Mycroft.ScrollableDelegate{
             }
             Image {
                 id: actionIcon
+                x: Kirigami.Units.gridUnit
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
                 source: modelData.image
@@ -67,5 +68,6 @@ Mycroft.ScrollableDelegate{
         delegate: actionDelegate
         cellWidth: width/3
         cellHeight: 100
+        spacing: Kirigami.Units.largeSpacing
     }
 }
