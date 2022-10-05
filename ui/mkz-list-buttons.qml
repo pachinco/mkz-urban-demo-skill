@@ -13,7 +13,7 @@ Mycroft.ScrollableDelegate{
     leftPadding: Kirigami.Units.gridUnit * 2.5
     rightPadding: Kirigami.Units.gridUnit * 4
     topPadding: Kirigami.Units.gridUnit * 2.5
-    bottomPadding: Kirigami.Units.gridUnit * 2.5
+//     bottomPadding: Kirigami.Units.gridUnit * 2.5
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
 
     property var actionsModel: sessionData.actionsList
