@@ -63,7 +63,7 @@ Mycroft.ScrollableDelegate{
                     anchors.verticalCenter: parent.verticalCenter
                     text: modelData.text
                     color: "#202020"
-                    font.pixelSize: Kirigami.Units.gridUnit
+                    font.pixelSize: Kirigami.Units.gridUnit*3
                 }
             }
         }
@@ -80,6 +80,6 @@ Mycroft.ScrollableDelegate{
         delegate: actionDelegate
         cellWidth: width
 //         cellHeight: height/2.6
-        cellHeight: Kirigami.Units.gridUnit * 8
+        cellHeight: Kirigami.Units.gridUnit * 6
     }
 }
