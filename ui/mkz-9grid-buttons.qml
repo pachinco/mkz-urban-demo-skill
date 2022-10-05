@@ -68,6 +68,6 @@ Mycroft.ScrollableDelegate{
         delegate: actionDelegate
         cellWidth: width/3
         cellHeight: 100
-        spacing: Kirigami.Units.largeSpacing
+//         spacing: Kirigami.Units.largeSpacing
     }
 }
