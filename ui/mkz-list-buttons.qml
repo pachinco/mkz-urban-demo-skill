@@ -71,11 +71,10 @@ Mycroft.ScrollableDelegate{
 
     GridView {
         id: view
-        anchors.left: parent.left
-//         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         anchors.fill: parent
-//         width: parent.width/2
+        width: parent.width-Kirigami.Units.gridUnit*2
 //         height: parent.height
         model: actionsModel.actions
         delegate: actionDelegate
