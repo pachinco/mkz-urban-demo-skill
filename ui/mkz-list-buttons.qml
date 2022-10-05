@@ -48,7 +48,7 @@ Mycroft.ScrollableDelegate{
                     anchors.left: actionSpacer1.right
                     anchors.verticalCenter: parent.verticalCenter
                     source: modelData.image
-                    width: Kirigami.Units.gridUnit * 3
+                    width: Kirigami.Units.gridUnit * 4
                     fillMode: Image.PreserveAspectFit
                 }
                 Item {
