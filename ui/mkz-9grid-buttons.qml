@@ -20,7 +20,7 @@ Mycroft.ScrollableDelegate{
 
     Component {
         id: actionDelegate
-        Item {
+        Rectangle {
             width: view.cellWidth
             height: view. cellHeight
             border.width: Kirigami.Units.gridUnit
