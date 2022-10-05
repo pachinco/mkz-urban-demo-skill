@@ -10,10 +10,10 @@ Mycroft.ScrollableDelegate{
 // Mycroft.CardDelegate {
     id: actionFrame
     anchors.fill: parent
-    leftPadding: 10
-    rightPadding: 30
-    topPadding: 20
-    bottomPadding: 20
+    leftPadding: Kirigami.Units.gridUnit * 2
+    rightPadding: Kirigami.Units.gridUnit * 6
+    topPadding: Kirigami.Units.gridUnit * 4
+    bottomPadding: Kirigami.Units.gridUnit * 4
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
 
     property var actionsModel: sessionData.actionsList
