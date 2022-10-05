@@ -79,6 +79,6 @@ Mycroft.ScrollableDelegate{
         model: actionsModel.actions
         delegate: actionDelegate
         cellWidth: width
-        cellHeight: 100
+        cellHeight: parent.height/3
     }
 }
