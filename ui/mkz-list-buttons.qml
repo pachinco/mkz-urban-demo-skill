@@ -23,6 +23,7 @@ Mycroft.ScrollableDelegate{
         Item {
             width: view.cellWidth/2
             height: view.cellHeight
+            anchors.horizontalCenter: parent.horizontalCenter
             Rectangle {
                 color: "#f1c0c3"
                 radius: 20
