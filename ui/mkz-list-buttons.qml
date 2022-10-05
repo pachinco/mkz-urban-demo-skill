@@ -29,6 +29,7 @@ Mycroft.ScrollableDelegate{
                 radius: 20
                 width: parent.width-Kirigami.Units.gridUnit
                 height: parent.height-Kirigami.Units.gridUnit
+                anchors.fill: parent
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 layer.enabled: true
