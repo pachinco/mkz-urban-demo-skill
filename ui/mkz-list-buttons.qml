@@ -26,7 +26,7 @@ Mycroft.ScrollableDelegate{
             Rectangle {
                 color: "#f1c0c3"
                 radius: 20
-                width: parent.width/2
+                width: parent.width-Kirigami.Units.gridUnit
                 height: parent.height-Kirigami.Units.gridUnit
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
