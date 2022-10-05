@@ -6,7 +6,8 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
-Mycroft.CardDelegate {
+Mycroft.ScrollableDelegate{
+// Mycroft.CardDelegate {
     id: actionFrame
     leftPadding: 0
     rightPadding: 0
@@ -24,6 +25,12 @@ Mycroft.CardDelegate {
             radius: 20
             width: view.cellWidth
             height: view. cellHeight
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 8
+                verticalOffset: 8
+            }
             Image {
                 id: actionIcon
                 anchors.left: parent.left
@@ -57,11 +64,5 @@ Mycroft.CardDelegate {
         model: actionsModel.actions
 //         maximumColumns: 3
         delegate: actionDelegate
-//             layer.enabled: true
-//             layer.effect: DropShadow {
-//                 transparentBorder: true
-//                 horizontalOffset: 8
-//                 verticalOffset: 8
-//             }
     }
 }
