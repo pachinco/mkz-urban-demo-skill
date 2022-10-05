@@ -9,10 +9,10 @@ import Mycroft 1.0 as Mycroft
 Mycroft.ScrollableDelegate{
 // Mycroft.CardDelegate {
     id: actionFrame
-    leftPadding: 0
-    rightPadding: 0
-    topPadding: 0
-    bottomPadding: 0
+    leftPadding: 20
+    rightPadding: 20
+    topPadding: 20
+    bottomPadding: 20
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
 
     property var actionsModel: sessionData.actionsList
