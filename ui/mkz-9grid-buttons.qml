@@ -17,15 +17,15 @@ Mycroft.ScrollableDelegate{
         Layout.fillHeight: true
         model: actionsModel.actions
         maximumColumns: 3
-        delegate: Mycroft.CardDelegate {
+        delegate: Kirigami.CardDelegate {
             id: rootCard
                 implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing
-            layer.enabled: true
-            layer.effect: DropShadow {
-                transparentBorder: true
-                horizontalOffset: 8
-                verticalOffset: 8
-            }
+//             layer.enabled: true
+//             layer.effect: DropShadow {
+//                 transparentBorder: true
+//                 horizontalOffset: 8
+//                 verticalOffset: 8
+//             }
             contentItem: Rectangle {
                 id: delegateItem
                 color: "#f1c0c3"
