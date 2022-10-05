@@ -33,8 +33,9 @@ Mycroft.ScrollableDelegate{
                 layer.enabled: true
                 layer.effect: DropShadow {
                     transparentBorder: true
-                    horizontalOffset: 8
-                    verticalOffset: 8
+                    horizontalOffset: 6
+                    verticalOffset: 6
+                    color: "#808080"
                 }
                 Item {
                     id: actionSpacer1
