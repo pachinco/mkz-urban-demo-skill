@@ -6,8 +6,7 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
-Kirigami.CardsGridView {
-// Mycroft.ScrollableDelegate{
+Mycroft.ScrollableDelegate{
 // Mycroft.CardDelegate {
     id: actionFrame
     anchors.fill: parent
@@ -20,41 +19,46 @@ Kirigami.CardsGridView {
     property var actionsModel: sessionData.actionsList
 
     Component {
-        id: actionDelegate
-        Rectangle {
-            id: delegateItem
-            color: "#f1c0c3"
-            radius: 20
+        Item {
+            id: actionDelegate
             width: view.cellWidth
             height: view. cellHeight
-            layer.enabled: true
-            layer.effect: DropShadow {
-                transparentBorder: true
-                horizontalOffset: 8
-                verticalOffset: 8
-            }
-            Image {
-                id: actionIcon
-                x: Kirigami.Units.gridUnit
-                anchors.left: parent.left
+            Rectangle {
+                color: "#f1c0c3"
+                radius: 20
+                width: parent.width-Kirigami.Units.gridUnit
+                height: parent.height-Kirigami.Units.gridUnit
                 anchors.verticalCenter: parent.verticalCenter
-                source: modelData.image
-                width: Kirigami.Units.gridUnit * 3
-                fillMode: Image.PreserveAspectFit
-            }
-            Item {
-                id: actionSpacer
-                anchors.left: actionIcon.right
-                anchors.verticalCenter: parent.verticalCenter
-                width: Kirigami.Units.gridUnit * 1
-            }
-            Kirigami.Heading {
-                id: actionsLabel
-                anchors.left: actionSpacer.right
-                anchors.verticalCenter: parent.verticalCenter
-                text: modelData.text
-                color: "#202020"
-                font.pixelSize: Kirigami.Units.gridUnit
+                anchors.horizontalCenter: parent.horizontalCenter
+                layer.enabled: true
+                layer.effect: DropShadow {
+                    transparentBorder: true
+                    horizontalOffset: 8
+                    verticalOffset: 8
+                }
+                Image {
+                    id: actionIcon
+                    x: Kirigami.Units.gridUnit
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: modelData.image
+                    width: Kirigami.Units.gridUnit * 3
+                    fillMode: Image.PreserveAspectFit
+                }
+                Item {
+                    id: actionSpacer
+                    anchors.left: actionIcon.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: Kirigami.Units.gridUnit * 1
+                }
+                Kirigami.Heading {
+                    id: actionsLabel
+                    anchors.left: actionSpacer.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: modelData.text
+                    color: "#202020"
+                    font.pixelSize: Kirigami.Units.gridUnit
+                }
             }
         }
     }
