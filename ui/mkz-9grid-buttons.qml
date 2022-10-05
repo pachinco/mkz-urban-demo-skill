@@ -66,6 +66,6 @@ Mycroft.ScrollableDelegate{
 //         maximumColumns: 3
         delegate: actionDelegate
         cellWidth: width/3
-        cellHeight: parent.height/3
+        cellHeight: 100
     }
 }
