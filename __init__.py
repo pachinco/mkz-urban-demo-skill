@@ -11,6 +11,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.settings["wallpaper_file"] = "custom-wallpaper.jpg"
         self.settings["wallpaper_url"] = str(self.mkzdemo_img)
         self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
+        self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
 
    #@resting_screen_handler('MKZ homescreen')
    #def handle_homescreen(self, message):
@@ -37,7 +38,7 @@ class MkzUrbanDemo(MycroftSkill):
         actionsObject['actions'] = actionsList
         self.gui['actionsList'] = actionsObject
         self.gui['background'] = str(self.mkzdemo_img)
-        self.gui.show_page(str(self.mkz_ui), override_idle=True)
+        self.gui.show_page(str(self.mkz_9grid_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz')
  
 def create_skill():
