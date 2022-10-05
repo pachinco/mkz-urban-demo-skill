@@ -10,8 +10,8 @@ Mycroft.ScrollableDelegate{
 // Mycroft.CardDelegate {
     id: actionFrame
     anchors.fill: parent
-    leftPadding: 20
-    rightPadding: 20
+    leftPadding: 10
+    rightPadding: 30
     topPadding: 20
     bottomPadding: 20
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
@@ -26,6 +26,7 @@ Mycroft.ScrollableDelegate{
             Rectangle {
                 color: "#f1c0c3"
                 radius: 20
+                x: Kirigami.Units.gridUnit
                 width: parent.width-Kirigami.Units.gridUnit
                 height: parent.height-Kirigami.Units.gridUnit
                 anchors.verticalCenter: parent.verticalCenter
@@ -38,7 +39,6 @@ Mycroft.ScrollableDelegate{
                 }
                 Image {
                     id: actionIcon
-                    x: Kirigami.Units.gridUnit
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     source: modelData.image
