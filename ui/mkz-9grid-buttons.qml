@@ -42,7 +42,7 @@ Mycroft.ScrollableDelegate{
                     id: actionSpacer
                     anchors.left: actionIcon.right
                     anchors.verticalCenter: parent.verticalCenter
-                    Layout.preferredHeight: Kirigami.Units.gridUnit * 1
+                    width: Kirigami.Units.gridUnit * 1
                 }
                 Kirigami.Heading {
                     id: actionsLabel
