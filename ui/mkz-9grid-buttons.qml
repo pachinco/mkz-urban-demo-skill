@@ -19,7 +19,7 @@ Mycroft.ScrollableDelegate{
         maximumColumns: 3
         delegate: Mycroft.CardDelegate {
             id: rootCard
-//                 implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing
+                implicitWidth: delegateItem.implicitWidth + Kirigami.Units.largeSpacing
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
@@ -37,7 +37,7 @@ Mycroft.ScrollableDelegate{
                         id: placeImage
                         source: modelData.image
                         Layout.fillHeight: true
-//                         Layout.preferredWidth: Kirigami.Units.gridUnit * 3
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 3
                         width: Kirigami.Units.gridUnit * 3
                         fillMode: Image.PreserveAspectFit
                     }
@@ -46,6 +46,7 @@ Mycroft.ScrollableDelegate{
                         Layout.fillHeight: true
                         text: modelData.text
                         level: 2
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                         color: "#202020"
 //                         wrapMode: Text.WordWrap
 //                         horizontalAlignment: Text.AlignHCenter
