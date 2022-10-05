@@ -29,6 +29,7 @@ Mycroft.ScrollableDelegate{
             contentItem: Rectangle {
                 id: delegateItem
                 color: "#f1c0c3"
+                opacity: 1
                 radius: 20
                 Image {
                     id: actionIcon
