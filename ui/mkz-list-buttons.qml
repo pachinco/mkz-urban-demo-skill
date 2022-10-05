@@ -21,12 +21,12 @@ Mycroft.ScrollableDelegate{
     Component {
         id: actionDelegate
         Item {
-            width: view.cellWidth
+            width: view.cellWidth/2
             height: view.cellHeight
             Rectangle {
                 color: "#f1c0c3"
                 radius: 20
-                width: parent.width-Kirigami.Units.gridUnit
+                width: parent.width/2
                 height: parent.height-Kirigami.Units.gridUnit
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
