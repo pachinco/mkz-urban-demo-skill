@@ -20,11 +20,9 @@ Mycroft.ScrollableDelegate{
 
     Component {
         id: actionDelegate
-        Rectangle {
+        Item {
             width: view.cellWidth
             height: view. cellHeight
-            border.width: Kirigami.Units.gridUnit
-            opacity: 0
             Rectangle {
                 color: "#f1c0c3"
                 radius: 20
@@ -42,7 +40,7 @@ Mycroft.ScrollableDelegate{
                     id: actionSpacer1
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    width: Kirigami.Units.gridUnit * 1
+                    width: Kirigami.Units.gridUnit
                 }
                 Image {
                     id: actionIcon
@@ -56,7 +54,7 @@ Mycroft.ScrollableDelegate{
                     id: actionSpacer2
                     anchors.left: actionIcon.right
                     anchors.verticalCenter: parent.verticalCenter
-                    width: Kirigami.Units.gridUnit * 1
+                    width: Kirigami.Units.gridUnit
                 }
                 Kirigami.Heading {
                     id: actionsLabel
