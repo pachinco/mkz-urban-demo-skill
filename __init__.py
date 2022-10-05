@@ -11,7 +11,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.settings["wallpaper_file"] = "custom-wallpaper.jpg"
         self.settings["wallpaper_url"] = str(self.mkzdemo_img)
         self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
-        self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
+        self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
 
    #@resting_screen_handler('MKZ homescreen')
    #def handle_homescreen(self, message):
