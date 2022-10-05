@@ -29,29 +29,23 @@ Mycroft.ScrollableDelegate{
             contentItem: Rectangle {
                 color: "#f1c0c3"
                 radius: 20
-                RowLayout {
-                    id: delegateItem
-                    anchors.fill: parent
-                    spacing: Kirigami.Units.largeSpacing
-                    Image {
-                        id: placeImage
-                        source: modelData.image
-                        Layout.fillHeight: true
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 3
-                        width: Kirigami.Units.gridUnit * 3
-                        fillMode: Image.PreserveAspectFit
-                    }
-                    Kirigami.Heading {
-                        id: actionsLabel
-                        Layout.fillHeight: true
-                        text: modelData.text
-                        level: 2
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
-                        color: "#202020"
+                Image {
+                    id: actionIcon
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: modelData.image
+                    width: Kirigami.Units.gridUnit * 3
+                    fillMode: Image.PreserveAspectFit
+                }
+                Kirigami.Heading {
+                    id: actionsLabel
+                    anchors.left: actionIcon.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: modelData.text
+                    color: "#202020"
 //                         wrapMode: Text.WordWrap
 //                         horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize: Kirigami.Units.gridUnit
-                    }
+                    font.pixelSize: Kirigami.Units.gridUnit
                 }
             }
         }
