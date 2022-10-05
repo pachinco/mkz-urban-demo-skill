@@ -41,7 +41,7 @@ Mycroft.ScrollableDelegate{
                     id: actionSpacer1
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    width: Kirigami.Units.gridUnit * 5
+                    width: Kirigami.Units.gridUnit * 10
                 }
                 Image {
                     id: actionIcon
