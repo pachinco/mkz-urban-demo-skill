@@ -29,7 +29,6 @@ Mycroft.ScrollableDelegate{
                 radius: 20
                 width: parent.width-Kirigami.Units.gridUnit
                 height: parent.height-Kirigami.Units.gridUnit
-                anchors.fill: parent
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 layer.enabled: true
@@ -40,7 +39,7 @@ Mycroft.ScrollableDelegate{
                 }
                 Item {
                     id: actionSpacer1
-                    anchors.left: parent.left
+//                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     width: Kirigami.Units.gridUnit
                 }
