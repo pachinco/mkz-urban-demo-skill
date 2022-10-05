@@ -23,10 +23,10 @@ Mycroft.ScrollableDelegate{
         Item {
             width: view.cellWidth
             height: view. cellHeight
+            border.width: Kirigami.Units.gridUnit
             Rectangle {
                 color: "#f1c0c3"
                 radius: 20
-                x: Kirigami.Units.gridUnit
                 width: parent.width-Kirigami.Units.gridUnit
                 height: parent.height-Kirigami.Units.gridUnit
                 anchors.verticalCenter: parent.verticalCenter
