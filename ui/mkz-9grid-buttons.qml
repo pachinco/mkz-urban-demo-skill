@@ -35,7 +35,6 @@ Mycroft.ScrollableDelegate{
                     transparentBorder: true
                     horizontalOffset: 6
                     verticalOffset: 6
-                    color: "#808080"
                 }
                 Item {
                     id: actionSpacer1
