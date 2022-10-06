@@ -83,7 +83,7 @@ Mycroft.ScrollableDelegate{
         cellWidth: width
 //         cellHeight: height/2.6
         cellHeight: Kirigami.Units.gridUnit * 6
-        add: Transition {
+        populate: Transition {
             NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
             NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
         }
