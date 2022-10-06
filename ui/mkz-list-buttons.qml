@@ -36,6 +36,7 @@ Mycroft.ScrollableDelegate{
                     transparentBorder: true
                     horizontalOffset: 6
                     verticalOffset: 6
+                    color: "#404040"
                     opacity: 0.5
                 }
                 Item {
