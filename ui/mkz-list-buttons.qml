@@ -37,13 +37,13 @@ Mycroft.ScrollableDelegate{
                     horizontalOffset: 6
                     verticalOffset: 6
                     color: "#404040"
-                    opacity: 0.5
+                    opacity: 0.2
                 }
                 Item {
                     id: actionSpacer1
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    width: Kirigami.Units.gridUnit * 6
+                    width: Kirigami.Units.gridUnit * 5
                 }
                 Image {
                     id: actionIcon

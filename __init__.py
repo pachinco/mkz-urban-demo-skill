@@ -27,7 +27,7 @@ class MkzUrbanDemo(MycroftSkill):
         play_proc = play_wav(str(self.sound_file_path))
         #self.gui["actionsList"] = [{{"name":"Setting","phone":"(444) 444-4444"},{"name":"Drive","phone":"(555) 555-5555"}}]
         actionsObject = {}
-        actionsList = [{"text": "Power",
+        actionsList = [{"text": "Activate",
                        "image": "../images/Power-button.png"},
                       {"text": "Drive",
                        "image": "../images/Start-button.png"},
