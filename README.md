@@ -5,10 +5,7 @@ Mkz urban demo
 Mkz urban demo
 
 ## Examples
-* "Drive around the block"
-* "Let us go on a spin"
-* "Drive around"
-* "Go for a ride"
+* "Urban demo"
 
 ## Credits
 pachinco
