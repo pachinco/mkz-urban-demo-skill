@@ -84,6 +84,7 @@ Mycroft.ScrollableDelegate{
 //         cellHeight: height/2.6
         cellHeight: Kirigami.Units.gridUnit * 6
         populate: Transition {
+            id: dispTrans
             SequentialAnimation {
                 PauseAnimation {
                     duration: dispTrans.ViewTransition.index * 1000
