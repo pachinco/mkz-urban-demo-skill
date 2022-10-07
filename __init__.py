@@ -14,6 +14,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
         self.gui['actionsList'] = []
+        self.gui['background'] = str(self.mkzdemo_img)
 
    @resting_screen_handler('MKZ homescreen')
    def handle_homescreen(self, message):
@@ -27,8 +28,6 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         self.enclosure.display_manager.remove_active()
         play_proc = play_wav(str(self.sound_file_path))
-        #self.gui['actionsList'] = []
-        self.gui['background'] = str(self.mkzdemo_img)
         #self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_event(self._ask_what_to_do, 5)
