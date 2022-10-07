@@ -89,15 +89,15 @@ Mycroft.ScrollableDelegate{
                 PauseAnimation {
                     duration: dispTrans1.ViewTransition.index * 1000
                 }
-//                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
-//                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
-                PathAnimation {
-                    duration: 1000
-                    path: Path {
-                        startX: 0; startY: 1000
-                        PathLine { x: 0; y: dispTrans1.ViewTransition.index * (Kirigami.Units.gridUnit * 6) }
-                    }
-                }
+                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
+                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
+//                 PathAnimation {
+//                     duration: 1000
+//                     path: Path {
+//                         startX: 0; startY: 1000
+//                         PathLine { x: 0; y: dispTrans1.ViewTransition.index * (Kirigami.Units.gridUnit * 6) }
+//                     }
+//                 }
             }
         }
 //         populate: Transition {
