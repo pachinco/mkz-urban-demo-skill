@@ -94,9 +94,9 @@ Mycroft.ScrollableDelegate{
                 PathAnimation {
                     duration: 1000
                     path: Path {
-                        startY: addTrans.ViewTransition.destination.y - 1000
+                        startY: dispTrans1.ViewTransition.destination.y + 1000
                         PathCurve {
-                            y: addTrans.ViewTransition.destination.y
+                            y: dispTrans1.ViewTransition.destination.y
                         }
                     }
                 }
