@@ -67,7 +67,7 @@ class MkzUrbanDemo(MycroftSkill):
                       {"text": "Setting",
                        "image": "../images/Settings-symbol.png"}]
         self.actionsObject['actions'] = self.actionsList
-        speak("What would you like to do?", expect_response=True, wait=True)
+        self.speak("What would you like to do?", expect_response=True, wait=True)
         
 def create_skill():
     return MkzUrbanDemo()
