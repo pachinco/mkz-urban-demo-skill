@@ -37,7 +37,7 @@ class MkzUrbanDemo(MycroftSkill):
         play_proc.wait()
         self.schedule_event(self._ask_what_to_do, 10)
 
-    def _ask_what_to_do(self)
+    def _ask_what_to_do(self):
         self.actionsList = [{"text": "Activate",
                        "image": "../images/Power-button.png"},
                       {"text": "Drive",
