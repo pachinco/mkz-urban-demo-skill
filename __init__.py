@@ -41,7 +41,6 @@ class MkzUrbanDemo(MycroftSkill):
 
     def _ask_what_to_do(self):
         self.speak('What would you like to do?', expect_response=True, wait=True)
-        play_proc.wait()
         self.actionsList.append({"text": "Activate", "image": "../images/Power-button.png"})
         self.actionsList.append({"text": "Drive", "image": "../images/Start-button.png"})
         #self.actionsList.append({"text": "Proceed", "image": "../images/Forward-button.png"})
