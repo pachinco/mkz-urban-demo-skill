@@ -83,16 +83,16 @@ Mycroft.ScrollableDelegate{
         cellWidth: width
 //         cellHeight: height/2.6
         cellHeight: Kirigami.Units.gridUnit * 6
-//         add: Transition {
-//             id: dispTrans1
-//             SequentialAnimation {
-//                 PauseAnimation {
-//                     duration: dispTrans1.ViewTransition.index * 100
-//                 }
-//                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
-//                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
-//             }
-//         }
+        add: Transition {
+            id: dispTrans1
+            SequentialAnimation {
+                PauseAnimation {
+                    duration: dispTrans1.ViewTransition.index * 100
+                }
+                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
+                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
+            }
+        }
         populate: Transition {
             id: dispTrans2
             SequentialAnimation {
