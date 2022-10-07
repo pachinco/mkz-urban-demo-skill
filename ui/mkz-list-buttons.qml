@@ -84,20 +84,20 @@ Mycroft.ScrollableDelegate{
 //         cellHeight: height/2.6
         cellHeight: Kirigami.Units.gridUnit * 6
         add: Transition {
-            id: dispTrans
+            id: dispTrans1
             SequentialAnimation {
                 PauseAnimation {
-                    duration: dispTrans.ViewTransition.index * 100
+                    duration: dispTrans1.ViewTransition.index * 100
                 }
                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
             }
         }
         populate: Transition {
-            id: dispTrans
+            id: dispTrans2
             SequentialAnimation {
                 PauseAnimation {
-                    duration: dispTrans.ViewTransition.index * 100
+                    duration: dispTrans2.ViewTransition.index * 100
                 }
                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
