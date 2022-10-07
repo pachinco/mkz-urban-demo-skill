@@ -43,7 +43,7 @@ Mycroft.ScrollableDelegate{
                     id: actionSpacer1
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    width: Kirigami.Units.gridUnit * 5
+                    width: Kirigami.Units.gridUnit * 4
                 }
                 Image {
                     id: actionIcon
@@ -83,6 +83,16 @@ Mycroft.ScrollableDelegate{
         cellWidth: width
 //         cellHeight: height/2.6
         cellHeight: Kirigami.Units.gridUnit * 6
+        add: Transition {
+            id: dispTrans
+            SequentialAnimation {
+                PauseAnimation {
+                    duration: dispTrans.ViewTransition.index * 100
+                }
+                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
+                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
+            }
+        }
         populate: Transition {
             id: dispTrans
             SequentialAnimation {
