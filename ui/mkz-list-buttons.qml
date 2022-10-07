@@ -111,8 +111,8 @@ Mycroft.ScrollableDelegate{
 //             }
 //         }
 
-        displaced: Transition {
-            NumberAnimation { properties: "x,y"; duration: 4000; easing.type: Easing.OutBounce }
-        }
+//         displaced: Transition {
+//             NumberAnimation { properties: "x,y"; duration: 4000; easing.type: Easing.OutBounce }
+//         }
     }
 }
