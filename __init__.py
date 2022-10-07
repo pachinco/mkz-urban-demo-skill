@@ -16,12 +16,11 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
 
-   #@resting_screen_handler('MKZ homescreen')
-   #def handle_homescreen(self, message):
-        #self.gui.clear()
-        #self.enclosure.display_manager.remove_active()
-        #background_img = self.settings.get("background_img", self.mkzdemo_img)
-        #self.gui.show_image(str(self.mkzdemo_img), override_idle=True)
+   @resting_screen_handler('MKZ homescreen')
+   def handle_homescreen(self, message):
+        self.gui.clear()
+        self.enclosure.display_manager.remove_active()
+        self.gui.show_image(str(self.mkzdemo_img))
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
@@ -33,7 +32,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.schedule_event(self._ask_what_to_do, 5)
 
     def _ask_what_to_do(self):
-        self.speak('What would you like to do?', expect_response=True, wait=True)
+        self.speak("What's next?", expect_response=True, wait=True)
         self.gui['actionsList'] = [{"text": "Activate", "image": "../images/Power-button.png"},
                                     {"text": "Drive", "image": "../images/Start-button.png"},
                                     {"text": "Setting", "image": "../images/Settings-symbol.png"}]
