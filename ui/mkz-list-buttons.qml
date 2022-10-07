@@ -95,7 +95,7 @@ Mycroft.ScrollableDelegate{
                     duration: 1000
                     path: Path {
                         startX: 0; startY: 1000
-                        PathLine { x: 0; y: 0 }
+                        PathLine { relativeX: 0; relativeY: 0 }
                     }
                 }
             }
