@@ -21,8 +21,8 @@ Mycroft.ScrollableDelegate{
     Component {
         id: actionDelegate
         Item {
-            width: actionFrame.cellWidth/2
-            height: actionFrame.cellHeight
+            width: view.cellWidth/2
+            height: view.cellHeight
             anchors.horizontalCenter: parent.horizontalCenter
             Rectangle {
                 color: "#f1c0c3"
