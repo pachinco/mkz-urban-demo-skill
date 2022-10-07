@@ -16,12 +16,12 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
 
-   @resting_screen_handler('MKZ homescreen')
-   def handle_homescreen(self, message):
-        self.gui.clear()
-        self.enclosure.display_manager.remove_active()
-        background_img = self.settings.get("background_img", self.mkzdemo_img)
-        self.gui.show_image(str(self.mkzdemo_img), override_idle=True)
+   #@resting_screen_handler('MKZ homescreen')
+   #def handle_homescreen(self, message):
+        #self.gui.clear()
+        #self.enclosure.display_manager.remove_active()
+        #background_img = self.settings.get("background_img", self.mkzdemo_img)
+        #self.gui.show_image(str(self.mkzdemo_img), override_idle=True)
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
