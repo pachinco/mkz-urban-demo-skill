@@ -37,26 +37,14 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui['background'] = str(self.mkzdemo_img)
         self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz', wait=True)
-        play_proc.wait()
         self.schedule_event(self._ask_what_to_do, 15)
 
     def _ask_what_to_do(self):
         self.speak('What would you like to do?', expect_response=True, wait=True)
-        play_proc.wait()
-        self.actionsList = [{"text": "Activate", "image": "../images/Power-button.png"},
-                      {"text": "Drive", "image": "../images/Start-button.png"},
-                      {"text": "Proceed", "image": "../images/Forward-button.png"},
-                      {"text": "Setting", "image": "../images/Settings-symbol.png"},
-                      {"text": "Power", "image": "../images/Power-button.png"},
-                      {"text": "Drive", "image": "../images/Start-button.png"},
-                      {"text": "Proceed", "image": "../images/Forward-button.png"},
-                      {"text": "Drive", "image": "../images/Start-button.png"},
-                      {"text": "Proceed", "image": "../images/Forward-button.png"},
-                      {"text": "Setting", "image": "../images/Settings-symbol.png"},
-                      {"text": "Power", "image": "../images/Power-button.png"},
-                      {"text": "Drive", "image": "../images/Start-button.png"},
-                      {"text": "Proceed", "image": "../images/Forward-button.png"},
-                      {"text": "Setting", "image": "../images/Settings-symbol.png"}]
+        self.actionsList.append({"text": "Activate", "image": "../images/Power-button.png"})
+        self.actionsList.append({"text": "Drive", "image": "../images/Start-button.png"})
+        #self.actionsList.append({"text": "Proceed", "image": "../images/Forward-button.png"})
+        self.actionsList.append({"text": "Setting", "image": "../images/Settings-symbol.png"})
         self.actionsObject['actions'] = self.actionsList
         self.gui['actionsList'] = self.actionsObject
         
