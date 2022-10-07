@@ -45,8 +45,8 @@ class MkzUrbanDemo(MycroftSkill):
         self.actionsList.append({"text": "Drive", "image": "../images/Start-button.png"})
         #self.actionsList.append({"text": "Proceed", "image": "../images/Forward-button.png"})
         self.actionsList.append({"text": "Setting", "image": "../images/Settings-symbol.png"})
-        self.actionsObject['actions'] = self.actionsList
-        self.gui['actionsList'] = self.actionsObject
+        #self.actionsObject['actions'] = self.actionsList
+        #self.gui['actionsList'] = self.actionsObject
         
 def create_skill():
     return MkzUrbanDemo()
