@@ -25,8 +25,10 @@ Mycroft.ScrollableDelegate{
             height: view.cellHeight
             anchors.horizontalCenter: parent.horizontalCenter
             Rectangle {
+                id: button
                 color: "#f1c0c3"
                 radius: 20
+                signal clicked
                 width: parent.width-Kirigami.Units.gridUnit
                 height: parent.height-Kirigami.Units.gridUnit
                 anchors.verticalCenter: parent.verticalCenter
@@ -66,6 +68,14 @@ Mycroft.ScrollableDelegate{
                     text: model.text
                     color: "#202020"
                     font.pixelSize: Kirigami.Units.gridUnit*3
+                }
+                MouseArea {
+                    id: mouse
+                    anchors.fill: parent
+                    onClicked: button.clicked()
+                }
+                onClicked: {
+                    console.log(">>>>>>>>>>>>>>>>>>>>button:  onClicked")
                 }
             }
         }
