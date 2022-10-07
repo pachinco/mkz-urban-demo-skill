@@ -43,34 +43,20 @@ class MkzUrbanDemo(MycroftSkill):
     def _ask_what_to_do(self):
         self.speak('What would you like to do?', expect_response=True, wait=True)
         play_proc.wait()
-        self.actionsList = [{"text": "Activate",
-                       "image": "../images/Power-button.png"},
-                      {"text": "Drive",
-                       "image": "../images/Start-button.png"},
-                      {"text": "Proceed",
-                       "image": "../images/Forward-button.png"},
-                      {"text": "Setting",
-                       "image": "../images/Settings-symbol.png"},
-                      {"text": "Power",
-                       "image": "../images/Power-button.png"},
-                      {"text": "Drive",
-                       "image": "../images/Start-button.png"},
-                      {"text": "Proceed",
-                       "image": "../images/Forward-button.png"},
-                      {"text": "Drive",
-                       "image": "../images/Start-button.png"},
-                      {"text": "Proceed",
-                       "image": "../images/Forward-button.png"},
-                      {"text": "Setting",
-                       "image": "../images/Settings-symbol.png"},
-                      {"text": "Power",
-                       "image": "../images/Power-button.png"},
-                      {"text": "Drive",
-                       "image": "../images/Start-button.png"},
-                      {"text": "Proceed",
-                       "image": "../images/Forward-button.png"},
-                      {"text": "Setting",
-                       "image": "../images/Settings-symbol.png"}]
+        self.actionsList = [{"text": "Activate", "image": "../images/Power-button.png"},
+                      {"text": "Drive", "image": "../images/Start-button.png"},
+                      {"text": "Proceed", "image": "../images/Forward-button.png"},
+                      {"text": "Setting", "image": "../images/Settings-symbol.png"},
+                      {"text": "Power", "image": "../images/Power-button.png"},
+                      {"text": "Drive", "image": "../images/Start-button.png"},
+                      {"text": "Proceed", "image": "../images/Forward-button.png"},
+                      {"text": "Drive", "image": "../images/Start-button.png"},
+                      {"text": "Proceed", "image": "../images/Forward-button.png"},
+                      {"text": "Setting", "image": "../images/Settings-symbol.png"},
+                      {"text": "Power", "image": "../images/Power-button.png"},
+                      {"text": "Drive", "image": "../images/Start-button.png"},
+                      {"text": "Proceed", "image": "../images/Forward-button.png"},
+                      {"text": "Setting", "image": "../images/Settings-symbol.png"}]
         self.actionsObject['actions'] = self.actionsList
         self.gui['actionsList'] = self.actionsObject
         
