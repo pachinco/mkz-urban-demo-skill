@@ -78,7 +78,7 @@ Mycroft.ScrollableDelegate{
         anchors.fill: parent
 //         width: parent.width-Kirigami.Units.gridUnit*2
 //         height: parent.height
-        model: actionsModel.actions
+        model: actionsModel
         delegate: actionDelegate
         cellWidth: width
 //         cellHeight: height/2.6
