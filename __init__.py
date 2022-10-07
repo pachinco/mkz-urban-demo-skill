@@ -30,12 +30,15 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         self.enclosure.display_manager.remove_active()
         play_proc = play_wav(str(self.sound_file_path))
+        self.actionsObject = {}
         self.actionsList = []
+        self.actionsObject['actions'] = self.actionsList
+        self.gui['actionsList'] = self.actionsObject
         self.gui['background'] = str(self.mkzdemo_img)
         self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz', wait=True)
-        #play_proc.wait()
-        self.schedule_event(self._ask_what_to_do, 10)
+        play_proc.wait()
+        self.schedule_event(self._ask_what_to_do, 15)
 
     def _ask_what_to_do(self):
         self.speak('What would you like to do?', expect_response=True, wait=True)
@@ -69,6 +72,7 @@ class MkzUrbanDemo(MycroftSkill):
                       {"text": "Setting",
                        "image": "../images/Settings-symbol.png"}]
         self.actionsObject['actions'] = self.actionsList
+        self.gui['actionsList'] = self.actionsObject
         
 def create_skill():
     return MkzUrbanDemo()
