@@ -95,7 +95,7 @@ Mycroft.ScrollableDelegate{
                     duration: 1000
                     path: Path {
                         startX: 0; startY: 1000
-                        PathLine { relativeX: 0; relativeY: 0 }
+                        PathLine { x: 0; y: dispTrans1.ViewTransition.index * (Kirigami.Units.gridUnit * 6) }
                     }
                 }
             }
