@@ -32,7 +32,7 @@ class MkzUrbanDemo(MycroftSkill):
         play_proc = play_wav(str(self.sound_file_path))
         self.actionsList = []
         self.gui['background'] = str(self.mkzdemo_img)
-        self.gui.show_page(str(self.mkz_9grid_ui), override_idle=True)
+        self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz')
         #play_proc.wait()
         #self.actionsList = [{"text": "Activate",
