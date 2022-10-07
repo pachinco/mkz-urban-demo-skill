@@ -15,6 +15,11 @@ class MkzUrbanDemo(MycroftSkill):
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
+        self.ad['status'] = {"power": "off", "engine": "off", "autonomy": "off", "doors": "closed"}
+        self.ad['health'] = {"power": "ok", "compute": "ok", "vehicle": "ok", "sensors": "ok", "tires": "ok", "network": "ok"}
+        self.ad['autonomy'] = {"level": "off"}
+        self.ad['exceptions'] = {}
+        self.ad_status_announce = true
 
    #@resting_screen_handler('MKZ homescreen')
    #def handle_homescreen(self, message):
@@ -30,6 +35,14 @@ class MkzUrbanDemo(MycroftSkill):
         #self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_event(self._ask_what_to_do, 5)
+
+    @intent_file_handler('status.ad.mkz.intent')
+    def ad_status_mkz(self, message):
+        ad_type = message.data.get('type')
+        ad_item = message.data.get('item')
+        ad_value = message.data.get('value')
+        self.ad[type]={item:value}
+        self.speak(ad_type+" "+ad_item+" "+ad_value)
 
     def _ask_what_to_do(self):
         self.speak("What's next?", expect_response=True, wait=True)
