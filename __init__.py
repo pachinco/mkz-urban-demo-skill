@@ -10,8 +10,9 @@ class MkzUrbanDemo(MycroftSkill):
         self.mkzdemo_img = Path(__file__).parent.joinpath("images", "mkz-lincoln-day.png")
         self.settings["wallpaper_file"] = "custom-wallpaper.jpg"
         self.settings["wallpaper_url"] = str(self.mkzdemo_img)
-        self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
-        self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
+        #self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
+        #self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
+        self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
         self.actionsObject = {}
         self.actionsList = []
         self.actionsObject['actions'] = self.actionsList
@@ -29,7 +30,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         self.enclosure.display_manager.remove_active()
         play_proc = play_wav(str(self.sound_file_path))
-        #self.actionsList = []
+        self.actionsList = []
         self.gui['background'] = str(self.mkzdemo_img)
         self.gui.show_page(str(self.mkz_9grid_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz')
