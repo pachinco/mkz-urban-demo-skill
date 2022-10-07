@@ -75,7 +75,7 @@ Mycroft.ScrollableDelegate{
                     onClicked: button.clicked()
                 }
                 onClicked: {
-                    console.log(">>>>>>>>>>>>>>>>>>>>button:  onClicked")
+                    console.log("button clicked"+model.text)
                 }
             }
         }
