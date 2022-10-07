@@ -36,12 +36,12 @@ class MkzUrbanDemo(MycroftSkill):
         self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_event(self._ask_what_to_do, 5)
 
-    @intent_file_handler('status.ad.mkz.intent')
-    def ad_status_mkz(self, message):
-        ad_type = message.data.get('type')
-        ad_item = message.data.get('item')
-        ad_value = message.data.get('value')
-        self.ad[ad_type][ad_item]=ad_value
+    #@intent_file_handler('status.ad.mkz.intent')
+    #def ad_status_mkz(self, message):
+        #ad_type = message.data.get('type')
+        #ad_item = message.data.get('item')
+        #ad_value = message.data.get('value')
+        #self.ad[ad_type][ad_item]=ad_value
         #self.speak(ad_type+" "+ad_item+" "+ad_value)
 
     def _ask_what_to_do(self):
