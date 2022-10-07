@@ -16,14 +16,6 @@ Mycroft.ScrollableDelegate{
 //     bottomPadding: Kirigami.Units.gridUnit * 2.5
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
 
-    ScrollBar.horizontal: ScrollBar {
-        parent: actionFrame
-//         x: control.mirrored ? 0 : control.width - width
-//         y: control.topPadding
-//         height: control.availableHeight
-        active: false
-    }
-
     property var actionsModel: sessionData.actionsList
 
     Component {
