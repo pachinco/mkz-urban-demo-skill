@@ -49,7 +49,7 @@ Mycroft.ScrollableDelegate{
                     id: actionIcon
                     anchors.left: actionSpacer1.right
                     anchors.verticalCenter: parent.verticalCenter
-                    source: modelData.image
+                    source: model.image
                     width: Kirigami.Units.gridUnit * 4
                     fillMode: Image.PreserveAspectFit
                 }
@@ -63,7 +63,7 @@ Mycroft.ScrollableDelegate{
                     id: actionsLabel
                     anchors.left: actionSpacer2.right
                     anchors.verticalCenter: parent.verticalCenter
-                    text: modelData.text
+                    text: model.text
                     color: "#202020"
                     font.pixelSize: Kirigami.Units.gridUnit*3
                 }
