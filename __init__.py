@@ -33,11 +33,11 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui['background'] = str(self.mkzdemo_img)
         self.gui.show_page(str(self.mkz_9grid_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz')
-        play_proc.wait()
-        self.actionsList = [{"text": "Activate",
-                       "image": "../images/Power-button.png"},
-                      {"text": "Drive",
-                       "image": "../images/Start-button.png"},
+        #play_proc.wait()
+        #self.actionsList = [{"text": "Activate",
+                       #"image": "../images/Power-button.png"},
+                      #{"text": "Drive",
+                       #"image": "../images/Start-button.png"},
                       #{"text": "Proceed",
                        #"image": "../images/Forward-button.png"},
                       #{"text": "Setting",
@@ -60,9 +60,9 @@ class MkzUrbanDemo(MycroftSkill):
                        #"image": "../images/Start-button.png"},
                       #{"text": "Proceed",
                        #"image": "../images/Forward-button.png"},
-                      {"text": "Setting",
-                       "image": "../images/Settings-symbol.png"}]
-        self.actionsObject['actions'] = self.actionsList
+                      #{"text": "Setting",
+                       #"image": "../images/Settings-symbol.png"}]
+        #self.actionsObject['actions'] = self.actionsList
  
 def create_skill():
     return MkzUrbanDemo()
