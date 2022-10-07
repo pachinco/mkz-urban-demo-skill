@@ -35,7 +35,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz')
         play_proc.wait()
-        self.schedule_event(self._ask_what_to_do, 10)
+        self.schedule_event(self._ask_what_to_do, None, 10)
 
     def _ask_what_to_do(self):
         self.actionsList = [{"text": "Activate",
