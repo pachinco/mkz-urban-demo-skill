@@ -87,10 +87,23 @@ Mycroft.ScrollableDelegate{
             id: dispTrans1
             SequentialAnimation {
                 PauseAnimation {
-                    duration: dispTrans1.ViewTransition.index * 100
+                    duration: dispTrans1.ViewTransition.index * 1000
                 }
                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
+                PathAnimation {
+                    duration: 1000
+                    path: Path {
+                        startX: addTrans.ViewTransition.destination.x + 200
+                        startY: addTrans.ViewTransition.destination.y + 200
+                        PathCurve { relativeX: -100; relativeY: -50 }
+                        PathCurve { relativeX: 50; relativeY: -150 }
+                        PathCurve {
+                            x: addTrans.ViewTransition.destination.x
+                            y: addTrans.ViewTransition.destination.y
+                        }
+                    }
+                }
             }
         }
         populate: Transition {
@@ -101,19 +114,6 @@ Mycroft.ScrollableDelegate{
                 }
                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
-//                 PathAnimation {
-//                     duration: 1000
-//                     path: Path {
-//                         startX: addTrans.ViewTransition.destination.x + 200
-//                         startY: addTrans.ViewTransition.destination.y + 200
-//                         PathCurve { relativeX: -100; relativeY: -50 }
-//                         PathCurve { relativeX: 50; relativeY: -150 }
-//                         PathCurve {
-//                             x: addTrans.ViewTransition.destination.x
-//                             y: addTrans.ViewTransition.destination.y
-//                         }
-//                     }
-//                 }
             }
         }
 
