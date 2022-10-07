@@ -31,6 +31,7 @@ Mycroft.ScrollableDelegate{
                 height: parent.height-Kirigami.Units.gridUnit
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
+                opacity: 0
                 layer.enabled: true
                 layer.effect: DropShadow {
                     transparentBorder: true
