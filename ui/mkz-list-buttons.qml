@@ -87,10 +87,10 @@ Mycroft.ScrollableDelegate{
             id: dispTrans
             SequentialAnimation {
                 PauseAnimation {
-                    duration: dispTrans.ViewTransition.index * 1000
+                    duration: dispTrans.ViewTransition.index * 100
                 }
-                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
-                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
+                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
+                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
             }
         }
 
