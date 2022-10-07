@@ -34,6 +34,10 @@ class MkzUrbanDemo(MycroftSkill):
         #self.actionsObject = {}
         self.actionsList = []
         #self.actionsObject['actions'] = self.actionsList
+        self.actionsList.append({"text": "Activate", "image": "../images/Power-button.png"})
+        self.actionsList.append({"text": "Drive", "image": "../images/Start-button.png"})
+        #self.actionsList.append({"text": "Proceed", "image": "../images/Forward-button.png"})
+        self.actionsList.append({"text": "Setting", "image": "../images/Settings-symbol.png"})
         self.gui['actionsList'] = self.actionsList
         self.gui['background'] = str(self.mkzdemo_img)
         self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
