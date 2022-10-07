@@ -12,6 +12,10 @@ class MkzUrbanDemo(MycroftSkill):
         self.settings["wallpaper_url"] = str(self.mkzdemo_img)
         self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
         self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
+        self.actionsObject = {}
+        self.actionsList = []
+        self.actionsObject['actions'] = self.actionsList
+        self.gui['actionsList'] = self.actionsObject
 
    #@resting_screen_handler('MKZ homescreen')
    #def handle_homescreen(self, message):
@@ -25,9 +29,12 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         self.enclosure.display_manager.remove_active()
         play_proc = play_wav(str(self.sound_file_path))
-        #self.gui["actionsList"] = [{{"name":"Setting","phone":"(444) 444-4444"},{"name":"Drive","phone":"(555) 555-5555"}}]
-        actionsObject = {}
-        actionsList = [{"text": "Activate",
+        #self.actionsList = []
+        self.gui['background'] = str(self.mkzdemo_img)
+        self.gui.show_page(str(self.mkz_9grid_ui), override_idle=True)
+        self.speak_dialog('demo.urban.mkz')
+        play_proc.wait()
+        self.actionsList = [{"text": "Activate",
                        "image": "../images/Power-button.png"},
                       {"text": "Drive",
                        "image": "../images/Start-button.png"},
@@ -55,11 +62,7 @@ class MkzUrbanDemo(MycroftSkill):
                        #"image": "../images/Forward-button.png"},
                       {"text": "Setting",
                        "image": "../images/Settings-symbol.png"}]
-        actionsObject['actions'] = actionsList
-        self.gui['actionsList'] = actionsObject
-        self.gui['background'] = str(self.mkzdemo_img)
-        self.gui.show_page(str(self.mkz_9grid_ui), override_idle=True)
-        self.speak_dialog('demo.urban.mkz')
+        self.actionsObject['actions'] = self.actionsList
  
 def create_skill():
     return MkzUrbanDemo()
