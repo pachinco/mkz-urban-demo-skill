@@ -15,10 +15,10 @@ class MkzUrbanDemo(MycroftSkill):
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
-        self.ad['system'] = {"power": "off", "engine": "off", "autonomy": "off", "doors": "closed"}
-        self.ad['health'] = {"power": "ok", "compute": "ok", "vehicle": "ok", "sensors": "ok", "tires": "ok", "network": "ok"}
-        self.ad['autonomy'] = {"level": "off"}
-        #self.ad['exceptions'] = {}
+        self.ad={}
+        self.ad["system"] = {"power": "off", "engine": "off", "autonomy": "off", "doors": "closed"}
+        self.ad["health"] = {"power": "ok", "compute": "ok", "vehicle": "ok", "sensors": "ok", "tires": "ok", "network": "ok"}
+        self.ad["exceptions"] = {}
         self.ad_status_announce = true
 
    #@resting_screen_handler('MKZ homescreen')
