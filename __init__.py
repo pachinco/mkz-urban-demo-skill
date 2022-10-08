@@ -19,7 +19,6 @@ class MkzUrbanDemo(MycroftSkill):
         self.ad["system"] = {"power": "off", "engine": "off", "autonomy": "off", "doors": "closed"}
         self.ad["health"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
         self.ad["exceptions"] = {}
-        self.ad["failure"] = {}
         self.ad_status_announce = True
 
    #@resting_screen_handler('MKZ homescreen')
@@ -59,19 +58,19 @@ class MkzUrbanDemo(MycroftSkill):
         ad_type = message.data.get('type')
         self.log.info("query status: type="+ad_type)
         if (ad_type not in self.ad.keys()):
-            self.speak("there is no such status to report.")
+            self.speak("there is no such status to report.", wait=True)
         elif (len(self.ad[ad_type])==0):
             if (ad_type[-1]=="s"):
-                self.speak("there are no "+ad_type+" to report.")
+                self.speak("there are no "+ad_type+" to report.", wait=True)
             else:
-                self.speak("there is no "+ad_type+" status to report.")
+                self.speak("there is no "+ad_type+" to report.", wait=True)
         else:
-            self.speak("here is the "+ad_type+" status report.")
+            self.speak("here is the "+ad_type+" status report.", wait=True)
             for ad_item, ad_value in self.ad[ad_type].items():
                 if (ad_item[-1]=="s"):
-                    self.speak("the "+ad_item+" are "+ad_value+".")
+                    self.speak("the "+ad_item+" are "+ad_value+".", wait=True)
                 else:
-                    self.speak("the "+ad_item+" is "+ad_value+".")
+                    self.speak("the "+ad_item+" is "+ad_value+".", wait=True)
 
     def _ask_what_to_do(self):
         self.speak("What's next?", expect_response=True, wait=True)
