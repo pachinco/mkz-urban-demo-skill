@@ -15,11 +15,11 @@ class MkzUrbanDemo(MycroftSkill):
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
-        #self.ad['status'] = {"power": "off", "engine": "off", "autonomy": "off", "doors": "closed"}
-        #self.ad['health'] = {"power": "ok", "compute": "ok", "vehicle": "ok", "sensors": "ok", "tires": "ok", "network": "ok"}
-        #self.ad['autonomy'] = {"level": "off"}
+        self.ad['system'] = {"power": "off", "engine": "off", "autonomy": "off", "doors": "closed"}
+        self.ad['health'] = {"power": "ok", "compute": "ok", "vehicle": "ok", "sensors": "ok", "tires": "ok", "network": "ok"}
+        self.ad['autonomy'] = {"level": "off"}
         #self.ad['exceptions'] = {}
-        #self.ad_status_announce = true
+        self.ad_status_announce = true
 
    #@resting_screen_handler('MKZ homescreen')
    #def handle_homescreen(self, message):
@@ -45,7 +45,7 @@ class MkzUrbanDemo(MycroftSkill):
         ad_type = s[0:i1]
         ad_item = s[i1+1:i1+i2+1]
         ad_value = s[i1+i2+2:]
-        self.ad[ad_type][ad_item]=ad_value
+        #self.ad[ad_type][ad_item]=ad_value
         self.log.info("ad status: type="+ad_type+" item="+ad_item+" value="+ad_value)
         self.speak("type. "+ad_type, wait=True)
         self.speak("item. "+ad_item, wait=True)
