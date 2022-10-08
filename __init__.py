@@ -42,7 +42,7 @@ class MkzUrbanDemo(MycroftSkill):
         ad_item = message.data.get('item')
         ad_value = message.data.get('value')
         #self.ad[ad_type][ad_item]=ad_value
-        #print("status: type="+ad_type+" item="+ad_item+" value="+ad_value)
+        self.log.info("ad status: type="+ad_type+" item="+ad_item+" value="+ad_value)
         self.speak("type. "+ad_type, wait=True)
         self.speak("item. "+ad_item, wait=True)
         self.speak("value. "+ad_value, wait=True)
