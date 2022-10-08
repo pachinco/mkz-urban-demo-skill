@@ -64,7 +64,7 @@ class MkzUrbanDemo(MycroftSkill):
         #ad_value = s[i1+i2+2:]
         self.log.info("query status: type="+ad_type)
         self.speak("here is the "+ad_type+" status report.")
-        for ad_item, ad_value in self.ad[ad_type]:
+        for ad_item, ad_value in self.ad[ad_type].items():
             self.speak("the "+ad_item+" is "+ad_value)
 
     def _ask_what_to_do(self):
