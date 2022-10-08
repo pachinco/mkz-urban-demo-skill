@@ -39,7 +39,6 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('status.ad.mkz.intent')
     def handle_ad_status_mkz(self, message):
         s=message.data["utterance"][10:]
-        #self.log.info("ad status: data="+s)
         i1=s.index(" ")
         i2=s[i1+1:].index(" ")
         ad_type = s[0:i1]
@@ -56,16 +55,11 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('status.query.mkz.intent')
     def handle_query_status_mkz(self, message):
         s=message.data["utterance"][10:]
-        #self.log.info("ad status: data="+s)
-        #i1=s.index(" ")
-        #i2=s[i1+1:].index(" ")
         ad_type = message.data.get('type')
-        #ad_item = s[i1+1:i1+i2+1]
-        #ad_value = s[i1+i2+2:]
         self.log.info("query status: type="+ad_type)
         self.speak("here is the "+ad_type+" status report.")
         for ad_item, ad_value in self.ad[ad_type].items():
-            self.speak("the "+ad_item+" is "+ad_value)
+            self.speak("the "+ad_item+" is "+ad_value+".")
 
     def _ask_what_to_do(self):
         self.speak("What's next?", expect_response=True, wait=True)
