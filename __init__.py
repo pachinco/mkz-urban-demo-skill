@@ -46,7 +46,7 @@ class MkzUrbanDemo(MycroftSkill):
         ad_item = s[i1+1:i1+i2+1]
         ad_value = s[i1+i2+2:]
         self.log.info("ad status: type="+ad_type+" item="+ad_item+" value="+ad_value)
-        if (ad_type not in ad.keys()):
+        if (ad_type not in self.ad.keys()):
             self.ad[ad_type]={}
         else:
             self.ad[ad_type][ad_item]=ad_value
