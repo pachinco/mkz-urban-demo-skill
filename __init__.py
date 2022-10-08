@@ -19,7 +19,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.ad["system"] = {"power": "off", "engine": "off", "autonomy": "off", "doors": "closed"}
         self.ad["health"] = {"power": "ok", "compute": "ok", "vehicle": "ok", "sensors": "ok", "tires": "ok", "network": "ok"}
         self.ad["exceptions"] = {}
-        self.ad_status_announce = true
+        self.ad_status_announce = True
 
    #@resting_screen_handler('MKZ homescreen')
    #def handle_homescreen(self, message):
