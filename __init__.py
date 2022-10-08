@@ -42,8 +42,10 @@ class MkzUrbanDemo(MycroftSkill):
         ad_item = message.data.get('item')
         ad_value = message.data.get('value')
         #self.ad[ad_type][ad_item]=ad_value
-        print("status: type="+ad_type+" item="+ad_item+" value="+ad_value)
-        self.speak(ad_type+" "+ad_item+" "+ad_value)
+        #print("status: type="+ad_type+" item="+ad_item+" value="+ad_value)
+        self.speak("type="+ad_type)
+        self.speak("item="+ad_item)
+        self.speak("value="+ad_value)
 
     def _ask_what_to_do(self):
         self.speak("What's next?", expect_response=True, wait=True)
