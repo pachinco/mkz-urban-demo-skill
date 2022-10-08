@@ -45,11 +45,10 @@ class MkzUrbanDemo(MycroftSkill):
         ad_type = s[0:i1]
         ad_item = s[i1+1:i1+i2+1]
         ad_value = s[i1+i2+2:]
-        #self.ad[ad_type][ad_item]=ad_value
         self.log.info("ad status: type="+ad_type+" item="+ad_item+" value="+ad_value)
-        self.speak("status "+ad_type, wait=True)
-        self.speak("the "+ad_item, wait=True)
-        self.speak("is "+ad_value, wait=True)
+        self.ad[ad_type][ad_item]=ad_value
+        if (self.ad_status_announce)
+            self.speak(ad_type+" status."+" the "+ad_item+" is "+ad_value, wait=True)
 
     def _ask_what_to_do(self):
         self.speak("What's next?", expect_response=True, wait=True)
