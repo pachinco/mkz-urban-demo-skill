@@ -38,12 +38,15 @@ class MkzUrbanDemo(MycroftSkill):
 
     @intent_file_handler('status.ad.mkz.intent')
     def handle_ad_status_mkz(self, message):
-        ad_type = message.data.get('type')
-        ad_item = message.data.get('item')
-        ad_value = message.data.get('value')
-        #self.ad[ad_type][ad_item]=ad_value
+        s=message.data["utterance"][10:]
+        self.log.info("ad status: data="+s)
+        i1=s.index(" ")
+        i2=s[i1+1:].index(" ")
+        ad_type = s[0:i1]
+        ad_item = s[i1+1:i1+i2+1]
+        ad_value = s[i1+i2+2:]
+        self.ad[ad_type][ad_item]=ad_value
         self.log.info("ad status: type="+ad_type+" item="+ad_item+" value="+ad_value)
-        self.log.info("ad status: data="+message.data["utterance"])
         self.speak("type. "+ad_type, wait=True)
         self.speak("item. "+ad_item, wait=True)
         self.speak("value. "+ad_value, wait=True)
