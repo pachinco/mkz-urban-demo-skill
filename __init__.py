@@ -59,7 +59,7 @@ class MkzUrbanDemo(MycroftSkill):
         ad_type = message.data.get('type')
         self.log.info("query status: type="+ad_type)
         if (ad_type not in self.ad.keys()):
-            self.speak("there are no such status to report.")
+            self.speak("there is no such status to report.")
         elif (len(self.ad[ad_type])==0):
             if (ad_type[-1]=="s"):
                 self.speak("there are no "+ad_type+" to report.")
