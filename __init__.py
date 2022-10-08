@@ -54,6 +54,8 @@ class MkzUrbanDemo(MycroftSkill):
 
     @intent_file_handler('status.query.mkz.intent')
     def handle_query_status_mkz(self, message):
+        self.gui.clear()
+        self.enclosure.display_manager.remove_active()
         s=message.data["utterance"][10:]
         ad_type = message.data.get('type')
         self.log.info("query status: type="+ad_type)
