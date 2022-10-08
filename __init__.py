@@ -60,9 +60,9 @@ class MkzUrbanDemo(MycroftSkill):
         self.log.info("query status: type="+ad_type)
         if (len(self.ad[ad_type])==0):
             if (ad_type[-1]=="s"):
-                self.speak("currently there are no "+ad_type+" to report.")
+                self.speak("there are no "+ad_type+" to report.")
             else:
-                self.speak("currently there is no "+ad_type+" status to report.")
+                self.speak("there is no "+ad_type+" status to report.")
         else:
             self.speak("here is the "+ad_type+" status report.")
             for ad_item, ad_value in self.ad[ad_type].items():
