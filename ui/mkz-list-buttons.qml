@@ -10,6 +10,10 @@ import Mycroft 1.0 as Mycroft
 Mycroft.Delegate {
     id: actionFrame
     anchors.fill: parent
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
 //     leftPadding: Kirigami.Units.gridUnit * 2.5
 //     rightPadding: Kirigami.Units.gridUnit * 4
 //     topPadding: Kirigami.Units.gridUnit * 2.5
