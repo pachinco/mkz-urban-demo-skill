@@ -23,16 +23,16 @@ Mycroft.Delegate {
 
     property var actionsModel: sessionData.actionsList
 
-//     Image {
-//         x: 0
-//         y: 0
-//         width: parent.width
-//         height: parent.height
-//         id: background
-//         anchors.fill: parent
-//         source: Qt.resolvedUrl(sessionData.background)
-//         fillMode: Image.PreserveAspectFit
-//     }
+    Image {
+        id: background
+        x: 0
+        y: 0
+        width: parent.width
+        height: parent.height
+        anchors.fill: parent
+        source: Qt.resolvedUrl(sessionData.background)
+        fillMode: Image.PreserveAspectFit
+    }
 
     Component {
         id: actionDelegate
