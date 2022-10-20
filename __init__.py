@@ -36,7 +36,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.enclosure.display_manager.remove_active()
         play_proc = play_wav(str(self.sound_file_path))
         self.gui['actionsList'] = []
-        self.gui.show_image("./images/mkz_background_center_day.png"), override_idle=True, override_animations=True)
+        self.gui.show_image("./images/mkz_background_center_day.png", override_idle=True, override_animations=True)
         #self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_event(self._ask_what_to_do, 5)
