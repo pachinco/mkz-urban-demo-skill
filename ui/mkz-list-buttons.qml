@@ -15,6 +15,7 @@ Mycroft.Delegate {
     topPadding: Kirigami.Units.gridUnit * 2.5
 //     bottomPadding: Kirigami.Units.gridUnit * 2.5
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+    skillBackgroundColorOverlay: "#800080"
 //     x: 0
 //     y: 0
 //     width: parent.width
