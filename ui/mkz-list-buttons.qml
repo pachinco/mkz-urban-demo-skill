@@ -12,7 +12,6 @@ Item {
         anchors.fill: parent
         source: Qt.resolvedUrl(sessionData.background)
         fillMode: Image.PreserveAspectFit
-        layer: -1
     }
 
     Mycroft.ScrollableDelegate {
