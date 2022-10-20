@@ -6,7 +6,8 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
-Kirigami.ScrollableDelegate {
+// Mycroft.ScrollableDelegate {
+ScrollView {
     id: actionFrame
     anchors.fill: parent
     leftPadding: Kirigami.Units.gridUnit * 2.5
