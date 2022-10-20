@@ -32,6 +32,7 @@ Mycroft.Delegate {
         width: actionFrame.width
         height: actionFrame.height
         anchors.fill: parent
+        opacity: 0.5
         source: Qt.resolvedUrl("../images/MKZ-background-bottom-day.png")
     }
 
