@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.4
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
@@ -46,7 +46,7 @@ Mycroft.ScrollableDelegate{
                     id: actionIcon
                     anchors.left: actionSpacer1.right
                     anchors.verticalCenter: parent.verticalCenter
-                    source: modelData.image
+                    source: model.image
                     width: Kirigami.Units.gridUnit * 3
                     fillMode: Image.PreserveAspectFit
                 }
@@ -60,7 +60,7 @@ Mycroft.ScrollableDelegate{
                     id: actionsLabel
                     anchors.left: actionSpacer2.right
                     anchors.verticalCenter: parent.verticalCenter
-                    text: modelData.text
+                    text: model.text
                     color: "#202020"
                     font.pixelSize: Kirigami.Units.gridUnit
                 }
