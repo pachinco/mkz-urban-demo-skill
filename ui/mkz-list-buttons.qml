@@ -10,6 +10,10 @@ Mycroft.Delegate {
     Image {
         id: background
         anchors.fill: parent
+        x: 0
+        y: 0
+        width: parent.width
+        height: parent.height
         source: Qt.resolvedUrl(sessionData.background)
         fillMode: Image.PreserveAspectFit
     }
@@ -22,6 +26,10 @@ Mycroft.Delegate {
         topPadding: Kirigami.Units.gridUnit * 2.5
     //     bottomPadding: Kirigami.Units.gridUnit * 2.5
         skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+        x: 0
+        y: 0
+        width: parent.width
+        height: parent.height
 
         property var actionsModel: sessionData.actionsList
         
