@@ -26,7 +26,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         #self.enclosure.display_manager.remove_active()
         self.log.info('Activating MKZ homescreen')
-        self.gui.show_image(str(self.mkzdemo_img))
+        self.gui.show_image(str(self.mkzdemo_img), fill=Stretch, override_idle=True)
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
@@ -84,7 +84,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui['actionsList'] = [{"text": "Activate", "image": "../images/Power-button.png"},
                                     {"text": "Drive", "image": "../images/Start-button.png"},
                                     {"text": "Setting", "image": "../images/Settings-symbol.png"}]
-        self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
+        self.gui.show_page(str(self.mkz_list_ui))
         
 def create_skill():
     return MkzUrbanDemo()
