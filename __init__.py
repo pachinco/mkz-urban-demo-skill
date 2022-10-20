@@ -7,7 +7,7 @@ class MkzUrbanDemo(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
         self.sound_file_path = Path(__file__).parent.joinpath("sounds", "mkz-welcome-chime2.wav")
-        self.mkzdemo_img = Path(__file__).parent.joinpath("images", "mkz-lincoln-day.png")
+        self.mkzdemo_img = Path(__file__).parent.joinpath("images", "MKZ-background-center(day).png")
         self.settings["wallpaper_file"] = "custom-wallpaper.jpg"
         self.settings["wallpaper_url"] = str(self.mkzdemo_img)
         #self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
@@ -16,9 +16,9 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
         self.ad={}
-        self.ad["system"] = {"power": "off", "engine": "off", "autonomy": "off", "doors": "closed"}
-        self.ad["health"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
-        self.ad["exceptions"] = {}
+        self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}
+        self.ad["operation"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
+        #self.ad["exceptions"] = {}
         self.ad_status_announce = True
 
    #@resting_screen_handler('MKZ homescreen')
