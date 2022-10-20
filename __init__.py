@@ -7,7 +7,7 @@ class MkzUrbanDemo(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
         self.sound_file_path = Path(__file__).parent.joinpath("sounds", "mkz-welcome-chime2.wav")
-        self.mkzdemo_img = Path(__file__).parent.joinpath("images", "MKZ-background-center\(day\).png")
+        self.mkzdemo_img = Path(__file__).parent.joinpath("images", "mkz-background-center-day.png")
         self.settings["wallpaper_file"] = "custom-wallpaper.jpg"
         self.settings["wallpaper_url"] = str(self.mkzdemo_img)
         #self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
@@ -76,7 +76,7 @@ class MkzUrbanDemo(MycroftSkill):
                     self.speak("the "+ad_item+" is "+ad_value+".", wait=True)
 
     def _ask_what_to_do(self):
-        self.speak("What's next?", expect_response=True, wait=True)
+        #self.speak("What's next?", expect_response=True, wait=True)
         self.gui['actionsList'] = [{"text": "Activate", "image": "../images/Power-button.png"},
                                     {"text": "Drive", "image": "../images/Start-button.png"},
                                     {"text": "Setting", "image": "../images/Settings-symbol.png"}]
