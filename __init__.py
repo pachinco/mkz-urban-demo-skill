@@ -23,8 +23,8 @@ class MkzUrbanDemo(MycroftSkill):
 
     @resting_screen_handler('MKZ homescreen')
     def handle_homescreen(self, message):
-        self.gui.clear()
-        self.enclosure.display_manager.remove_active()
+        #self.gui.clear()
+        #self.enclosure.display_manager.remove_active()
         self.gui.show_image(str(self.mkzdemo_img))
 
     @intent_file_handler('demo.urban.mkz.intent')
