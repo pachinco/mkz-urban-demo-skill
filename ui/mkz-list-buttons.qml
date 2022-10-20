@@ -40,6 +40,7 @@ Mycroft.Delegate {
         Item {
             width: view.cellWidth/2
             height: view.cellHeight
+            z: 1
             anchors.horizontalCenter: parent.horizontalCenter
             Rectangle {
                 id: button
