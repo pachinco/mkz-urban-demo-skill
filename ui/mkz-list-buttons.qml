@@ -9,17 +9,18 @@ import Mycroft 1.0 as Mycroft
 Mycroft.Delegate {
 
     property var actionsModel: sessionData.actionsList
+    skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
 
-    Image {
-        id: background
-        anchors.fill: parent
-        x: 0
-        y: 0
-        width: parent.width
-        height: parent.height
-        source: Qt.resolvedUrl(sessionData.background)
-        fillMode: Image.PreserveAspectFit
-    }
+//     Image {
+//         id: background
+//         anchors.fill: parent
+//         x: 0
+//         y: 0
+//         width: parent.width
+//         height: parent.height
+//         source: Qt.resolvedUrl(sessionData.background)
+//         fillMode: Image.PreserveAspectFit
+//     }
 
     Mycroft.ScrollableDelegate {
         id: actionFrame
@@ -28,7 +29,7 @@ Mycroft.Delegate {
         rightPadding: Kirigami.Units.gridUnit * 4
         topPadding: Kirigami.Units.gridUnit * 2.5
     //     bottomPadding: Kirigami.Units.gridUnit * 2.5
-        skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+//         skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
         x: 0
         y: 0
         width: parent.width
