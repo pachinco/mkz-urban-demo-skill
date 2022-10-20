@@ -24,7 +24,7 @@ Mycroft.Delegate {
 
     property var actionsModel: sessionData.actionsList
 
-    Rectangle {
+    Image {
         id: background
         x: 0
         y: 0
