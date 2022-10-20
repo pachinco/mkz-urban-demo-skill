@@ -18,6 +18,12 @@ Mycroft.ScrollableDelegate {
 
     property var actionsModel: sessionData.actionsList
 
+    Image {
+        id: background
+        anchors.fill: parent
+        source: Qt.resolvedUrl(sessionData.background)
+    }
+    
     Component {
         id: actionDelegate
         Item {
@@ -76,6 +82,7 @@ Mycroft.ScrollableDelegate {
                 }
                 onClicked: {
                     console.log("button clicked "+model.text)
+                    console.log("background: "+Qt.resolvedUrl(sessionData.background))
                 }
             }
         }
