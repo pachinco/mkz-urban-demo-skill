@@ -6,7 +6,7 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
-Mycroft.ScrollableDelegate {
+Kirigami.ScrollableDelegate {
     id: actionFrame
     anchors.fill: parent
     leftPadding: Kirigami.Units.gridUnit * 2.5
@@ -14,15 +14,8 @@ Mycroft.ScrollableDelegate {
     topPadding: Kirigami.Units.gridUnit * 2.5
 //     bottomPadding: Kirigami.Units.gridUnit * 2.5
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
-//     console.log("background: "+sessionData.background)
 
     property var actionsModel: sessionData.actionsList
-
-    Image {
-        id: background
-        anchors.fill: parent
-        source: Qt.resolvedUrl(sessionData.background)
-    }
     
     Component {
         id: actionDelegate
@@ -82,7 +75,6 @@ Mycroft.ScrollableDelegate {
                 }
                 onClicked: {
                     console.log("button clicked "+model.text)
-                    console.log("background: "+sessionData.background)
                 }
             }
         }
