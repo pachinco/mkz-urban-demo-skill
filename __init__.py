@@ -15,6 +15,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
+        self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
         self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}
         self.ad["operation"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
