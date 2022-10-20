@@ -1,9 +1,9 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.4
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
-import org.kde.kirigami 2.9 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 import Mycroft 1.0 as Mycroft
 
 // Mycroft.ScrollableDelegate {
@@ -14,8 +14,9 @@ Mycroft.Delegate {
     rightPadding: Kirigami.Units.gridUnit * 4
     topPadding: Kirigami.Units.gridUnit * 2.5
 //     bottomPadding: Kirigami.Units.gridUnit * 2.5
-    skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
-    skillBackgroundColorOverlay: "#80800080"
+//     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+    skillBackgroundSource: Qt.resolvedUrl("images/mkz_background_center_day.png")
+    skillBackgroundColorOverlay: "#40800080"
 //     x: 0
 //     y: 0
 //     width: parent.width
