@@ -7,15 +7,16 @@ class MkzUrbanDemo(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
         self.sound_file_path = Path(__file__).parent.joinpath("sounds", "mkz-welcome-chime2.wav")
-        self.mkzdemo_img = Path(__file__).parent.joinpath("images", "mkz_background_center_day.png")
+        #self.mkzdemo_img = Path(__file__).parent.joinpath("images", "mkz_background_center_day.png")
+        self.mkzdemo_img = "../images/mkz_background_center_day.png")
         #self.settings["wallpaper_file"] = "custom-wallpaper.jpg"
         #self.settings["wallpaper_url"] = str(self.mkzdemo_img)
         #self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
         #self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
         self.gui['actionsList'] = []
-        self.gui['background'] = str(self.mkzdemo_img)
-        self.log.info("backgroundimage: "+str(self.mkzdemo_img))
+        self.gui['background'] = self.mkzdemo_img
+        #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
         self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}
         self.ad["operation"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
@@ -27,7 +28,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         #self.enclosure.display_manager.remove_active()
         self.log.info('Activating MKZ homescreen')
-        self.gui.show_image(str(self.mkzdemo_img), fill='Stretch', override_idle=True, override_animations=True)
+        self.gui.show_image(str(self.mkzdemo_img), override_idle=True, override_animations=True)
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
@@ -35,7 +36,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.enclosure.display_manager.remove_active()
         play_proc = play_wav(str(self.sound_file_path))
         self.gui['actionsList'] = []
-        self.gui.show_image(str(self.mkzdemo_img), fill='Stretch', override_idle=True, override_animations=True)
+        self.gui.show_image(str(self.mkzdemo_img), override_idle=True, override_animations=True)
         #self.gui.show_page(str(self.mkz_list_ui), override_idle=True)
         self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_event(self._ask_what_to_do, 5)

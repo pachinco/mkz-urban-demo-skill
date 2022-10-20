@@ -14,9 +14,9 @@ Mycroft.Delegate {
     rightPadding: Kirigami.Units.gridUnit * 4
     topPadding: Kirigami.Units.gridUnit * 2.5
 //     bottomPadding: Kirigami.Units.gridUnit * 2.5
-//     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
-    skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_center_day.png")
-    skillBackgroundColorOverlay: "#40800080"
+    skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+//     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_center_day.png")
+//     skillBackgroundColorOverlay: "#40800080"
 //     x: 0
 //     y: 0
 //     width: parent.width
@@ -24,17 +24,15 @@ Mycroft.Delegate {
 
     property var actionsModel: sessionData.actionsList
 
-    Image {
-        id: background
-        x: 0
-        y: 0
-        width: parent.width
-        height: parent.height
-        anchors.fill: parent
-//         color: "#008000" 
-        source: Qt.resolvedUrl("../images/mkz_background_center_day.png")
-//         fillMode: Image.PreserveAspectFit
-    }
+//     Image {
+//         id: background
+//         x: 0
+//         y: 0
+//         width: parent.width
+//         height: parent.height
+//         anchors.fill: parent
+//         source: Qt.resolvedUrl("../images/mkz_background_center_day.png")
+//     }
 
     Component {
         id: actionDelegate
