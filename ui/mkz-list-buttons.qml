@@ -7,6 +7,9 @@ import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
 Mycroft.Delegate {
+
+    property var actionsModel: sessionData.actionsList
+
     Image {
         id: background
         anchors.fill: parent
@@ -30,8 +33,6 @@ Mycroft.Delegate {
         y: 0
         width: parent.width
         height: parent.height
-
-        property var actionsModel: sessionData.actionsList
         
         Component {
             id: actionDelegate
