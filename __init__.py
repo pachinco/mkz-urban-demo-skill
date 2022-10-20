@@ -21,11 +21,11 @@ class MkzUrbanDemo(MycroftSkill):
         #self.ad["exceptions"] = {}
         self.ad_status_announce = True
 
-   #@resting_screen_handler('MKZ homescreen')
-   #def handle_homescreen(self, message):
-        #self.gui.clear()
-        #self.enclosure.display_manager.remove_active()
-        #self.gui.show_image(str(self.mkzdemo_img))
+   @resting_screen_handler('MKZ homescreen')
+   def handle_homescreen(self, message):
+        self.gui.clear()
+        self.enclosure.display_manager.remove_active()
+        self.gui.show_image(str(self.mkzdemo_img))
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
