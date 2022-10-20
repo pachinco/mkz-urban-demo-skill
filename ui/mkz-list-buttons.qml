@@ -26,11 +26,11 @@ Mycroft.Delegate {
 
     Image {
         id: background
-        x: 0
-        y: 0
+//         x: 0
+//         y: 0
         z: 10
-        width: actionFrame.width
-        height: actionFrame.height
+//         width: actionFrame.width
+//         height: actionFrame.height
         anchors.fill: parent
         opacity: 0.8
         source: Qt.resolvedUrl("../images/MKZ-background-frame-day.png")
