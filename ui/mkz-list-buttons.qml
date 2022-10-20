@@ -32,7 +32,7 @@ Mycroft.Delegate {
         width: parent.width
         height: parent.height
         anchors.fill: parent
-        source: Qt.resolvedUrl("../images/mkz_center_bottom_day.png")
+        source: Qt.resolvedUrl("../images/MKZ-background-bottom-day.png")
     }
 
     Component {
