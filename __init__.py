@@ -78,8 +78,8 @@ class MkzUrbanDemo(MycroftSkill):
                     self.speak("the "+ad_item+" is "+ad_value+".", wait=True)
 
     def _ask_what_to_do(self):
-        self.gui.clear()
-        self.enclosure.display_manager.remove_active()
+        #self.gui.clear()
+        #self.enclosure.display_manager.remove_active()
         #self.speak("What's next?", expect_response=True, wait=True)
         self.gui['actionsList'] = [{"text": "Activate", "image": "../images/Power-button.png"},
                                     {"text": "Drive", "image": "../images/Start-button.png"},
