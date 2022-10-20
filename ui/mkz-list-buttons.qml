@@ -10,9 +10,9 @@ import Mycroft 1.0 as Mycroft
 Mycroft.Delegate {
     id: actionFrame
     anchors.fill: parent
-    leftPadding: Kirigami.Units.gridUnit * 2.5
-    rightPadding: Kirigami.Units.gridUnit * 4
-    topPadding: Kirigami.Units.gridUnit * 2.5
+//     leftPadding: Kirigami.Units.gridUnit * 2.5
+//     rightPadding: Kirigami.Units.gridUnit * 4
+//     topPadding: Kirigami.Units.gridUnit * 2.5
 //     bottomPadding: Kirigami.Units.gridUnit * 2.5
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
 //     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_center_day.png")
@@ -29,8 +29,8 @@ Mycroft.Delegate {
         x: 0
         y: 0
         z: 10
-        width: parent.width
-        height: parent.height
+        width: actionFrame.width
+        height: actionFrame.height
         anchors.fill: parent
         source: Qt.resolvedUrl("../images/MKZ-background-bottom-day.png")
     }
