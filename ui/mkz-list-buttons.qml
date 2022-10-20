@@ -15,7 +15,7 @@ Mycroft.Delegate {
     topPadding: Kirigami.Units.gridUnit * 2.5
 //     bottomPadding: Kirigami.Units.gridUnit * 2.5
 //     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
-    skillBackgroundSource: Qt.resolvedUrl("images/mkz_background_center_day.png")
+    skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_center_day.png")
     skillBackgroundColorOverlay: "#40800080"
 //     x: 0
 //     y: 0
@@ -31,8 +31,8 @@ Mycroft.Delegate {
         width: parent.width
         height: parent.height
         anchors.fill: parent
-        color: "#008000" 
-//         source: Qt.resolvedUrl(sessionData.background)
+//         color: "#008000" 
+        source: Qt.resolvedUrl("../images/mkz_background_center_day.png")
 //         fillMode: Image.PreserveAspectFit
     }
 
