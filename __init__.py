@@ -12,7 +12,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.settings["wallpaper_url"] = str(self.mkzdemo_img)
         #self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
         #self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
-        self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
+        self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
         self.ad={}
@@ -78,7 +78,7 @@ class MkzUrbanDemo(MycroftSkill):
                     self.speak("the "+ad_item+" is "+ad_value+".", wait=True)
 
     def _ask_what_to_do(self):
-        #self.gui.clear()
+        self.gui.clear()
         #self.enclosure.display_manager.remove_active()
         #self.speak("What's next?", expect_response=True, wait=True)
         self.gui['actionsList'] = [{"text": "Activate", "image": "../images/Power-button.png"},

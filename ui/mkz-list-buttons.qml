@@ -6,6 +6,14 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
+Image {
+    id: background
+    anchors.fill: parent
+    source: Qt.resolvedUrl(sessionData.background)
+    fillMode: Image.PreserveAspectFit
+    layer: -1
+}
+
 Mycroft.ScrollableDelegate {
     id: actionFrame
     anchors.fill: parent
