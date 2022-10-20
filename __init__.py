@@ -7,7 +7,7 @@ class MkzUrbanDemo(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
         self.sound_file_path = Path(__file__).parent.joinpath("sounds", "mkz-welcome-chime2.wav")
-        self.mkzdemo_img = Path(__file__).parent.joinpath("images", "MKZ-background-center(day).png")
+        self.mkzdemo_img = Path(__file__).parent.joinpath("images", "MKZ-background-center\(day\).png")
         self.settings["wallpaper_file"] = "custom-wallpaper.jpg"
         self.settings["wallpaper_url"] = str(self.mkzdemo_img)
         #self.mkz_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
