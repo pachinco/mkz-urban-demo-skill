@@ -17,10 +17,6 @@ Mycroft.Delegate {
     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
 //     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_center_day.png")
 //     skillBackgroundColorOverlay: "#40800080"
-//     x: 0
-//     y: 0
-//     width: parent.width
-//     height: parent.height
 
     property var actionsModel: sessionData.actionsList
 
@@ -44,8 +40,8 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             Rectangle {
                 id: button
-                color: "#f1c0c3"
-                radius: 20
+                color: "#c0e0e0e0"
+//                 radius: 20
                 signal clicked
                 width: parent.width-Kirigami.Units.gridUnit
                 height: parent.height-Kirigami.Units.gridUnit
