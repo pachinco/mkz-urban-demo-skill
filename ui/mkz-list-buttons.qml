@@ -82,7 +82,7 @@ Mycroft.ScrollableDelegate {
                 }
                 onClicked: {
                     console.log("button clicked "+model.text)
-                    console.log("background: "+Qt.resolvedUrl(sessionData.background))
+                    console.log("background: "+sessionData.background)
                 }
             }
         }
