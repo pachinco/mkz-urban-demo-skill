@@ -24,15 +24,16 @@ Mycroft.Delegate {
 
     property var actionsModel: sessionData.actionsList
 
-//     Image {
-//         id: background
-//         x: 0
-//         y: 0
-//         width: parent.width
-//         height: parent.height
-//         anchors.fill: parent
-//         source: Qt.resolvedUrl("../images/mkz_background_center_day.png")
-//     }
+    Image {
+        id: background
+        x: 0
+        y: 0
+        z: 10
+        width: parent.width
+        height: parent.height
+        anchors.fill: parent
+        source: Qt.resolvedUrl("../images/mkz_center_bottom_day.png")
+    }
 
     Component {
         id: actionDelegate
