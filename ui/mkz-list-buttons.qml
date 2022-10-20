@@ -25,14 +25,18 @@ Mycroft.Delegate {
     property var actionsModel: sessionData.actionsList
 
     Image {
-        id: background
+        id: foreground
 //         x: 0
 //         y: 0
         z: 10
 //         width: actionFrame.width
 //         height: actionFrame.height
-        anchors.fill: parent
-        opacity: 0.8
+//         anchors.fill: parent
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        opacity: 0.9
         source: Qt.resolvedUrl("../images/MKZ-background-frame-day.png")
     }
 
