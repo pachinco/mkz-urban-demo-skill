@@ -16,6 +16,8 @@ Mycroft.Delegate {
     topPadding: 0
     bottomPadding: 0
 
+    property var datetime: sessionData.datetime
+
     Image {
         id: background
         source: "../images/mkz_background_stage_day.png"
@@ -83,6 +85,18 @@ Mycroft.Delegate {
             color: "#80000000"
         }
     }
+
+    Text {
+        id: dtime
+        x: 20
+        y: 20
+        z: 20
+        font.pixelSize: 30
+        text: datetime
+//         text: "5:23pm    Thu Oct 20    90°F"
+        opacity: 0.8
+    }
+
     Component.onCompleted: {
         mkzAnimation.running = true
     }
