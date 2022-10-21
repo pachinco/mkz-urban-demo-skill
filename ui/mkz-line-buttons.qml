@@ -82,7 +82,7 @@ Mycroft.Delegate {
                 signal clicked
                 width: parent.width-Kirigami.Units.gridUnit*2
                 height: parent.height-Kirigami.Units.gridUnit
-                anchors.top: parent.verticalCenter+Kirigami.Units.gridUnit*2
+                anchors.top: parent.verticalCenter-Kirigami.Units.gridUnit*5
                 anchors.horizontalCenter: parent.horizontalCenter
                 layer.enabled: true
                 layer.effect: DropShadow {
