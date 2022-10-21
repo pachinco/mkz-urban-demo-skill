@@ -39,7 +39,13 @@ Mycroft.Delegate {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        opacity: 0.9
+//         opacity: 0.9
         source: Qt.resolvedUrl("../images/MKZ-background-frame-day.png")
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            verticalOffset: -6
+            color: "#aa808080"
+        }
     }
 }

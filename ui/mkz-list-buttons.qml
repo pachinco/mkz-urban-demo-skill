@@ -49,7 +49,7 @@ Mycroft.Delegate {
         layer.effect: DropShadow {
             transparentBorder: true
             verticalOffset: -6
-            color: "#aa000000"
+            color: "#aa808080"
         }
     }
 
@@ -92,7 +92,7 @@ Mycroft.Delegate {
                     transparentBorder: true
                     horizontalOffset: 6
                     verticalOffset: 6
-                    color: "#aa000000"
+                    color: "#aa808080"
 //                     opacity: 0.2
                 }
                 Item {
