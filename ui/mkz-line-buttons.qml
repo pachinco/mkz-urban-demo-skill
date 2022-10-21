@@ -105,7 +105,7 @@ Mycroft.Delegate {
                     anchors.top: actionSpacer1.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
                     source: model.image
-                    height: Kirigami.Units.gridUnit * 4
+                    height: Kirigami.Units.gridUnit * 5
                     fillMode: Image.PreserveAspectFit
                 }
                 Item {
@@ -120,7 +120,7 @@ Mycroft.Delegate {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: model.text
                     color: "#202020"
-                    font.pixelSize: Kirigami.Units.gridUnit*3
+                    font.pixelSize: Kirigami.Units.gridUnit*2
                 }
                 MouseArea {
                     id: mouse
