@@ -153,7 +153,8 @@ Mycroft.Delegate {
                     property: "visible"
                     value: true
                 }
-                NumberAnimation { property: "y"; from: 1000; duration: 1000 }
+                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
+//                 NumberAnimation { property: "y"; from: 1000; duration: 1000 }
             }
         }
     }
