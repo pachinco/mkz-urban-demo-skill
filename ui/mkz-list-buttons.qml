@@ -23,6 +23,7 @@ Mycroft.Delegate {
 //     skillBackgroundColorOverlay: "#40800080"
 
     property var actionsModel: sessionData.actionsList
+    property var datetime: sessionData.datetime
 
     Image {
         id: foreground
@@ -47,8 +48,8 @@ Mycroft.Delegate {
         y: 20
         z: 20
         font.pixelSize: 30
-//         text: sessionData.datetime
-        text: "5:23pm    Thu Oct 20    90°F"
+        text: datetime
+//         text: "5:23pm    Thu Oct 20    90°F"
         opacity: 0.8
     }
 
