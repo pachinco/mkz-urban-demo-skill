@@ -6,9 +6,10 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
-Mycroft.Delegate {
+// Mycroft.Delegate {
+Item {
     id: homescreen
-//     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+//     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
@@ -30,14 +31,13 @@ Mycroft.Delegate {
         anchors.verticalCenter: parent.verticalCenter
         height: parent.height*0.6
         fillMode: Image.PreserveAspectFit
-        PropertyAnimation {
-            id: animation;
-            target: mkzImage;
-            property: "height";
-            to: 4000;
-            duration: 5000
-        }
-        
+//         PropertyAnimation {
+//             id: animation;
+//             target: mkzImage;
+//             property: "height";
+//             to: 4000;
+//             duration: 5000
+//         }
     }
 
     Image {
