@@ -31,6 +31,7 @@ Mycroft.Delegate {
         height: parent.height*0.6
         fillMode: Image.PreserveAspectFit
         SequentialAnimation {
+            id: mkzAnimation
             running: true
             loops: Animation.Infinite
             PropertyAction {
@@ -45,7 +46,7 @@ Mycroft.Delegate {
                 value: true
             }
             NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
-            NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
+//             NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
         }
     }
 
@@ -66,5 +67,8 @@ Mycroft.Delegate {
             samples: 21
             color: "#80000000"
         }
+    }
+    Component.onCompleted: {
+        mkzAnimation.running = true
     }
 }

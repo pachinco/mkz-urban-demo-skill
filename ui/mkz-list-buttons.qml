@@ -184,7 +184,7 @@ Mycroft.Delegate {
                     duration: 1000
                     path: Path {
                         startX: 0; startY: 1000
-                        PathLine { x: 0; y: (dispTrans2.ViewTransition.index-dispTrans2.ViewTransition.targetIndexes[0]+1) * 100 }
+                        PathLine { x: 0; y: dispTrans2.ViewTransition.index * 50 }
                     }
                 }
 //                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 500 }
