@@ -148,20 +148,20 @@ Mycroft.Delegate {
         cellHeight: Kirigami.Units.gridUnit * 6
         add: Transition {
             id: dispTrans1
-            SequentialAnimation {
-                PropertyAction {
-                    property: "visible"
-                    value: false
-                }
-                PauseAnimation {
-                    duration: dispTrans1.ViewTransition.index * 1000
-                }
-                PropertyAction {
-                    property: "visible"
-                    value: true
-                }
-                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
-                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
+//             SequentialAnimation {
+//                 PropertyAction {
+//                     property: "visible"
+//                     value: false
+//                 }
+//                 PauseAnimation {
+//                     duration: dispTrans1.ViewTransition.index * 1000
+//                 }
+//                 PropertyAction {
+//                     property: "visible"
+//                     value: true
+//                 }
+//                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
+//                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
 //                 PathAnimation {
 //                     duration: 1000
 //                     path: Path {
