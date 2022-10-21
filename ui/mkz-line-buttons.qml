@@ -142,7 +142,7 @@ Mycroft.Delegate {
         height: parent.height
         model: actionsModel
         delegate: actionDelegate
-        orientation: Qt.Horizontal
+//         orientation: Qt.Horizontal
 //         cellWidth: width/3
 //         cellHeight: height/2.6
 //         cellHeight: Kirigami.Units.gridUnit * 6
