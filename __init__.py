@@ -39,11 +39,10 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         #self.enclosure.display_manager.remove_active()
         #play_proc = play_wav(str(self.sound_file_path))
-        #self.gui.show_image(str(self.mkzdemo_img), override_idle=True, override_animations=True)
-        self.gui["datetime"] = '3:33pm   Fri Oct 21   90°F'
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
         #self.speak_dialog('demo.urban.mkz', wait=True)
-        self.schedule_event(self._ask_what_to_do, 10)
+        self.schedule_repeating_event(self._update_display_time, None, 1)
+        #self.schedule_event(self._ask_what_to_do, 10)
 
     @intent_file_handler('status.ad.mkz.intent')
     def handle_ad_status_mkz(self, message):
@@ -92,5 +91,10 @@ class MkzUrbanDemo(MycroftSkill):
                                     {"text": "Setting", "image": "../images/Settings-symbol.png"}]
         self.gui.show_page(str(self.mkz_list_ui))
         
+    def _update_display_time(self):
+        current = now_local()
+        hh_mm = nice_time(current, speech=False, use_24hour=False)
+        self.gui["datetime"] = hh_mm+"   Fri Oct 21   90°F"
+
 def create_skill():
     return MkzUrbanDemo()
