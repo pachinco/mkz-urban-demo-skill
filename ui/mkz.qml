@@ -28,14 +28,14 @@ Mycroft.Delegate {
         source: "../images/Lincoln-UPower.png"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-//         height: parent.height*0.6
+        height: parent.height*0.1
         fillMode: Image.PreserveAspectFit
         PropertyAnimation {
             id: animation;
             target: mkzImage;
             property: "height";
-            to: parent.height*0.6;
-            duration: 500
+            to: 400;
+            duration: 5000
         }
         
     }
