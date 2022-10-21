@@ -62,6 +62,7 @@ Mycroft.Delegate {
         plugin: mapPlugin
         center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
         zoomLevel: 20
+        tilt: 45
     }
 
     Image {
