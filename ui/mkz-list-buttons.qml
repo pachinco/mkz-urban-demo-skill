@@ -41,8 +41,8 @@ Mycroft.Delegate {
     }
 
     Text {
-        anchors.left: parent.left
-        anchors.top: parent.top
+//         anchors.left: parent.left
+//         anchors.top: parent.top
         x: 50
         y: 50
         z: 20
