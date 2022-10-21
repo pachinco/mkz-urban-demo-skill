@@ -47,7 +47,8 @@ Mycroft.Delegate {
         y: parent.width*0.01
         z: 20
         font.pixelSize: parent.width*0.01
-        text: sessionData.datetime
+//         text: sessionData.datetime
+        text: "5:23pm    Thu Oct 20    90°F"
     }
 
     Component {
