@@ -25,6 +25,7 @@ Mycroft.Delegate {
     Item {
         id: bgNone
         visible: uiNone
+        anchors.fill: parent
         Image {
             source: "../images/mkz_background_stage_day.png"
             anchors.top: parent.top
@@ -64,6 +65,7 @@ Mycroft.Delegate {
     Item {
         id: mapView
         visible: uiMap
+        anchors.fill: parent
         Plugin {
             id: mapPlugin
             name: "osm"
@@ -80,6 +82,7 @@ Mycroft.Delegate {
 
     Item {
         id: topFrame
+        anchors.fill: parent
         Image {
             z: 10
             anchors.top: parent.top
@@ -101,6 +104,7 @@ Mycroft.Delegate {
 
     Item {
         id: bottomFrame
+        anchors.fill: parent
         Image {
             z: 10
             anchors.bottom: parent.bottom
