@@ -71,8 +71,8 @@ Mycroft.Delegate {
     Component {
         id: actionDelegate
         Item {
-            width: view.cellWidth/4
-            height: view.cellHeight
+            width: view.cellWidth/2
+            height: view.cellHeight/2
             z: 1
             anchors.top: parent.verticalCenter
 //             visible: false
