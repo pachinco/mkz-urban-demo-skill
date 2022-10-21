@@ -25,13 +25,13 @@ Mycroft.Delegate {
         anchors.right: parent.right
     }
 
-    Image {
-        id: mkzImage
-        source: "../images/Lincoln-UPower.png"
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        height: parent.height*0.6
-        fillMode: Image.PreserveAspectFit
+//     Image {
+//         id: mkzImage
+//         source: "../images/Lincoln-UPower.png"
+//         anchors.horizontalCenter: parent.horizontalCenter
+//         anchors.verticalCenter: parent.verticalCenter
+//         height: parent.height*0.6
+//         fillMode: Image.PreserveAspectFit
 //         SequentialAnimation {
 //             id: mkzAnimation
 //             running: true
