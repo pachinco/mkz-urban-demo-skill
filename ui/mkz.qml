@@ -31,4 +31,15 @@ Mycroft.Delegate {
         height: parent.height*0.6
         fillMode: Image.PreserveAspectFit
     }
+
+    Image {
+        id: foreground
+        z: 10
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        opacity: 0.9
+        source: Qt.resolvedUrl("../images/MKZ-background-frame-day.png")
+    }
 }
