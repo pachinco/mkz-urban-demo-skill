@@ -82,7 +82,7 @@ Mycroft.Delegate {
                 signal clicked
                 width: parent.width-Kirigami.Units.gridUnit*2
                 height: parent.height-Kirigami.Units.gridUnit
-                anchors.top: parent.verticalCenter-Kirigami.Units.gridUnit*5
+                anchors.top: parent.verticalCenter+Kirigami.Units.gridUnit*5
                 anchors.horizontalCenter: parent.horizontalCenter
                 layer.enabled: true
                 layer.effect: DropShadow {
@@ -138,46 +138,16 @@ Mycroft.Delegate {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width*0.7
-//         anchors.fill: parent
-//         width: parent.width-Kirigami.Units.gridUnit*2
-        height: parent.height*0.7
+        height: parent.height*0.6
         model: actionsModel
         delegate: actionDelegate
-//         orientation: Qt.Horizontal
         cellWidth: width/3
-        cellHeight: height
-//         cellHeight: Kirigami.Units.gridUnit * 6
-//         cellHeight: height
-//         add: Transition {
-//             id: dispTrans1
-//             SequentialAnimation {
-//                 PropertyAction {
-//                     property: "visible"
-//                     value: false
-//                 }
-//                 PauseAnimation {
-//                     duration: dispTrans1.ViewTransition.index * 1000
-//                 }
-//                 PropertyAction {
-//                     property: "visible"
-//                     value: true
-//                 }
-//                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
-//                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
-//                 PathAnimation {
-//                     duration: 1000
-//                     path: Path {
-//                         startX: 0; startY: 1000
-//                         PathLine { x: 0; y: dispTrans1.ViewTransition.index * (Kirigami.Units.gridUnit * 6) }
-//                     }
-//                 }
-//             }
-//         }
+        cellHeight: height*0.8
         populate: Transition {
             id: dispTrans2
             SequentialAnimation {
                 PauseAnimation {
-                    duration: dispTrans2.ViewTransition.index * 200
+                    duration: dispTrans2.ViewTransition.index * 500
                 }
                 PropertyAction {
                     property: "visible"
@@ -186,28 +156,6 @@ Mycroft.Delegate {
                 NumberAnimation { property: "y"; from: 1000; duration: 1000 }
             }
         }
-//                 PathAnimation {
-//                     duration: 1000
-//                     path: Path {
-//                         startX: 0; startY: 1000
-//                         PathLine { x: 0; y: dispTrans2.ViewTransition.index * 50 }
-//                     }
-//                 }
-//                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 500 }
-//                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
-
-//         displaced: Transition {
-//             SequentialAnimation {
-//                 PauseAnimation {
-//                     duration: dispTrans2.ViewTransition.index * 200
-//                 }
-//                 PropertyAction {
-//                     property: "visible"
-//                     value: true
-//                 }
-//                 NumberAnimation { properties: "x,y"; duration: 1000; easing.type: Easing.OutBounce }
-//             }
-//         }
     }
 }
 
