@@ -32,7 +32,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         #self.enclosure.display_manager.remove_active()
         self.log.info('Activating MKZ homescreen')
-        self.gui.show_image(str(self.mkzdemo_img), override_idle=True, override_animations=True)
+        self.gui.show_image("image/mkz_background_stage_day.png", override_idle=True, override_animations=True)
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
