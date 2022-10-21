@@ -133,18 +133,18 @@ Mycroft.Delegate {
         }
     }
 
-    ListView {
+    GridView {
         id: view
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         anchors.fill: parent
-        width: parent.width-Kirigami.Units.gridUnit*2
-        height: parent.height
+//         width: parent.width-Kirigami.Units.gridUnit*2
+//         height: parent.height
         model: actionsModel
         delegate: actionDelegate
 //         orientation: Qt.Horizontal
-//         cellWidth: width/3
-//         cellHeight: height/2.6
+        cellWidth: width/4
+        cellHeight: height
 //         cellHeight: Kirigami.Units.gridUnit * 6
 //         cellHeight: height
 //         add: Transition {
