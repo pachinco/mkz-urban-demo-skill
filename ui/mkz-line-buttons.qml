@@ -136,7 +136,7 @@ Mycroft.Delegate {
     GridView {
         id: view
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.bottom: parent.bottom
         width: parent.width*0.7
         height: parent.height*0.8
         model: actionsModel
