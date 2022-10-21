@@ -74,7 +74,7 @@ Mycroft.Delegate {
             width: view.cellWidth
             height: view.cellHeight
             z: 1
-            anchors.top: parent.verticalCenter
+            anchors.bottom: parent.bottom
 //             visible: false
             opacity: 0
             Rectangle {
@@ -84,7 +84,7 @@ Mycroft.Delegate {
                 width: parent.width-Kirigami.Units.gridUnit*2
                 height: parent.height-Kirigami.Units.gridUnit
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
                 layer.enabled: true
                 layer.effect: DropShadow {
                     transparentBorder: true
