@@ -80,9 +80,9 @@ Mycroft.Delegate {
                 id: button
                 color: "#f0f0f0f0"
                 signal clicked
-                width: parent.width-Kirigami.Units.gridUnit
+                width: parent.width-Kirigami.Units.gridUnit*2
                 height: parent.height-Kirigami.Units.gridUnit
-                anchors.top: parent.verticalCenter
+                anchors.top: parent.verticalCenter-Kirigami.Units.gridUnit*2
                 anchors.horizontalCenter: parent.horizontalCenter
                 layer.enabled: true
                 layer.effect: DropShadow {
@@ -137,7 +137,7 @@ Mycroft.Delegate {
         id: view
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        width: parent.width/2
+        width: parent.width*0.7
 //         anchors.fill: parent
 //         width: parent.width-Kirigami.Units.gridUnit*2
 //         height: parent.height
