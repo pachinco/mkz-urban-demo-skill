@@ -14,14 +14,14 @@ Mycroft.Delegate {
     topPadding: 0
     bottomPadding: 0
 
-    Image {
-        id: background
-        source: "../images/mkz_background_stage_day.png"
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-    }
+//     Image {
+//         id: background
+//         source: "../images/mkz_background_stage_day.png"
+//         anchors.top: parent.top
+//         anchors.bottom: parent.bottom
+//         anchors.left: parent.left
+//         anchors.right: parent.right
+//     }
 
     Image {
         id: placeImage
