@@ -56,7 +56,7 @@ Mycroft.Delegate {
     FastBlur {
         anchors.fill: dtime
         source: dtime
-        radius: 32
+        radius: 64
     }
 
     Component {
