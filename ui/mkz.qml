@@ -10,10 +10,10 @@ import Mycroft 1.0 as Mycroft
 Item {
     id: homescreen
 //     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
-    leftPadding: 0
-    rightPadding: 0
-    topPadding: 0
-    bottomPadding: 0
+//     leftPadding: 0
+//     rightPadding: 0
+//     topPadding: 0
+//     bottomPadding: 0
 
     Image {
         id: background
