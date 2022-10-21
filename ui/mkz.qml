@@ -1,10 +1,13 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.4
 import QtQuick.Controls 2.0
+import QtQuick.Window 2.14
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
+import QtPositioning 5.15
+import QtLocation 5.15
 
 Mycroft.Delegate {
     id: homescreen
@@ -48,6 +51,18 @@ Mycroft.Delegate {
             NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
 //             NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
         }
+    }
+
+    Plugin {
+        id: mapPlugin
+        name: "osm"
+    }
+    
+    Map {
+        anchors.fill: parent
+        plugin: mapPlugin
+        center: QtPositioning.coordinate(59.91, 10.75) // Oslo
+        zoomLevel: 14
     }
 
     Image {
