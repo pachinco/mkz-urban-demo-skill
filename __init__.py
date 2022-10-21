@@ -18,6 +18,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
         self.gui['foreground'] = str(self.mkzdemo_over)
+        self.gui['datetime'] = "5:23pm    Thu Oct 20    90°F"
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
         self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}
