@@ -138,7 +138,7 @@ Mycroft.Delegate {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width*0.7
-        height: parent.height*0.6
+        height: parent.height
         model: actionsModel
         delegate: actionDelegate
         cellWidth: width/3
