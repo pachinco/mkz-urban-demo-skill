@@ -43,10 +43,10 @@ Mycroft.Delegate {
     Text {
         anchors.left: parent.left
         anchors.top: parent.top
-        topPadding: parent.height*0.05
-        leftPadding: parent.width*0.01
-        font.pixelSize: parent.width*0.01
+        x: parent.height*0.05
+        y: parent.width*0.01
         z: 20
+        font.pixelSize: parent.width*0.01
         text: sessionData.datetime
     }
 
