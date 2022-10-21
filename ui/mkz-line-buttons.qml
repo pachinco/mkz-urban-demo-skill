@@ -75,8 +75,8 @@ Mycroft.Delegate {
             height: view.cellHeight
             z: 1
             anchors.bottom: parent.bottom
-//             visible: false
-            opacity: 0
+            visible: false
+//             opacity: 0
             Rectangle {
                 id: button
                 color: "#f0f0f0f0"
@@ -150,10 +150,10 @@ Mycroft.Delegate {
                 PauseAnimation {
                     duration: dispTrans2.ViewTransition.index * 500
                 }
-//                 PropertyAction {
-//                     property: "visible"
-//                     value: true
-//                 }
+                PropertyAction {
+                    property: "visible"
+                    value: true
+                }
 //                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
                 NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 1000 }
             }
