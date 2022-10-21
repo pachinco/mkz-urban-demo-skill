@@ -14,22 +14,30 @@ Mycroft.Delegate {
     topPadding: 0
     bottomPadding: 0
 
-//     Image {
-//         id: background
-//         source: "../images/mkz_background_stage_day.png"
-//         anchors.top: parent.top
-//         anchors.bottom: parent.bottom
-//         anchors.left: parent.left
-//         anchors.right: parent.right
-//     }
+    Image {
+        id: background
+        source: "../images/mkz_background_stage_day.png"
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+    }
 
     Image {
-        id: placeImage
+        id: mkzImage
         source: "../images/Lincoln-UPower.png"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        height: parent.height*0.6
+//         height: parent.height*0.6
         fillMode: Image.PreserveAspectFit
+        PropertyAnimation {
+            id: animation;
+            target: mkzImage;
+            property: "height";
+            to: parent.height*0.6;
+            duration: 500
+        }
+        
     }
 
     Image {
