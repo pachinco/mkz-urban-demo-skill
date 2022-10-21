@@ -28,7 +28,7 @@ Mycroft.Delegate {
         source: "../images/Lincoln-UPower.png"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        height: parent.height*0.1
+        height: parent.height*0.6
         fillMode: Image.PreserveAspectFit
         PropertyAnimation {
             id: animation;
