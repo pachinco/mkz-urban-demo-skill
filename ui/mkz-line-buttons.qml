@@ -137,7 +137,8 @@ Mycroft.Delegate {
         id: view
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        anchors.fill: parent
+        width: parent.width/2
+//         anchors.fill: parent
 //         width: parent.width-Kirigami.Units.gridUnit*2
 //         height: parent.height
         model: actionsModel
