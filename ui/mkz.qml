@@ -6,16 +6,25 @@ import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
-Mycroft.Delegate{
+Mycroft.Delegate {
     id: homescreen
-    skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+//     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+
+    Image {
+        id: background
+        source: "../images/mkz_background_stage_day.png"
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+    }
 
     Image {
         id: placeImage
         source: "../images/Lincoln-UPower.png"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        height: parent.height*0.5
+        height: parent.height*0.6
         fillMode: Image.PreserveAspectFit
     }
 }
