@@ -75,7 +75,7 @@ Mycroft.Delegate {
             height: view.cellHeight
             z: 1
             anchors.top: parent.verticalCenter
-            visible: false
+//             visible: false
             Rectangle {
                 id: button
                 color: "#f0f0f0f0"
