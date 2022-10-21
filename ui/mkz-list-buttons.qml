@@ -75,6 +75,7 @@ Mycroft.Delegate {
             height: view.cellHeight
             z: 1
             anchors.horizontalCenter: parent.horizontalCenter
+            visible: false
             Rectangle {
                 id: button
                 color: "#f0f0f0f0"
@@ -174,10 +175,6 @@ Mycroft.Delegate {
         populate: Transition {
             id: dispTrans2
             SequentialAnimation {
-                PropertyAction {
-                    property: "visible"
-                    value: false
-                }
                 PauseAnimation {
                     duration: dispTrans2.ViewTransition.index * 500
                 }
