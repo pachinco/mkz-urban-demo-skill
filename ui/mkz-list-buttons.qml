@@ -193,7 +193,16 @@ Mycroft.Delegate {
 //         }
 
         displaced: Transition {
-            NumberAnimation { properties: "x,y"; duration: 1000; easing.type: Easing.OutBounce }
+            SequentialAnimation {
+                PauseAnimation {
+                    duration: dispTrans2.ViewTransition.index * 200
+                }
+                PropertyAction {
+                    property: "visible"
+                    value: true
+                }
+                NumberAnimation { properties: "x,y"; duration: 1000; easing.type: Easing.OutBounce }
+            }
         }
     }
 }
