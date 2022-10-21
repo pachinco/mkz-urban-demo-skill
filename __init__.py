@@ -20,7 +20,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["actionsList"] = []
         self.gui["background"] = str(self.mkzdemo_img)
         self.gui["foreground"] = str(self.mkzdemo_over)
-        self.gui["datetime"] = "5:23pm    Thu Oct 20    90°F"
+        self.gui["datetime"] = ""
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
         self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}
@@ -91,10 +91,10 @@ class MkzUrbanDemo(MycroftSkill):
                                     {"text": "Drive", "image": "../images/Start-button.png"},
                                     {"text": "Setting", "image": "../images/Settings-symbol.png"}]
         self.gui.show_page(str(self.mkz_list_ui))
-        
+
     def _update_display_time(self):
         dt = datetime.now()
-        dt_str = dt.strftime("%d/%m/%Y %H:%M:%S")
+        dt_str = dt.strftime("%I:%M.S%p   %a %b %-d")
         self.log.info("datetime: "+dt_str)
         #hh_mm = nice_time(dt, speech=False, use_24hour=False)
         self.gui["datetime"] = dt_str
