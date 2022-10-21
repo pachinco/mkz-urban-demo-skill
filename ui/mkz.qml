@@ -9,6 +9,10 @@ import Mycroft 1.0 as Mycroft
 Mycroft.Delegate {
     id: homescreen
 //     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
 
     Image {
         id: background
