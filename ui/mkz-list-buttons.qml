@@ -149,8 +149,16 @@ Mycroft.Delegate {
         add: Transition {
             id: dispTrans1
             SequentialAnimation {
+                PropertyAction {
+                    property: "visible"
+                    value: false
+                }
                 PauseAnimation {
                     duration: dispTrans1.ViewTransition.index * 1000
+                }
+                PropertyAction {
+                    property: "visible"
+                    value: true
                 }
                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
@@ -166,8 +174,16 @@ Mycroft.Delegate {
         populate: Transition {
             id: dispTrans2
             SequentialAnimation {
+                PropertyAction {
+                    property: "visible"
+                    value: false
+                }
                 PauseAnimation {
                     duration: dispTrans2.ViewTransition.index * 500
+                }
+                PropertyAction {
+                    property: "visible"
+                    value: true
                 }
                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
