@@ -1,9 +1,8 @@
-from datetime import datetime
-
 from mycroft import MycroftSkill, intent_file_handler
 from pathlib import Path
 from mycroft.util import play_wav
 from mycroft.skills import resting_screen_handler
+from datetime import datetime
 
 class MkzUrbanDemo(MycroftSkill):
     def __init__(self):
@@ -95,7 +94,7 @@ class MkzUrbanDemo(MycroftSkill):
         
     def _update_display_time(self):
         dt = datetime.now()
-        dt_str = now.strftime("%d/%m/%Y %H:%M:%S")
+        dt_str = dt.strftime("%d/%m/%Y %H:%M:%S")
         self.log.info("datetime: "+dt_str)
         #hh_mm = nice_time(dt, speech=False, use_24hour=False)
         self.gui["datetime"] = dt_str
