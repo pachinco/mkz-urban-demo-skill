@@ -82,7 +82,7 @@ Mycroft.Delegate {
                 signal clicked
                 width: parent.width-Kirigami.Units.gridUnit*2
                 height: parent.height-Kirigami.Units.gridUnit
-                anchors.top: parent.verticalCenter-Kirigami.Units.gridUnit*2
+                anchors.top: parent.verticalCenter+Kirigami.Units.gridUnit*2
                 anchors.horizontalCenter: parent.horizontalCenter
                 layer.enabled: true
                 layer.effect: DropShadow {
@@ -140,7 +140,7 @@ Mycroft.Delegate {
         width: parent.width*0.7
 //         anchors.fill: parent
 //         width: parent.width-Kirigami.Units.gridUnit*2
-        height: parent.height/2
+        height: parent.height*0.7
         model: actionsModel
         delegate: actionDelegate
 //         orientation: Qt.Horizontal
