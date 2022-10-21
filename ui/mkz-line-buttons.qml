@@ -95,28 +95,28 @@ Mycroft.Delegate {
                 }
                 Item {
                     id: actionSpacer1
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: Kirigami.Units.gridUnit * 4
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    height: Kirigami.Units.gridUnit * 4
                 }
                 Image {
                     id: actionIcon
-                    anchors.left: actionSpacer1.right
-                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.top: actionSpacer1.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
                     source: model.image
-                    width: Kirigami.Units.gridUnit * 4
+                    height: Kirigami.Units.gridUnit * 4
                     fillMode: Image.PreserveAspectFit
                 }
                 Item {
                     id: actionSpacer2
-                    anchors.left: actionIcon.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: Kirigami.Units.gridUnit
+                    anchors.top: actionIcon.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    height: Kirigami.Units.gridUnit
                 }
                 Kirigami.Heading {
                     id: actionsLabel
-                    anchors.left: actionSpacer2.right
-                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.top: actionSpacer2.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
                     text: model.text
                     color: "#202020"
                     font.pixelSize: Kirigami.Units.gridUnit*3
