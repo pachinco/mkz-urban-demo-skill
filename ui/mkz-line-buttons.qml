@@ -71,8 +71,8 @@ Mycroft.Delegate {
     Component {
         id: actionDelegate
         Item {
-            width: view.cellWidth/2
-            height: view.cellHeight/2
+            width: view.cellWidth
+            height: view.cellHeight
             z: 1
             anchors.top: parent.verticalCenter
 //             visible: false
@@ -82,7 +82,7 @@ Mycroft.Delegate {
                 signal clicked
                 width: parent.width-Kirigami.Units.gridUnit
                 height: parent.height-Kirigami.Units.gridUnit
-                anchors.verticalCenter: parent.verticalCenter
+                anchors.top: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 layer.enabled: true
                 layer.effect: DropShadow {
