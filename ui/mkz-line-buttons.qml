@@ -139,7 +139,7 @@ Mycroft.Delegate {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         width: parent.width*0.7
-        height: parent.height*0.8
+        height: parent.height*0.75
         model: actionsModel
         delegate: actionDelegate
         cellWidth: width/3
@@ -155,7 +155,7 @@ Mycroft.Delegate {
 //                     value: true
 //                 }
                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
-                NumberAnimation { property: "y"; from: 1000; to: 0; duration: 1000 }
+                NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 1000 }
             }
         }
     }
