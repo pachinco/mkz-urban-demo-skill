@@ -146,8 +146,8 @@ Mycroft.Delegate {
         cellWidth: width
 //         cellHeight: height/2.6
         cellHeight: Kirigami.Units.gridUnit * 6
-        add: Transition {
-            id: dispTrans1
+//         add: Transition {
+//             id: dispTrans1
 //             SequentialAnimation {
 //                 PropertyAction {
 //                     property: "visible"
@@ -169,8 +169,8 @@ Mycroft.Delegate {
 //                         PathLine { x: 0; y: dispTrans1.ViewTransition.index * (Kirigami.Units.gridUnit * 6) }
 //                     }
 //                 }
-            }
-        }
+//             }
+//         }
         populate: Transition {
             id: dispTrans2
             SequentialAnimation {
