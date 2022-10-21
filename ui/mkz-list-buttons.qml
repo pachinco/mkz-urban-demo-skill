@@ -37,7 +37,7 @@ Mycroft.Delegate {
         anchors.left: parent.left
         anchors.right: parent.right
         opacity: 0.9
-        source: Qt.resolvedUrl(sessionData.foreground)
+        source: Qt.resolvedUrl("../images/MKZ-background-frame-day.png")
     }
 
     Component {
