@@ -180,7 +180,7 @@ Mycroft.Delegate {
                     property: "visible"
                     value: true
                 }
-                NumberAnimation { property: "y"; from: 1000; to: dispTrans2.ViewTransition.index * 50; duration: 1000 }
+                NumberAnimation { property: "y"; from: 1000; duration: 1000 }
 //                 PathAnimation {
 //                     duration: 1000
 //                     path: Path {
