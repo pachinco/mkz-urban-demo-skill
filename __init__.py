@@ -94,7 +94,7 @@ class MkzUrbanDemo(MycroftSkill):
 
     def _update_display_time(self):
         dt = datetime.now()
-        dt_str = dt.strftime("%I:%M.S%p   %a %b %-d")
+        dt_str = dt.strftime("%I:%M.%S%p   %a %b %-d")
         self.log.info("datetime: "+dt_str)
         #hh_mm = nice_time(dt, speech=False, use_24hour=False)
         self.gui["datetime"] = dt_str
