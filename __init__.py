@@ -42,7 +42,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.gui.show_image(str(self.mkzdemo_img), override_idle=True, override_animations=True)
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
         #self.speak_dialog('demo.urban.mkz', wait=True)
-        self.schedule_event(self._ask_what_to_do, 5)
+        self.schedule_event(self._ask_what_to_do, 10)
 
     @intent_file_handler('status.ad.mkz.intent')
     def handle_ad_status_mkz(self, message):

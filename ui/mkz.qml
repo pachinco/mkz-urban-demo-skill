@@ -10,7 +10,7 @@ import QtLocation 5.12
 
 Mycroft.Delegate {
     id: homescreen
-//     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
+    skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
@@ -32,25 +32,25 @@ Mycroft.Delegate {
         anchors.verticalCenter: parent.verticalCenter
         height: parent.height*0.6
         fillMode: Image.PreserveAspectFit
-        SequentialAnimation {
-            id: mkzAnimation
-            running: true
-            loops: Animation.Infinite
-            PropertyAction {
-                property: "visible"
-                value: false
-            }
-            PauseAnimation {
-                duration: 1000
-            }
-            PropertyAction {
-                property: "visible"
-                value: true
-            }
-            NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
+//         SequentialAnimation {
+//             id: mkzAnimation
+//             running: true
+//             loops: Animation.Infinite
+//             PropertyAction {
+//                 property: "visible"
+//                 value: false
+//             }
+//             PauseAnimation {
+//                 duration: 1000
+//             }
+//             PropertyAction {
+//                 property: "visible"
+//                 value: true
+//             }
+//             NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
 //             NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
-        }
-    }
+//         }
+//     }
 
     Plugin {
         id: mapPlugin
@@ -60,8 +60,8 @@ Mycroft.Delegate {
     Map {
         anchors.fill: parent
         plugin: mapPlugin
-        center: QtPositioning.coordinate(59.91, 10.75) // Oslo
-        zoomLevel: 14
+        center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+        zoomLevel: 20
     }
 
     Image {
