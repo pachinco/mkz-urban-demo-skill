@@ -53,11 +53,11 @@ Mycroft.Delegate {
         text: "5:23pm    Thu Oct 20    90°F"
         opacity: 0.8
     }
-    FastBlur {
-        anchors.fill: dtime
-        source: dtime
-        radius: 64
-    }
+//     FastBlur {
+//         anchors.fill: dtime
+//         source: dtime
+//         radius: 64
+//     }
 
     Component {
         id: actionDelegate
