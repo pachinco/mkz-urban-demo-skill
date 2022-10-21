@@ -1,5 +1,4 @@
-import datetime
-import time
+from datetime import datetime
 
 from mycroft import MycroftSkill, intent_file_handler
 from pathlib import Path
@@ -95,10 +94,11 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.show_page(str(self.mkz_list_ui))
         
     def _update_display_time(self):
-        dt = self.get_local_datetime(location, dtUTC)
-        self.log.info("datetime: "+dt)
-        hh_mm = nice_time(dt, speech=False, use_24hour=False)
-        self.gui["datetime"] = hh_mm+"   Fri Oct 21   90°F"
+        dt = datetime.now()
+        dt_str = now.strftime("%d/%m/%Y %H:%M:%S")
+        self.log.info("datetime: "+dt_str)
+        #hh_mm = nice_time(dt, speech=False, use_24hour=False)
+        self.gui["datetime"] = dt_str
 
 def create_skill():
     return MkzUrbanDemo()
