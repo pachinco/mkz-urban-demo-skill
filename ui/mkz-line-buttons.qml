@@ -98,7 +98,7 @@ Mycroft.Delegate {
                     id: actionSpacer1
                     anchors.top: parent.top
                     anchors.horizontalCenter: parent.horizontalCenter
-                    height: Kirigami.Units.gridUnit * 4
+                    height: Kirigami.Units.gridUnit * 3
                 }
                 Image {
                     id: actionIcon
