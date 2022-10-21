@@ -133,7 +133,7 @@ Mycroft.Delegate {
         }
     }
 
-    GridView {
+    ListView {
         id: view
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
