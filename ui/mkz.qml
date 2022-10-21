@@ -34,7 +34,7 @@ Mycroft.Delegate {
             id: animation;
             target: mkzImage;
             property: "height";
-            to: 400;
+            to: 4000;
             duration: 5000
         }
         
