@@ -170,29 +170,8 @@ Mycroft.Delegate {
 //                 }
 //             }
 //         }
-//         populate: Transition {
-//             id: dispTrans2
-//             SequentialAnimation {
-//                 PauseAnimation {
-//                     duration: dispTrans2.ViewTransition.index * 200
-//                 }
-//                 PropertyAction {
-//                     property: "visible"
-//                     value: true
-//                 }
-//                 PathAnimation {
-//                     duration: 1000
-//                     path: Path {
-//                         startX: 0; startY: 1000
-//                         PathLine { x: 0; y: dispTrans2.ViewTransition.index * 50 }
-//                     }
-//                 }
-//                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 500 }
-//                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
-//             }
-//         }
-
-        displaced: Transition {
+        populate: Transition {
+            id: dispTrans2
             SequentialAnimation {
                 PauseAnimation {
                     duration: dispTrans2.ViewTransition.index * 200
@@ -201,9 +180,30 @@ Mycroft.Delegate {
                     property: "visible"
                     value: true
                 }
-                NumberAnimation { properties: "x,y"; duration: 1000; easing.type: Easing.OutBounce }
+//                 PathAnimation {
+//                     duration: 1000
+//                     path: Path {
+//                         startX: 0; startY: 1000
+//                         PathLine { x: 0; y: dispTrans2.ViewTransition.index * 50 }
+//                     }
+//                 }
+                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 500 }
+//                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
             }
         }
+
+//         displaced: Transition {
+//             SequentialAnimation {
+//                 PauseAnimation {
+//                     duration: dispTrans2.ViewTransition.index * 200
+//                 }
+//                 PropertyAction {
+//                     property: "visible"
+//                     value: true
+//                 }
+//                 NumberAnimation { properties: "x,y"; duration: 1000; easing.type: Easing.OutBounce }
+//             }
+//         }
     }
 }
 
