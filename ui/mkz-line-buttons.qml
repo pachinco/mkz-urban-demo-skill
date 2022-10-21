@@ -140,7 +140,7 @@ Mycroft.Delegate {
         width: parent.width*0.7
 //         anchors.fill: parent
 //         width: parent.width-Kirigami.Units.gridUnit*2
-        height: parent.height
+        height: parent.height/2
         model: actionsModel
         delegate: actionDelegate
 //         orientation: Qt.Horizontal
