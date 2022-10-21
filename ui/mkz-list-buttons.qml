@@ -37,7 +37,7 @@ Mycroft.Delegate {
         anchors.left: parent.left
         anchors.right: parent.right
         opacity: 0.9
-        source: Qt.resolvedUrl("../images/MKZ-background-frame-day.png")
+        source: Qt.resolvedUrl(sessionData.foreground)
     }
 
     Component {
@@ -49,7 +49,7 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             Rectangle {
                 id: button
-                color: "#e0e0e0e0"
+                color: "#e0f0f0f0"
 //                 radius: 20
                 signal clicked
                 width: parent.width-Kirigami.Units.gridUnit

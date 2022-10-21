@@ -8,6 +8,7 @@ class MkzUrbanDemo(MycroftSkill):
         MycroftSkill.__init__(self)
         self.sound_file_path = Path(__file__).parent.joinpath("sounds", "mkz-welcome-chime2.wav")
         self.mkzdemo_img = Path(__file__).parent.joinpath("images", "mkz_background_center_day.png")
+        self.mkzdemo_over = Path(__file__).parent.joinpath("../images/MKZ-background-frame-day.png")
         #self.mkzdemo_img = "../images/mkz_background_center_day.png"
         #self.settings["wallpaper_file"] = "custom-wallpaper.jpg"
         #self.settings["wallpaper_url"] = str(self.mkzdemo_img)
@@ -16,6 +17,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-list-buttons.qml")
         self.gui['actionsList'] = []
         self.gui['background'] = str(self.mkzdemo_img)
+        self.gui['foreground'] = str(self.mkzdemo_over)
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
         self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}
