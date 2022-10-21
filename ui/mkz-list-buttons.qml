@@ -163,16 +163,16 @@ Mycroft.Delegate {
 //                 }
             }
         }
-//         populate: Transition {
-//             id: dispTrans2
-//             SequentialAnimation {
-//                 PauseAnimation {
-//                     duration: dispTrans2.ViewTransition.index * 100
-//                 }
-//                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
-//                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
-//             }
-//         }
+        populate: Transition {
+            id: dispTrans2
+            SequentialAnimation {
+                PauseAnimation {
+                    duration: dispTrans2.ViewTransition.index * 100
+                }
+                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
+                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
+            }
+        }
 
 //         displaced: Transition {
 //             NumberAnimation { properties: "x,y"; duration: 4000; easing.type: Easing.OutBounce }
