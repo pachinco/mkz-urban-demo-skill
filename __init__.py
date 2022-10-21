@@ -1,3 +1,6 @@
+import datetime
+import time
+
 from mycroft import MycroftSkill, intent_file_handler
 from pathlib import Path
 from mycroft.util import play_wav
@@ -92,8 +95,9 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.show_page(str(self.mkz_list_ui))
         
     def _update_display_time(self):
-        current = now_local()
-        hh_mm = nice_time(current, speech=False, use_24hour=False)
+        dt = self.get_local_datetime(location, dtUTC)
+        self.log.info("datetime: "+dt)
+        hh_mm = nice_time(dt, speech=False, use_24hour=False)
         self.gui["datetime"] = hh_mm+"   Fri Oct 21   90°F"
 
 def create_skill():
