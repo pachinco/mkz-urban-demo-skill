@@ -79,7 +79,6 @@ Mycroft.Delegate {
             Rectangle {
                 id: button
                 color: "#f0f0f0f0"
-//                 radius: 20
                 signal clicked
                 width: parent.width-Kirigami.Units.gridUnit
                 height: parent.height-Kirigami.Units.gridUnit
@@ -93,7 +92,6 @@ Mycroft.Delegate {
                     color: "#80000000"
                     radius: 10
                     samples: 21
-//                     opacity: 0.2
                 }
                 Item {
                     id: actionSpacer1
@@ -186,7 +184,7 @@ Mycroft.Delegate {
                     duration: 1000
                     path: Path {
                         startX: 0; startY: 1000
-                        PathLine { x: 0; y: (dispTrans2.ViewTransition.index+1) * 100 }
+                        PathLine { x: 0; y: (dispTrans2.ViewTransition.index-dispTrans2.ViewTransition.targetIndexes[0]+1) * 100 }
                     }
                 }
 //                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 500 }
