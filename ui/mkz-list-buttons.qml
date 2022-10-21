@@ -26,13 +26,18 @@ Mycroft.Delegate {
     property var datetime: sessionData.datetime
 
     Image {
+        id: background
+        z: -10
+        source: "../images/mkz_background_stage_day.png"
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+    }
+
+    Image {
         id: foreground
-//         x: 0
-//         y: 0
         z: 10
-//         width: actionFrame.width
-//         height: actionFrame.height
-//         anchors.fill: parent
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
