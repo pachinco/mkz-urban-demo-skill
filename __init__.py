@@ -42,7 +42,7 @@ class MkzUrbanDemo(MycroftSkill):
         #play_proc = play_wav(str(self.sound_file_path))
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
         #self.speak_dialog('demo.urban.mkz', wait=True)
-        self.schedule_repeating_event(self._update_display_time, None, 1)
+        self.schedule_repeating_event(self._update_display_time, None, 10)
         #self.schedule_event(self._ask_what_to_do, 10)
 
     @intent_file_handler('status.ad.mkz.intent')
@@ -94,7 +94,7 @@ class MkzUrbanDemo(MycroftSkill):
 
     def _update_display_time(self):
         dt = datetime.now()
-        dt_str = dt.strftime("%I:%M.%S%p   %a %b %-d")
+        dt_str = dt.strftime("%I:%M %p   %a %b %-d")
         self.log.info("datetime: "+dt_str)
         #hh_mm = nice_time(dt, speech=False, use_24hour=False)
         self.gui["datetime"] = dt_str
