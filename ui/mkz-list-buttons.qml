@@ -46,10 +46,10 @@ Mycroft.Delegate {
         x: 20
         y: 20
         z: 20
-        font.pixelSize: 20
+        font.pixelSize: 30
 //         text: sessionData.datetime
         text: "5:23pm    Thu Oct 20    90°F"
-        opacity: 0.9
+        opacity: 0.8
     }
 
     Component {
