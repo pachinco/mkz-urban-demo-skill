@@ -18,23 +18,23 @@ Mycroft.Delegate {
 //     rightPadding: Kirigami.Units.gridUnit * 4
 //     topPadding: Kirigami.Units.gridUnit * 2.5
 //     bottomPadding: Kirigami.Units.gridUnit * 2.5
-    skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
-//     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_center_day.png")
+//     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+    skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
 //     skillBackgroundColorOverlay: "#40800080"
 
     property var actionsModel: sessionData.actionsList
     property var datetime: sessionData.datetime
 
-    Image {
-        id: background
-        z: -10
-        source: "../images/mkz_background_stage_day.png"
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        opacity: 0.75
-    }
+//     Image {
+//         id: background
+//         z: -10
+//         source: "../images/mkz_background_stage_day.png"
+//         anchors.top: parent.top
+//         anchors.bottom: parent.bottom
+//         anchors.left: parent.left
+//         anchors.right: parent.right
+//         opacity: 0.75
+//     }
 
     Image {
         id: foreground
