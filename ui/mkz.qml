@@ -16,15 +16,15 @@ Mycroft.Delegate {
     topPadding: 0
     bottomPadding: 0
 
-    property bool uiNone: (sessionData.ui=="")?true:false
+    property bool uiHome: (sessionData.ui=="")?true:false
     property bool uiMap: (sessionData.ui=="map")?true:false
     property bool uiCar: (sessionData.ui=="car")?true:false
     property bool uiMusic: (sessionData.ui=="music")?true:false
     property bool uiConfig: (sessionData.ui=="config")?true:false
 
     Item {
-        id: bgNone
-        visible: uiNone
+        id: bgHome
+//         visible: uiHome
         anchors.fill: parent
         Image {
             source: "../images/mkz_background_stage_day.png"
@@ -83,8 +83,8 @@ Mycroft.Delegate {
     Item {
         id: topFrame
         anchors.fill: parent
+        z: 10
         Image {
-            z: 10
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
@@ -105,8 +105,8 @@ Mycroft.Delegate {
     Item {
         id: bottomFrame
         anchors.fill: parent
+        z: 10
         Image {
-            z: 10
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
