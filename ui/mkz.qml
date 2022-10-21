@@ -30,14 +30,13 @@ Mycroft.Delegate {
         anchors.verticalCenter: parent.verticalCenter
         height: parent.height*0.6
         fillMode: Image.PreserveAspectFit
-        Behavior {
-            SequentialAnimation {
-                PauseAnimation {
-                    duration: 1000
-                }
-                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
-                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
+        SequentialAnimation {
+            running: true
+            PauseAnimation {
+                duration: 1000
             }
+            NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
+            NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
         }
     }
 
