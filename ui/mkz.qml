@@ -5,8 +5,8 @@ import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
-import QtPositioning 5.15
-import QtLocation 5.15
+import QtPositioning 5.12
+import QtLocation 5.12
 
 Mycroft.Delegate {
     id: homescreen
