@@ -18,8 +18,8 @@ Mycroft.Delegate {
 //     rightPadding: Kirigami.Units.gridUnit * 4
 //     topPadding: Kirigami.Units.gridUnit * 2.5
 //     bottomPadding: Kirigami.Units.gridUnit * 2.5
-//     skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
-    skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
+    skillBackgroundSource: Qt.resolvedUrl(sessionData.background)
+//     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
 //     skillBackgroundColorOverlay: "#40800080"
 
     property var actionsModel: sessionData.actionsList
@@ -43,8 +43,14 @@ Mycroft.Delegate {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        opacity: 0.9
+//         opacity: 0.9
         source: Qt.resolvedUrl("../images/MKZ-background-frame-day.png")
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            verticalOffset: -6
+            color: "#aa000000"
+        }
     }
 
     Text {
