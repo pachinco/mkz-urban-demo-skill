@@ -42,6 +42,7 @@ Mycroft.Delegate {
     }
 
     Text {
+        id: dtime
 //         anchors.left: parent.left
 //         anchors.top: parent.top
         x: 20
@@ -51,6 +52,11 @@ Mycroft.Delegate {
 //         text: datetime
         text: "5:23pm    Thu Oct 20    90°F"
         opacity: 0.8
+    }
+    FastBlur {
+        anchors.fill: dtime
+        source: dtime
+        radius: 32
     }
 
     Component {
