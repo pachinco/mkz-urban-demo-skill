@@ -32,6 +32,7 @@ Mycroft.Delegate {
         fillMode: Image.PreserveAspectFit
         SequentialAnimation {
             running: true
+            loops: Animation.Infinite
             PauseAnimation {
                 duration: 1000
             }
