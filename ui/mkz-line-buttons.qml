@@ -138,11 +138,11 @@ Mycroft.Delegate {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width*0.7
-        height: parent.height
+        height: parent.height*0.8
         model: actionsModel
         delegate: actionDelegate
         cellWidth: width/3
-        cellHeight: height*0.8
+        cellHeight: height
         populate: Transition {
             id: dispTrans2
             SequentialAnimation {
