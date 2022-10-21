@@ -37,7 +37,7 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
-        self.enclosure.display_manager.remove_active()
+        #self.enclosure.display_manager.remove_active()
         #play_proc = play_wav(str(self.sound_file_path))
         #self.gui.show_image(str(self.mkzdemo_img), override_idle=True, override_animations=True)
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
