@@ -16,11 +16,11 @@ Mycroft.Delegate {
     topPadding: 0
     bottomPadding: 0
 
-    property bool uiHome: (sessionData.ui=="")?true:false
-    property bool uiMap: (sessionData.ui=="map")?true:false
-    property bool uiCar: (sessionData.ui=="car")?true:false
-    property bool uiMusic: (sessionData.ui=="music")?true:false
-    property bool uiConfig: (sessionData.ui=="config")?true:false
+    property bool uiHome: (sessionData.ui==="")?true:false
+    property bool uiMap: (sessionData.ui==="map")?true:false
+    property bool uiCar: (sessionData.ui==="car")?true:false
+    property bool uiMusic: (sessionData.ui==="music")?true:false
+    property bool uiConfig: (sessionData.ui==="config")?true:false
 
     Item {
         id: bgHome
