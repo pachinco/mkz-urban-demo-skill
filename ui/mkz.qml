@@ -92,8 +92,8 @@ Mycroft.Delegate {
         y: 20
         z: 20
         font.pixelSize: 30
-//         text: datetime
-        text: "5:23pm    Thu Oct 20    90°F"
+        text: datetime
+//         text: "5:23pm    Thu Oct 20    90°F"
         opacity: 0.8
     }
 
