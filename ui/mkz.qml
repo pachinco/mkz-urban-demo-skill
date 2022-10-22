@@ -141,7 +141,7 @@ Mycroft.Delegate {
             id: menuDelegate
             Item {
                 id: menuItem
-                anchors.fill: parent
+//                 anchors.fill: parent
                 signal clicked
                 Image {
                     id: menuIcon
