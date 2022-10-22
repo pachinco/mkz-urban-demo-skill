@@ -200,7 +200,7 @@ Mycroft.Delegate {
             anchors.verticalCenter: menuIcons.verticalCenter
             x: frameBottom.width*0.5+(sessionData.uiIdx-2)*(menuIcons.width*0.2)-width*0.5
             visible: sessionData.uiIdx>-1 ? true:false
-            width: menuIcons.cellWidth*2
+            width: menuIcons.cellWidth*2.5
             height: menuIcons.height*1.5
         }
     }
