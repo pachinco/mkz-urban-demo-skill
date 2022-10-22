@@ -17,7 +17,7 @@ Mycroft.Delegate {
     bottomPadding: 0
     anchors.fill: parent
 
-//     property var actionsModel: sessionData.actionsList
+    property var actionsModel: sessionData.actionsList
     property bool uiHome: (sessionData.ui==="none")?true:false
     property bool uiMap: (sessionData.ui==="map")?true:false
     property bool uiCar: (sessionData.ui==="car")?true:false
@@ -131,11 +131,11 @@ Mycroft.Delegate {
         Component {
             id: actionDelegate
             Item {
-                width: view.cellWidth
-                height: view.cellHeight
+                width: actionsView.cellWidth
+                height: actionsView.cellHeight
                 z: 1
                 anchors.bottom: parent.bottom
-                visible: false
+//                 visible: false
     //             opacity: 0
                 Rectangle {
                     id: button
@@ -195,12 +195,12 @@ Mycroft.Delegate {
         }
 
         GridView {
-            id: view
+            id: actionsView
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             width: parent.width*0.7
             height: parent.height*0.75
-            model: sessionData.actionsList
+            model: actionsModel
             delegate: actionDelegate
             cellWidth: width/3
             cellHeight: height
