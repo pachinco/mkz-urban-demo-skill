@@ -143,7 +143,8 @@ Mycroft.Delegate {
                 z: 20
                 Image {
                     id: menuIcon
-                    anchors.top: parent.bottom
+                    anchors.verticalCenter: bottomFrame.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
                     source: Qt.resolvedUrl(model.image)
 //                     fillMode: Image.PreserveAspectFit
                 }
