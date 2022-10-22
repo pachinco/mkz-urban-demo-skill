@@ -175,6 +175,7 @@ Mycroft.Delegate {
             width: frameBottom.width*0.303
             height: frameBottom.height*0.66
             model: sessionData.uiButtons
+            currentIndex: (sessionData.ui==="none")?0:1
             delegate: menuDelegate
             cellWidth: width/5
             cellHeight: height
