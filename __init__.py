@@ -94,6 +94,10 @@ class MkzUrbanDemo(MycroftSkill):
                                     #{"text": "Setting", "image": "../images/Settings-symbol.png"}]
         #self.gui.show_page(str(self.mkz_list_ui))
         self.gui["ui"] = "map"
+        self.schedule_event(self._back_config, 10)
+
+    def _back_config(self):
+        self.gui["ui"] = "config"
         self.schedule_event(self._back_home, 10)
 
     def _back_home(self):
