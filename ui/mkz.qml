@@ -175,6 +175,10 @@ Mycroft.Delegate {
             delegate: menuDelegate
             cellWidth: width/5
             cellHeight: height
+            Rectangle {
+                anchors.fill: parent
+                color: "#50505050"
+            }
         }
     }
 
