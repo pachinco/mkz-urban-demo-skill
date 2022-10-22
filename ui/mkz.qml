@@ -85,9 +85,13 @@ Mycroft.Delegate {
 
     Item {
         id: topFrame
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: frameTop.height
         z: 10
         Image {
+            id: frameTop
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
@@ -107,7 +111,10 @@ Mycroft.Delegate {
 
     Item {
         id: bottomFrame
-        anchors.fill: parent
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: frameBottom.height
         z: 10
         Image {
             id: frameBottom
@@ -136,7 +143,7 @@ Mycroft.Delegate {
                 z: 20
                 Image {
                     id: menuIcon
-                    anchors.bottom: parent.bottom
+                    anchors.top: parent.bottom
                     source: Qt.resolvedUrl(model.image)
 //                     fillMode: Image.PreserveAspectFit
                 }
