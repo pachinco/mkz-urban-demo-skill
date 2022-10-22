@@ -196,7 +196,7 @@ Mycroft.Delegate {
             id: menuHighlight
             z: 25
             source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
-            anchors.top: menuIcons.top
+            anchors.verticalCenter: menuIcons.verticalCenter
             x: frameBottom.width*0.5+(sessionData.uiIdx-2)*(menuIcons.width/5)-width/2
 //             anchors.horizontalCenter: menuMarker.horizontalCenter
             visible: sessionData.uiIdx>-1 ? true:false
