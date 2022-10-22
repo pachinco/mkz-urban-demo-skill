@@ -143,6 +143,9 @@ Mycroft.Delegate {
                 id: menuItem
 //                 anchors.fill: parent
                 signal clicked
+                width: menuIcons.cellWidth
+                height: menuIcons.cellHeight
+                anchors.bottom: parent.bottom
                 Image {
                     id: menuIcon
                     z: 20
