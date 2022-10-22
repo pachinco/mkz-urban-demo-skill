@@ -179,7 +179,7 @@ Mycroft.Delegate {
             highlightFollowsCurrentItem: true
             highlight: Rectangle {
                 id: menuMarker
-                opacity: 0
+                color: "#80800000"
             }
 //             highlight: Image {
 //                 height: menuIcons.cellHeight*2
@@ -201,7 +201,7 @@ Mycroft.Delegate {
         source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
         anchors.horizontalCenter: menuMarker.horizontalCenter
         anchors.verticalCenter: menuMarker.verticalCenter
-        opacity: menuMarker.opacity
+        visible: menuMarker.visible
         width: menuMarker.width*1.5
         height: menuMarker.height*1.5
     }
