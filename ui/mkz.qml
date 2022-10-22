@@ -263,8 +263,7 @@ Mycroft.Delegate {
                         anchors.top: actionSpacer2.bottom
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: model.text
-//                         color: "#202020"
-                        opacity: 0.8
+                        color: "#c0000000"
                         font.pointSize: Kirigami.Units.gridUnit*2
                     }
                     MouseArea {
