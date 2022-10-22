@@ -161,7 +161,7 @@ Mycroft.Delegate {
                     onClicked: menuItem.clicked()
                 }
                 onClicked: {
-                    console.log("menu clicked "+model.ui)
+//                     console.log("menu clicked "+model.ui)
                     sessionData.uiIdx=(sessionData.uiIdx===model.idx) ? -1 : model.idx
                 }
             }
@@ -178,13 +178,16 @@ Mycroft.Delegate {
             cellWidth: width/5
             cellHeight: height
             highlightFollowsCurrentItem: true
-            highlight: Image {
-                height: menuIcons.cellHeight*2
-                width: menuIcons.cellWidth*2
-                smooth: true
-                source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
-//                 fillMode: Image.PreserveAspectFit
+            highlight: Rectangle {
+                color: "#80800000"
+                radius: 5
             }
+//             highlight: Image {
+//                 height: menuIcons.cellHeight*2
+//                 width: menuIcons.cellWidth*2
+//                 smooth: true
+//                 source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
+//             }
             Rectangle {
                 anchors.fill: parent
                 color: "#50505050"
