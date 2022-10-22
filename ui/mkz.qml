@@ -136,7 +136,7 @@ Mycroft.Delegate {
                 height: actionsView.cellHeight
                 z: 1
                 anchors.bottom: parent.bottom
-//                 visible: false
+                visible: false
     //             opacity: 0
                 Rectangle {
                     id: button
