@@ -170,7 +170,7 @@ Mycroft.Delegate {
             id: menuIcons
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
-            width: frameBottom.width*0.3
+            width: frameBottom.width*0.33
             height: frameBottom.height*0.7
             model: sessionData.uiButtons
             delegate: menuDelegate
