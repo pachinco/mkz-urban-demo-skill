@@ -45,6 +45,11 @@ class MkzUrbanDemo(MycroftSkill):
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
         self.gui["ui"] = "none"
+        self.gui["uiButtons"] = [{"ui": "config", "image": "../images/LightningIcon.png"},
+                                  {"ui": "car", "image": "../images/CarIcon.png"},
+                                  {"ui": "music", "image": "../images/MediaIcon.png"},
+                                  {"ui": "contact", "image": "../images/PersonIcon.png"},
+                                  {"ui": "map", "image": "../images/NavigationIcon.png"}]
         #self.enclosure.display_manager.remove_active()
         #play_proc = play_wav(str(self.sound_file_path))
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)

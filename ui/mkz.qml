@@ -23,7 +23,7 @@ Mycroft.Delegate {
     property bool uiMusic: (sessionData.ui==="music") ? true:false
     property bool uiConfig: (sessionData.ui==="config") ? true:false
     property bool uiContact: (sessionData.ui==="contact") ? true:false
-    property var buttons: sessionData.uiButtons
+//     property var buttons: sessionData.uiButtons
 
     Item {
         id: bgHome
@@ -125,11 +125,11 @@ Mycroft.Delegate {
                 color: "#80000000"
             }
         }
-        Image {
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            source: Qt.resolvedUrl("../images/LightningIcon.png")
-        }
+//         Image {
+//             anchors.bottom: parent.bottom
+//             anchors.left: parent.left
+//             source: Qt.resolvedUrl("../images/LightningIcon.png")
+//         }
         Component {
             id: menuDelegate
             Item {
@@ -138,7 +138,7 @@ Mycroft.Delegate {
                     id: menuIcon
                     anchors.fill: parent
                     source: Qt.resolvedUrl(model.image)
-                    fillMode: Image.PreserveAspectFit
+//                     fillMode: Image.PreserveAspectFit
                 }
 //                 Rectangle {
 //                     anchors.fill: parent
