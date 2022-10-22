@@ -155,7 +155,7 @@ Mycroft.Delegate {
                     anchors.horizontalCenter: menuItem.horizontalCenter
                     source: Qt.resolvedUrl(model.image)
                     fillMode: Image.PreserveAspectFit
-                    opacity: GridView.isCurrentItem ? 1 : 0.2
+                    opacity: menuIcons.isCurrentItem ? 1 : 0.2
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -164,10 +164,10 @@ Mycroft.Delegate {
                 onClicked: {
                     console.log("menu clicked "+model.ui)
                      if (sessionData.ui===model.ui) {
-                        menuIcons.currentIndex=-1
+                        menuIcons.currentIndex: -1
                     } else (
-                        sessionData.ui=model.ui
-                        menuIcons.currentIndex=model.idx
+                        sessionData.ui: model.ui
+                        menuIcons.currentIndex: model.idx
                     }
                 }
             }
