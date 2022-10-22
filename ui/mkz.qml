@@ -16,7 +16,7 @@ Mycroft.Delegate {
     topPadding: 0
     bottomPadding: 0
 
-    property var actionsModel: sessionData.actionsList
+//     property var actionsModel: sessionData.actionsList
     property bool uiHome: (sessionData.ui==="none")?true:false
     property bool uiMap: (sessionData.ui==="map")?true:false
     property bool uiCar: (sessionData.ui==="car")?true:false
@@ -90,7 +90,7 @@ Mycroft.Delegate {
             anchors.left: parent.left
             anchors.right: parent.right
             source: Qt.resolvedUrl("../images/mkz_frame_top_day.png")
-//             fillMode: Image.PreserveAspectFit
+            fillMode: Image.PreserveAspectFit
         }
         Text {
             id: dtime
@@ -199,7 +199,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.7
             height: parent.height*0.75
-            model: actionsModel
+            model: sessionData.actionsList
             delegate: actionDelegate
             cellWidth: width/3
             cellHeight: height
