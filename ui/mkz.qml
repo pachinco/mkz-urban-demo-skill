@@ -139,17 +139,19 @@ Mycroft.Delegate {
 //         }
         Component {
             id: menuDelegate
-            Image {
-                id: menuIcon
-                z: 20
-                width: menuIcons.cellWidth
-                height: menuIcons.cellHeight
-                anchors.bottom: parent.bottom
-//                 anchors.horizontalCenter: menuIcons.horizontalCenter
-                source: Qt.resolvedUrl(model.image)
-                fillMode: Image.PreserveAspectFit
+            Item {
+                id: menuItem
+                anchors.fill: parent
+                Image {
+                    id: menuIcon
+                    z: 20
+                    width: menuIcons.cellWidth
+                    height: menuIcons.cellHeight
+                    anchors.bottom: parent.bottom
+                    source: Qt.resolvedUrl(model.image)
+                    fillMode: Image.PreserveAspectFit
+                }
                 MouseArea {
-                    id: mouse
                     anchors.fill: parent
                     onClicked: menuIcon.clicked()
                 }
