@@ -43,24 +43,24 @@ Mycroft.Delegate {
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height*0.6
             fillMode: Image.PreserveAspectFit
-//             SequentialAnimation {
-//                 id: mkzAnimation
-//                 running: true
-//                 loops: Animation.Infinite
-//                 PropertyAction {
-//                     property: "visible"
-//                     value: false
-//                 }
-//                 PauseAnimation {
-//                     duration: 1000
-//                 }
-//                 PropertyAction {
-//                     property: "visible"
-//                     value: true
-//                 }
-//                 NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
+            SequentialAnimation {
+                id: mkzAnimation
+                running: true
+                loops: Animation.Infinite
+                PropertyAction {
+                    property: "visible"
+                    value: false
+                }
+                PauseAnimation {
+                    duration: 1000
+                }
+                PropertyAction {
+                    property: "visible"
+                    value: true
+                }
+                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
 //                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
-//             }
+            }
         }
     }
 
