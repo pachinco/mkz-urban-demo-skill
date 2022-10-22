@@ -201,7 +201,7 @@ Mycroft.Delegate {
         source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
         anchors.horizontalCenter: menuMarker.horizontalCenter
         anchors.verticalCenter: menuMarker.verticalCenter
-        visibility: menuMarker.visibility
+        opacity: menuMarker.opacity
         width: menuMarker.width*1.5
         height: menuMarker.height*1.5
     }
