@@ -89,7 +89,7 @@ Mycroft.Delegate {
             anchors.left: parent.left
             anchors.right: parent.right
             source: Qt.resolvedUrl("../images/mkz_frame_top_day.png")
-            fillMode: Image.PreserveAspectFit
+//             fillMode: Image.PreserveAspectFit
         }
         Text {
             id: dtime
