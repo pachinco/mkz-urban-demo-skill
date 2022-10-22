@@ -128,6 +128,7 @@ Mycroft.Delegate {
     Item {
         id: configFrame
         visible: uiConfig
+        anchors.fill: parent
         Component {
             id: actionDelegate
             Item {
