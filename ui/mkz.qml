@@ -17,12 +17,12 @@ Mycroft.Delegate {
     bottomPadding: 0
     anchors.fill: parent
 
-    property var actionsModel: sessionData.actionsList
-    property bool uiHome: (sessionData.ui==="none")?true:false
-    property bool uiMap: (sessionData.ui==="map")?true:false
-    property bool uiCar: (sessionData.ui==="car")?true:false
-    property bool uiMusic: (sessionData.ui==="music")?true:false
-    property bool uiConfig: (sessionData.ui==="config")?true:false
+    property bool uiHome: (sessionData.ui==="none") ? true:false
+    property bool uiMap: (sessionData.ui==="map") ? true:false
+    property bool uiCar: (sessionData.ui==="car") ? true:false
+    property bool uiMusic: (sessionData.ui==="music") ? true:false
+    property bool uiConfig: (sessionData.ui==="config") ? true:false
+    property bool uiContact: (sessionData.ui==="contact") ? true:false
 
     Item {
         id: bgHome
@@ -123,6 +123,26 @@ Mycroft.Delegate {
                 color: "#80000000"
             }
         }
+        Component {
+            id: menuDelegate
+            z: 20
+            Image {
+                anchors.fill: parent
+                source: model.image
+                fillMode: Image.PreserveAspectFit
+            }
+        }
+        GridView {
+            id: menuIcons
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            width: parent.width*0.4
+            height: parent.height
+            model: sessionData.ui_buttons
+            delegate: menuDelegate
+            cellWidth: width/5
+            cellHeight: height
+        }
     }
 
     Item {
@@ -131,10 +151,10 @@ Mycroft.Delegate {
         anchors.fill: parent
         Component {
             id: actionDelegate
+            z: 1
             Item {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
-                z: 1
                 anchors.bottom: parent.bottom
                 visible: false
     //             opacity: 0
@@ -201,7 +221,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.7
             height: parent.height*0.75
-            model: actionsModel
+            model: sessionData.actionsList
             delegate: actionDelegate
             cellWidth: width/3
             cellHeight: height

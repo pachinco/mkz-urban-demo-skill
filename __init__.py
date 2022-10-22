@@ -21,6 +21,11 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["background"] = str(self.mkzdemo_img)
         self.gui["foreground"] = str(self.mkzdemo_over)
         self.gui["datetime"] = ""
+        self.gui["ui_buttons"] = [{"ui": "config", "image": "../images/LightningIcon.png"},
+                                  {"ui": "car", "image": "../images/CarIcon.png"},
+                                  {"ui": "music", "image": "../images/MediaIcon.png"},
+                                  {"ui": "contact", "image": "../images/PersonIcon.png"},
+                                  {"ui": "map", "image": "../images/NavigationIcon.png"}]
         self.gui["ui"] = "none"
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
