@@ -142,8 +142,8 @@ Mycroft.Delegate {
             Image {
                 id: menuIcon
                 z: 20
-                width: menuIcons.cellWidth*0.8
-                height: menuIcons.cellHeight*0.8
+                width: menuIcons.cellWidth
+                height: menuIcons.cellHeight
                 anchors.bottom: parent.bottom
 //                 anchors.horizontalCenter: menuIcons.horizontalCenter
                 source: Qt.resolvedUrl(model.image)
