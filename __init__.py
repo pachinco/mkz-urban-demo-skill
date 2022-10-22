@@ -89,15 +89,15 @@ class MkzUrbanDemo(MycroftSkill):
         #self.gui.clear()
         #self.enclosure.display_manager.remove_active()
         #self.speak("What's next?", expect_response=True, wait=True)
-        #self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
-                                    #{"text": "Drive", "image": "../images/Start-button.png"},
-                                    #{"text": "Setting", "image": "../images/Settings-symbol.png"}]
+        self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
+                                    {"text": "Drive", "image": "../images/Start-button.png"},
+                                    {"text": "Setting", "image": "../images/Settings-symbol.png"}]
         #self.gui.show_page(str(self.mkz_list_ui))
-        self.gui["ui"] = "map"
+        self.gui["ui"] = "config"
         self.schedule_event(self._back_config, 10)
 
     def _back_config(self):
-        self.gui["ui"] = "config"
+        self.gui["ui"] = "map"
         self.schedule_event(self._back_home, 10)
 
     def _back_home(self):
