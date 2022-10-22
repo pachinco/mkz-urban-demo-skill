@@ -205,16 +205,11 @@ Mycroft.Delegate {
             delegate: actionDelegate
             cellWidth: width/3
             cellHeight: height
-            populate: Transition {
-                id: dispTrans2
+            add: Transition {
+                id: dispTrans
                 SequentialAnimation {
-                    PauseAnimation {
-                        duration: dispTrans2.ViewTransition.index * 200
-                    }
-                    PropertyAction {
-                        property: "visible"
-                        value: true
-                    }
+                    PauseAnimation { duration: dispTrans.ViewTransition.index * 200 }
+                    PropertyAction { property: "visible"; value: true }
                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
                 }
             }
