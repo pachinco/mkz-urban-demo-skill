@@ -152,7 +152,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: frameBottom.width*0.3
             height: frameBottom.height*0.7
-            model: buttons
+            model: sessionData.actionsList
             delegate: menuDelegate
             cellWidth: width/5
             cellHeight: height
