@@ -110,6 +110,7 @@ Mycroft.Delegate {
         anchors.fill: parent
         z: 10
         Image {
+            id: frameBottom
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
@@ -150,14 +151,14 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             width: parent.width*0.4
-            height: parent.height
+            height: frameBottom.height
             model: buttons
             delegate: menuDelegate
             cellWidth: parent.width/5
             cellHeight: parent.height
             Rectangle {
                 anchors.fill: parent
-                color: "red"
+                color: "#50505050"
             }
         }
     }
