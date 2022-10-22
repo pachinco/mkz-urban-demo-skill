@@ -151,7 +151,7 @@ Mycroft.Delegate {
                     z: 20
                     width: menuIcons.cellWidth*1.2
 //                     height: menuIcons.cellHeight
-                    anchors.bottom: parent.bottom
+                    anchors.verticalCenter: parent.verticalCenter
                     source: Qt.resolvedUrl(model.image)
                     fillMode: Image.PreserveAspectFit
                 }
