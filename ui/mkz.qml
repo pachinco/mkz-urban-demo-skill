@@ -163,12 +163,12 @@ Mycroft.Delegate {
                 }
                 onClicked: {
                     console.log("menu clicked "+model.ui)
-//                     if (sessionData.ui===model.ui) {
-//                         menuIcons.currentIndex=-1;
-//                     } else (
+                     if (sessionData.ui===model.ui) {
+                        menuIcons.currentIndex=-1
+                    } else (
                         sessionData.ui=model.ui
                         menuIcons.currentIndex=model.idx
-//                     }
+                    }
                 }
             }
         }
@@ -184,7 +184,7 @@ Mycroft.Delegate {
             cellHeight: height
             highlightFollowsCurrentItem: true
             highlight: Image {
-                height: menuIcons.height
+                height: frameBottom.height*0.7
                 source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
                 fillMode: Image.PreserveAspectFit
             }
