@@ -123,18 +123,22 @@ Mycroft.Delegate {
                 color: "#80000000"
             }
         }
-//         Image {
-//             anchors.bottom: parent.bottom
-//             achnors.left: parent.left
-//             source: 
-//         }
+        Image {
+            anchors.bottom: parent.bottom
+            achnors.left: parent.left
+            source: Qt.resolvedUrl("../images/LightningIcon.png")
+        }
         Component {
             id: menuDelegate
-            Image {
-                z: 20
+            z: 20
+//             Image {
+//                 anchors.fill: parent
+//                 source: Qt.resolvedUrl(model.image)
+//                 fillMode: Image.PreserveAspectFit
+//             }
+            Text {
                 anchors.fill: parent
-                source: Qt.resolvedUrl(model.image)
-                fillMode: Image.PreserveAspectFit
+                text: model.ui
             }
         }
         GridView {
@@ -156,12 +160,12 @@ Mycroft.Delegate {
         anchors.fill: parent
         Component {
             id: actionDelegate
+            z: 1
             Item {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
                 visible: false
-                z: 1
     //             opacity: 0
                 Rectangle {
                     id: button
