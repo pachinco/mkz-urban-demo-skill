@@ -150,8 +150,8 @@ Mycroft.Delegate {
             id: menuIcons
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
-            width: parent.width*0.4
-            height: frameBottom.height
+            width: frameBottom.width*0.3
+            height: frameBottom.height*0.8
             model: buttons
             delegate: menuDelegate
             cellWidth: parent.width/5
