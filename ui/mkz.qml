@@ -163,12 +163,12 @@ Mycroft.Delegate {
                 }
                 onClicked: {
                     console.log("menu clicked "+model.ui)
-                    if (sessionData.ui===model.ui) {
-                        menuIcons.currentIndex=-1
-                    } else (
+//                     if (sessionData.ui===model.ui) {
+//                         menuIcons.currentIndex=-1;
+//                     } else (
                         sessionData.ui=model.ui
                         menuIcons.currentIndex=model.idx
-                    }
+//                     }
                 }
             }
         }
