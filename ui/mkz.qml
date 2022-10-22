@@ -106,6 +106,7 @@ Mycroft.Delegate {
             text: sessionData.datetime
             opacity: 0.8
         }
+        Behavior on y { PropertyAnimation { from: -500; easing.type: Easing.InOutQuad; duration: 500 } }
     }
 
     Item {
@@ -204,6 +205,7 @@ Mycroft.Delegate {
             height: menuIcons.height*1.55
             Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 500 } }
         }
+        Behavior on y { PropertyAnimation { from: 1000; easing.type: Easing.InOutQuad; duration: 500 } }
     }
 
     Item {
