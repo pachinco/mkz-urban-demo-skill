@@ -123,12 +123,17 @@ Mycroft.Delegate {
                 color: "#80000000"
             }
         }
+//         Image {
+//             anchors.bottom: parent.bottom
+//             achnors.left: parent.left
+//             source: 
+//         }
         Component {
             id: menuDelegate
             Image {
                 z: 20
                 anchors.fill: parent
-                source: model.image
+                source: Qt.resolvedUrl(model.image)
                 fillMode: Image.PreserveAspectFit
             }
         }
@@ -138,7 +143,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.4
             height: parent.height
-            model: sessionData.ui_buttons
+            model: sessionData.uiButtons
             delegate: menuDelegate
             cellWidth: width/5
             cellHeight: height
