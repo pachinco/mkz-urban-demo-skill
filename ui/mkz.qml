@@ -155,7 +155,7 @@ Mycroft.Delegate {
                     anchors.horizontalCenter: menuItem.horizontalCenter
                     source: Qt.resolvedUrl(model.image)
                     fillMode: Image.PreserveAspectFit
-                    opacity: GridView.isCurrentItem ? 1 : 0.5
+                    opacity: GridView.isCurrentItem ? 1 : 0.2
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -177,15 +177,15 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             width: frameBottom.width*0.303
-            height: frameBottom.height*0.7
+            height: frameBottom.height*0.66
             model: sessionData.uiButtons
             delegate: menuDelegate
             cellWidth: width/5
             cellHeight: height
             highlightFollowsCurrentItem: true
             highlight: Image {
-                width: cellWidth*1.2
-                height: cellHeight*1.2
+                width: cellWidth*1.5
+                height: cellHeight*1.5
                 source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
             }
             Rectangle {
