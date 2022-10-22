@@ -153,7 +153,8 @@ Mycroft.Delegate {
                     anchors.horizontalCenter: menuItem.horizontalCenter
                     source: Qt.resolvedUrl(model.image)
                     fillMode: Image.PreserveAspectFit
-                    opacity: GridView.currentIndex ? 1 : 0.2
+//                     opacity: GridView.currentIndex ? 1 : 0.2
+                    opacity: (sessionData.uiIdx===model.idx) ? 1 : 0.2
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -177,10 +178,10 @@ Mycroft.Delegate {
             cellWidth: width/5
             cellHeight: height
             highlightFollowsCurrentItem: true
-            highlight: Rectangle {
-                id: menuMarker
-                color: "#80800000"
-            }
+//             highlight: Rectangle {
+//                 id: menuMarker
+//                 color: "#80800000"
+//             }
 //             highlight: Image {
 //                 height: menuIcons.cellHeight*2
 //                 width: menuIcons.cellWidth*2
