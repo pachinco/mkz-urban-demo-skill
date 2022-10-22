@@ -134,16 +134,16 @@ Mycroft.Delegate {
             id: menuDelegate
             Item {
                 z: 20
-                Image {
-                    id: menuIcon
-                    anchors.fill: parent
-                    source: Qt.resolvedUrl(model.image)
-                    fillMode: Image.PreserveAspectFit
-                }
-//                 Rectangle {
+//                 Image {
+//                     id: menuIcon
 //                     anchors.fill: parent
-//                     color: "green"
+//                     source: Qt.resolvedUrl(model.image)
+//                     fillMode: Image.PreserveAspectFit
 //                 }
+                Rectangle {
+                    anchors.fill: parent
+                    color: "green"
+                }
             }
         }
         GridView {
@@ -152,7 +152,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: frameBottom.width*0.3
             height: frameBottom.height*0.7
-            model: sessionData.uiButtons
+            model: sessionData.actionsList
             delegate: menuDelegate
             cellWidth: width/5
             cellHeight: height
