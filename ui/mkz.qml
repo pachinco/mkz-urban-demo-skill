@@ -151,11 +151,11 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             width: frameBottom.width*0.3
-            height: frameBottom.height*0.75
+            height: frameBottom.height*0.7
             model: buttons
             delegate: menuDelegate
-            cellWidth: parent.width/5
-            cellHeight: parent.height
+            cellWidth: width/5
+            cellHeight: height
             Rectangle {
                 anchors.fill: parent
                 color: "#50505050"
