@@ -165,6 +165,7 @@ Mycroft.Delegate {
                     console.log("menu clicked "+model.ui)
                     menuIcons.currentIndex=(sessionData.ui===model.ui) ? -1 : model.idx
                     sessionData.ui=(menuIcons.currentIndex>-1) ? model.ui : "none"
+                    menuIcons.currentItem.opacity: 1
                 }
             }
         }
