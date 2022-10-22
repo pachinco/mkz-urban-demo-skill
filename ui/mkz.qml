@@ -23,6 +23,7 @@ Mycroft.Delegate {
     property bool uiMusic: (sessionData.ui==="music") ? true:false
     property bool uiConfig: (sessionData.ui==="config") ? true:false
     property bool uiContact: (sessionData.ui==="contact") ? true:false
+    property var buttons: sessionData.uiButtons
 
     Item {
         id: bgHome
@@ -150,7 +151,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.4
             height: parent.height
-            model: sessionData.uiButtons
+            model: buttons
             delegate: menuDelegate
             cellWidth: parent.width/5
             cellHeight: parent.height
