@@ -148,15 +148,15 @@ Mycroft.Delegate {
 //                 anchors.horizontalCenter: menuIcons.horizontalCenter
                 source: Qt.resolvedUrl(model.image)
                 fillMode: Image.PreserveAspectFit
-            }
-            MouseArea {
-                id: mouse
-                anchors.fill: parent
-                onClicked: menuIcon.clicked()
-            }
-            onClicked: {
-                sessionData.ui=model.ui
-                console.log("menu clicked "+model.ui)
+                MouseArea {
+                    id: mouse
+                    anchors.fill: parent
+                    onClicked: menuIcon.clicked()
+                }
+                onClicked: {
+                    sessionData.ui=model.ui
+                    console.log("menu clicked "+model.ui)
+                }
             }
         }
         GridView {
