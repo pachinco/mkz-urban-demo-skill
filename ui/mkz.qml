@@ -149,7 +149,7 @@ Mycroft.Delegate {
                 Image {
                     id: menuIcon
                     z: 20
-                    width: menuIcons.cellWidth
+//                     width: menuIcons.cellWidth
                     height: menuIcons.cellHeight
                     anchors.bottom: parent.bottom
                     source: Qt.resolvedUrl(model.image)
@@ -175,10 +175,6 @@ Mycroft.Delegate {
             delegate: menuDelegate
             cellWidth: width/5
             cellHeight: height
-//             Rectangle {
-//                 anchors.fill: parent
-//                 color: "#50505050"
-//             }
         }
     }
 
