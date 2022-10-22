@@ -154,7 +154,7 @@ Mycroft.Delegate {
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: menuIcon.clicked()
+                    onClicked: menuItem.clicked()
                 }
                 onClicked: {
                     sessionData.ui=model.ui
