@@ -202,6 +202,7 @@ Mycroft.Delegate {
             visible: sessionData.uiIdx>-1 ? true:false
             width: menuIcons.cellWidth*2.5
             height: menuIcons.height*1.55
+            Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 500 } }
         }
     }
 
