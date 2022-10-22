@@ -125,8 +125,8 @@ Mycroft.Delegate {
         }
         Component {
             id: menuDelegate
-            z: 20
             Image {
+                z: 20
                 anchors.fill: parent
                 source: model.image
                 fillMode: Image.PreserveAspectFit
@@ -151,12 +151,12 @@ Mycroft.Delegate {
         anchors.fill: parent
         Component {
             id: actionDelegate
-            z: 1
             Item {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
                 visible: false
+                z: 1
     //             opacity: 0
                 Rectangle {
                     id: button
