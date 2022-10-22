@@ -180,8 +180,8 @@ Mycroft.Delegate {
             cellHeight: height
             highlightFollowsCurrentItem: true
             highlight: Image {
-                height: frameBottom.height*0.7
-                width: menuIcons.cellWidth
+                height: menuIcons.cellHeight*1.2
+                width: menuIcons.cellWidth*1.2
                 source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
 //                 fillMode: Image.PreserveAspectFit
             }
