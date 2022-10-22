@@ -44,13 +44,12 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
-        self.gui["ui"] = "none"
         self.gui["uiIdx"] = -1
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
-                                  {"ui": "car", "idx": 1, "image": "../images/CarIcon.png"},
-                                  {"ui": "music", "idx": 2, "image": "../images/MediaIcon.png"},
-                                  {"ui": "contact", "idx": 3, "image": "../images/PersonIcon.png"},
-                                  {"ui": "map", "idx": 4, "image": "../images/NavigationIcon.png"}]
+                                  {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
+                                  {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
+                                  {"ui": "music", "idx": 3, "image": "../images/MediaIcon.png"},
+                                  {"ui": "contact", "idx": 4, "image": "../images/PersonIcon.png"}]
         #self.enclosure.display_manager.remove_active()
         #play_proc = play_wav(str(self.sound_file_path))
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
@@ -102,7 +101,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.speak("What's next?", expect_response=True, wait=True)
         #self.gui.show_page(str(self.mkz_list_ui))
         self.gui["actionsList"] = []
-        self.gui["ui"] = "config"
+        self.gui["uiIdx"] = 0
         self.schedule_event(self._add_config, 10)
 
     def _add_config(self):
@@ -112,11 +111,11 @@ class MkzUrbanDemo(MycroftSkill):
         self.schedule_event(self._back_map, 10)
 
     def _back_map(self):
-        self.gui["ui"] = "map"
+        self.gui["uiIdx"] = 1
         self.schedule_event(self._back_home, 10)
 
     def _back_home(self):
-        self.gui["ui"] = "none"
+        self.gui["uiIdx"] = -1
 
     def _update_display_time(self):
         dt = datetime.now()
