@@ -15,6 +15,7 @@ Mycroft.Delegate {
     rightPadding: 0
     topPadding: 0
     bottomPadding: 0
+    anchors.fill: parent
 
 //     property var actionsModel: sessionData.actionsList
     property bool uiHome: (sessionData.ui==="none")?true:false
