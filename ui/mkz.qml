@@ -142,10 +142,12 @@ Mycroft.Delegate {
             Image {
                 id: menuIcon
                 z: 20
-                anchors.bottom: menuIcons.bottom
-                anchors.horizontalCenter: menuIcons.horizontalCenter
+                width: menuIcons.cellWidth*0.8
+                height: menuIcons.cellHeight*0.8
+                anchors.fill: parent
+//                 anchors.horizontalCenter: menuIcons.horizontalCenter
                 source: Qt.resolvedUrl(model.image)
-//                     fillMode: Image.PreserveAspectFit
+                fillMode: Image.PreserveAspectFit
             }
         }
         GridView {
