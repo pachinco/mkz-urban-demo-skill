@@ -130,15 +130,17 @@ Mycroft.Delegate {
         }
         Component {
             id: menuDelegate
-            z: 20
+            Item {
+                z: 20
 //             Image {
 //                 anchors.fill: parent
 //                 source: Qt.resolvedUrl(model.image)
 //                 fillMode: Image.PreserveAspectFit
 //             }
-            Text {
-                anchors.fill: parent
-                text: model.ui
+                Text {
+                    anchors.fill: parent
+                    text: model.ui
+                }
             }
         }
         GridView {
@@ -160,8 +162,8 @@ Mycroft.Delegate {
         anchors.fill: parent
         Component {
             id: actionDelegate
-            z: 1
             Item {
+                z: 1
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
