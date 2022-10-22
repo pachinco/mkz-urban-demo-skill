@@ -139,19 +139,13 @@ Mycroft.Delegate {
 //         }
         Component {
             id: menuDelegate
-            Item {
+            Image {
+                id: menuIcon
                 z: 20
-                Image {
-                    id: menuIcon
-                    anchors.verticalCenter: bottomFrame.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    source: Qt.resolvedUrl(model.image)
+                anchors.bottom: bottomFrame.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: Qt.resolvedUrl(model.image)
 //                     fillMode: Image.PreserveAspectFit
-                }
-//                 Rectangle {
-//                     anchors.fill: parent
-//                     color: "green"
-//                 }
             }
         }
         GridView {
