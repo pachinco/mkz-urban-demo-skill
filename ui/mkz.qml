@@ -149,12 +149,11 @@ Mycroft.Delegate {
                     id: menuIcon
                     z: 20
                     width: menuIcons.cellWidth*1.2
-//                     height: menuIcons.cellHeight
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: menuItem.horizontalCenter
                     source: Qt.resolvedUrl(model.image)
                     fillMode: Image.PreserveAspectFit
-                    opacity: menuIcons.isCurrentItem ? 1 : 0.2
+                    opacity: GridView.currentIndex ? 1 : 0.2
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -254,7 +253,7 @@ Mycroft.Delegate {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: model.text
                         color: "#202020"
-                        font.pixelSize: Kirigami.Units.gridUnit*2
+                        font.pointSize: Kirigami.Units.gridUnit*2
                     }
                     MouseArea {
                         id: mouse
