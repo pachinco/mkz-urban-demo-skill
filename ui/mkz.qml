@@ -149,6 +149,15 @@ Mycroft.Delegate {
                 source: Qt.resolvedUrl(model.image)
                 fillMode: Image.PreserveAspectFit
             }
+            MouseArea {
+                id: mouse
+                anchors.fill: parent
+                onClicked: menuIcon.clicked()
+            }
+            onClicked: {
+                sessionData.ui=model.ui
+                console.log("menu clicked "+model.ui)
+            }
         }
         GridView {
             id: menuIcons
@@ -160,10 +169,10 @@ Mycroft.Delegate {
             delegate: menuDelegate
             cellWidth: width/5
             cellHeight: height
-            Rectangle {
-                anchors.fill: parent
-                color: "#50505050"
-            }
+//             Rectangle {
+//                 anchors.fill: parent
+//                 color: "#50505050"
+//             }
         }
     }
 
