@@ -125,7 +125,7 @@ Mycroft.Delegate {
         }
         Image {
             anchors.bottom: parent.bottom
-            achnors.left: parent.left
+            anchors.left: parent.left
             source: Qt.resolvedUrl("../images/LightningIcon.png")
         }
         Component {
