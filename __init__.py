@@ -21,7 +21,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["background"] = str(self.mkzdemo_img)
         self.gui["foreground"] = str(self.mkzdemo_over)
         self.gui["datetime"] = ""
-        self.gui["ui"] = ""
+        self.gui["ui"] = "none"
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
         self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}
@@ -39,6 +39,7 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
+        self.gui["ui"] = "none"
         #self.enclosure.display_manager.remove_active()
         #play_proc = play_wav(str(self.sound_file_path))
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
@@ -93,6 +94,10 @@ class MkzUrbanDemo(MycroftSkill):
                                     #{"text": "Setting", "image": "../images/Settings-symbol.png"}]
         #self.gui.show_page(str(self.mkz_list_ui))
         self.gui["ui"] = "map"
+        self.schedule_event(self._back_home, 10)
+
+    def _back_home(self):
+        self.gui["ui"] = "none"
 
     def _update_display_time(self):
         dt = datetime.now()

@@ -16,7 +16,7 @@ Mycroft.Delegate {
     topPadding: 0
     bottomPadding: 0
 
-    property bool uiHome: (sessionData.ui==="")?true:false
+    property bool uiHome: (sessionData.ui==="none")?true:false
     property bool uiMap: (sessionData.ui==="map")?true:false
     property bool uiCar: (sessionData.ui==="car")?true:false
     property bool uiMusic: (sessionData.ui==="music")?true:false
@@ -24,7 +24,7 @@ Mycroft.Delegate {
 
     Item {
         id: bgHome
-//         visible: uiHome
+        visible: uiHome
         anchors.fill: parent
         Image {
             source: "../images/mkz_background_stage_day.png"
