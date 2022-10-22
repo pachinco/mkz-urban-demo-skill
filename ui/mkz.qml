@@ -165,7 +165,6 @@ Mycroft.Delegate {
                     console.log("menu clicked "+model.ui)
                     menuIcons.currentIndex=(sessionData.ui===model.ui) ? -1 : model.idx
                     sessionData.ui=(menuIcons.currentIndex>-1) ? model.ui : "none"
-                    menuIcons.currentItem.opacity: 1
                 }
             }
         }
@@ -182,8 +181,9 @@ Mycroft.Delegate {
             highlightFollowsCurrentItem: true
             highlight: Image {
                 height: frameBottom.height*0.7
+                width: menuIcons.cellWidth
                 source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
-                fillMode: Image.PreserveAspectFit
+//                 fillMode: Image.PreserveAspectFit
             }
             Rectangle {
                 anchors.fill: parent
