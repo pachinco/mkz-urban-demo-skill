@@ -45,6 +45,7 @@ class MkzUrbanDemo(MycroftSkill):
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
         self.gui["ui"] = "none"
+        self.gui["uiIdx"] = -1
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
                                   {"ui": "car", "idx": 1, "image": "../images/CarIcon.png"},
                                   {"ui": "music", "idx": 2, "image": "../images/MediaIcon.png"},

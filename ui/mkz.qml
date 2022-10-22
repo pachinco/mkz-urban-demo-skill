@@ -163,8 +163,8 @@ Mycroft.Delegate {
                 }
                 onClicked: {
                     console.log("menu clicked "+model.ui)
-                    menuIcons.currentIndex=(sessionData.ui===model.ui) ? -1 : model.idx
-                    sessionData.ui=(menuIcons.currentIndex>-1) ? model.ui : "none"
+                    sessionData.uiIdx=(sessionData.ui===model.ui) ? -1 : model.idx
+                    sessionData.ui=(sessionData.uiIdx>-1) ? model.ui : "none"
                 }
             }
         }
@@ -175,7 +175,7 @@ Mycroft.Delegate {
             width: frameBottom.width*0.303
             height: frameBottom.height*0.66
             model: sessionData.uiButtons
-            currentIndex: (sessionData.ui==="none")?0:1
+            currentIndex: sessionData.uiIdx
             delegate: menuDelegate
             cellWidth: width/5
             cellHeight: height
