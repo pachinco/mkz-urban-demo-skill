@@ -17,13 +17,12 @@ Mycroft.Delegate {
     bottomPadding: 0
     anchors.fill: parent
 
-    property bool uiHome: (sessionData.ui==="none") ? true:false
-    property bool uiMap: (sessionData.ui==="map") ? true:false
-    property bool uiCar: (sessionData.ui==="car") ? true:false
-    property bool uiMusic: (sessionData.ui==="music") ? true:false
-    property bool uiConfig: (sessionData.ui==="config") ? true:false
-    property bool uiContact: (sessionData.ui==="contact") ? true:false
-//     property var buttons: sessionData.uiButtons
+    property bool uiHome: (sessionData.uiIdx===-1) ? true:false
+    property bool uiConfig: (sessionData.ui===0) ? true:false
+    property bool uiMap: (sessionData.ui===1) ? true:false
+    property bool uiCar: (sessionData.ui===2) ? true:false
+    property bool uiMusic: (sessionData.ui===3) ? true:false
+    property bool uiContact: (sessionData.ui===4) ? true:false
 
     Item {
         id: bgHome
@@ -163,8 +162,7 @@ Mycroft.Delegate {
                 }
                 onClicked: {
                     console.log("menu clicked "+model.ui)
-                    sessionData.uiIdx=(sessionData.ui===model.ui) ? -1 : model.idx
-                    sessionData.ui=(sessionData.uiIdx>-1) ? model.ui : "none"
+                    sessionData.uiIdx=(sessionData.uiIdx===model.idx) ? -1 : model.idx
                 }
             }
         }
