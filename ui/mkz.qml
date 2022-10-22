@@ -104,7 +104,7 @@ Mycroft.Delegate {
             z: 20
             font.pixelSize: 30
             text: sessionData.datetime
-            opacity: 0.8
+            opacity: 0.6
         }
         Behavior on y { PropertyAnimation { from: -500; easing.type: Easing.InOutQuad; duration: 500 } }
     }
@@ -263,7 +263,8 @@ Mycroft.Delegate {
                         anchors.top: actionSpacer2.bottom
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: model.text
-                        color: "#202020"
+//                         color: "#202020"
+                        opacity: 0.8
                         font.pointSize: Kirigami.Units.gridUnit*2
                     }
                     MouseArea {
