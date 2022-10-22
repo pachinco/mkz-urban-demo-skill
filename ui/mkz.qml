@@ -187,20 +187,19 @@ Mycroft.Delegate {
 //                 smooth: true
 //                 source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
 //             }
-            Rectangle {
-                anchors.fill: parent
-                color: "#50505050"
-            }
+//             Rectangle {
+//                 anchors.fill: parent
+//                 color: "#50505050"
+//             }
         }
         Image {
             id: menuHighlight
             z: 25
             source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
             anchors.verticalCenter: menuIcons.verticalCenter
-            x: frameBottom.width*0.5+(sessionData.uiIdx-2)*(menuIcons.width/5)-width/2
-//             anchors.horizontalCenter: menuMarker.horizontalCenter
+            x: frameBottom.width*0.5+(sessionData.uiIdx-2)*(menuIcons.width*0.2)-width*0.5
             visible: sessionData.uiIdx>-1 ? true:false
-            width: menuIcons.cellWidth*1.5
+            width: menuIcons.cellWidth*2
             height: menuIcons.height*1.5
         }
     }
