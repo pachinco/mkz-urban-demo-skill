@@ -138,9 +138,9 @@ Mycroft.Delegate {
                     source: Qt.resolvedUrl(model.image)
     //                 fillMode: Image.PreserveAspectFit
                 }
-                Text {
-                    anchors.bottom: menuIcon.top
-                    text: model.ui
+                Rectangle {
+                    anchors.fill: parent
+                    color: "green"
                 }
             }
         }
