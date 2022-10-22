@@ -180,6 +180,8 @@ Mycroft.Delegate {
             highlightFollowsCurrentItem: true
             highlight: Rectangle {
                 color: "#80800000"
+                width: parent.width*1.5
+                height: parent.height*1.5
                 radius: 5
             }
 //             highlight: Image {
