@@ -18,11 +18,11 @@ Mycroft.Delegate {
     anchors.fill: parent
 
     property bool uiHome: (sessionData.uiIdx===-1) ? true:false
-    property bool uiConfig: (sessionData.ui===0) ? true:false
-    property bool uiMap: (sessionData.ui===1) ? true:false
-    property bool uiCar: (sessionData.ui===2) ? true:false
-    property bool uiMusic: (sessionData.ui===3) ? true:false
-    property bool uiContact: (sessionData.ui===4) ? true:false
+    property bool uiConfig: (sessionData.uiIdx===0) ? true:false
+    property bool uiMap: (sessionData.uiIdx===1) ? true:false
+    property bool uiCar: (sessionData.uiIdx===2) ? true:false
+    property bool uiMusic: (sessionData.uiIdx===3) ? true:false
+    property bool uiContact: (sessionData.uiIdx===4) ? true:false
 
     Item {
         id: bgHome
