@@ -124,7 +124,7 @@ Mycroft.Delegate {
                 PropertyChanges {
                     target: mapView
                     height: 0
-                    opacity: 1
+                    opacity: 0
                 }
             }
         ]
