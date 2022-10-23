@@ -105,7 +105,7 @@ Mycroft.Delegate {
     Item {
         id: mapFrame
         anchors.fill: parent
-        visible: uiMap
+//         visible: uiMap
         state: (uiMap) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
@@ -113,6 +113,7 @@ Mycroft.Delegate {
                 PropertyChanges {
                     target: mapView
                     height: parent.height
+                    width: parent.width
                     opacity: 1
                 }
             },
@@ -120,7 +121,8 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: mapView
-                    height: 0
+                    height: parent.height*1.5
+                    width: parent.width*1.5
                     opacity: 0
                 }
             }
@@ -130,12 +132,12 @@ Mycroft.Delegate {
                 from: "INACTIVE"
                 to: "ACTIVE"
                 SequentialAnimation {
-//                     PropertyAction {
-//                         target: mapFrame
-//                         property: "visible"
-//                         value: true
-//                     }
-                    NumberAnimation { target: mapView; properties: "opacity,height"; duration: 500 }
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: true
+                    }
+                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
                 }
             },
             Transition {
@@ -143,11 +145,11 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     NumberAnimation { target: mapView; properties: "opacity,height"; duration: 500 }
-//                     PropertyAction {
-//                         target: mapFrame
-//                         property: "visible"
-//                         value: false
-//                     }
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: false
+                    }
                 }
             }
         ]
