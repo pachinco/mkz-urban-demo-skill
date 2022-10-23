@@ -199,12 +199,12 @@ Mycroft.Delegate {
             Transition {
                 from: "INACTIVE"
                 to: "ACTIVE"
-                NumberAnimation { target: mkzBackground; properties: "y"; duration: 1000 }
+                NumberAnimation { target: frameTop; properties: "y"; duration: 1000 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
-                NumberAnimation { target: mkzBackground; properties: "y"; duration: 1000 }
+                NumberAnimation { target: frameTop; properties: "y"; duration: 1000 }
             }
         ]
         Image {
