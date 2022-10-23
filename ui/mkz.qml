@@ -27,75 +27,52 @@ Mycroft.Delegate {
     Item {
         id: bgHome
         anchors.fill: parent
-        visible: uiHome
-//         state: (uiHome) ? "ACTIVE" : "INACTIVE"
-//         states: [
-//             State {
-//                 name: "ACTIVE"
-//                 PropertyChanges {
-//                     target: mkzBackground
-//                     opacity: 1
-//                     height: parent.height
-//                 }
-//                 PropertyChanges {
-//                     target: mkzImage
-//                     opacity: 1
-//                     height: parent.height*0.6
-//                 }
-//             },
-//             State {
-//                 name: "INACTIVE"
-//                 PropertyChanges {
-//                     target: mkzBackground
-//                     opacity: 0
-//                     height: parent.height*1.2
-//                 }
-//                 PropertyChanges {
-//                     target: mkzImage
-//                     opacity: 0
-//                     height: parent.height*0.2
-//                 }
-//             }
-//         ]
-//         transitions: [
-//             Transition {
-//                 from: "INACTIVE"
-//                 to: "ACTIVE"
-//                 SequentialAnimation {
-//                     PropertyAction {
-//                         property: "visible"
-//                         value: true
-//                     }
-//                     ParallelAnimation {
-//                         NumberAnimation { property: "opacity"; duration: 500 }
-//                         NumberAnimation { property: "height"; duration: 500 }
-//                     }
-//                 }
-//             },
-//             Transition {
-//                 from: "ACTIVE"
-//                 to: "INACTIVE"
-//                 SequentialAnimation {
-//                     ParallelAnimation {
-//                         NumberAnimation { property: "opacity"; duration: 500 }
-//                         NumberAnimation { property: "height"; duration: 500 }
-//                     }
-//                     PropertyAction {
-//                         property: "visible"
-//                         value: false
-//                     }
-//                 }
-//             }
-//         ]
+//         visible: uiHome
+        state: (uiHome) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: bgHome
+                    opacity: 1
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: bgHome
+                    opacity: 0.01
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                SequentialAnimation {
+                    PropertyAction {
+                        property: "visible"
+                        value: true
+                    }
+                    NumberAnimation { property: "opacity"; duration: 1000 }
+                }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                SequentialAnimation {
+                    NumberAnimation { property: "opacity"; duration: 500 }
+                    PropertyAction {
+                        property: "visible"
+                        value: false
+                    }
+                }
+            }
+        ]
         Image {
             id: mkzBackground
             source: "../images/mkz_background_stage_day.png"
-//             anchors.fill: parent
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-//             fillMode: Image.PreserveAspectFit
+            anchors.fill: parent
         }
         Image {
             id: mkzImage
