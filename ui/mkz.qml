@@ -33,7 +33,7 @@ Mycroft.Delegate {
             State {
                 name: "ACTIVE"
                 PropertyChanges {
-                    target: bgHome
+                    target: mkzImage
                     x: parent.width*0.2
                     y: parent.height*0.2
                     height: parent.height*0.6
@@ -44,7 +44,7 @@ Mycroft.Delegate {
             State {
                 name: "INACTIVE"
                 PropertyChanges {
-                    target: bgHome
+                    target: mkzImage
                     x: parent.width*0.8
                     y: 0
                     width: parent.width*0.2
