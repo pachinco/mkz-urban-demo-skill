@@ -330,7 +330,7 @@ Mycroft.Delegate {
             }
         ]
         Image {
-            id: mkzBackground
+            id: carBackground
             source: "../images/mkz_background_stage_day.png"
             anchors.fill: parent
             opacity: 0.5
