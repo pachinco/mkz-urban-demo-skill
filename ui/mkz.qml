@@ -68,6 +68,7 @@ Mycroft.Delegate {
                         NumberAnimation { property: "opacity"; duration: 1000 }
                         NumberAnimation { property: "x"; duration: 1000 }
                         NumberAnimation { property: "y"; duration: 1000 }
+                        NumberAnimation { property: "height"; duration: 1000 }
                     }
                 }
             },
@@ -76,9 +77,10 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     ParallelAnimation {
-                        NumberAnimation { property: "opacity"; duration: 500 }
+                        NumberAnimation { property: "opacity"; duration: 1000 }
                         NumberAnimation { property: "x"; duration: 1000 }
                         NumberAnimation { property: "y"; duration: 1000 }
+                        NumberAnimation { property: "height"; duration: 1000 }
                     }
                     PropertyAction {
                         property: "visible"
