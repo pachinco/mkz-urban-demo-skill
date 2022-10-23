@@ -98,9 +98,6 @@ Mycroft.Delegate {
         Image {
             id: mkzImage
             source: "../images/Lincoln-UPower.png"
-//             anchors.horizontalCenter: parent.horizontalCenter
-//             anchors.verticalCenter: parent.verticalCenter
-//             height: parent.height*0.6
             fillMode: Image.PreserveAspectFit
         }
     }
@@ -108,7 +105,7 @@ Mycroft.Delegate {
     Item {
         id: mapFrame
         anchors.fill: parent
-//         visible: uiMap
+        visible: uiMap
         state: (uiMap) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
@@ -133,11 +130,11 @@ Mycroft.Delegate {
                 from: "INACTIVE"
                 to: "ACTIVE"
                 SequentialAnimation {
-                    PropertyAction {
-                        target: mapFrame
-                        property: "visible"
-                        value: true
-                    }
+//                     PropertyAction {
+//                         target: mapFrame
+//                         property: "visible"
+//                         value: true
+//                     }
                     NumberAnimation { target: mapView; properties: "opacity,height"; duration: 500 }
                 }
             },
@@ -146,11 +143,11 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     NumberAnimation { target: mapView; properties: "opacity,height"; duration: 500 }
-                    PropertyAction {
-                        target: mapFrame
-                        property: "visible"
-                        value: false
-                    }
+//                     PropertyAction {
+//                         target: mapFrame
+//                         property: "visible"
+//                         value: false
+//                     }
                 }
             }
         ]
