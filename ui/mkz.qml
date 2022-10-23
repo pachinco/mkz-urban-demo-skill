@@ -34,11 +34,10 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: bgHome
-                    x: (parent.width-width)*0.5
-                    y: (parent.height-height)*0.5
-//                     anchors.horizontalCenter: parent.horizontalCenter
-//                     anchors.verticalCenter: parent.verticalCenter
+                    x: parent.width*0.2
+                    y: parent.height*0.2
                     height: parent.height*0.6
+                    width: parent.width*0.6
                     opacity: 1
                 }
             },
@@ -46,10 +45,9 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: bgHome
-                    x: parent.width-width
-                    y: parent.height-height
-//                     anchors.top: parent.top
-//                     anchors.right: parent.right
+                    x: parent.width*0.8
+                    y: 0
+                    width: parent.width*0.2
                     height: parent.height*0.2
                     opacity: 0.01
                 }
@@ -64,24 +62,14 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    ParallelAnimation {
-                        NumberAnimation { property: "opacity"; duration: 1000 }
-                        NumberAnimation { property: "x"; duration: 1000 }
-                        NumberAnimation { property: "y"; duration: 1000 }
-                        NumberAnimation { property: "height"; duration: 1000 }
-                    }
+                    NumberAnimation { properties: "opacity,x,y,width,height"; duration: 1000 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    ParallelAnimation {
-                        NumberAnimation { property: "opacity"; duration: 1000 }
-                        NumberAnimation { property: "x"; duration: 1000 }
-                        NumberAnimation { property: "y"; duration: 1000 }
-                        NumberAnimation { property: "height"; duration: 1000 }
-                    }
+                    NumberAnimation { properties: "opacity,x,y,width,height"; duration: 1000 }
                     PropertyAction {
                         property: "visible"
                         value: false
