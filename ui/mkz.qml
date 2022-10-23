@@ -121,8 +121,8 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: mapView
-                    height: parent.height*1.5
-                    width: parent.width*1.5
+                    height: parent.height*2
+                    width: parent.width*2
                     opacity: 0
                 }
             }
@@ -160,7 +160,7 @@ Mycroft.Delegate {
         
         Map {
             id: mapView
-            anchors.bottom: parent.bottom
+            anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width
             plugin: mapPlugin
