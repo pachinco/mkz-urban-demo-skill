@@ -540,14 +540,13 @@ Mycroft.Delegate {
                 }
             }
         ]
-        Image {
-            id: configBackground
-            source: "../images/mkz_background_stage_day.png"
-            anchors.fill: parent
-//             opacity: 0.5
-            z: -1
-            fillMode: Image.Image.PreserveAspectCrop
-        }
+//         Image {
+//             id: configBackground
+//             source: "../images/mkz_background_stage_day.png"
+//             anchors.fill: parent
+//             z: -1
+//             fillMode: Image.Image.PreserveAspectCrop
+//         }
         Component {
             id: configDelegate
             Item {
