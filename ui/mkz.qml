@@ -100,6 +100,7 @@ Mycroft.Delegate {
             id: mkzImage
             source: "../images/Lincoln-UPower.png"
             fillMode: Image.PreserveAspectFit
+            z: 1
         }
     }
 
@@ -169,6 +170,7 @@ Mycroft.Delegate {
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
             zoomLevel: 20
             tilt: 60
+            z: 1
         }
     }
 
