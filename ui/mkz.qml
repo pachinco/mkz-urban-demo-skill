@@ -40,10 +40,10 @@ Mycroft.Delegate {
                     width: parent.width*0.6
                     opacity: 1
                 }
-                PropertyChanges {
-                    target: mkzBackground
-                    opacity: 1
-                }
+//                 PropertyChanges {
+//                     target: mkzBackground
+//                     opacity: 1
+//                 }
             },
             State {
                 name: "INACTIVE"
@@ -55,10 +55,10 @@ Mycroft.Delegate {
                     height: parent.height*0.2
                     opacity: 0.01
                 }
-                PropertyChanges {
-                    target: mkzBackground
-                    opacity: 0.01
-                }
+//                 PropertyChanges {
+//                     target: mkzBackground
+//                     opacity: 0.01
+//                 }
             }
         ]
         transitions: [
@@ -73,7 +73,7 @@ Mycroft.Delegate {
                     }
                     ParallelAnimation {
                         NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
-                        NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
+//                         NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
                     }
                 }
             },
@@ -83,7 +83,7 @@ Mycroft.Delegate {
                 SequentialAnimation {
                     ParallelAnimation {
                         NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
-                        NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
+//                         NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
                     }
                     PropertyAction {
                         target: bgHome
