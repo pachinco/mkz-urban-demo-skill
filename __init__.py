@@ -101,10 +101,11 @@ class MkzUrbanDemo(MycroftSkill):
         #self.speak("What's next?", expect_response=True, wait=True)
         #self.gui.show_page(str(self.mkz_list_ui))
         self.gui["actionsList"] = []
-        self.gui["uiIdx"] = 0
-        self.schedule_event(self._add_config, 10)
+        self.gui["uiIdx"] = 2
+        self.schedule_event(self._add_config, 3)
 
     def _add_config(self):
+        self.gui["uiIdx"] = 2
         self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
                                     {"text": "Drive", "image": "../images/Start-button.png"},
                                     {"text": "Setting", "image": "../images/Settings-symbol.png"}]
