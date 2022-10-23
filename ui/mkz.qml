@@ -49,7 +49,7 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: mkzImage
-                    x: parent.width*0.5
+                    x: parent.width*0.7
                     y: parent.height*0.2
                     width: parent.width*0.2
                     height: parent.height*0.2
