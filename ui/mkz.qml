@@ -27,48 +27,48 @@ Mycroft.Delegate {
     Item {
         id: bgHome
         anchors.fill: parent
-//         visible: uiHome
-        state: (uiHome) ? "ACTIVE" : "INACTIVE"
-        states: [
-            State {
-                name: "ACTIVE"
-                PropertyChanges {
-                    target: bgHome
-                    opacity: 1
-                }
-            },
-            State {
-                name: "INACTIVE"
-                PropertyChanges {
-                    target: bgHome
-                    opacity: 0.01
-                }
-            }
-        ]
-        transitions: [
-            Transition {
-                from: "INACTIVE"
-                to: "ACTIVE"
-                SequentialAnimation {
-                    PropertyAction {
-                        property: "visible"
-                        value: true
-                    }
-                    NumberAnimation { property: "opacity"; duration: 1000 }
-                }
-            },
-            Transition {
-                from: "ACTIVE"
-                to: "INACTIVE"
-                SequentialAnimation {
-                    NumberAnimation { property: "opacity"; duration: 500 }
-                    PropertyAction {
-                        property: "visible"
-                        value: false
-                    }
-                }
-            }
-        ]
+        visible: uiHome
+//         state: (uiHome) ? "ACTIVE" : "INACTIVE"
+//         states: [
+//             State {
+//                 name: "ACTIVE"
+//                 PropertyChanges {
+//                     target: bgHome
+//                     opacity: 1
+//                 }
+//             },
+//             State {
+//                 name: "INACTIVE"
+//                 PropertyChanges {
+//                     target: bgHome
+//                     opacity: 0.01
+//                 }
+//             }
+//         ]
+//         transitions: [
+//             Transition {
+//                 from: "INACTIVE"
+//                 to: "ACTIVE"
+//                 SequentialAnimation {
+//                     PropertyAction {
+//                         property: "visible"
+//                         value: true
+//                     }
+//                     NumberAnimation { property: "opacity"; duration: 1000 }
+//                 }
+//             },
+//             Transition {
+//                 from: "ACTIVE"
+//                 to: "INACTIVE"
+//                 SequentialAnimation {
+//                     NumberAnimation { property: "opacity"; duration: 500 }
+//                     PropertyAction {
+//                         property: "visible"
+//                         value: false
+//                     }
+//                 }
+//             }
+//         ]
         Image {
             id: mkzBackground
             source: "../images/mkz_background_stage_day.png"
