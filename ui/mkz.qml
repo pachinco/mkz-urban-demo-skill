@@ -259,14 +259,14 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: actionsView
-                    height: 0
+                    height: parent.height*0.75
                 }
             },
             State {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: actionsView
-                    height: parent.height*0.75
+                    height: 0
                 }
             }
         ]
