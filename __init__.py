@@ -26,7 +26,7 @@ class MkzUrbanDemo(MycroftSkill):
                                   {"ui": "music", "image": "../images/MediaIcon.png"},
                                   {"ui": "contact", "image": "../images/PersonIcon.png"},
                                   {"ui": "map", "image": "../images/NavigationIcon.png"}]
-        self.gui["uiIdx"] = -1
+        self.gui["uiIdx"] = -2
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
         self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}
@@ -44,7 +44,7 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
-        self.gui["uiIdx"] = -1
+        self.gui["uiIdx"] = -2
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
                                   {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
