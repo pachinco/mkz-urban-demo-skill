@@ -26,67 +26,67 @@ Mycroft.Delegate {
 
     Item {
         id: bgHome
-//         visible: uiHome
-        state: (uiHome) ? "ACTIVE" : "INACTIVE"
         anchors.fill: parent
-        states: [
-            State {
-                name: "ACTIVE"
-                PropertyChanges {
-                    target: mkzBackground
-                    opacity: 1
-                    height: parent.height
-                }
-                PropertyChanges {
-                    target: mkzImage
-                    opacity: 1
-                    height: parent.height*0.6
-                }
-            },
-            State {
-                name: "INACTIVE"
-                PropertyChanges {
-                    target: mkzBackground
-                    opacity: 0
-                    height: parent.height*1.2
-                }
-                PropertyChanges {
-                    target: mkzImage
-                    opacity: 0
-                    height: parent.height*0.2
-                }
-            }
-        ]
-        transitions: [
-            Transition {
-                from: "INACTIVE"
-                to: "ACTIVE"
-                SequentialAnimation {
-                    PropertyAction {
-                        property: "visible"
-                        value: true
-                    }
-                    ParallelAnimation {
-                        NumberAnimation { property: "opacity"; duration: 500 }
-                        NumberAnimation { property: "height"; duration: 500 }
-                    }
-                }
-            },
-            Transition {
-                from: "ACTIVE"
-                to: "INACTIVE"
-                SequentialAnimation {
-                    ParallelAnimation {
-                        NumberAnimation { property: "opacity"; duration: 500 }
-                        NumberAnimation { property: "height"; duration: 500 }
-                    }
-                    PropertyAction {
-                        property: "visible"
-                        value: false
-                    }
-                }
-            }
-        ]
+        visible: uiHome
+//         state: (uiHome) ? "ACTIVE" : "INACTIVE"
+//         states: [
+//             State {
+//                 name: "ACTIVE"
+//                 PropertyChanges {
+//                     target: mkzBackground
+//                     opacity: 1
+//                     height: parent.height
+//                 }
+//                 PropertyChanges {
+//                     target: mkzImage
+//                     opacity: 1
+//                     height: parent.height*0.6
+//                 }
+//             },
+//             State {
+//                 name: "INACTIVE"
+//                 PropertyChanges {
+//                     target: mkzBackground
+//                     opacity: 0
+//                     height: parent.height*1.2
+//                 }
+//                 PropertyChanges {
+//                     target: mkzImage
+//                     opacity: 0
+//                     height: parent.height*0.2
+//                 }
+//             }
+//         ]
+//         transitions: [
+//             Transition {
+//                 from: "INACTIVE"
+//                 to: "ACTIVE"
+//                 SequentialAnimation {
+//                     PropertyAction {
+//                         property: "visible"
+//                         value: true
+//                     }
+//                     ParallelAnimation {
+//                         NumberAnimation { property: "opacity"; duration: 500 }
+//                         NumberAnimation { property: "height"; duration: 500 }
+//                     }
+//                 }
+//             },
+//             Transition {
+//                 from: "ACTIVE"
+//                 to: "INACTIVE"
+//                 SequentialAnimation {
+//                     ParallelAnimation {
+//                         NumberAnimation { property: "opacity"; duration: 500 }
+//                         NumberAnimation { property: "height"; duration: 500 }
+//                     }
+//                     PropertyAction {
+//                         property: "visible"
+//                         value: false
+//                     }
+//                 }
+//             }
+//         ]
         Image {
             id: mkzBackground
             source: "../images/mkz_background_stage_day.png"
@@ -102,7 +102,7 @@ Mycroft.Delegate {
             source: "../images/Lincoln-UPower.png"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-//             height: parent.height*0.6
+            height: parent.height*0.6
             fillMode: Image.PreserveAspectFit
         }
     }
