@@ -35,6 +35,7 @@ Mycroft.Delegate {
                 PropertyChanges {
                     target: mkzBackground
                     opacity: 1
+                    height: parent.height
                 }
                 PropertyChanges {
                     target: mkzImage
