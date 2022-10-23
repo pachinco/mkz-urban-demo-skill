@@ -251,8 +251,51 @@ Mycroft.Delegate {
 
     Item {
         id: carFrame
-        visible: uiCar
         anchors.fill: parent
+//         visible: uiCar
+        state: (uiCar) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: carFrame
+                    y: 0
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: carFrame
+                    y: parent.height
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                SequentialAnimation {
+                    PropertyAction {
+                        target: carFrame
+                        property: "visible"
+                        value: true
+                    }
+                    NumberAnimation { target: carFrame; property: "y"; duration: 500 }
+                }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                SequentialAnimation {
+                    NumberAnimation { target: carFrame; property: "y"; duration: 500 }
+                    PropertyAction {
+                        target: carFrame
+                        property: "visible"
+                        value: false
+                    }
+                }
+            }
+        ]
         Component {
             id: actionDelegate
             Item {
@@ -261,7 +304,6 @@ Mycroft.Delegate {
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
                 visible: false
-    //             opacity: 0
                 Rectangle {
                     id: button
                     color: "#f0f0f0f0"
@@ -338,9 +380,5 @@ Mycroft.Delegate {
                 }
             }
         }
-    }
-
-    Component.onCompleted: {
-        mkzAnimation.running = true
     }
 }
