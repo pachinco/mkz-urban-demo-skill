@@ -50,7 +50,7 @@ Mycroft.Delegate {
                 PropertyChanges {
                     target: mkzImage
                     x: parent.width*0.6
-                    y: parent.height*0.3
+                    y: parent.height*0.25
                     width: parent.width*0.2
                     height: parent.height*0.2
                     opacity: 0
