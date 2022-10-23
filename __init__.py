@@ -44,7 +44,7 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
-        self.gui["uiIdx"] = -1
+        self.gui["uiIdx"] = -2
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
                                   {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
@@ -101,7 +101,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.speak("What's next?", expect_response=True, wait=True)
         #self.gui.show_page(str(self.mkz_list_ui))
         self.gui["actionsList"] = []
-        self.gui["uiIdx"] = 2
+        self.gui["uiIdx"] = -1
         self.schedule_event(self._add_config, 3)
 
     def _add_config(self):
