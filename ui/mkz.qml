@@ -278,66 +278,66 @@ Mycroft.Delegate {
                 samples: 21
                 color: "#80000000"
             }
-        }
-        Component {
-            id: menuDelegate
-            Item {
-                id: menuItem
-                signal clicked
-                width: menuIcons.cellWidth
-                height: menuIcons.cellHeight
-                anchors.bottom: parent.bottom
-                Image {
-                    id: menuIcon
-                    z: 20
-                    width: menuIcons.cellWidth*1.2
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: menuItem.horizontalCenter
-                    source: Qt.resolvedUrl(model.image)
-                    fillMode: Image.PreserveAspectFit
-                    opacity: (sessionData.uiIdx===model.idx) ? 1 : 0.2
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: menuItem.clicked()
-                }
-                onClicked: {
-//                     console.log("menu clicked "+model.ui)
-                    sessionData.uiIdx=(sessionData.uiIdx===model.idx) ? -1 : model.idx
+            Component {
+                id: menuDelegate
+                Item {
+                    id: menuItem
+                    signal clicked
+                    width: menuIcons.cellWidth
+                    height: menuIcons.cellHeight
+                    anchors.bottom: parent.bottom
+                    Image {
+                        id: menuIcon
+                        z: 20
+                        width: menuIcons.cellWidth*1.2
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.horizontalCenter: menuItem.horizontalCenter
+                        source: Qt.resolvedUrl(model.image)
+                        fillMode: Image.PreserveAspectFit
+                        opacity: (sessionData.uiIdx===model.idx) ? 1 : 0.2
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: menuItem.clicked()
+                    }
+                    onClicked: {
+    //                     console.log("menu clicked "+model.ui)
+                        sessionData.uiIdx=(sessionData.uiIdx===model.idx) ? -1 : model.idx
+                    }
                 }
             }
-        }
-        GridView {
-            id: menuIcons
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            width: frameBottom.width*0.303
-            height: frameBottom.height*0.66
-            model: sessionData.uiButtons
-            currentIndex: sessionData.uiIdx
-            delegate: menuDelegate
-            cellWidth: width/5
-            cellHeight: height
-            highlightFollowsCurrentItem: true
-//             highlight: Rectangle {
-//                 id: menuMarker
-//                 color: "#80800000"
-//             }
-//             Rectangle {
-//                 anchors.fill: parent
-//                 color: "#50505050"
-//             }
-        }
-        Image {
-            id: menuHighlight
-            z: 25
-            source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
-            anchors.verticalCenter: menuIcons.verticalCenter
-            x: frameBottom.width*0.5+(sessionData.uiIdx-2)*(menuIcons.width*0.2)-width*0.5
-            visible: sessionData.uiIdx>-1 ? true:false
-            width: menuIcons.cellWidth*2.5
-            height: menuIcons.height*1.55
-            Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 500 } }
+            GridView {
+                id: menuIcons
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                width: frameBottom.width*0.303
+                height: frameBottom.height*0.66
+                model: sessionData.uiButtons
+                currentIndex: sessionData.uiIdx
+                delegate: menuDelegate
+                cellWidth: width/5
+                cellHeight: height
+                highlightFollowsCurrentItem: true
+    //             highlight: Rectangle {
+    //                 id: menuMarker
+    //                 color: "#80800000"
+    //             }
+    //             Rectangle {
+    //                 anchors.fill: parent
+    //                 color: "#50505050"
+    //             }
+            }
+            Image {
+                id: menuHighlight
+                z: 25
+                source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
+                anchors.verticalCenter: menuIcons.verticalCenter
+                x: frameBottom.width*0.5+(sessionData.uiIdx-2)*(menuIcons.width*0.2)-width*0.5
+                visible: sessionData.uiIdx>-1 ? true:false
+                width: menuIcons.cellWidth*2.5
+                height: menuIcons.height*1.55
+                Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 500 } }
+            }
         }
     }
 
