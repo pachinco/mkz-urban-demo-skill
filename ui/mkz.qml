@@ -34,6 +34,9 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: bgHome
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    height: parent.height*0.6
                     opacity: 1
                 }
             },
@@ -41,6 +44,9 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: bgHome
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    height: parent.height*0.2
                     opacity: 0.01
                 }
             }
@@ -54,14 +60,20 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { property: "opacity"; duration: 1000 }
+                    ParallelAnimation {
+                        NumberAnimation { property: "opacity"; duration: 1000 }
+                        NumberAnimation { property: "x,y"; duration: 1000 }
+                    }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { property: "opacity"; duration: 500 }
+                    ParallelAnimation {
+                        NumberAnimation { property: "opacity"; duration: 500 }
+                        NumberAnimation { property: "x,y"; duration: 1000 }
+                    }
                     PropertyAction {
                         property: "visible"
                         value: false
@@ -77,9 +89,9 @@ Mycroft.Delegate {
         Image {
             id: mkzImage
             source: "../images/Lincoln-UPower.png"
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            height: parent.height*0.6
+//             anchors.horizontalCenter: parent.horizontalCenter
+//             anchors.verticalCenter: parent.verticalCenter
+//             height: parent.height*0.6
             fillMode: Image.PreserveAspectFit
         }
     }
