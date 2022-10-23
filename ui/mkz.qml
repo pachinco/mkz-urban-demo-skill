@@ -40,15 +40,23 @@ Mycroft.Delegate {
                     width: parent.width*0.6
                     opacity: 1
                 }
+                PropertyChanges {
+                    target: mkzBackground
+                    opacity: 1
+                }
             },
             State {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: mkzImage
-                    x: parent.width*0.8
-                    y: 0
+                    x: parent.width*0.6
+                    y: parent.height*0.3
                     width: parent.width*0.2
                     height: parent.height*0.2
+                    opacity: 0.01
+                }
+                PropertyChanges {
+                    target: mkzBackground
                     opacity: 0.01
                 }
             }
@@ -59,18 +67,26 @@ Mycroft.Delegate {
                 to: "ACTIVE"
                 SequentialAnimation {
                     PropertyAction {
+                        target: bgHome
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { properties: "opacity,x,y,width,height"; duration: 1000 }
+                    ParallelAnimation {
+                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
+                        NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
+                    }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { properties: "opacity,x,y,width,height"; duration: 1000 }
+                    ParallelAnimation {
+                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
+                        NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
+                    }
                     PropertyAction {
+                        target: bgHome
                         property: "visible"
                         value: false
                     }
