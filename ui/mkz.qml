@@ -144,7 +144,7 @@ Mycroft.Delegate {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
+                    NumberAnimation { target: mapView; properties: "opacity; duration: 500 }
                     PropertyAction {
                         target: mapFrame
                         property: "visible"
