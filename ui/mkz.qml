@@ -79,8 +79,8 @@ Mycroft.Delegate {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
-                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
+                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 250 }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 250 }
                     PropertyAction {
                         target: bgHome
                         property: "visible"
@@ -328,7 +328,7 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: actionsView; property: "height"; duration: 500 }
+                    NumberAnimation { target: actionsView; property: "height"; duration: 1000 }
                 }
             },
             Transition {
