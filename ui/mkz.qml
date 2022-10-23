@@ -178,38 +178,39 @@ Mycroft.Delegate {
         anchors.right: parent.right
         height: frameTop.height
         z: 10
-        state: (sessionData.uiIdx>=-1) ? "ACTIVE" : "INACTIVE"
-        states: [
-            State {
-                name: "ACTIVE"
-                PropertyChanges {
-                    target: frameTop
-                    y: 0
-                }
-            },
-            State {
-                name: "INACTIVE"
-                PropertyChanges {
-                    target: frameTop
-                    y: -frameTop.height
-                }
-            }
-        ]
-        transitions: [
-            Transition {
-                from: "INACTIVE"
-                to: "ACTIVE"
-                NumberAnimation { target: frameTop; properties: "y"; duration: 1000 }
-            },
-            Transition {
-                from: "ACTIVE"
-                to: "INACTIVE"
-                NumberAnimation { target: frameTop; properties: "y"; duration: 1000 }
-            }
-        ]
+//         state: (sessionData.uiIdx>=-1) ? "ACTIVE" : "INACTIVE"
+//         states: [
+//             State {
+//                 name: "ACTIVE"
+//                 PropertyChanges {
+//                     target: frameTop
+//                     y: 0
+//                 }
+//             },
+//             State {
+//                 name: "INACTIVE"
+//                 PropertyChanges {
+//                     target: frameTop
+//                     y: -frameTop.height
+//                 }
+//             }
+//         ]
+//         transitions: [
+//             Transition {
+//                 from: "INACTIVE"
+//                 to: "ACTIVE"
+//                 NumberAnimation { target: frameTop; properties: "y"; duration: 1000 }
+//             },
+//             Transition {
+//                 from: "ACTIVE"
+//                 to: "INACTIVE"
+//                 NumberAnimation { target: frameTop; properties: "y"; duration: 1000 }
+//             }
+//         ]
         Image {
             id: frameTop
 //             anchors.top: parent.top
+            y: 0
             anchors.left: parent.left
             anchors.right: parent.right
             source: Qt.resolvedUrl("../images/mkz_frame_top_day.png")
@@ -222,6 +223,12 @@ Mycroft.Delegate {
                 font.pixelSize: 30
                 text: sessionData.datetime
                 opacity: 0.6
+            }
+            Behavior on y {
+                SequentialAnimation {
+                    PauseAnimation { duration: 1000 }
+                    PropertyAnimation { property: "y"; from: -frameTop.height; duration 1000 } 
+                }
             }
         }
     }
