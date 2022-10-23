@@ -93,6 +93,7 @@ Mycroft.Delegate {
             id: mkzBackground
             source: "../images/mkz_background_stage_day.png"
             anchors.fill: parent
+            z: -1
             fillMode: Image.Image.PreserveAspectCrop
         }
         Image {
@@ -393,6 +394,7 @@ Mycroft.Delegate {
             source: "../images/mkz_background_stage_day.png"
             anchors.fill: parent
             opacity: 0.5
+            z: -1
             fillMode: Image.Image.PreserveAspectCrop
         }
         Component {
@@ -541,6 +543,7 @@ Mycroft.Delegate {
             source: "../images/mkz_background_stage_day.png"
             anchors.fill: parent
             opacity: 0.5
+            z: -1
             fillMode: Image.Image.PreserveAspectCrop
         }
         Component {
