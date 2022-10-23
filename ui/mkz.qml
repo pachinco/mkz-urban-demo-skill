@@ -50,7 +50,7 @@ Mycroft.Delegate {
                 PropertyChanges {
                     target: mkzImage
                     x: parent.width*0.6
-                    y: parent.height*0.28
+                    y: parent.height*0.3
                     width: parent.width*0.2
                     height: parent.height*0.2
                     opacity: 0
@@ -71,16 +71,16 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
-                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
+                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
-                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
+                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
                     PropertyAction {
                         target: bgHome
                         property: "visible"
