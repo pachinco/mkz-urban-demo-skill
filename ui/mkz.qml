@@ -17,7 +17,6 @@ Mycroft.Delegate {
     bottomPadding: 0
     anchors.fill: parent
 
-    property bool uiStart: (sessionData.uiIdx===-2) ? true:false
     property bool uiHome: (sessionData.uiIdx===-1) ? true:false
     property bool uiConfig: (sessionData.uiIdx===0) ? true:false
     property bool uiMap: (sessionData.uiIdx===1) ? true:false
@@ -179,7 +178,7 @@ Mycroft.Delegate {
         anchors.right: parent.right
         height: frameTop.height
         z: 10
-        state: (uiHome) ? "ACTIVE" : "INACTIVE"
+        state: (sessionData.uiIdx>=-1) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
