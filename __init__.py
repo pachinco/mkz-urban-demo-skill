@@ -101,7 +101,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.speak("What's next?", expect_response=True, wait=True)
         #self.gui.show_page(str(self.mkz_list_ui))
         self.gui["actionsList"] = []
-        self.gui["uiIdx"] = -1
+        self.gui["uiIdx"] = 2
         self.schedule_event(self._add_config, 3)
 
     def _add_config(self):
