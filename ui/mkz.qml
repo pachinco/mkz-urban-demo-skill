@@ -41,7 +41,7 @@ Mycroft.Delegate {
                     opacity: 1
                     height: parent.height*0.6
                 }
-            }
+            },
             State {
                 name: "INACTIVE"
                 PropertyChanges {
@@ -70,7 +70,7 @@ Mycroft.Delegate {
                         NumberAnimation { property: "height"; duration: 500 }
                     }
                 }
-            }
+            },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
