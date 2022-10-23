@@ -34,8 +34,10 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: bgHome
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
+                    x: (parent.width-width)*0.5
+                    y: (parent.height-height)*0.5
+//                     anchors.horizontalCenter: parent.horizontalCenter
+//                     anchors.verticalCenter: parent.verticalCenter
                     height: parent.height*0.6
                     opacity: 1
                 }
@@ -44,8 +46,10 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: bgHome
-                    anchors.top: parent.top
-                    anchors.right: parent.right
+                    x: parent.width-width
+                    y: parent.height-height
+//                     anchors.top: parent.top
+//                     anchors.right: parent.right
                     height: parent.height*0.2
                     opacity: 0.01
                 }
@@ -62,7 +66,8 @@ Mycroft.Delegate {
                     }
                     ParallelAnimation {
                         NumberAnimation { property: "opacity"; duration: 1000 }
-                        NumberAnimation { property: "x,y"; duration: 1000 }
+                        NumberAnimation { property: "x"; duration: 1000 }
+                        NumberAnimation { property: "y"; duration: 1000 }
                     }
                 }
             },
@@ -72,7 +77,8 @@ Mycroft.Delegate {
                 SequentialAnimation {
                     ParallelAnimation {
                         NumberAnimation { property: "opacity"; duration: 500 }
-                        NumberAnimation { property: "x,y"; duration: 1000 }
+                        NumberAnimation { property: "x"; duration: 1000 }
+                        NumberAnimation { property: "y"; duration: 1000 }
                     }
                     PropertyAction {
                         property: "visible"
