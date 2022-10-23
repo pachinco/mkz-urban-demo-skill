@@ -178,7 +178,7 @@ Mycroft.Delegate {
         anchors.right: parent.right
         height: frameTop.height
         z: 10
-        state: (sessionData.uiIdx>=-1) ? "ACTIVE" : "INACTIVE"
+        state: (sessionData.uiIdx>-2) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
@@ -224,12 +224,6 @@ Mycroft.Delegate {
                 text: sessionData.datetime
                 opacity: 0.6
             }
-//             Behavior on y {
-//                 SequentialAnimation {
-//                     PauseAnimation { duration: 1000 }
-//                     PropertyAnimation { property: "y"; from: -frameTop.height; duration: 1000 } 
-//                 }
-//             }
         }
     }
 
@@ -240,9 +234,38 @@ Mycroft.Delegate {
         anchors.right: parent.right
         height: frameBottom.height
         z: 10
+        state: (sessionData.uiIdx>-2) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: frameBottom
+                    y: bottomFrame.height-frameBottom.height
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: frameBottom
+                    y: bottomFrame.height
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                NumberAnimation { target: frameBottom; properties: "y"; duration: 1000 }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                NumberAnimation { target: frameBottom; properties: "y"; duration: 1000 }
+            }
+        ]
         Image {
             id: frameBottom
-            anchors.bottom: parent.bottom
+//             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
             source: Qt.resolvedUrl("../images/mkz_frame_bottom_day.png")
