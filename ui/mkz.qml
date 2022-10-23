@@ -404,7 +404,7 @@ Mycroft.Delegate {
                 anchors.bottom: parent.bottom
                 visible: false
                 Rectangle {
-                    id: button
+                    id: actionsButton
                     color: "#f0f0f0f0"
                     signal clicked
                     width: parent.width-Kirigami.Units.gridUnit*2
@@ -454,7 +454,7 @@ Mycroft.Delegate {
                         onClicked: button.clicked()
                     }
                     onClicked: {
-                        console.log("button clicked "+model.text)
+                        console.log("actions clicked "+model.text)
                     }
                 }
             }
@@ -471,17 +471,145 @@ Mycroft.Delegate {
             cellWidth: width/3
             cellHeight: height
             add: Transition {
-                id: dispTrans1
+                id: actionsTrans1
                 SequentialAnimation {
-                    PauseAnimation { duration: dispTrans1.ViewTransition.index * 200 }
+                    PauseAnimation { duration: actionsTrans1.ViewTransition.index * 200 }
                     PropertyAction { property: "visible"; value: true }
                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
                 }
             }
             populate: Transition {
-                id: dispTrans2
+                id: actionsTrans2
                 SequentialAnimation {
-                    PauseAnimation { duration: dispTrans2.ViewTransition.index * 200 }
+                    PauseAnimation { duration: actionsTrans2.ViewTransition.index * 200 }
+                    PropertyAction { property: "visible"; value: true }
+                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+                }
+            }
+        }
+    }
+    
+    Item {
+        id: configFrame
+        anchors.fill: parent
+//         visible: uiConfig
+        state: (uiConfig) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: configView
+                    height: parent.height*0.75
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: configView
+                    height: 0
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                SequentialAnimation {
+                    PropertyAction {
+                        target: configView
+                        property: "visible"
+                        value: true
+                    }
+                    NumberAnimation { target: configView; property: "height"; duration: 500 }
+                }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                SequentialAnimation {
+                    NumberAnimation { target: configView; property: "height"; duration: 500 }
+                    PropertyAction {
+                        target: configView
+                        property: "visible"
+                        value: false
+                    }
+                }
+            }
+        ]
+        Image {
+            id: configBackground
+            source: "../images/mkz_background_stage_day.png"
+            anchors.fill: parent
+            opacity: 0.5
+            fillMode: Image.Image.PreserveAspectCrop
+        }
+        Component {
+            id: configDelegate
+            Item {
+                z: 1
+                width: configView.cellWidth
+                height: configView.cellHeight
+                anchors.bottom: parent.bottom
+                visible: false
+                Rectangle {
+                    id: configButton
+                    color: "#f0f0f0f0"
+                    signal clicked
+                    width: parent.width-Kirigami.Units.gridUnit
+                    height: parent.height-Kirigami.Units.gridUnit
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.bottom: parent.bottom
+                    layer.enabled: true
+                    layer.effect: DropShadow {
+                        transparentBorder: true
+                        horizontalOffset: 6
+                        verticalOffset: 6
+                        color: "#80000000"
+                        radius: 10
+                        samples: 21
+                    }
+                    Kirigami.Heading {
+                        id: actionsLabel
+                        anchors.left: configButton.left
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: model.text
+                        color: "#c0000000"
+                        font.pointSize: Kirigami.Units.gridUnit*2
+                    }
+                    MouseArea {
+                        id: mouse
+                        anchors.fill: parent
+                        onClicked: button.clicked()
+                    }
+                    onClicked: {
+                        console.log("config clicked "+model.text)
+                    }
+                }
+            }
+        }
+
+        GridView {
+            id: configView
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            width: parent.width*0.7
+            height: parent.height*0.75
+            model: sessionData.configList
+            delegate: configDelegate
+            cellWidth: width
+            cellHeight: height/4
+            add: Transition {
+                id: configTrans1
+                SequentialAnimation {
+                    PauseAnimation { duration: configTrans1.ViewTransition.index * 200 }
+                    PropertyAction { property: "visible"; value: true }
+                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+                }
+            }
+            populate: Transition {
+                id: configTrans2
+                SequentialAnimation {
+                    PauseAnimation { duration: configTrans2.ViewTransition.index * 200 }
                     PropertyAction { property: "visible"; value: true }
                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
                 }
