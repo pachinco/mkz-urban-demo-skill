@@ -258,15 +258,15 @@ Mycroft.Delegate {
             State {
                 name: "ACTIVE"
                 PropertyChanges {
-                    target: carFrame
-                    y: 0
+                    target: actionsView
+                    height: 0
                 }
             },
             State {
                 name: "INACTIVE"
                 PropertyChanges {
-                    target: carFrame
-                    y: parent.height
+                    target: actionsView
+                    height: parent.height*0.75
                 }
             }
         ]
@@ -280,14 +280,14 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: carFrame; property: "y"; duration: 500 }
+                    NumberAnimation { target: actionsView; property: "height"; duration: 500 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: carFrame; property: "y"; duration: 500 }
+                    NumberAnimation { target: actionsView; property: "height"; duration: 500 }
                     PropertyAction {
                         target: carFrame
                         property: "visible"
