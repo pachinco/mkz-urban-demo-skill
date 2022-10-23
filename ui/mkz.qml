@@ -114,14 +114,14 @@ Mycroft.Delegate {
             State {
                 name: "ACTIVE"
                 PropertyChanges {
-                    target: actionsView
+                    target: mapView
                     height: parent.height
                 }
             },
             State {
                 name: "INACTIVE"
                 PropertyChanges {
-                    target: actionsView
+                    target: mapView
                     height: 0
                 }
             }
