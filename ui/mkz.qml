@@ -106,16 +106,62 @@ Mycroft.Delegate {
     }
 
     Item {
-        id: mapView
-        visible: uiMap
+        id: mapFrame
         anchors.fill: parent
+//         visible: uiMap
+        state: (uiCar) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: actionsView
+                    height: parent.height
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: actionsView
+                    height: 0
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                SequentialAnimation {
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: true
+                    }
+                    NumberAnimation { target: mapView; property: "height"; duration: 500 }
+                }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                SequentialAnimation {
+                    NumberAnimation { target: mapView; property: "height"; duration: 500 }
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: false
+                    }
+                }
+            }
+        ]
         Plugin {
             id: mapPlugin
             name: "osm"
         }
         
         Map {
-            anchors.fill: parent
+            id: mapView
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width
             plugin: mapPlugin
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
             zoomLevel: 20
