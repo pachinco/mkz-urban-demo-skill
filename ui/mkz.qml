@@ -90,11 +90,11 @@ Mycroft.Delegate {
         Image {
             id: mkzBackground
             source: "../images/mkz_background_stage_day.png"
-            anchors.fill: parent
-//             anchors.top: parent.top
-//             anchors.bottom: parent.bottom
-//             anchors.left: parent.left
-//             anchors.right: parent.right
+//             anchors.fill: parent
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
             fillMode: Image.PreserveAspectFit
         }
         Image {
