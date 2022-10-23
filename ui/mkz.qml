@@ -71,8 +71,8 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 250 }
-                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 250 }
+                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
                 }
             },
             Transition {
@@ -137,7 +137,7 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
+                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 1000 }
                 }
             },
             Transition {
@@ -221,16 +221,10 @@ Mycroft.Delegate {
                 color: "#80000000"
             }
         }
-//         Image {
-//             anchors.bottom: parent.bottom
-//             anchors.left: parent.left
-//             source: Qt.resolvedUrl("../images/LightningIcon.png")
-//         }
         Component {
             id: menuDelegate
             Item {
                 id: menuItem
-//                 anchors.fill: parent
                 signal clicked
                 width: menuIcons.cellWidth
                 height: menuIcons.cellHeight
@@ -243,7 +237,6 @@ Mycroft.Delegate {
                     anchors.horizontalCenter: menuItem.horizontalCenter
                     source: Qt.resolvedUrl(model.image)
                     fillMode: Image.PreserveAspectFit
-//                     opacity: GridView.currentIndex ? 1 : 0.2
                     opacity: (sessionData.uiIdx===model.idx) ? 1 : 0.2
                 }
                 MouseArea {
@@ -271,12 +264,6 @@ Mycroft.Delegate {
 //             highlight: Rectangle {
 //                 id: menuMarker
 //                 color: "#80800000"
-//             }
-//             highlight: Image {
-//                 height: menuIcons.cellHeight*2
-//                 width: menuIcons.cellWidth*2
-//                 smooth: true
-//                 source: Qt.resolvedUrl("../images/SelectedMenuButtonGlow.png")
 //             }
 //             Rectangle {
 //                 anchors.fill: parent
@@ -328,7 +315,7 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: actionsView; property: "height"; duration: 500 }
+                    NumberAnimation { target: actionsView; property: "height"; duration: 1000 }
                 }
             },
             Transition {
@@ -420,9 +407,17 @@ Mycroft.Delegate {
             cellWidth: width/3
             cellHeight: height
             add: Transition {
-                id: dispTrans
+                id: dispTrans1
                 SequentialAnimation {
-                    PauseAnimation { duration: dispTrans.ViewTransition.index * 200 }
+                    PauseAnimation { duration: dispTrans1.ViewTransition.index * 200 }
+                    PropertyAction { property: "visible"; value: true }
+                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+                }
+            }
+            populate: Transition {
+                id: dispTrans2
+                SequentialAnimation {
+                    PauseAnimation { duration: dispTrans2.ViewTransition.index * 200 }
                     PropertyAction { property: "visible"; value: true }
                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
                 }
