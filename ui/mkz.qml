@@ -89,7 +89,7 @@ Mycroft.Delegate {
         Image {
             id: mkzBackground
             source: "../images/mkz_background_stage_day.png"
-            anchor.fill: parent
+            anchors.fill: parent
 //             anchors.top: parent.top
 //             anchors.bottom: parent.bottom
 //             anchors.left: parent.left
