@@ -104,9 +104,7 @@ Mycroft.Delegate {
 
     Item {
         id: mapFrame
-//         anchors.fill: parent
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.fill: parent
 //         visible: uiMap
         state: (uiMap) ? "ACTIVE" : "INACTIVE"
         states: [
