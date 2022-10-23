@@ -95,7 +95,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            fillMode: Image.PreserveAspectFit
+//             fillMode: Image.PreserveAspectFit
         }
         Image {
             id: mkzImage
