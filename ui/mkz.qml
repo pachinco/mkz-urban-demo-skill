@@ -199,12 +199,12 @@ Mycroft.Delegate {
             Transition {
                 from: "INACTIVE"
                 to: "ACTIVE"
-                NumberAnimation { target: frameTop; properties: "y"; duration: 1000 }
+                NumberAnimation { target: frameTop; properties: "y"; duration: 500 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
-                NumberAnimation { target: frameTop; properties: "y"; duration: 1000 }
+                NumberAnimation { target: frameTop; properties: "y"; duration: 500 }
             }
         ]
         Image {
@@ -255,12 +255,12 @@ Mycroft.Delegate {
             Transition {
                 from: "INACTIVE"
                 to: "ACTIVE"
-                NumberAnimation { target: frameBottom; properties: "y"; duration: 1000 }
+                NumberAnimation { target: frameBottom; properties: "y"; duration: 500 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
-                NumberAnimation { target: frameBottom; properties: "y"; duration: 1000 }
+                NumberAnimation { target: frameBottom; properties: "y"; duration: 500 }
             }
         ]
         Image {
