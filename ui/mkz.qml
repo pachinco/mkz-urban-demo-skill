@@ -26,41 +26,83 @@ Mycroft.Delegate {
 
     Item {
         id: bgHome
-        visible: uiHome
+//         visible: uiHome
+        state: (uiHome) ? "ACTIVE" : "INACTIVE"
         anchors.fill: parent
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: mkzBackground
+                    opacity: 1
+                }
+                PropertyChanges {
+                    target: mkzImage
+                    opacity: 1
+                    height: parent.height*0.6
+                }
+            }
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: mkzBackground
+                    opacity: 0
+                    height: parent.height*1.2
+                }
+                PropertyChanges {
+                    target: mkzImage
+                    opacity: 0
+                    height: parent.height*0.2
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                SequentialAnimation {
+                    PropertyAction {
+                        property: "visible"
+                        value: true
+                    }
+                    ParallelAnimation {
+                        NumberAnimation { property: "opacity"; duration: 500 }
+                        NumberAnimation { property: "height"; duration: 500 }
+                    }
+                }
+            }
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                SequentialAnimation {
+                    ParallelAnimation {
+                        NumberAnimation { property: "opacity"; duration: 500 }
+                        NumberAnimation { property: "height"; duration: 500 }
+                    }
+                    PropertyAction {
+                        property: "visible"
+                        value: false
+                    }
+                }
+            }
+        ]
         Image {
+            id: mkzBackground
             source: "../images/mkz_background_stage_day.png"
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
+            anchor.fill: parent
+//             anchors.top: parent.top
+//             anchors.bottom: parent.bottom
+//             anchors.left: parent.left
+//             anchors.right: parent.right
+            fillMode: Image.PreserveAspectFit
         }
-
         Image {
             id: mkzImage
             source: "../images/Lincoln-UPower.png"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            height: parent.height*0.6
+//             height: parent.height*0.6
             fillMode: Image.PreserveAspectFit
-            SequentialAnimation {
-                id: mkzAnimation
-                running: true
-                loops: Animation.Infinite
-                PropertyAction {
-                    property: "visible"
-                    value: false
-                }
-                PauseAnimation {
-                    duration: 1000
-                }
-                PropertyAction {
-                    property: "visible"
-                    value: true
-                }
-                NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 1000 }
-//                 NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 1000 }
-            }
         }
     }
 
@@ -106,7 +148,7 @@ Mycroft.Delegate {
             text: sessionData.datetime
             opacity: 0.6
         }
-        Behavior on y { PropertyAnimation { from: -500; easing.type: Easing.InOutQuad; duration: 500 } }
+//         Behavior on y { PropertyAnimation { from: -500; easing.type: Easing.InOutQuad; duration: 500 } }
     }
 
     Item {
@@ -205,7 +247,7 @@ Mycroft.Delegate {
             height: menuIcons.height*1.55
             Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 500 } }
         }
-        Behavior on y { PropertyAnimation { from: 1000; easing.type: Easing.InOutQuad; duration: 500 } }
+//         Behavior on y { PropertyAnimation { from: 1000; easing.type: Easing.InOutQuad; duration: 500 } }
     }
 
     Item {
