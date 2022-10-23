@@ -137,14 +137,14 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 1000 }
+                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 1000 }
+                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
                     PropertyAction {
                         target: mapFrame
                         property: "visible"
@@ -315,14 +315,14 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: actionsView; property: "height"; duration: 1000 }
+                    NumberAnimation { target: actionsView; property: "height"; duration: 500 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: actionsView; property: "height"; duration: 1000 }
+                    NumberAnimation { target: actionsView; property: "height"; duration: 500 }
                     PropertyAction {
                         target: carFrame
                         property: "visible"
