@@ -112,8 +112,8 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: mapView
-                    height: parent.height
-                    width: parent.width
+//                     height: parent.height
+//                     width: parent.width
                     opacity: 1
                 }
             },
@@ -121,8 +121,8 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: mapView
-                    height: parent.height*2
-                    width: parent.width*2
+//                     height: parent.height*2
+//                     width: parent.width*2
                     opacity: 0
                 }
             }
@@ -137,14 +137,14 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
+                    NumberAnimation { target: mapView; properties: "opacity"; duration: 500 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: mapView; properties: "opacity,height"; duration: 500 }
+                    NumberAnimation { target: mapView; properties: "opacity"; duration: 500 }
                     PropertyAction {
                         target: mapFrame
                         property: "visible"
