@@ -137,7 +137,7 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
+                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 1000 }
                 }
             },
             Transition {
