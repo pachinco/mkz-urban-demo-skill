@@ -227,7 +227,7 @@ Mycroft.Delegate {
             Behavior on y {
                 SequentialAnimation {
                     PauseAnimation { duration: 1000 }
-                    PropertyAnimation { property: "y"; from: -frameTop.height; duration 1000 } 
+                    PropertyAnimation { property: "y"; from: -frameTop.height; duration: 1000 } 
                 }
             }
         }
