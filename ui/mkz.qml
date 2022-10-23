@@ -40,10 +40,10 @@ Mycroft.Delegate {
                     width: parent.width*0.6
                     opacity: 1
                 }
-//                 PropertyChanges {
-//                     target: mkzBackground
-//                     opacity: 1
-//                 }
+                PropertyChanges {
+                    target: mkzBackground
+                    opacity: 1
+                }
             },
             State {
                 name: "INACTIVE"
@@ -55,10 +55,10 @@ Mycroft.Delegate {
                     height: parent.height*0.2
                     opacity: 0
                 }
-//                 PropertyChanges {
-//                     target: mkzBackground
-//                     opacity: 0
-//                 }
+                PropertyChanges {
+                    target: mkzBackground
+                    opacity: 0
+                }
             }
         ]
         transitions: [
