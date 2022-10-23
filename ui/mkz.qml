@@ -109,13 +109,14 @@ Mycroft.Delegate {
         id: mapFrame
         anchors.fill: parent
 //         visible: uiMap
-        state: (uiCar) ? "ACTIVE" : "INACTIVE"
+        state: (uiMap) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: mapView
                     height: parent.height
+                    opacity: 1
                 }
             },
             State {
@@ -123,6 +124,7 @@ Mycroft.Delegate {
                 PropertyChanges {
                     target: mapView
                     height: 0
+                    opacity: 1
                 }
             }
         ]
@@ -136,14 +138,14 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mapView; property: "height"; duration: 500 }
+                    NumberAnimation { target: mapView; properties: "opacity,height"; duration: 500 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: mapView; property: "height"; duration: 500 }
+                    NumberAnimation { target: mapView; properties: "opacity,height"; duration: 500 }
                     PropertyAction {
                         target: mapFrame
                         property: "visible"
