@@ -50,7 +50,7 @@ Mycroft.Delegate {
                 PropertyChanges {
                     target: mkzImage
                     x: parent.width*0.6
-                    y: parent.height*0.25
+                    y: parent.height*0.28
                     width: parent.width*0.2
                     height: parent.height*0.2
                     opacity: 0
@@ -66,13 +66,13 @@ Mycroft.Delegate {
                 from: "INACTIVE"
                 to: "ACTIVE"
                 SequentialAnimation {
-                    PropertyAction {
-                        target: bgHome
-                        property: "visible"
-                        value: true
-                    }
+//                     PropertyAction {
+//                         target: bgHome
+//                         property: "visible"
+//                         value: true
+//                     }
                     ParallelAnimation {
-                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
+                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
 //                         NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
                     }
                 }
@@ -82,14 +82,14 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     ParallelAnimation {
-                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
+                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
 //                         NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
                     }
-                    PropertyAction {
-                        target: bgHome
-                        property: "visible"
-                        value: false
-                    }
+//                     PropertyAction {
+//                         target: bgHome
+//                         property: "visible"
+//                         value: false
+//                     }
                 }
             }
         ]
