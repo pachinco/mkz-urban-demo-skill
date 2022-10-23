@@ -26,7 +26,7 @@ class MkzUrbanDemo(MycroftSkill):
                                   {"ui": "music", "image": "../images/MediaIcon.png"},
                                   {"ui": "contact", "image": "../images/PersonIcon.png"},
                                   {"ui": "map", "image": "../images/NavigationIcon.png"}]
-        self.gui["ui"] = "none"
+        self.gui["uiIdx"] = -2
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
         self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}

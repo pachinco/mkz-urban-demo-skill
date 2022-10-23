@@ -17,6 +17,7 @@ Mycroft.Delegate {
     bottomPadding: 0
     anchors.fill: parent
 
+    property bool uiStart: (sessionData.uiIdx===-2) ? true:false
     property bool uiHome: (sessionData.uiIdx===-1) ? true:false
     property bool uiConfig: (sessionData.uiIdx===0) ? true:false
     property bool uiMap: (sessionData.uiIdx===1) ? true:false
@@ -178,22 +179,51 @@ Mycroft.Delegate {
         anchors.right: parent.right
         height: frameTop.height
         z: 10
+        state: (uiHome) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: frameTop
+                    y: 0
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: frameTop
+                    y: -frameTop.height
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                NumberAnimation { target: mkzBackground; properties: "y"; duration: 1000 }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                NumberAnimation { target: mkzBackground; properties: "y"; duration: 1000 }
+            }
+        ]
         Image {
             id: frameTop
-            anchors.top: parent.top
+//             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
             source: Qt.resolvedUrl("../images/mkz_frame_top_day.png")
             fillMode: Image.PreserveAspectFit
-        }
-        Text {
-            id: dtime
-            x: 20
-            y: 20
-            z: 20
-            font.pixelSize: 30
-            text: sessionData.datetime
-            opacity: 0.6
+            Text {
+                id: dtime
+                x: 20
+                y: 20
+                z: 20
+                font.pixelSize: 30
+                text: sessionData.datetime
+                opacity: 0.6
+            }
         }
     }
 
