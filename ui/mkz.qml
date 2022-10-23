@@ -93,6 +93,7 @@ Mycroft.Delegate {
             id: mkzBackground
             source: "../images/mkz_background_stage_day.png"
             anchors.fill: parent
+            fillMode: Image.Image.PreserveAspectCrop
         }
         Image {
             id: mkzImage
