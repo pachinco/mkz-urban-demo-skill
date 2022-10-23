@@ -71,7 +71,7 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
                     NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
                 }
             },
@@ -79,8 +79,8 @@ Mycroft.Delegate {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
-                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
+                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 1000 }
                     PropertyAction {
                         target: bgHome
                         property: "visible"
