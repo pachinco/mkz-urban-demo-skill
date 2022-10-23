@@ -66,30 +66,26 @@ Mycroft.Delegate {
                 from: "INACTIVE"
                 to: "ACTIVE"
                 SequentialAnimation {
-//                     PropertyAction {
-//                         target: bgHome
-//                         property: "visible"
-//                         value: true
-//                     }
-                    ParallelAnimation {
-                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
-//                         NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
+                    PropertyAction {
+                        target: bgHome
+                        property: "visible"
+                        value: true
                     }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
+                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    ParallelAnimation {
-                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
-//                         NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 1000 }
+                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; duration: 500 }
+                    PropertyAction {
+                        target: bgHome
+                        property: "visible"
+                        value: false
                     }
-//                     PropertyAction {
-//                         target: bgHome
-//                         property: "visible"
-//                         value: false
-//                     }
                 }
             }
         ]
