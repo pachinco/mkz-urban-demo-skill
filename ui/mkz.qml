@@ -10,7 +10,7 @@ import QtLocation 5.12
 
 Mycroft.Delegate {
     id: homescreen
-    skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
+//     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
@@ -195,7 +195,6 @@ Mycroft.Delegate {
             text: sessionData.datetime
             opacity: 0.6
         }
-//         Behavior on y { PropertyAnimation { from: -500; easing.type: Easing.InOutQuad; duration: 500 } }
     }
 
     Item {
@@ -281,7 +280,6 @@ Mycroft.Delegate {
             height: menuIcons.height*1.55
             Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 500 } }
         }
-//         Behavior on y { PropertyAnimation { from: 1000; easing.type: Easing.InOutQuad; duration: 500 } }
     }
 
     Item {
@@ -331,6 +329,13 @@ Mycroft.Delegate {
                 }
             }
         ]
+        Image {
+            id: mkzBackground
+            source: "../images/mkz_background_stage_day.png"
+            anchors.fill: parent
+            opacity: 0.5
+            fillMode: Image.Image.PreserveAspectCrop
+        }
         Component {
             id: actionDelegate
             Item {
