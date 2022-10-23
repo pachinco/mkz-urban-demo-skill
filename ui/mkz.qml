@@ -229,8 +229,8 @@ Mycroft.Delegate {
     }
 
     Item {
-        id: configFrame
-        visible: uiConfig
+        id: carFrame
+        visible: uiCar
         anchors.fill: parent
         Component {
             id: actionDelegate
