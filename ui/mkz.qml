@@ -340,7 +340,7 @@ Mycroft.Delegate {
                 visible: sessionData.uiIdx>-1 ? true:false
                 width: menuIcons.cellWidth*2.5
                 height: menuIcons.height*1.55
-                Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 500 } }
+                Behavior on x { PropertyAnimation { easing.type: Easing.InOutQuad; duration: 250 } }
             }
         }
     }
@@ -602,22 +602,22 @@ Mycroft.Delegate {
             delegate: configDelegate
             cellWidth: width
             cellHeight: height/8
-            add: Transition {
-                id: configTrans1
-                SequentialAnimation {
-                    PauseAnimation { duration: configTrans1.ViewTransition.index * 1000 }
-                    PropertyAction { property: "visible"; value: true }
-                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-                }
-            }
-            populate: Transition {
-                id: configTrans2
-                SequentialAnimation {
-                    PauseAnimation { duration: configTrans2.ViewTransition.index * 1000 }
-                    PropertyAction { property: "visible"; value: true }
-                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-                }
-            }
+//             add: Transition {
+//                 id: configTrans1
+//                 SequentialAnimation {
+//                     PauseAnimation { duration: configTrans1.ViewTransition.index * 1000 }
+//                     PropertyAction { property: "visible"; value: true }
+//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+//                 }
+//             }
+//             populate: Transition {
+//                 id: configTrans2
+//                 SequentialAnimation {
+//                     PauseAnimation { duration: configTrans2.ViewTransition.index * 1000 }
+//                     PropertyAction { property: "visible"; value: true }
+//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+//                 }
+//             }
         }
     }
 }
