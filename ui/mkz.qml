@@ -578,7 +578,7 @@ Mycroft.Delegate {
                         anchors.left: configSpacer1.right
                         anchors.verticalCenter: configButton.verticalCenter
                         text: model.text
-                        color: (model.text.substring(model.text.length-1)==="✓") ? "#c000f000" : "#c0f00000"
+                        color: (model.text.substring(model.text.length-1)==="✓") ? "#c0000000" : "#c0f00000"
                         font.pointSize: Kirigami.Units.gridUnit
                     }
                     MouseArea {
