@@ -600,7 +600,6 @@ Mycroft.Delegate {
             id: configView
             anchors.left: parent.left
             anchors.bottom: parent.bottom
-            leftPadding: Kirigami.Units.gridUnit*2
             width: parent.width*0.5
             height: parent.height*0.75
             model: sessionData.configList
