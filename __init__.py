@@ -50,7 +50,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
         #self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_repeating_event(self._update_display_time, None, 10)
-        self.schedule_event(self._whats_next, 5)
+        self.schedule_event(self._whats_next, 3)
 
     @intent_file_handler('status.ad.mkz.intent')
     def handle_ad_status_mkz(self, message):
@@ -108,15 +108,15 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
                                     {"text": "Drive", "image": "../images/Start-button.png"},
                                     {"text": "Setting", "image": "../images/Settings-symbol.png"}]
-        self.schedule_event(self._back_map, 10)
+        self.schedule_event(self._back_map, 5)
 
     def _back_map(self):
         self.gui["uiIdx"] = 1
-        self.schedule_event(self._back_config, 10)
+        self.schedule_event(self._back_config, 5)
 
     def _back_config(self):
         self.gui["uiIdx"] = 0
-        self.schedule_event(self._back_home, 10)
+        self.schedule_event(self._back_home, 5)
         self.gui["configList"] = [{"text": "▸ Vehicle"},
                                     {"text": "▸ Sensors"},
                                     {"text": "▸ Driver"},
