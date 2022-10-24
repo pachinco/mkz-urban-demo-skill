@@ -559,7 +559,7 @@ Mycroft.Delegate {
                     id: configButton
                     color: "#f0f0f0f0"
                     signal clicked
-                    width: parent.width-Kirigami.Units.gridUnit
+                    width: parent.width-Kirigami.Units.gridUnit*2
                     height: parent.height-Kirigami.Units.gridUnit
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -573,13 +573,19 @@ Mycroft.Delegate {
                         radius: 10
                         samples: 21
                     }
+                    Item {
+                        id: configSpacer1
+                        anchors.left: configButton.left
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: Kirigami.Units.gridUnit
+                    }
                     Kirigami.Heading {
                         id: configLabel
-                        anchors.left: configButton.left
+                        anchors.left: configSpacer1.left
                         anchors.verticalCenter: parent.verticalCenter
                         text: model.text
                         color: "#c0000000"
-                        font.pointSize: Kirigami.Units.gridUnit*2
+                        font.pointSize: Kirigami.Units.gridUnit
                     }
                     MouseArea {
                         id: configMouse
