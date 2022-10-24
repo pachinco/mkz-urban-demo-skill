@@ -529,7 +529,7 @@ Mycroft.Delegate {
                     }
                     ParallelAnimation {
                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
-//                         NumberAnimation { target: configView; property: "height"; duration: 500 }
+                        NumberAnimation { target: configView; property: "height"; duration: 500 }
                     }
                 }
             },
@@ -537,7 +537,7 @@ Mycroft.Delegate {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-//                     NumberAnimation { target: configView; property: "height"; duration: 500 }
+                    NumberAnimation { target: configView; property: "height"; duration: 500 }
                     PropertyAction {
                         target: configView
                         property: "visible"
@@ -576,12 +576,12 @@ Mycroft.Delegate {
                     Item {
                         id: configSpacer1
                         anchors.left: configButton.left
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
                         width: Kirigami.Units.gridUnit
                     }
                     Kirigami.Heading {
                         id: configLabel
-                        anchors.left: configSpacer1.left
+                        anchors.left: configSpacer1.right
                         anchors.verticalCenter: parent.verticalCenter
                         text: model.text
                         color: "#c0000000"
@@ -607,15 +607,15 @@ Mycroft.Delegate {
             model: sessionData.configList
             delegate: configDelegate
             cellWidth: width
-            cellHeight: height/4
-//             add: Transition {
-//                 id: configTrans1
-//                 SequentialAnimation {
-//                     PauseAnimation { duration: configTrans1.ViewTransition.index * 200 }
-//                     PropertyAction { property: "visible"; value: true }
-//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-//                 }
-//             }
+            cellHeight: height/5
+            add: Transition {
+                id: configTrans1
+                SequentialAnimation {
+                    PauseAnimation { duration: configTrans1.ViewTransition.index * 1000 }
+                    PropertyAction { property: "visible"; value: true }
+                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+                }
+            }
 //             populate: Transition {
 //                 id: configTrans2
 //                 SequentialAnimation {
