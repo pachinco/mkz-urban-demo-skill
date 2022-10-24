@@ -203,7 +203,7 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             plugin: mapPlugin
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-            activeMapType: MapType.GrayStreetMap
+            activeMapType: supportedMapTypes[0]
             zoomLevel: 25
             tilt: 60
             z: 1
