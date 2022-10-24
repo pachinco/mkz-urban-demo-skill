@@ -561,8 +561,7 @@ Mycroft.Delegate {
                     width: parent.width-Kirigami.Units.gridUnit*2
                     height: parent.height-Kirigami.Units.gridUnit
                     anchors.verticalCenter: parent.verticalCenter
-//                     anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.left: parent.left+Kirigami.Units.gridUnit*2
+                    anchors.left: parent.left
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -575,13 +574,13 @@ Mycroft.Delegate {
                     Item {
                         id: configSpacer1
                         anchors.left: configButton.left
-                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.verticalCenter: configButton.verticalCenter
                         width: Kirigami.Units.gridUnit
                     }
                     Kirigami.Heading {
                         id: configLabel
                         anchors.left: configSpacer1.right
-                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.verticalCenter: configButton.verticalCenter
                         text: model.text
                         color: "#c0000000"
                         font.pointSize: Kirigami.Units.gridUnit
@@ -601,6 +600,7 @@ Mycroft.Delegate {
             id: configView
             anchors.left: parent.left
             anchors.bottom: parent.bottom
+            leftPadding: Kirigami.Units.gridUnit*2
             width: parent.width*0.5
             height: parent.height*0.75
             model: sessionData.configList
