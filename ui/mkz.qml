@@ -529,7 +529,7 @@ Mycroft.Delegate {
                     }
                     ParallelAnimation {
                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
-                        NumberAnimation { target: configView; property: "height"; duration: 500 }
+//                         NumberAnimation { target: configView; property: "height"; duration: 500 }
                     }
                 }
             },
@@ -537,7 +537,7 @@ Mycroft.Delegate {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: configView; property: "height"; duration: 500 }
+//                     NumberAnimation { target: configView; property: "height"; duration: 500 }
                     PropertyAction {
                         target: configView
                         property: "visible"
