@@ -560,9 +560,9 @@ Mycroft.Delegate {
                     signal clicked
                     width: parent.width-Kirigami.Units.gridUnit*2
                     height: parent.height-Kirigami.Units.gridUnit
-//                     anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenter: parent.verticalCenter
 //                     anchors.horizontalCenter: parent.horizontalCenter
-//                     anchors.bottom: parent.bottom
+                    anchors.left: parent.left+Kirigami.Units.gridUnit*2
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -615,14 +615,14 @@ Mycroft.Delegate {
                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
                 }
             }
-//             populate: Transition {
-//                 id: configTrans2
-//                 SequentialAnimation {
-//                     PauseAnimation { duration: configTrans2.ViewTransition.index * 200 }
-//                     PropertyAction { property: "visible"; value: true }
-//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-//                 }
-//             }
+            populate: Transition {
+                id: configTrans2
+                SequentialAnimation {
+                    PauseAnimation { duration: configTrans2.ViewTransition.index * 1000 }
+                    PropertyAction { property: "visible"; value: true }
+                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+                }
+            }
         }
     }
 }
