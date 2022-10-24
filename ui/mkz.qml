@@ -56,7 +56,7 @@ Mycroft.Delegate {
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
-                NumberAnimation { target: uiStage; properties: "opacity"; duration: 3000 }
+                NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
             }
         ]
         Component.onCompleted: {
