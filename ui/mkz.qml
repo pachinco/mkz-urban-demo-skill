@@ -71,16 +71,20 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
-                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.OutQuad; duration: 500 }
+                    ParallelAnimation {
+                        NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.OutQuad; duration: 500 }
+                    }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
-                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.InQuad; duration: 500 }
+                    ParallelAnimation {
+                        NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.InQuad; duration: 500 }
+                    }
                     PropertyAction {
                         target: bgHome
                         property: "visible"
