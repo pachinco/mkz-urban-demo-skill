@@ -30,6 +30,7 @@ Mycroft.Delegate {
         anchors.fill: parent
         z: -10
         fillMode: Image.Image.PreserveAspectCrop
+        Behavior on opacity { duration: 500 }
     }
 
     Item {
@@ -48,9 +49,10 @@ Mycroft.Delegate {
                     width: parent.width*0.6
                     opacity: 1
                 }
-                PropertyChanges {
+                PropertyAction {
                     target: uiStage
-                    opacity: 1
+                    property: "opacity"
+                    value: 1
                 }
             },
             State {
@@ -79,8 +81,13 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
+                    PropertyAction {
+                        target: uiStage
+                        property: "opacity"
+                        value: 1
+                    }
                     ParallelAnimation {
-                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.OutQuad; duration: 500 }
                     }
                 }
@@ -123,8 +130,9 @@ Mycroft.Delegate {
                     width: parent.width
                     opacity: 1
                 }
-                PropertyChanges {
+                PropertyAction {
                     target: uiStage
+                    property: "opacity"
                     opacity: 0
                 }
             },
@@ -149,7 +157,7 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
                     }
                 }
@@ -368,7 +376,7 @@ Mycroft.Delegate {
                     target: actionsView
                     height: parent.height*0.75
                 }
-                PropertyChanges {
+                PropertyAction {
                     target: uiStage
                     opacity: 0.5
                 }
@@ -392,7 +400,7 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: actionsView; property: "height"; duration: 500 }
                     }
                 }
@@ -523,7 +531,7 @@ Mycroft.Delegate {
                     target: configView
                     height: parent.height*0.75
                 }
-                PropertyChanges {
+                PropertyAction {
                     target: uiStage
                     opacity: 0.5
                 }
@@ -547,7 +555,7 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: configView; property: "height"; duration: 500 }
                     }
                 }
