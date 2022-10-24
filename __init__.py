@@ -117,17 +117,17 @@ class MkzUrbanDemo(MycroftSkill):
     def _back_config(self):
         self.gui["uiIdx"] = 0
         self.schedule_event(self._back_home, 5)
-        self.gui["configList"] = [{"text": "▸ Vehicle ✓"},
-                                  {"text": "▸ .../Doors ❌"},
-                                  {"text": "▸ .../.../Front Left ❌"},
-                                  {"text": "▸ .../.../Front Right ✓"},
-                                  {"text": "▸ .../.../Rear Left ✓"},
-                                  {"text": "▸ .../.../Rear Right ✓"},
-                                    {"text": "▸ Sensors ✓"},
-                                    {"text": "▸ Driver ✓"},
-                                    {"text": "▸ Compute ✓"},
-                                    {"text": "▸ Communication ✓"},
-                                    {"text": "▸ Environment ✓"}]
+        self.gui["configList"] = [{"text": "▼ Vehicle ✓"},
+                                  {"text": "▼   Doors ❌"},
+                                  {"text": "      Front Left ❌"},
+                                  {"text": "      Front Right ✓"},
+                                  {"text": "      Rear Left ✓"},
+                                  {"text": "      Rear Right ✓"},
+                                    {"text": "▶ Sensors ✓"},
+                                    {"text": "▶ Driver ✓"},
+                                    {"text": "▶ Compute ✓"},
+                                    {"text": "▶ Communication ✓"},
+                                    {"text": "▶ Environment ✓"}]
 
     def _back_home(self):
         self.gui["uiIdx"] = -1
