@@ -21,11 +21,6 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["background"] = str(self.mkzdemo_img)
         self.gui["foreground"] = str(self.mkzdemo_over)
         self.gui["datetime"] = ""
-        self.gui["uiButtons"] = [{"ui": "config", "image": "../images/LightningIcon.png"},
-                                  {"ui": "car", "image": "../images/CarIcon.png"},
-                                  {"ui": "music", "image": "../images/MediaIcon.png"},
-                                  {"ui": "contact", "image": "../images/PersonIcon.png"},
-                                  {"ui": "map", "image": "../images/NavigationIcon.png"}]
         self.gui["uiIdx"] = -2
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
@@ -49,7 +44,7 @@ class MkzUrbanDemo(MycroftSkill):
                                   {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
                                   {"ui": "music", "idx": 3, "image": "../images/MediaIcon.png"},
-                                  {"ui": "contact", "idx": 4, "image": "../images/PersonIcon.png"}]
+                                  {"ui": "weather", "idx": 4, "image": "../images/CloudIcon.png"}]
         #self.enclosure.display_manager.remove_active()
         #play_proc = play_wav(str(self.sound_file_path))
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
