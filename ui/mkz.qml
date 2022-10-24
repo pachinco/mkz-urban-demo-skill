@@ -26,11 +26,11 @@ Mycroft.Delegate {
 
     Image {
         id: uiStage
-        source: "../images/mkz_background_stage_day.png"
         anchors.fill: parent
-        z: -10
+        source: "../images/mkz_background_stage_day.png"
         fillMode: Image.Image.PreserveAspectCrop
-        state: "INACTIVE"
+        z: -10
+        state: "ACTIVE"
         states: [
             State {
                 name: "ACTIVE"
@@ -59,13 +59,13 @@ Mycroft.Delegate {
                 NumberAnimation { target: uiStage; properties: "opacity"; duration: 3000 }
             }
         ]
-        Component.onCompleted {
-            PropertyAction {
-                target: uiStage
-                property: "state"
-                value: "ACTIVE"
-            }
-        }
+//         Component.onCompleted {
+//             PropertyAction {
+//                 target: uiStage
+//                 property: "state"
+//                 value: "ACTIVE"
+//             }
+//         }
     }
 
     Item {
