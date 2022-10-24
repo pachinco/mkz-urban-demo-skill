@@ -50,7 +50,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
         #self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_repeating_event(self._update_display_time, None, 10)
-        self.schedule_event(self._ask_what_to_do, 5)
+        self.schedule_event(self._whats_next, 5)
 
     @intent_file_handler('status.ad.mkz.intent')
     def handle_ad_status_mkz(self, message):
@@ -90,15 +90,19 @@ class MkzUrbanDemo(MycroftSkill):
                 else:
                     self.speak("the "+ad_item+" is "+ad_value+".", wait=True)
 
-    def _ask_what_to_do(self):
+    def _whats_next(self):
         #self.gui.clear()
         #self.enclosure.display_manager.remove_active()
         #self.speak("What's next?", expect_response=True, wait=True)
         #self.gui.show_page(str(self.mkz_list_ui))
+        self.gui["uiIdx"] = -1
+        self.schedule_event(self._switch_config, 3)
+
+    def _switch_config(self):
         self.gui["actionsList"] = []
         self.gui["uiIdx"] = 2
         self.schedule_event(self._add_config, 3)
-
+        
     def _add_config(self):
         self.gui["uiIdx"] = 2
         self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
