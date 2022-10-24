@@ -49,8 +49,7 @@ Mycroft.Delegate {
                 }
                 PropertyChanges {
                     target: uiStage
-                    property: "opacity"
-                    value: 1
+                    opacity: 1
                 }
             },
             State {
