@@ -24,6 +24,14 @@ Mycroft.Delegate {
     property bool uiMusic: (sessionData.uiIdx===3) ? true:false
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
 
+    Image {
+        id: uiStage
+        source: "../images/mkz_background_stage_day.png"
+        anchors.fill: parent
+        z: -10
+        fillMode: Image.Image.PreserveAspectCrop
+    }
+
     Item {
         id: bgHome
         anchors.fill: parent
@@ -41,7 +49,7 @@ Mycroft.Delegate {
                     opacity: 1
                 }
                 PropertyChanges {
-                    target: mkzBackground
+                    target: uiStage
                     opacity: 1
                 }
             },
@@ -55,10 +63,10 @@ Mycroft.Delegate {
                     height: parent.height*0.2
                     opacity: 0
                 }
-                PropertyChanges {
-                    target: mkzBackground
-                    opacity: 0
-                }
+//                 PropertyChanges {
+//                     target: mkzBackground
+//                     opacity: 0
+//                 }
             }
         ]
         transitions: [
@@ -72,7 +80,7 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.OutQuad; duration: 500 }
                     }
                 }
@@ -82,7 +90,7 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     ParallelAnimation {
-                        NumberAnimation { target: mkzBackground; properties: "opacity"; duration: 500 }
+//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.InQuad; duration: 500 }
                     }
                     PropertyAction {
@@ -93,13 +101,6 @@ Mycroft.Delegate {
                 }
             }
         ]
-        Image {
-            id: mkzBackground
-            source: "../images/mkz_background_stage_day.png"
-            anchors.fill: parent
-            z: -1
-            fillMode: Image.Image.PreserveAspectCrop
-        }
         Image {
             id: mkzImage
             source: "../images/Lincoln-UPower.png"
@@ -122,6 +123,10 @@ Mycroft.Delegate {
                     width: parent.width
                     opacity: 1
                 }
+                PropertyChanges {
+                    target: uiStage
+                    opacity: 0
+                }
             },
             State {
                 name: "INACTIVE"
@@ -143,7 +148,10 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
+                    ParallelAnimation {
+                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
+                    }
                 }
             },
             Transition {
@@ -360,6 +368,10 @@ Mycroft.Delegate {
                     target: actionsView
                     height: parent.height*0.75
                 }
+                PropertyChanges {
+                    target: uiStage
+                    opacity: 0.5
+                }
             },
             State {
                 name: "INACTIVE"
@@ -379,7 +391,10 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: actionsView; property: "height"; duration: 500 }
+                    ParallelAnimation {
+                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: actionsView; property: "height"; duration: 500 }
+                    }
                 }
             },
             Transition {
@@ -395,14 +410,14 @@ Mycroft.Delegate {
                 }
             }
         ]
-        Image {
-            id: carBackground
-            source: "../images/mkz_background_stage_day.png"
-            anchors.fill: parent
-            opacity: 0.5
-            z: -1
-            fillMode: Image.Image.PreserveAspectCrop
-        }
+//         Image {
+//             id: carBackground
+//             source: "../images/mkz_background_stage_day.png"
+//             anchors.fill: parent
+//             opacity: 0.5
+//             z: -1
+//             fillMode: Image.Image.PreserveAspectCrop
+//         }
         Component {
             id: actionDelegate
             Item {
@@ -467,7 +482,6 @@ Mycroft.Delegate {
                 }
             }
         }
-
         GridView {
             id: actionsView
             anchors.horizontalCenter: parent.horizontalCenter
@@ -509,6 +523,10 @@ Mycroft.Delegate {
                     target: configView
                     height: parent.height*0.75
                 }
+                PropertyChanges {
+                    target: uiStage
+                    opacity: 0.5
+                }
             },
             State {
                 name: "INACTIVE"
@@ -528,7 +546,10 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: configView; property: "height"; duration: 500 }
+                    ParallelAnimation {
+                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: configView; property: "height"; duration: 500 }
+                    }
                 }
             },
             Transition {
@@ -595,7 +616,6 @@ Mycroft.Delegate {
                 }
             }
         }
-
         GridView {
             id: configView
             anchors.horizontalCenter: parent.horizontalCenter
