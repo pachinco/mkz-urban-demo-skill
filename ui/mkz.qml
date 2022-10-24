@@ -60,11 +60,7 @@ Mycroft.Delegate {
             }
         ]
         Component.onCompleted: {
-            PropertyAction {
-                target: uiStage
-                property: "state"
-                value: "ACTIVE"
-            }
+            uiStage.state = "ACTIVE"
         }
     }
 
