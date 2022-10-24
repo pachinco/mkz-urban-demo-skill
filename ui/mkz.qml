@@ -454,9 +454,9 @@ Mycroft.Delegate {
                         font.pointSize: Kirigami.Units.gridUnit*2
                     }
                     MouseArea {
-                        id: mouse
+                        id: actionsMouse
                         anchors.fill: parent
-                        onClicked: button.clicked()
+                        onClicked: actionsButton.clicked()
                     }
                     onClicked: {
                         console.log("actions clicked "+model.text)
@@ -552,8 +552,9 @@ Mycroft.Delegate {
                 z: 1
                 width: configView.cellWidth
                 height: configView.cellHeight
-                anchors.bottom: parent.bottom
-                visible: false
+//                 anchors.bottom: parent.bottom
+                anchors.fill: parent
+//                 visible: false
                 Rectangle {
                     id: configButton
                     color: "#f0f0f0f0"
@@ -561,7 +562,8 @@ Mycroft.Delegate {
                     width: parent.width-Kirigami.Units.gridUnit
                     height: parent.height-Kirigami.Units.gridUnit
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.bottom: parent.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+//                     anchors.bottom: parent.bottom
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -572,7 +574,7 @@ Mycroft.Delegate {
                         samples: 21
                     }
                     Kirigami.Heading {
-                        id: actionsLabel
+                        id: configLabel
                         anchors.left: configButton.left
                         anchors.verticalCenter: parent.verticalCenter
                         text: model.text
@@ -580,9 +582,9 @@ Mycroft.Delegate {
                         font.pointSize: Kirigami.Units.gridUnit*2
                     }
                     MouseArea {
-                        id: mouse
+                        id: configMouse
                         anchors.fill: parent
-                        onClicked: button.clicked()
+                        onClicked: configButton.clicked()
                     }
                     onClicked: {
                         console.log("config clicked "+model.text)
@@ -592,30 +594,30 @@ Mycroft.Delegate {
         }
         GridView {
             id: configView
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.left: parent.left
             anchors.bottom: parent.bottom
-            width: parent.width*0.7
+            width: parent.width*0.5
             height: parent.height*0.75
             model: sessionData.configList
             delegate: configDelegate
             cellWidth: width
             cellHeight: height/4
-            add: Transition {
-                id: configTrans1
-                SequentialAnimation {
-                    PauseAnimation { duration: configTrans1.ViewTransition.index * 200 }
-                    PropertyAction { property: "visible"; value: true }
-                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-                }
-            }
-            populate: Transition {
-                id: configTrans2
-                SequentialAnimation {
-                    PauseAnimation { duration: configTrans2.ViewTransition.index * 200 }
-                    PropertyAction { property: "visible"; value: true }
-                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-                }
-            }
+//             add: Transition {
+//                 id: configTrans1
+//                 SequentialAnimation {
+//                     PauseAnimation { duration: configTrans1.ViewTransition.index * 200 }
+//                     PropertyAction { property: "visible"; value: true }
+//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+//                 }
+//             }
+//             populate: Transition {
+//                 id: configTrans2
+//                 SequentialAnimation {
+//                     PauseAnimation { duration: configTrans2.ViewTransition.index * 200 }
+//                     PropertyAction { property: "visible"; value: true }
+//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+//                 }
+//             }
         }
     }
 }
