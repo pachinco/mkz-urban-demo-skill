@@ -29,6 +29,7 @@ Mycroft.Delegate {
         source: "../images/mkz_background_stage_day.png"
         anchors.fill: parent
         z: -10
+        opacity: 0
         fillMode: Image.Image.PreserveAspectCrop
         Behavior on opacity { duration: 500 }
     }
