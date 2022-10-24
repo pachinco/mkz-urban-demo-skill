@@ -551,6 +551,7 @@ Mycroft.Delegate {
                 z: 1
                 width: configView.cellWidth
                 height: configView.cellHeight
+                x: Kirigami.Units.gridUnit*2
 //                 anchors.bottom: parent.bottom
 //                 anchors.fill: parent
 //                 visible: false
