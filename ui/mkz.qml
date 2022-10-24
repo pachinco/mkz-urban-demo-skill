@@ -557,7 +557,7 @@ Mycroft.Delegate {
                     signal clicked
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width-Kirigami.Units.gridUnit*4
-                    height: parent.height-Kirigami.Units.gridUnit
+                    height: parent.height //-Kirigami.Units.gridUnit
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -601,7 +601,7 @@ Mycroft.Delegate {
             model: sessionData.configList
             delegate: configDelegate
             cellWidth: width
-            cellHeight: height/5
+            cellHeight: height/8
             add: Transition {
                 id: configTrans1
                 SequentialAnimation {
