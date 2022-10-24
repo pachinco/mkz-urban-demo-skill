@@ -30,6 +30,42 @@ Mycroft.Delegate {
         anchors.fill: parent
         z: -10
         fillMode: Image.Image.PreserveAspectCrop
+        state: "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: uiStage
+                    opacity: 1
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: uiStage
+                    opacity: 0
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                NumberAnimation { target: uiStage; properties: "opacity"; duration: 3000 }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                NumberAnimation { target: uiStage; properties: "opacity"; duration: 3000 }
+            }
+        ]
+        Component.onCompleted {
+            PropertyAction {
+                target: uiStage
+                property: "state"
+                value: "ACTIVE"
+            }
+        }
     }
 
     Item {
