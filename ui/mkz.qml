@@ -557,7 +557,7 @@ Mycroft.Delegate {
                     signal clicked
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width-Kirigami.Units.gridUnit*4
-                    height: parent.height //-Kirigami.Units.gridUnit
+                    height: parent.height
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -602,22 +602,6 @@ Mycroft.Delegate {
             delegate: configDelegate
             cellWidth: width
             cellHeight: height/8
-//             add: Transition {
-//                 id: configTrans1
-//                 SequentialAnimation {
-//                     PauseAnimation { duration: configTrans1.ViewTransition.index * 1000 }
-//                     PropertyAction { property: "visible"; value: true }
-//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-//                 }
-//             }
-//             populate: Transition {
-//                 id: configTrans2
-//                 SequentialAnimation {
-//                     PauseAnimation { duration: configTrans2.ViewTransition.index * 1000 }
-//                     PropertyAction { property: "visible"; value: true }
-//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-//                 }
-//             }
         }
     }
 }

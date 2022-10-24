@@ -101,7 +101,7 @@ class MkzUrbanDemo(MycroftSkill):
     def _switch_config(self):
         self.gui["actionsList"] = []
         self.gui["uiIdx"] = 2
-        self.schedule_event(self._add_config, 3)
+        self.schedule_event(self._add_config, 1)
         
     def _add_config(self):
         self.gui["uiIdx"] = 2
@@ -117,10 +117,12 @@ class MkzUrbanDemo(MycroftSkill):
     def _back_config(self):
         self.gui["uiIdx"] = 0
         self.schedule_event(self._back_home, 10)
-        self.gui["configList"] = [{"text": "Config #1"},
-                                    {"text": "Config #2"},
-                                    {"text": "Config #3"},
-                                    {"text": "Config #4"}]
+        self.gui["configList"] = [{"text": "▸ Vehicle"},
+                                    {"text": "▸ Sensors"},
+                                    {"text": "▸ Driver"},
+                                    {"text": "▸ Compute"},
+                                    {"text": "▸ Communication"},
+                                    {"test": "▸ Environment"}]
 
     def _back_home(self):
         self.gui["uiIdx"] = -1
