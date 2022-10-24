@@ -555,8 +555,8 @@ Mycroft.Delegate {
                     id: configButton
                     color: "#f0f0f0f0"
                     signal clicked
-                    leftPadding: Kirigami.Units.gridUnit*2
-                    width: parent.width-Kirigami.Units.gridUnit*2
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width-Kirigami.Units.gridUnit*4
                     height: parent.height-Kirigami.Units.gridUnit
                     layer.enabled: true
                     layer.effect: DropShadow {
