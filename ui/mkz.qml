@@ -118,7 +118,6 @@ Mycroft.Delegate {
                 }
                 PropertyChanges {
                     target: uiStage
-                    property: "opacity"
                     opacity: 0
                 }
             },
@@ -561,8 +560,8 @@ Mycroft.Delegate {
                     signal clicked
                     width: parent.width-Kirigami.Units.gridUnit*2
                     height: parent.height-Kirigami.Units.gridUnit
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
+//                     anchors.verticalCenter: parent.verticalCenter
+//                     anchors.horizontalCenter: parent.horizontalCenter
 //                     anchors.bottom: parent.bottom
                     layer.enabled: true
                     layer.effect: DropShadow {
