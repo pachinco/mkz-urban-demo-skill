@@ -552,7 +552,7 @@ Mycroft.Delegate {
                 width: configView.cellWidth
                 height: configView.cellHeight
 //                 anchors.bottom: parent.bottom
-                anchors.fill: parent
+//                 anchors.fill: parent
 //                 visible: false
                 Rectangle {
                     id: configButton
@@ -560,8 +560,8 @@ Mycroft.Delegate {
                     signal clicked
                     width: parent.width-Kirigami.Units.gridUnit*2
                     height: parent.height-Kirigami.Units.gridUnit
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
+//                     anchors.verticalCenter: parent.verticalCenter
+//                     anchors.left: parent.left
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
