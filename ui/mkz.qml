@@ -551,18 +551,13 @@ Mycroft.Delegate {
                 z: 1
                 width: configView.cellWidth
                 height: configView.cellHeight
-                x: Kirigami.Units.gridUnit*2
-//                 anchors.bottom: parent.bottom
-//                 anchors.fill: parent
-//                 visible: false
                 Rectangle {
                     id: configButton
                     color: "#f0f0f0f0"
                     signal clicked
+                    leftPadding: Kirigami.Units.gridUnit*2
                     width: parent.width-Kirigami.Units.gridUnit*2
                     height: parent.height-Kirigami.Units.gridUnit
-//                     anchors.verticalCenter: parent.verticalCenter
-//                     anchors.left: parent.left
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
