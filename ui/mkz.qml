@@ -224,7 +224,7 @@ Mycroft.Delegate {
 //                 circle.color = 'green'
 //                 circle.border.width = 3
 //                 map.addMapItem(circle)
-                console.log("maptypes: "+supportedMapTypes)
+                console.log("maptypes: "+supportedMapTypes.length)
             }
         }
         // mapboxgl
