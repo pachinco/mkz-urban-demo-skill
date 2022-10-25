@@ -211,8 +211,7 @@ Mycroft.Delegate {
 //             activeMapType: supportedMapTypes[0]
             PluginParameter {
                 name: "osm.mapping.custom.host"
-                value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
-//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
+                value: "https://api.maptiler.com/maps/winter/{z}/{x}/{y}.png?key=nGqcqqyYOrE4VtKI6ftl"
             }
             zoomLevel: 20
             tilt: 60
