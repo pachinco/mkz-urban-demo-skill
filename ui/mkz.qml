@@ -216,7 +216,7 @@ Mycroft.Delegate {
             name: "mapboxgl"
             PluginParameter {
                 name: "mapboxgl.mapping.additional_style_urls"
-                value: "https://maps.tilehosting.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
+                value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
             }
         }
 
