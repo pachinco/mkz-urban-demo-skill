@@ -8,7 +8,7 @@ import Mycroft 1.0 as Mycroft
 import QtPositioning 5.12
 import QtLocation 5.12
 // import MapboxMap 1.0
-import Esri.ArcGISRuntime 100.15
+// import Esri.ArcGISRuntime 100.15
 
 Mycroft.Delegate {
     id: homescreen
@@ -200,10 +200,10 @@ Mycroft.Delegate {
 //             }
 //         ]
         // OSM
-//             Plugin {
-//                 id: mapPlugin
-//                 name: "osm"
-//             }
+            Plugin {
+                id: mapPlugin
+                name: "osm"
+            }
         // mapboxgl
 //         Plugin {
 //             id: mapPlugin
@@ -220,38 +220,24 @@ Mycroft.Delegate {
 //             }
 //         }
 
-//         Map {
-//             id: mapView
-//             anchors.fill: parent
-//             plugin: mapPlugin
-//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-//             zoomLevel: 20
-//             tilt: 60
-//             z: 5
+        Map {
+            id: mapView
+            anchors.fill: parent
+            plugin: mapPlugin
+            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+            zoomLevel: 20
+            tilt: 60
+            z: 5
 //             activeMapType: supportedMapTypes[5]
-//             Component.onCompleted: {
-//                 console.log("Map loaded.")
+//             activeMapType: MapType.CustomMap
+            Component.onCompleted: {
+                console.log("Map loaded.")
 //                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
 //                 for (let i=0; i<supportedMapTypes.length; i++) {
 //                     for (let x in supportedMapTypes[i]) {
 //                         console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
 //                     }
 //                 }
-//             }
-//         }
-
-        MapView {
-            anchors.fill: parent
-
-            Component.onCompleted: {
-                // Set the focus on MapView to initially enable keyboard navigation
-                forceActiveFocus();
-            }
-
-            Map {
-                Basemap {
-                    initStyle: Enums.BasemapStyleArcGISImagery
-                }
             }
         }
     }
