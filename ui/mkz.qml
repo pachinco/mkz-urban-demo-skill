@@ -221,7 +221,7 @@ Mycroft.Delegate {
             z: 1
 
             Component.onCompleted: {
-                circle = Qt.createQmlObject('import QtLocation 5.3; MapCircle {}', page)
+                circle = Qt.createQmlObject('import QtLocation 5.3; MapCircle {}', mapFrame)
                 circle.center = QtPositioning.coordinate(37.3963974,-122.035018)
                 circle.radius = 5000.0
                 circle.color = 'green'
