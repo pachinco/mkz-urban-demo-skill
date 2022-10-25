@@ -225,13 +225,14 @@ Mycroft.Delegate {
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
             zoomLevel: 20
             tilt: 60
-//             Component.onCompleted: {
+            Component.onCompleted: {
+                console.log("Map loaded.")
 //                 for (let i=0; i<supportedMapTypes.length; i++) {
 //                     for (let x in supportedMapTypes[i]) {
 //                         console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
 //                     }
 //                 }
-//             }
+            }
         }
 
     }
