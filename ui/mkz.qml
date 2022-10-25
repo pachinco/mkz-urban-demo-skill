@@ -218,6 +218,23 @@ Mycroft.Delegate {
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
 //             }
 //         }
+        property Component markerProvider: MapQuickItem {
+            anchorPoint.x: rect.width / 2
+            anchorPoint.y: rect.height / 2
+            sourceItem: Rectangle{
+                id: rect
+                width: 40
+                height: 40
+                color: "salmon"
+            }
+        }
+
+        function addMarker(coordinate){
+            var marker = markerProvider.createObject()
+            console.log(marker)
+            marker.coordinate = coordinate
+            map.addMapItem(marker)
+        }
 
         Map {
             id: mapView
@@ -230,6 +247,7 @@ Mycroft.Delegate {
             activeMapType: supportedMapTypes[5]
             Component.onCompleted: {
                 console.log("Map loaded.")
+                addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
 //                 for (let i=0; i<supportedMapTypes.length; i++) {
 //                     for (let x in supportedMapTypes[i]) {
 //                         console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
