@@ -143,82 +143,80 @@ Mycroft.Delegate {
     Item {
         id: mapFrame
         anchors.fill: parent
-        visible: true
-//         visible: uiMap
-//         state: (uiMap) ? "ACTIVE" : "INACTIVE"
-//         states: [
-//             State {
-//                 name: "ACTIVE"
-//                 PropertyChanges {
-//                     target: mapView
-//                     height: parent.height
-//                     width: parent.width
-//                     opacity: 1
-//                 }
-//                 PropertyChanges {
-//                     target: uiStage
-//                     opacity: 0
-//                 }
-//             },
-//             State {
-//                 name: "INACTIVE"
-//                 PropertyChanges {
-//                     target: mapView
-//                     height: parent.height*2
-//                     width: parent.width*2
-//                     opacity: 0
-//                 }
-//             }
-//         ]
-//         transitions: [
-//             Transition {
-//                 from: "INACTIVE"
-//                 to: "ACTIVE"
-//                 SequentialAnimation {
-//                     PropertyAction {
-//                         target: mapFrame
-//                         property: "visible"
-//                         value: true
-//                     }
-//                     ParallelAnimation {
-//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
-//                         NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
-//                     }
-//                 }
-//             },
-//             Transition {
-//                 from: "ACTIVE"
-//                 to: "INACTIVE"
-//                 SequentialAnimation {
-//                     NumberAnimation { target: mapView; properties: "opacity"; duration: 500 }
-//                     PropertyAction {
-//                         target: mapFrame
-//                         property: "visible"
-//                         value: false
-//                     }
-//                 }
-//             }
-//         ]
+        state: (uiMap) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: mapView
+                    height: parent.height
+                    width: parent.width
+                    opacity: 1
+                }
+                PropertyChanges {
+                    target: uiStage
+                    opacity: 0
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: mapView
+                    height: parent.height*2
+                    width: parent.width*2
+                    opacity: 0
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                SequentialAnimation {
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: true
+                    }
+                    ParallelAnimation {
+                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
+                    }
+                }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                SequentialAnimation {
+                    NumberAnimation { target: mapView; properties: "opacity"; duration: 500 }
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: false
+                    }
+                }
+            }
+        ]
         // OSM
-//         Plugin {
-//             id: mapPlugin
-//             name: "osm"
-//         }
-        // mapboxgl
         Plugin {
             id: mapPlugin
-            name: "mapboxgl"
-            PluginParameter {
-                name: "mapboxgl.access_token";
-                value: mapboxToken_mkz
-            }
+            name: "osm"
+        }
+        // mapboxgl
+//         Plugin {
+//             id: mapPlugin
+//             name: "mapboxgl"
+//             PluginParameter {
+//                 name: "mapboxgl.access_token";
+//                 value: mapboxToken_mkz
+//             }
 //             PluginParameter {
 //                 name: "mapboxgl.mapping.additional_style_urls"
 //                 value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os/wmts?access_token=pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
 //             }
-        }
+//         }
 
         Map {
             id: mapView
@@ -226,7 +224,7 @@ Mycroft.Delegate {
             plugin: mapPlugin
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
             zoomLevel: 20
-            z:5
+            tilt: 60
             Component.onCompleted: {
                 for (let i=0; i<supportedMapTypes.length; i++) {
                     for (let x in supportedMapTypes[i]) {
