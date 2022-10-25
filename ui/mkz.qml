@@ -25,6 +25,7 @@ Mycroft.Delegate {
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
 
     property string hostingKey: "nGqcqqyYOrE4VtKI6ftl"
+    property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 
     Image {
         id: uiStage
@@ -217,6 +218,10 @@ Mycroft.Delegate {
         Plugin {
             id: mapPluginVector
             name: "mapboxgl"
+            PluginParameter {
+                name: "mapboxgl.access_token";
+                value: mapboxToken
+            }
             PluginParameter {
                 name: "mapboxgl.mapping.additional_style_urls"
                 value: "https://api.maptiler.com/maps/winter/style.json?key="+hostingKey+"#16.8/37.39568/-122.03325"
