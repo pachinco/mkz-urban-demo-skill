@@ -228,7 +228,7 @@ Mycroft.Delegate {
                         id: m
                         visible: true
                         coordinate: QtPositioning.coordinate(model.lat, model.lon)
-                        z: 90 – model.lat
+//                         z: 90–model.lat
                         marker_height: marker_base_height
                         marker_mouse.propagateComposedEvents: true
                         marker_mouse.onPressed: {
