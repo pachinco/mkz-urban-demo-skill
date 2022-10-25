@@ -227,12 +227,12 @@ Mycroft.Delegate {
                     Marker {
                         id: m
                         visible: true
-                        coordinate: QtPositioning.coordinate(lat, lon)
-                        z: 90 – lat
+                        coordinate: QtPositioning.coordinate(model.lat, model.lon)
+                        z: 90 – model.lat
                         marker_height: marker_base_height
                         marker_mouse.propagateComposedEvents: true
                         marker_mouse.onPressed: {
-                            console.log(name)
+                            console.log(model.name)
                         }
                     }
                 }
