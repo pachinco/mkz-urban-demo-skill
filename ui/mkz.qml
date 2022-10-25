@@ -192,22 +192,42 @@ Mycroft.Delegate {
                 }
             }
         ]
+        // OSM
+//         Plugin {
+//             id: mapPlugin
+//             name: "osm"
+//         }
+//         
+//         Map {
+//             id: mapView
+//             anchors.verticalCenter: parent.verticalCenter
+//             anchors.horizontalCenter: parent.horizontalCenter
+//             plugin: mapPlugin
+//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+//             activeMapType: supportedMapTypes[0]
+//             zoomLevel: 20
+//             tilt: 60
+//             z: 1
+//         }
+
+        // map tiler
         Plugin {
-            id: mapPlugin
-            name: "osm"
+            id: mapPluginVector
+            name: "mapboxgl"
+            PluginParameter {
+                name: "mapboxgl.mapping.additional_style_urls"
+                value: "https://maps.tilehosting.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
+            }
         }
-        
+
         Map {
-            id: mapView
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-            plugin: mapPlugin
+            id: mapVector
+            anchors.fill: parent
+            plugin: mapPluginVector
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-            activeMapType: supportedMapTypes[0]
-            zoomLevel: 15
-            tilt: 60
-            z: 1
+            zoomLevel: 20
         }
+                
     }
 
     Item {
