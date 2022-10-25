@@ -260,6 +260,7 @@ Mycroft.Delegate {
                 pos_marker.coordinate=position.coordinate
             }
         }
+    }
         // mapboxgl
 //         Plugin {
 //             id: mapPlugin
