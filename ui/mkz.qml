@@ -199,60 +199,69 @@ Mycroft.Delegate {
             }
         ]
         // OSM
-        Plugin {
-            id: mapPlugin
-            name: "osm"
-        }
-
-        Map {
-            id: mapView
-            property MapCircle circle
-
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-            plugin: mapPlugin
-            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-            activeMapType: supportedMapTypes[0]
-            zoomLevel: 20
-            tilt: 60
-            z: 1
-
-            Component.onCompleted: {
-                for (let i=0; i<supportedMapTypes.length; i++) {
-                    for (let x in supportedMapTypes[i]) {
-                        console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
-                    }
-                }
+//         Plugin {
+//             id: mapPlugin
+//             name: "osm"
+//         }
+// 
+//         Map {
+//             id: mapView
+//             property MapCircle circle
+// 
+//             anchors.verticalCenter: parent.verticalCenter
+//             anchors.horizontalCenter: parent.horizontalCenter
+//             plugin: mapPlugin
+//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+//             activeMapType: supportedMapTypes[0]
+//             zoomLevel: 20
+//             tilt: 60
+//             z: 1
+// 
+//             Component.onCompleted: {
+//                 for (let i=0; i<supportedMapTypes.length; i++) {
+//                     for (let x in supportedMapTypes[i]) {
+//                         console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
+//                     }
+//                 }
+//             }
+//             Component.onCompleted: {
 //                 circle = Qt.createQmlObject('import QtLocation 5.3; MapCircle {}', mapFrame)
 //                 circle.center = QtPositioning.coordinate(37.3963974,-122.035018)
 //                 circle.radius = 5000.0
 //                 circle.color = 'green'
 //                 circle.border.width = 3
 //                 map.addMapItem(circle)
+//             }
+//         }
+        // mapboxgl
+        Plugin {
+            id: mapPlugin
+            name: "mapboxgl"
+            PluginParameter {
+                name: "mapboxgl.access_token";
+                value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
+            }
+            PluginParameter {
+                name: "mapboxgl.mapping.additional_style_urls"
+                value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
+//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
             }
         }
-        // mapboxgl
-//         Plugin {
-//             id: mapPlugin
-//             name: "mapboxgl"
-//             PluginParameter {
-//                 name: "mapboxgl.access_token";
-//                 value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
-//             }
-//             PluginParameter {
-//                 name: "mapboxgl.mapping.additional_style_urls"
-//                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
-//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-//             }
-//         }
-// 
-//         Map {
-//             id: mapView
-//             anchors.fill: parent
-//             plugin: mapPlugin
-//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-//             zoomLevel: 20
-//         }
+
+        Map {
+            id: mapView
+            anchors.fill: parent
+            plugin: mapPlugin
+            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+            zoomLevel: 20
+            Component.onCompleted: {
+                for (let i=0; i<supportedMapTypes.length; i++) {
+                    for (let x in supportedMapTypes[i]) {
+                        console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
+                    }
+                }
+            }
+        }
 
         // mapboxgl
 //         Map {
