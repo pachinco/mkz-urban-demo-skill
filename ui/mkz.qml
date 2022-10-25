@@ -227,11 +227,11 @@ Mycroft.Delegate {
             tilt: 60
             Component.onCompleted: {
                 console.log("Map loaded.")
-//                 for (let i=0; i<supportedMapTypes.length; i++) {
-//                     for (let x in supportedMapTypes[i]) {
-//                         console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
-//                     }
-//                 }
+                for (let i=0; i<supportedMapTypes.length; i++) {
+                    for (let x in supportedMapTypes[i]) {
+                        console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
+                    }
+                }
             }
         }
 
