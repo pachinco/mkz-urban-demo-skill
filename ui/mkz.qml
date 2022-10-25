@@ -7,7 +7,7 @@ import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 import QtPositioning 5.12
 import QtLocation 5.12
-import MapboxMap 1.0
+// import MapboxMap 1.0
 
 Mycroft.Delegate {
     id: homescreen
@@ -25,9 +25,8 @@ Mycroft.Delegate {
     property bool uiMusic: (sessionData.uiIdx===3) ? true:false
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
 
-    property string hostingKey: "nGqcqqyYOrE4VtKI6ftl"
+    property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
-
     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
 
     Image {
