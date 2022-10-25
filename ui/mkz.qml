@@ -24,6 +24,8 @@ Mycroft.Delegate {
     property bool uiMusic: (sessionData.uiIdx===3) ? true:false
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
 
+    property string hostingKey: "nGqcqqyYOrE4VtKI6ftl"
+
     Image {
         id: uiStage
         anchors.fill: parent
@@ -216,7 +218,7 @@ Mycroft.Delegate {
             name: "mapboxgl"
             PluginParameter {
                 name: "mapboxgl.mapping.additional_style_urls"
-                value: "https://api.maptiler.com/maps/winter/?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
+                value: "https://api.maptiler.com/maps/winter/style.json?key="+hostingKey+"#16.8/37.39568/-122.03325"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
             }
         }
