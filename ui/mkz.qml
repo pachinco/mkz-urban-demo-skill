@@ -203,9 +203,6 @@ Mycroft.Delegate {
             id: mapPlugin
             name: "osm"
         }
-        PositionSource {
-            id: positionSource
-        }
 
         Map {
             id: mapView
@@ -221,12 +218,13 @@ Mycroft.Delegate {
             z: 1
 
             Component.onCompleted: {
-                circle = Qt.createQmlObject('import QtLocation 5.3; MapCircle {}', mapFrame)
-                circle.center = QtPositioning.coordinate(37.3963974,-122.035018)
-                circle.radius = 5000.0
-                circle.color = 'green'
-                circle.border.width = 3
-                map.addMapItem(circle)
+//                 circle = Qt.createQmlObject('import QtLocation 5.3; MapCircle {}', mapFrame)
+//                 circle.center = QtPositioning.coordinate(37.3963974,-122.035018)
+//                 circle.radius = 5000.0
+//                 circle.color = 'green'
+//                 circle.border.width = 3
+//                 map.addMapItem(circle)
+                console.log("maptypes: "+supportedMapTypes)
             }
         }
         // mapboxgl
