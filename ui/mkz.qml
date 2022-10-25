@@ -197,22 +197,22 @@ Mycroft.Delegate {
             }
         ]
         // OSM
-//         Plugin {
-//             id: mapPlugin
-//             name: "osm"
-//         }
-//         
-//         Map {
-//             id: mapView
-//             anchors.verticalCenter: parent.verticalCenter
-//             anchors.horizontalCenter: parent.horizontalCenter
-//             plugin: mapPlugin
-//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-//             activeMapType: supportedMapTypes[0]
-//             zoomLevel: 20
-//             tilt: 60
-//             z: 1
-//         }
+        Plugin {
+            id: mapPlugin
+            name: "osm"
+        }
+        
+        Map {
+            id: mapView
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            plugin: mapPlugin
+            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+            activeMapType: supportedMapTypes[0]
+            zoomLevel: 20
+            tilt: 60
+            z: 1
+        }
 
         // mapboxgl
 //         Plugin {
@@ -237,57 +237,56 @@ Mycroft.Delegate {
 //             zoomLevel: 20
 //         }
 
-        Map {
-            id: mapView
-            plugin: Plugin { name: "mapboxgl" }
-
-            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-            zoomLevel: 12
-
-            PluginParameter {
-                name: "mapboxgl.access_token";
-                value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
-            }
-
-            MapParameter {
-                type: "source"
-
-                property var name: "routeSource"
-                property var sourceType: "geojson"
-                property var data: '{ "type": "FeatureCollection", "features": \
-                    [{ "type": "Feature", "properties": {}, "geometry": { \
-                    "type": "LineString", "coordinates": [[ 24.934938848018646, \
-                    60.16830257086771 ], [ 24.943315386772156, 60.16227776476442 ]]}}]}'
-            }
-
-            MapParameter {
-                type: "layer"
-
-                property var name: "route"
-                property var layerType: "line"
-                property var source: "routeSource"
-
-                // Draw under the first road label layer
-                // of the mapbox-streets style.
-                property var before: "road-label-small"
-            }
-
-            MapParameter {
-                type: "paint"
-
-                property var layer: "route"
-                property var lineColor: "blue"
-                property var lineWidth: 8.0
-            }
-
-            MapParameter {
-                type: "layout"
-
-                property var layer: "route"
-                property var lineJoin: "round"
-                property var lineCap: "round"
-            }
-        }
+        // mapboxgl
+//         Map {
+//             id: mapView
+//             plugin: Plugin { name: "mapboxgl" }
+// 
+//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+//             zoomLevel: 12
+// 
+//             PluginParameter {
+//                 name: "mapboxgl.access_token";
+//                 value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
+//             }
+// 
+//             MapParameter {
+//                 type: "source"
+// 
+//                 property var name: "routeSource"
+//                 property var sourceType: "geojson"
+//                 property var data: '{ "type": "FeatureCollection", "features": \
+//                     [{ "type": "Feature", "properties": {}, "geometry": { \
+//                     "type": "LineString", "coordinates": [[ 24.934938848018646, \
+//                     60.16830257086771 ], [ 24.943315386772156, 60.16227776476442 ]]}}]}'
+//             }
+// 
+//             MapParameter {
+//                 type: "layer"
+// 
+//                 property var name: "route"
+//                 property var layerType: "line"
+//                 property var source: "routeSource"
+// 
+//                 property var before: "road-label-small"
+//             }
+// 
+//             MapParameter {
+//                 type: "paint"
+// 
+//                 property var layer: "route"
+//                 property var lineColor: "blue"
+//                 property var lineWidth: 8.0
+//             }
+// 
+//             MapParameter {
+//                 type: "layout"
+// 
+//                 property var layer: "route"
+//                 property var lineJoin: "round"
+//                 property var lineCap: "round"
+//             }
+//         }
     }
 
     Item {
