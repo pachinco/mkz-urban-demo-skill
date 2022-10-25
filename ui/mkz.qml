@@ -193,40 +193,40 @@ Mycroft.Delegate {
             }
         ]
         // OSM
-//         Plugin {
-//             id: mapPlugin
-//             name: "osm"
-//         }
-//         
-//         Map {
-//             id: mapView
-//             anchors.verticalCenter: parent.verticalCenter
-//             anchors.horizontalCenter: parent.horizontalCenter
-//             plugin: mapPlugin
-//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-//             activeMapType: supportedMapTypes[0]
-//             zoomLevel: 20
-//             tilt: 60
-//             z: 1
-//         }
-
-        // map tiler
         Plugin {
-            id: mapPluginVector
-            name: "mapboxgl"
-            PluginParameter {
-                name: "mapboxgl.mapping.additional_style_urls"
-                value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-            }
+            id: mapPlugin
+            name: "osm"
         }
-
+        
         Map {
             id: mapView
-            anchors.fill: parent
-            plugin: mapPluginVector
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            plugin: mapPlugin
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+            activeMapType: supportedMapTypes[0]
             zoomLevel: 20
+            tilt: 60
+            z: 1
         }
+
+        // map tiler
+//         Plugin {
+//             id: mapPluginVector
+//             name: "mapboxgl"
+//             PluginParameter {
+//                 name: "mapboxgl.mapping.additional_style_urls"
+//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
+//             }
+//         }
+// 
+//         Map {
+//             id: mapView
+//             anchors.fill: parent
+//             plugin: mapPluginVector
+//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+//             zoomLevel: 20
+//         }
                 
     }
 
