@@ -220,11 +220,11 @@ Mycroft.Delegate {
             name: "mapboxgl"
             PluginParameter {
                 name: "mapboxgl.access_token";
-                value: mapboxToken
+                value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
             }
             PluginParameter {
                 name: "mapboxgl.mapping.additional_style_urls"
-                value: "https://api.maptiler.com/maps/winter/style.json?key="+hostingKey+"#16.8/37.39568/-122.03325"
+                value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
             }
         }
