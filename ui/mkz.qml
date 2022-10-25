@@ -225,7 +225,7 @@ Mycroft.Delegate {
             id: mapView
             anchors.fill: parent
             plugin: mapPluginVector
-            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
             zoomLevel: 20
         }
                 
