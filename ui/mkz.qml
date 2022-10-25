@@ -141,102 +141,101 @@ Mycroft.Delegate {
     Item {
         id: mapFrame
         anchors.fill: parent
-        visible: uiMap
-//         state: (uiMap) ? "ACTIVE" : "INACTIVE"
-//         states: [
-//             State {
-//                 name: "ACTIVE"
-//                 PropertyChanges {
-//                     target: mapView
-//                     height: parent.height
-//                     width: parent.width
-//                     opacity: 1
-//                 }
-//                 PropertyChanges {
-//                     target: uiStage
-//                     opacity: 0
-//                 }
-//             },
-//             State {
-//                 name: "INACTIVE"
-//                 PropertyChanges {
-//                     target: mapView
-//                     height: parent.height*2
-//                     width: parent.width*2
-//                     opacity: 0
-//                 }
-//             }
-//         ]
-//         transitions: [
-//             Transition {
-//                 from: "INACTIVE"
-//                 to: "ACTIVE"
-//                 SequentialAnimation {
-//                     PropertyAction {
-//                         target: mapFrame
-//                         property: "visible"
-//                         value: true
-//                     }
-//                     ParallelAnimation {
-//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
-//                         NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
-//                     }
-//                 }
-//             },
-//             Transition {
-//                 from: "ACTIVE"
-//                 to: "INACTIVE"
-//                 SequentialAnimation {
-//                     NumberAnimation { target: mapView; properties: "opacity"; duration: 500 }
-//                     PropertyAction {
-//                         target: mapFrame
-//                         property: "visible"
-//                         value: false
-//                     }
-//                 }
-//             }
-//         ]
+//         visible: uiMap
+        state: (uiMap) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: mapView
+                    height: parent.height
+                    width: parent.width
+                    opacity: 1
+                }
+                PropertyChanges {
+                    target: uiStage
+                    opacity: 0
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: mapView
+                    height: parent.height*2
+                    width: parent.width*2
+                    opacity: 0
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                SequentialAnimation {
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: true
+                    }
+                    ParallelAnimation {
+                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
+                    }
+                }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                SequentialAnimation {
+                    NumberAnimation { target: mapView; properties: "opacity"; duration: 500 }
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: false
+                    }
+                }
+            }
+        ]
         // OSM
-//         Plugin {
-//             id: mapPlugin
-//             name: "osm"
-//         }
-//         
-//         Map {
-//             id: mapView
-//             anchors.verticalCenter: parent.verticalCenter
-//             anchors.horizontalCenter: parent.horizontalCenter
-//             plugin: mapPlugin
-//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-//             activeMapType: supportedMapTypes[0]
-//             zoomLevel: 20
-//             tilt: 60
-//             z: 1
-//         }
-
-        // map tiler
         Plugin {
-            id: mapPluginVector
-            name: "mapboxgl"
-            PluginParameter {
-                name: "mapboxgl.access_token";
-                value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
-            }
-            PluginParameter {
-                name: "mapboxgl.mapping.additional_style_urls"
-                value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
-//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-            }
+            id: mapPlugin
+            name: "osm"
         }
-
+        
         Map {
             id: mapView
-            anchors.fill: parent
-            plugin: mapPluginVector
-//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            plugin: mapPlugin
+            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+            activeMapType: supportedMapTypes[0]
             zoomLevel: 20
+            tilt: 60
+            z: 1
         }
-                
+
+        // map tiler
+//         Plugin {
+//             id: mapPluginVector
+//             name: "mapboxgl"
+//             PluginParameter {
+//                 name: "mapboxgl.access_token";
+//                 value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
+//             }
+//             PluginParameter {
+//                 name: "mapboxgl.mapping.additional_style_urls"
+//                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
+//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
+//             }
+//         }
+// 
+//         Map {
+//             id: mapView
+//             anchors.fill: parent
+//             plugin: mapPluginVector
+//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+//             zoomLevel: 20
+//         }
     }
 
     Item {
