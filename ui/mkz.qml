@@ -208,7 +208,12 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             plugin: mapPlugin
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-            activeMapType: supportedMapTypes[0]
+//             activeMapType: supportedMapTypes[0]
+            PluginParameter {
+                name: "mapboxgl.mapping.additional_style_urls"
+                value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
+//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
+            }
             zoomLevel: 20
             tilt: 60
             z: 1
