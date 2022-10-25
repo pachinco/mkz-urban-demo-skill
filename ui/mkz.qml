@@ -8,6 +8,7 @@ import Mycroft 1.0 as Mycroft
 import QtPositioning 5.12
 import QtLocation 5.12
 // import MapboxMap 1.0
+import Esri.ArcGISRuntime 100.15
 
 Mycroft.Delegate {
     id: homescreen
@@ -204,38 +205,53 @@ Mycroft.Delegate {
 //                 name: "osm"
 //             }
         // mapboxgl
-        Plugin {
-            id: mapPlugin
-            name: "mapboxgl"
+//         Plugin {
+//             id: mapPlugin
+//             name: "mapboxgl"
 //             PluginParameter {
 //                 name: "mapboxgl.access_token";
 //                 value: mapboxToken_mkz
 //             }
-            PluginParameter {
-                name: "mapboxgl.mapping.additional_style_urls"
-                value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
+//             PluginParameter {
+//                 name: "mapboxgl.mapping.additional_style_urls"
+//                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
 //                 value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os/wmts?access_token=pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-            }
-        }
+//             }
+//         }
 
-        Map {
-            id: mapView
-            anchors.fill: parent
-            plugin: mapPlugin
-            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-            zoomLevel: 20
-            tilt: 60
-            z: 5
+//         Map {
+//             id: mapView
+//             anchors.fill: parent
+//             plugin: mapPlugin
+//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+//             zoomLevel: 20
+//             tilt: 60
+//             z: 5
 //             activeMapType: supportedMapTypes[5]
-            Component.onCompleted: {
-                console.log("Map loaded.")
+//             Component.onCompleted: {
+//                 console.log("Map loaded.")
 //                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
 //                 for (let i=0; i<supportedMapTypes.length; i++) {
 //                     for (let x in supportedMapTypes[i]) {
 //                         console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
 //                     }
 //                 }
+//             }
+//         }
+
+        MapView {
+            anchors.fill: parent
+
+            Component.onCompleted: {
+                // Set the focus on MapView to initially enable keyboard navigation
+                forceActiveFocus();
+            }
+
+            Map {
+                Basemap {
+                    initStyle: Enums.BasemapStyleArcGISImagery
+                }
             }
         }
     }
