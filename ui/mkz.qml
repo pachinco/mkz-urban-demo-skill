@@ -199,55 +199,27 @@ Mycroft.Delegate {
             }
         ]
         // OSM
-//         Plugin {
-//             id: mapPlugin
-//             name: "osm"
-//         }
-// 
-//         Map {
-//             id: mapView
-//             property MapCircle circle
-// 
-//             anchors.verticalCenter: parent.verticalCenter
-//             anchors.horizontalCenter: parent.horizontalCenter
-//             plugin: mapPlugin
-//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-//             activeMapType: supportedMapTypes[0]
-//             zoomLevel: 20
-//             tilt: 60
-//             z: 1
-// 
-//             Component.onCompleted: {
-//                 for (let i=0; i<supportedMapTypes.length; i++) {
-//                     for (let x in supportedMapTypes[i]) {
-//                         console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
-//                     }
-//                 }
-//             }
-//             Component.onCompleted: {
-//                 circle = Qt.createQmlObject('import QtLocation 5.3; MapCircle {}', mapFrame)
-//                 circle.center = QtPositioning.coordinate(37.3963974,-122.035018)
-//                 circle.radius = 5000.0
-//                 circle.color = 'green'
-//                 circle.border.width = 3
-//                 map.addMapItem(circle)
-//             }
-//         }
-        // mapboxgl
         Plugin {
             id: mapPlugin
-            name: "mapboxgl"
-            PluginParameter {
-                name: "mapboxgl.access_token";
-                value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
-            }
-            PluginParameter {
-                name: "mapboxgl.mapping.additional_style_urls"
-                value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os/wmts?access_token=pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
+            name: "osm"
+        }
+        // mapboxgl
+//         Plugin {
+//             id: mapPlugin
+//             name: "mapboxgl"
+//             PluginParameter {
+//                 name: "mapboxgl.access_token";
+//                 value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
+//             }
+//             PluginParameter {
+//                 name: "mapboxgl.mapping.additional_style_urls"
+//                 value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os/wmts?access_token=pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-            }
-        }
+//             }
+//         }
+
+//         }
 
         Map {
             id: mapView
@@ -264,57 +236,6 @@ Mycroft.Delegate {
             }
         }
 
-        // mapboxgl
-//         Map {
-//             id: mapView
-//             plugin: Plugin {
-//                 name: "mapboxgl"
-//                 PluginParameter {
-//                     name: "mapboxgl.access_token";
-//                     value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
-//                 }
-//             }
-// 
-//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-//             zoomLevel: 12
-// 
-//             MapParameter {
-//                 type: "source"
-// 
-//                 property var name: "routeSource"
-//                 property var sourceType: "geojson"
-//                 property var data: '{ "type": "FeatureCollection", "features": \
-//                     [{ "type": "Feature", "properties": {}, "geometry": { \
-//                     "type": "LineString", "coordinates": [[ 24.934938848018646, \
-//                     60.16830257086771 ], [ 24.943315386772156, 60.16227776476442 ]]}}]}'
-//             }
-// 
-//             MapParameter {
-//                 type: "layer"
-// 
-//                 property var name: "route"
-//                 property var layerType: "line"
-//                 property var source: "routeSource"
-// 
-//                 property var before: "road-label-small"
-//             }
-// 
-//             MapParameter {
-//                 type: "paint"
-// 
-//                 property var layer: "route"
-//                 property var lineColor: "blue"
-//                 property var lineWidth: 8.0
-//             }
-// 
-//             MapParameter {
-//                 type: "layout"
-// 
-//                 property var layer: "route"
-//                 property var lineJoin: "round"
-//                 property var lineCap: "round"
-//             }
-//         }
     }
 
     Item {
