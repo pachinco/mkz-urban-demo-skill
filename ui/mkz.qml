@@ -206,9 +206,9 @@ Mycroft.Delegate {
         
         ListModel {
             id:dataModel
-            ListElement { lat: 54.196; lon: 16.234; name: “test1”; }
-            ListElement { lat: 54.209; lon: 16.192; name: “test2”; }
-            ListElement { lat: 54.229; lon: 16.215; name: “test3”; }
+            ListElement { lat: 54.196; lon: 16.234; name: 'test1'; }
+            ListElement { lat: 54.209; lon: 16.192; name: 'test2'; }
+            ListElement { lat: 54.229; lon: 16.215; name: 'test3'; }
         }
         Map {
             id: mapView
@@ -216,7 +216,7 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             plugin: mapPlugin
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-            activeMapType: supportedMapTypes[supportedMapTypes.length – 1]
+//             activeMapType: supportedMapTypes[supportedMapTypes.length – 1]
             zoomLevel: 20
             tilt: 60
             z: 1
