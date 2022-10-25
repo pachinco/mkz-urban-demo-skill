@@ -217,7 +217,7 @@ Mycroft.Delegate {
 //                 value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os/wmts?access_token=pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl#16.8/37.39568/-122.03325"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-            }
+//             }
         }
 
         Map {
