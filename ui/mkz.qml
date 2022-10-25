@@ -219,7 +219,9 @@ Mycroft.Delegate {
 
             Component.onCompleted: {
                 for (let i=0; i<supportedMapTypes.length; i++) {
-                    console.log('maptypes['+i+']:'+supportedMapTypes[i])
+                    for (let x in supportedMapTypes[i]) {
+                        console.log('maptypes['+i+']:'+supportedMapTypes[i].x)
+                    }
                 }
 //                 circle = Qt.createQmlObject('import QtLocation 5.3; MapCircle {}', mapFrame)
 //                 circle.center = QtPositioning.coordinate(37.3963974,-122.035018)
