@@ -207,10 +207,10 @@ Mycroft.Delegate {
         Plugin {
             id: mapPlugin
             name: "mapboxgl"
-//             PluginParameter {
-//                 name: "mapboxgl.access_token";
-//                 value: mapboxToken_mkz
-//             }
+            PluginParameter {
+                name: "mapboxgl.access_token";
+                value: mapboxToken_mkz
+            }
             PluginParameter {
                 name: "mapboxgl.mapping.additional_style_urls"
 //                 value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os/wmts?access_token=pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
