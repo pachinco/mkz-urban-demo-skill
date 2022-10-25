@@ -7,6 +7,7 @@ import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 import QtPositioning 5.12
 import QtLocation 5.12
+import MapboxMap 1.0
 
 Mycroft.Delegate {
     id: homescreen
@@ -199,41 +200,24 @@ Mycroft.Delegate {
 //             }
 //         ]
         // OSM
+//             Plugin {
+//                 id: mapPlugin
+//                 name: "osm"
+//             }
+        // mapboxgl
         Plugin {
             id: mapPlugin
-            name: "osm"
-        }
-        // mapboxgl
-//         Plugin {
-//             id: mapPlugin
-//             name: "mapboxgl"
+            name: "mapboxgl"
 //             PluginParameter {
 //                 name: "mapboxgl.access_token";
 //                 value: mapboxToken_mkz
 //             }
-//             PluginParameter {
-//                 name: "mapboxgl.mapping.additional_style_urls"
-//                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
+            PluginParameter {
+                name: "mapboxgl.mapping.additional_style_urls"
+                value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
 //                 value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os/wmts?access_token=pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-//             }
-//         }
-        property Component markerProvider: MapQuickItem {
-            anchorPoint.x: rect.width / 2
-            anchorPoint.y: rect.height / 2
-            sourceItem: Rectangle{
-                id: rect
-                width: 40
-                height: 40
-                color: "salmon"
             }
-        }
-
-        function addMarker(coordinate){
-            var marker = markerProvider.createObject()
-            console.log(marker)
-            marker.coordinate = coordinate
-            map.addMapItem(marker)
         }
 
         Map {
@@ -247,7 +231,7 @@ Mycroft.Delegate {
 //             activeMapType: supportedMapTypes[5]
             Component.onCompleted: {
                 console.log("Map loaded.")
-                addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
+//                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
 //                 for (let i=0; i<supportedMapTypes.length; i++) {
 //                     for (let x in supportedMapTypes[i]) {
 //                         console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
