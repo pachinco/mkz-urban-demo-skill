@@ -244,7 +244,7 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
             z: 5
-            activeMapType: supportedMapTypes[5]
+//             activeMapType: supportedMapTypes[5]
             Component.onCompleted: {
                 console.log("Map loaded.")
                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
