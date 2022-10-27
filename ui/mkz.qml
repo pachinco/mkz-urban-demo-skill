@@ -200,25 +200,25 @@ Mycroft.Delegate {
             }
         ]
         // OSM
-            Plugin {
-                id: mapPlugin
-                name: "osm"
-            }
+//             Plugin {
+//                 id: mapPlugin
+//                 name: "osm"
+//             }
         // mapboxgl
-//         Plugin {
-//             id: mapPlugin
-//             name: "mapboxgl"
+        Plugin {
+            id: mapPlugin
+            name: "mapboxgl"
 //             PluginParameter {
 //                 name: "mapboxgl.access_token";
 //                 value: mapboxToken_mkz
 //             }
-//             PluginParameter {
-//                 name: "mapboxgl.mapping.additional_style_urls"
-//                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
+            PluginParameter {
+                name: "mapboxgl.mapping.additional_style_urls"
+                value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
 //                 value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os/wmts?access_token=pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-//             }
-//         }
+            }
+        }
 
         Map {
             id: mapView
