@@ -5,8 +5,8 @@ import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
-import QtPositioning 5.12
-import QtLocation 5.12
+import QtPositioning 5.15
+import QtLocation 5.15
 // import MapboxMap 1.0
 // import Esri.ArcGISRuntime 100.15
 
@@ -207,17 +207,17 @@ Mycroft.Delegate {
                 name: "osm.mapping.highdpi_tiles"
                 value: "true"
             }
-//             PluginParameter {
-//                 name: "osm.mapping.providersrepository.disabled"
-//                 value: "true"
-//             }
-//             PluginParameter
-//             {
-//                 name: "osm.mapping.custom.host"
-//                 value: "https://api.maptiler.com/maps/winter/%z/%x/%y.png?key=nGqcqqyYOrE4VtKI6ftl"
+            PluginParameter {
+                name: "osm.mapping.providersrepository.disabled"
+                value: "true"
+            }
+            PluginParameter
+            {
+                name: "osm.mapping.custom.host"
+                value: "https://api.maptiler.com/maps/winter/%z/%x/%y.png?key=nGqcqqyYOrE4VtKI6ftl"
 //                 value: "https://stamen-tiles.a.ssl.fastly.net/watercolor/"
 //                 value: "https://stamen-tiles.a.ssl.fastly.net/toner/"
-//             }
+            }
         }
         // mapboxgl
 //         Plugin {
