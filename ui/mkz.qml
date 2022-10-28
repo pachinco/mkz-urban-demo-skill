@@ -259,13 +259,13 @@ Mycroft.Delegate {
     //                 name: "mapboxgl.api_base_url"
     //                 value: "https://api.mapbox.com"
     //             }
-                PluginParameter {
-                    name: "mapboxgl.mapping.additional_style_urls"
-                    value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
+//                 PluginParameter {
+//                     name: "mapboxgl.mapping.additional_style_urls"
+//                     value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
 //                     value: "mapbox://styles/mapbox/light-v10"
 //                     value: "mapbox://styles/examples/cj68bstx01a3r2rndlud0pwpv"
     //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-                }
+//                 }
             }
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
             zoomLevel: 20
