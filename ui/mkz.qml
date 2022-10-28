@@ -207,10 +207,10 @@ Mycroft.Delegate {
                 name: "osm.mapping.highdpi_tiles"
                 value: "true"
             }
-            PluginParameter {
-                name: "osm.mapping.providersrepository.disabled"
-                value: "true"
-            }
+//             PluginParameter {
+//                 name: "osm.mapping.providersrepository.disabled"
+//                 value: "true"
+//             }
             PluginParameter
             {
                 name: "osm.mapping.custom.host"
