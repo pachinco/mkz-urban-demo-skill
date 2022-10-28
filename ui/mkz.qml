@@ -277,7 +277,7 @@ Mycroft.Delegate {
             z: 5
 //             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
 //             activeMapType: supportedMapTypes[5]
-//             activeMapType: MapType.CustomMap
+            activeMapType: MapType.CustomMap
             Component.onCompleted: {
                 console.log("Map loaded. "+mapView.supportedMapTypes.length)
 //                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
