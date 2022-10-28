@@ -5,10 +5,8 @@ import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
-import QtPositioning 5.9
-import QtLocation 5.9
-// import MapboxMap 1.0
-// import Esri.ArcGISRuntime 100.15
+import QtPositioning 5.12
+import QtLocation 5.12
 
 Mycroft.Delegate {
     id: homescreen
@@ -255,7 +253,7 @@ Mycroft.Delegate {
 //                 id: mapPlugin
                 name: "mapboxgl"
                 PluginParameter {
-                    name: "mapbox.access_token";
+                    name: "mapbox.access_token"
                     value: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
                 }
     //             PluginParameter {
@@ -266,8 +264,8 @@ Mycroft.Delegate {
     //                 name: "mapboxgl.mapping.additional_map_ids"
                     name: "mapboxgl.mapping.additional_style_urls"
     //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
-                    value: "mapbox://styles/mapbox/light-v10"
-    //                 value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
+//                     value: "mapbox://styles/mapbox/light-v10"
+                    value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
     //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
                 }
             }
