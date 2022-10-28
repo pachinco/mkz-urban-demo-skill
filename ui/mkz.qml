@@ -247,6 +247,7 @@ Mycroft.Delegate {
 //             activeMapType: supportedMapTypes[5]
 //             activeMapType: MapType.CustomMap
             Component.onCompleted: {
+                ServicesManager.settings.token = "nGqcqqyYOrE4VtKI6ftl"
                 console.log("Map loaded.")
 //                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
 //                 for (let i=0; i<supportedMapTypes.length; i++) {
