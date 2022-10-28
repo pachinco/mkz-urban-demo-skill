@@ -275,9 +275,9 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
             z: 5
-            activeMapType: supportedMapTypes[supportedMapTypes.length-1]
+//             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
 //             activeMapType: supportedMapTypes[5]
-//             activeMapType: MapType.CustomMap
+            activeMapType: MapType.CustomMap
             Component.onCompleted: {
 //                 ServicesManager.settings.token = "nGqcqqyYOrE4VtKI6ftl"
                 console.log("Map loaded.")
