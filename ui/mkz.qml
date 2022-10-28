@@ -272,9 +272,9 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
             z: 5
-            activeMapType: supportedMapTypes[supportedMapTypes.length-1]
+//             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
 //             activeMapType: supportedMapTypes[6]
-//             activeMapType: MapType.CustomMap
+            activeMapType: supportedMapTypes[0]
 
             MapParameter {
                 type: "layer"
