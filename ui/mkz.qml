@@ -233,6 +233,7 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
             z: 5
+            activeMapType: MapType.CustomMap
 //             activeMapType: supportedMapTypes[5]
 //             activeMapType: MapType.CustomMap
             Component.onCompleted: {
