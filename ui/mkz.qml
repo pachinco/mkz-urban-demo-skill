@@ -207,17 +207,17 @@ Mycroft.Delegate {
                 name: "osm.mapping.highdpi_tiles"
                 value: "true"
             }
-            PluginParameter {
-                name: "osm.mapping.providersrepository.disabled"
-                value: "true"
-            }
-            PluginParameter
-            {
-                name: "osm.mapping.custom.host"
-                value: "https://api.maptiler.com/maps/winter/%z/%x/%y.png?key=nGqcqqyYOrE4VtKI6ftl"
+//             PluginParameter {
+//                 name: "osm.mapping.providersrepository.disabled"
+//                 value: "true"
+//             }
+//             PluginParameter
+//             {
+//                 name: "osm.mapping.custom.host"
+//                 value: "https://api.maptiler.com/maps/winter/%z/%x/%y.png?key=nGqcqqyYOrE4VtKI6ftl"
 //                 value: "https://stamen-tiles.a.ssl.fastly.net/watercolor/"
 //                 value: "https://stamen-tiles.a.ssl.fastly.net/toner/"
-            }
+//             }
         }
         // mapboxgl
 //         Plugin {
