@@ -214,7 +214,7 @@ Mycroft.Delegate {
             PluginParameter
             {
                 name: "osm.mapping.custom.host"
-                value: "https://api.maptiler.com/maps/winter/{z}/{x}/{y}.png?key=nGqcqqyYOrE4VtKI6ftl"
+                value: "https://api.maptiler.com/maps/winter/${z}/${x}/${y}.png?key=nGqcqqyYOrE4VtKI6ftl"
 //                 value: "https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png"
             }
         }
@@ -242,7 +242,7 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
             z: 5
-            activeMapType: supportedMapTypes[0]
+            activeMapType: supportedMapTypes[supportedMapTypes.length-1]
 //             activeMapType: supportedMapTypes[5]
 //             activeMapType: MapType.CustomMap
             Component.onCompleted: {
