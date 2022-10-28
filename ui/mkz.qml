@@ -262,7 +262,7 @@ Mycroft.Delegate {
 //                 name: "mapboxgl.mapping.additional_style_urls"
 //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
 //                 value: "styles/mapbox/streets-v11"
-                value: "styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os"
+                value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
             }
         }
