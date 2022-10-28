@@ -246,38 +246,38 @@ Mycroft.Delegate {
 //            }
 //         }
         // mapboxgl
-        Plugin {
-            id: mapPlugin
-            name: "mapboxgl"
-            PluginParameter {
-                name: "mapbox.access_token";
-                value: mapboxToken_mkz
-            }
-//             PluginParameter {
-//                 name: "mapboxgl.api_base_url"
-//                 value: "https://api.mapbox.com"
-//             }
-            PluginParameter {
-//                 name: "mapboxgl.mapping.additional_map_ids"
-                name: "mapboxgl.mapping.additional_style_urls"
-//                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
-                value: "mapbox://styles/mapbox/light-v10"
-//                 value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
-//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-            }
-        }
+//         Plugin
 
         Map {
             id: mapView
             anchors.fill: parent
-            plugin: mapPlugin
+            plugin: mapPlugin {
+//                 id: mapPlugin
+                name: "mapboxgl"
+                PluginParameter {
+                    name: "mapbox.access_token";
+                    value: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
+                }
+    //             PluginParameter {
+    //                 name: "mapboxgl.api_base_url"
+    //                 value: "https://api.mapbox.com"
+    //             }
+                PluginParameter {
+    //                 name: "mapboxgl.mapping.additional_map_ids"
+                    name: "mapboxgl.mapping.additional_style_urls"
+    //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
+                    value: "mapbox://styles/mapbox/light-v10"
+    //                 value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
+    //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
+                }
+            }
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
             zoomLevel: 20
             tilt: 60
             z: 5
 //             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
 //             activeMapType: supportedMapTypes[5]
-            activeMapType: MapType.CustomMap
+//             activeMapType: MapType.CustomMap
             Component.onCompleted: {
                 console.log("Map loaded. "+mapView.supportedMapTypes.length)
 //                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
