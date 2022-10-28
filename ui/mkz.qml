@@ -305,7 +305,12 @@ Mycroft.Delegate {
 //                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
                 for (let i=0; i<mapView.supportedMapTypes.length; i++) {
                     for (let x in mapView.supportedMapTypes[i]) {
-                        console.log('maptypes['+i+'].'+x+":"+mapView.supportedMapTypes[i][x])
+                        console.log('maptypes['+i+'].'+x+": "+mapView.supportedMapTypes[i][x])
+                        if (x === "metadata") {
+                            for (let y in mapView.supportedMapTypes[i][x]) {
+                                console.log('maptypes['+i+'].'+x+"."+y+": "+mapView.supportedMapTypes[i][x][y])
+                            }
+                        }
                     }
                 }
             }
