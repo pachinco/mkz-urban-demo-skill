@@ -265,9 +265,9 @@ Mycroft.Delegate {
 //                 }
                 PluginParameter {
                     name: "mapboxgl.mapping.additional_style_urls"
-//                     value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
+                    value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
 //                     value: "mapbox://styles/mapbox/light-v10"
-                    value: "mapbox://styles/examples/cj68bstx01a3r2rndlud0pwpv"
+//                     value: "mapbox://styles/examples/cj68bstx01a3r2rndlud0pwpv"
     //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
                 }
             }
