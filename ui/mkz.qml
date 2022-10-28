@@ -256,7 +256,7 @@ Mycroft.Delegate {
                     value: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
                 }
                 PluginParameter {
-                    name: "mapboxgl.antialias"
+                    name: "mapboxgl.mapping.antialias"
                     value: "true"
                 }
     //             PluginParameter {
