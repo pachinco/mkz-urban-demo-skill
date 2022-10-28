@@ -275,7 +275,7 @@ Mycroft.Delegate {
             tilt: 60
             z: 5
 //             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
-            activeMapType: supportedMapTypes[7]
+            activeMapType: supportedMapTypes[6]
 //             activeMapType: MapType.CustomMap
             Component.onCompleted: {
                 console.log("Map loaded. "+mapView.supportedMapTypes.length)
