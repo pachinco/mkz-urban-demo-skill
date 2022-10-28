@@ -252,8 +252,12 @@ Mycroft.Delegate {
             plugin: Plugin {
                 name: "mapboxgl"
                 PluginParameter {
-                    name: "mapbox.access_token"
+                    name: "mapboxgl.access_token"
                     value: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
+                }
+                PluginParameter {
+                    name: "mapboxgl.antialias"
+                    value: "true"
                 }
     //             PluginParameter {
     //                 name: "mapboxgl.api_base_url"
