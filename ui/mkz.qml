@@ -200,13 +200,13 @@ Mycroft.Delegate {
             }
         ]
         // OSM
-        Plugin {
-            id: mapPlugin
-            name: "osm"
-            PluginParameter {
-                name: "osm.mapping.highdpi_tiles"
-                value: "true"
-            }
+//         Plugin {
+//             id: mapPlugin
+//             name: "osm"
+//             PluginParameter {
+//                 name: "osm.mapping.highdpi_tiles"
+//                 value: "true"
+//             }
 //             PluginParameter {
 //                 name: "osm.mapping.providersrepository.disabled"
 //                 value: "true"
@@ -218,22 +218,22 @@ Mycroft.Delegate {
 //                 value: "https://stamen-tiles.a.ssl.fastly.net/watercolor/"
 //                 value: "https://stamen-tiles.a.ssl.fastly.net/toner/"
 //             }
-        }
-        // mapboxgl
-//         Plugin {
-//             id: mapPlugin
-//             name: "mapboxgl"
-//             PluginParameter {
-//                 name: "mapboxgl.access_token";
-//                 value: mapboxToken_mkz
-//             }
-//             PluginParameter {
-//                 name: "mapboxgl.mapping.additional_style_urls"
-//                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
-//                 value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os/wmts?access_token=pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
-//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-//             }
 //         }
+        // mapboxgl
+        Plugin {
+            id: mapPlugin
+            name: "mapbox"
+            PluginParameter {
+                name: "mapboxgl.access_token";
+                value: mapboxToken_mkz
+            }
+            PluginParameter {
+                name: "mapboxgl.mapping.additional_style_urls"
+//                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
+                value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os"
+//                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
+            }
+        }
 
         Map {
             id: mapView
@@ -256,18 +256,18 @@ Mycroft.Delegate {
 //                     }
 //                 }
             }
-            MapCircle {
-                id: mapCircle
-                center: QtPositioning.coordinate(37.3963974,-122.035018)
-                radius: 200000
-                border.width: 5
-                z: 7
-
+//             MapCircle {
+//                 id: mapCircle
+//                 center: QtPositioning.coordinate(37.3963974,-122.035018)
+//                 radius: 200000
+//                 border.width: 5
+//                 z: 7
+// 
 //                 MouseArea {
 //                     anchors.fill: parent
 //                     drag.target: parent
 //                 }
-            }
+//             }
         }
     }
 
