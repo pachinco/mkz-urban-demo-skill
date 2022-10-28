@@ -214,8 +214,9 @@ Mycroft.Delegate {
             PluginParameter
             {
                 name: "osm.mapping.custom.host"
+                value: "https://api.maptiler.com/maps/winter/"
 //                 value: "https://api.maptiler.com/maps/winter/${z}/${x}/${y}.png?key=nGqcqqyYOrE4VtKI6ftl"
-                value: "https://stamen-tiles.a.ssl.fastly.net/watercolor/"
+//                 value: "https://stamen-tiles.a.ssl.fastly.net/watercolor/"
             }
         }
         // mapboxgl
