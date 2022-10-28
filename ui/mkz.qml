@@ -253,16 +253,16 @@ Mycroft.Delegate {
                 name: "mapbox.access_token";
                 value: mapboxToken_mkz
             }
-//             PluginParameter {
-//                 name: "mapboxgl.api_base_url"
-//                 value: "https://api.mapbox.com"
-//             }
+            PluginParameter {
+                name: "mapboxgl.api_base_url"
+                value: "https://api.mapbox.com"
+            }
             PluginParameter {
                 name: "mapboxgl.mapping.additional_map_ids"
 //                 name: "mapboxgl.mapping.additional_style_urls"
 //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
 //                 value: "styles/mapbox/streets-v11"
-                value: "mapbox://styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os"
+                value: "styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
             }
         }
