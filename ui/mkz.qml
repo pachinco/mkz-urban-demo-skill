@@ -261,6 +261,7 @@ Mycroft.Delegate {
                 center: QtPositioning.coordinate(37.3963974,-122.035018)
                 radius: 200000
                 border.width: 5
+                z: 7
 
 //                 MouseArea {
 //                     anchors.fill: parent
