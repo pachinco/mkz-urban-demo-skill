@@ -219,29 +219,47 @@ Mycroft.Delegate {
 //                 value: "https://stamen-tiles.a.ssl.fastly.net/toner/"
 //             }
 //         }
+        // mapbox
+//         Plugin {
+//             id: mapPlugin
+//             name: "mapbox"
+//             PluginParameter {
+//                 name: "mapbox.access_token";
+//                 value: mapboxToken_mkz
+//             }
+//             PluginParameter {
+//                 name: "mapbox.mapping.highdpi_tiles"
+//                 value: "true"
+//             }
+//             PluginParameter {
+//                 name: "mapbox.api_base_url"
+//                 value: "https://api.mapbox.com/styles/v1"
+//             }
+//             PluginParameter {
+//                 name: "mapbox.mapping.api_base_url"
+//                 value: "https://api.mapbox.com/styles/v1"
+//             }
+//             PluginParameter {
+//                 name: "mapbox.mapping.additional_map_ids"
+//                 name: "mapbox.mapping.map_id"
+//                 value: "pachinco/cl9olfi4i000514nzmcj6b8os/tiles"
+//            }
+//         }
         // mapboxgl
         Plugin {
             id: mapPlugin
-            name: "mapbox"
+            name: "mapboxgl"
             PluginParameter {
                 name: "mapbox.access_token";
                 value: mapboxToken_mkz
             }
             PluginParameter {
-                name: "mapbox.mapping.highdpi_tiles"
-                value: "true"
-            }
-            PluginParameter {
-                name: "mapbox.api_base_url"
-                value: "https://api.mapbox.com/styles/v1"
-            }
-            PluginParameter {
-                name: "mapbox.mapping.api_base_url"
+                name: "mapboxgl.api_base_url"
                 value: "https://api.mapbox.com/styles/v1"
             }
             PluginParameter {
 //                 name: "mapbox.mapping.additional_map_ids"
-                name: "mapbox.mapping.map_id"
+                name: "mapboxgl.mapping.additional_style_urls"
 //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
                 value: "pachinco/cl9olfi4i000514nzmcj6b8os/tiles"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
@@ -256,7 +274,7 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
             z: 5
-//             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
+            activeMapType: supportedMapTypes[supportedMapTypes.length-1]
 //             activeMapType: supportedMapTypes[5]
 //             activeMapType: MapType.CustomMap
             Component.onCompleted: {
