@@ -224,11 +224,11 @@ Mycroft.Delegate {
             id: mapPlugin
             name: "mapbox"
             PluginParameter {
-                name: "mapboxgl.access_token";
+                name: "mapbox.access_token";
                 value: mapboxToken_mkz
             }
             PluginParameter {
-                name: "mapboxgl.mapping.additional_style_urls"
+                name: "mapbox.mapping.additional_style_urls"
 //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
                 value: "https://api.mapbox.com/styles/v1/pachinco/cl9olfi4i000514nzmcj6b8os"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
