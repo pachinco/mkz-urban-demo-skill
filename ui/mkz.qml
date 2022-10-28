@@ -251,7 +251,7 @@ Mycroft.Delegate {
         Map {
             id: mapView
             anchors.fill: parent
-            plugin: mapPlugin {
+            plugin: Plugin {
 //                 id: mapPlugin
                 name: "mapboxgl"
                 PluginParameter {
