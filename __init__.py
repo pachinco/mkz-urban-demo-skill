@@ -46,9 +46,9 @@ class MkzUrbanDemo(MycroftSkill):
                                   {"ui": "music", "idx": 3, "image": "../images/MediaIcon.png"},
                                   {"ui": "weather", "idx": 4, "image": "../images/CloudIcon.png"}]
         #self.enclosure.display_manager.remove_active()
-        play_proc = play_wav(str(self.sound_file_path))
+        #play_proc = play_wav(str(self.sound_file_path))
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
-        self.speak_dialog('demo.urban.mkz', wait=True)
+        #self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_repeating_event(self._update_display_time, None, 10)
         self.schedule_event(self._whats_next, 3)
 
