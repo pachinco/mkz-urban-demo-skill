@@ -253,12 +253,12 @@ Mycroft.Delegate {
                 name: "mapboxgl"
                 PluginParameter {
                     name: "mapboxgl.access_token"
-                    value: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
+                    value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
                 }
-                PluginParameter {
-                    name: "mapboxgl.mapping.antialias"
-                    value: "true"
-                }
+//                 PluginParameter {
+//                     name: "mapboxgl.mapping.antialias"
+//                     value: "true"
+//                 }
     //             PluginParameter {
     //                 name: "mapboxgl.api_base_url"
     //                 value: "https://api.mapbox.com"
@@ -275,7 +275,8 @@ Mycroft.Delegate {
     //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
                 }
             }
-            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+//             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
+            center: QtPositioning.coordinate(37.777,-122.419) // SF Van Ness Ave
             zoomLevel: 20
             tilt: 60
 //             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
