@@ -259,10 +259,10 @@ Mycroft.Delegate {
     //                 name: "mapboxgl.api_base_url"
     //                 value: "https://api.mapbox.com"
     //             }
-                PluginParameter {
-                    name: "mapboxgl.mapping.use_fbo"
-                    value: "false"
-                }
+//                 PluginParameter {
+//                     name: "mapboxgl.mapping.use_fbo"
+//                     value: "false"
+//                 }
                 PluginParameter {
                     name: "mapboxgl.mapping.additional_style_urls"
 //                     value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
