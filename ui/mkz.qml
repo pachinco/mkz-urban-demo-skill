@@ -209,6 +209,10 @@ Mycroft.Delegate {
 //                 value: "https://api.maptiler.com/maps/winter/{z}/{x}/{y}.png?key=nGqcqqyYOrE4VtKI6ftl"
                 value: "https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png"
             }
+            PluginParameter {
+                name: "osm.mapping.highdpi_tiles"
+                value: "true"
+            }
         }
         // mapboxgl
 //         Plugin {
@@ -234,7 +238,7 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
             z: 5
-            activeMapType: MapType.CustomMap
+//             activeMapType: MapType.CustomMap
 //             activeMapType: supportedMapTypes[5]
 //             activeMapType: MapType.CustomMap
             Component.onCompleted: {
