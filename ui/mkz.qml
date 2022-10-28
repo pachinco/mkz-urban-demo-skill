@@ -5,8 +5,8 @@ import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
-import QtPositioning 5.15
-import QtLocation 5.15
+import QtPositioning 5.12
+import QtLocation 5.12
 // import MapboxMap 1.0
 // import Esri.ArcGISRuntime 100.15
 
@@ -254,6 +254,17 @@ Mycroft.Delegate {
 //                     for (let x in supportedMapTypes[i]) {
 //                         console.log('maptypes['+i+']:'+supportedMapTypes[i][x])
 //                     }
+//                 }
+            }
+            MapCircle {
+                id: mapCircle
+                center: QtPositioning.coordinate(37.3963974,-122.035018)
+                radius: 200000
+                border.width: 5
+
+//                 MouseArea {
+//                     anchors.fill: parent
+//                     drag.target: parent
 //                 }
             }
         }
