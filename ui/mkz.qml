@@ -261,8 +261,8 @@ Mycroft.Delegate {
                 name: "mapboxgl.mapping.additional_map_ids"
 //                 name: "mapboxgl.mapping.additional_style_urls"
 //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
-                value: "styles/mapbox/streets-v11"
-//                 value: "pachinco/cl9olfi4i000514nzmcj6b8os/tiles"
+//                 value: "styles/mapbox/streets-v11"
+                value: "pachinco/cl9olfi4i000514nzmcj6b8os/style.json"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
             }
         }
@@ -275,7 +275,7 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
             z: 5
-//             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
+            activeMapType: supportedMapTypes[supportedMapTypes.length-1]
 //             activeMapType: supportedMapTypes[5]
 //             activeMapType: MapType.CustomMap
             Component.onCompleted: {
