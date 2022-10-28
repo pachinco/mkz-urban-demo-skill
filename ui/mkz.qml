@@ -203,6 +203,11 @@ Mycroft.Delegate {
             Plugin {
                 id: mapPlugin
                 name: "osm"
+                PluginParameter
+                {
+                    name: "osm.mapping.custom.host"
+                    value: "https://api.maptiler.com/maps/winter/{z}/{x}/{y}.png?key=nGqcqqyYOrE4VtKI6ftl"
+                }
             }
         // mapboxgl
 //         Plugin {
