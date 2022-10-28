@@ -250,7 +250,6 @@ Mycroft.Delegate {
             id: mapView
             anchors.fill: parent
             plugin: Plugin {
-//                 id: mapPlugin
                 name: "mapboxgl"
                 PluginParameter {
                     name: "mapbox.access_token"
@@ -260,20 +259,19 @@ Mycroft.Delegate {
     //                 name: "mapboxgl.api_base_url"
     //                 value: "https://api.mapbox.com"
     //             }
-//                 PluginParameter {
-//                     name: "mapboxgl.mapping.additional_style_urls"
-//                     value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
+                PluginParameter {
+                    name: "mapboxgl.mapping.additional_style_urls"
+                    value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
 //                     value: "mapbox://styles/mapbox/light-v10"
 //                     value: "mapbox://styles/examples/cj68bstx01a3r2rndlud0pwpv"
     //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-//                 }
+                }
             }
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
             zoomLevel: 20
             tilt: 60
-            z: 5
 //             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
-            activeMapType: supportedMapTypes[9]
+//             activeMapType: supportedMapTypes[8]
 //             activeMapType: supportedMapTypes[0]
 
             MapParameter {
