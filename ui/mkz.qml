@@ -261,7 +261,7 @@ Mycroft.Delegate {
                 name: "mapboxgl.mapping.additional_map_ids"
 //                 name: "mapboxgl.mapping.additional_style_urls"
 //                 value: "https://api.maptiler.com/maps/winter/tiles.json?key=nGqcqqyYOrE4VtKI6ftl"
-                value: "mapbox://styles/mapbox/streets-v11"
+                value: "styles/mapbox/streets-v11"
 //                 value: "pachinco/cl9olfi4i000514nzmcj6b8os/tiles"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
             }
