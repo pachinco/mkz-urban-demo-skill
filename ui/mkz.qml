@@ -260,50 +260,50 @@ Mycroft.Delegate {
     //                 name: "mapboxgl.api_base_url"
     //                 value: "https://api.mapbox.com"
     //             }
-                PluginParameter {
-                    name: "mapboxgl.mapping.additional_style_urls"
-                    value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
+//                 PluginParameter {
+//                     name: "mapboxgl.mapping.additional_style_urls"
+//                     value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
 //                     value: "mapbox://styles/mapbox/light-v10"
 //                     value: "mapbox://styles/examples/cj68bstx01a3r2rndlud0pwpv"
     //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-                }
+//                 }
             }
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
             zoomLevel: 20
             tilt: 60
             z: 5
 //             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
-//             activeMapType: supportedMapTypes[6]
-            activeMapType: supportedMapTypes[0]
+            activeMapType: supportedMapTypes[9]
+//             activeMapType: supportedMapTypes[0]
 
-//             MapParameter {
-//                 type: "layer"
-//                 property var name: "3d-buildings"
-//                 property var source: "composite"
-//                 property var sourceLayer: "buildings"
-//                 property var layerType: "fill-extrusion"
-//                 property var minzoom: 15.0
-//             }
-//             MapParameter {
-//                 type: "filter"
-//                 property var layer: "3d-buildings"
-//                 property var filter: ["==","extrude","true"]
-//             }
-//             MapParameter {
-//                 type: "paint"
-//                 property var layer: "3d-buildings"
-//                 property var fillExtrusionColor: "#00617f"
-//                 property var fillExtrusionOpacity: 0.6
-//                 property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
-//                 property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
-//             }
+            MapParameter {
+                type: "layer"
+                property var name: "3d-buildings"
+                property var source: "composite"
+                property var sourceLayer: "buildings"
+                property var layerType: "fill-extrusion"
+                property var minzoom: 15.0
+            }
+            MapParameter {
+                type: "filter"
+                property var layer: "3d-buildings"
+                property var filter: ["==","extrude","true"]
+            }
+            MapParameter {
+                type: "paint"
+                property var layer: "3d-buildings"
+                property var fillExtrusionColor: "#00617f"
+                property var fillExtrusionOpacity: 0.6
+                property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
+                property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
+            }
 
             Component.onCompleted: {
 //                 console.log("Map loaded. "+mapView.supportedMapTypes.length)
 //                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
                 for (let i=0; i<mapView.supportedMapTypes.length; i++) {
                     for (let x in mapView.supportedMapTypes[i]) {
-                        console.log('maptypes['+i+']:'+mapView.supportedMapTypes[i][x])
+                        console.log('maptypes['+i+'].x:'+mapView.supportedMapTypes[i][x])
                     }
                 }
             }
