@@ -264,7 +264,7 @@ Mycroft.Delegate {
 //                 value: "mapbox://styles/mapbox/streets-v11"
 //                 value: "pachinco/cl9olfi4i000514nzmcj6b8os/tiles"
 //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-            }
+//             }
         }
 
         Map {
