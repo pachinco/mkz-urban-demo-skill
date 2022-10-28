@@ -203,10 +203,10 @@ Mycroft.Delegate {
         Plugin {
             id: mapPlugin
             name: "osm"
-            PluginParameter {
-                name: "osm.mapping.highdpi_tiles"
-                value: "true"
-            }
+//             PluginParameter {
+//                 name: "osm.mapping.highdpi_tiles"
+//                 value: "true"
+//             }
             PluginParameter
             {
                 name: "osm.mapping.custom.host"
