@@ -152,7 +152,7 @@ Mycroft.Delegate {
             State {
                 name: "ACTIVE"
                 PropertyChanges {
-                    target: mapView
+                    target: map
                     height: parent.height
                     width: parent.width
                     opacity: 1
@@ -165,7 +165,7 @@ Mycroft.Delegate {
             State {
                 name: "INACTIVE"
                 PropertyChanges {
-                    target: mapView
+                    target: map
                     height: parent.height*2
                     width: parent.width*2
                     opacity: 0
@@ -184,7 +184,7 @@ Mycroft.Delegate {
                     }
                     ParallelAnimation {
                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
-                        NumberAnimation { target: mapView; properties: "opacity,width,height"; duration: 500 }
+                        NumberAnimation { target: map; properties: "opacity,width,height"; duration: 500 }
                     }
                 }
             },
@@ -192,7 +192,7 @@ Mycroft.Delegate {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: mapView; properties: "opacity"; duration: 500 }
+                    NumberAnimation { target: map; properties: "opacity"; duration: 500 }
                     PropertyAction {
                         target: mapFrame
                         property: "visible"
