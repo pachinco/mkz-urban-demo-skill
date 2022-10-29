@@ -374,8 +374,8 @@ Mycroft.Delegate {
                     opacity: 0.7
                 }
                 coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
-                anchorPoint.x: greenMarker.x/2
-                anchorPoint.y: greenMarker.y
+                anchorPoint.x: greenMarker.width/2
+                anchorPoint.y: greenMarker.height
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
