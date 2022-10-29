@@ -320,7 +320,7 @@ Mycroft.Delegate {
                 }
             }
 
-            center: mapView.center
+//             center: mapView.center
 
             Location {
                 id: previousLocation
