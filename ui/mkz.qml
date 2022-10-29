@@ -319,6 +319,30 @@ Mycroft.Delegate {
                     }
                 }
             }
+
+            Location {
+                id: previousLocation
+                coordinate: QtPositioning.coordinate(0, 0)
+            }
+            onCenterChanged: {
+                if (previousLocation.coordinate == center || !window.navigating) return
+
+                bearingAnimation.to = previousLocation.coordinate.azimuthTo(center)
+                bearingAnimation.start()
+                
+                previousLocation.coordinate = center
+            }
+
+            MapQuickItem {
+                id: startMarker
+                Image {
+                    id: imgStartMarket
+                    source: "../images/Map_pin_start.png"
+                }
+                coordinate: QtPositioning.coordinate(37.777,-122.419)
+                anchorPoint.x: imgStartMarket.x/2
+                anchorPoint.y: imgStartMarket.y/2
+            }
 //             MapCircle {
 //                 id: mapCircle
 //                 center: QtPositioning.coordinate(37.3963974,-122.035018)
