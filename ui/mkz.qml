@@ -415,7 +415,7 @@ Mycroft.Delegate {
                 delegate: MapRoute {
                     route: routeData
                     line.color: "blue"
-                    line.width: 4
+                    line.width: 10
                     opacity: (index == 0) ? 1.0 : 0.3
                 }
             }
