@@ -332,14 +332,14 @@ Mycroft.Delegate {
 //                 alwaysRunToEnd: false
 //                 direction: RotationAnimation.Shortest
 //             }
-            onCenterChanged: {
-                if (previousLocation.coordinate == center) return
-
-                bearingAnimation.to = previousLocation.coordinate.azimuthTo(center)
-                bearingAnimation.start()
-                
-                previousLocation.coordinate = center
-            }
+//             onCenterChanged: {
+//                 if (previousLocation.coordinate == center) return
+// 
+//                 bearingAnimation.to = previousLocation.coordinate.azimuthTo(center)
+//                 bearingAnimation.start()
+//                 
+//                 previousLocation.coordinate = center
+//             }
 
             MapQuickItem {
                 id: mapMarkerStart
