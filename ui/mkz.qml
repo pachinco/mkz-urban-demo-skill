@@ -345,7 +345,7 @@ Mycroft.Delegate {
                 id: mapMarkerStart
                 sourceItem: Image {
                     id: imgStartMarket
-                    source: "../images/Map_pin_start.png"
+                    source: Qt.resolvedUrl("../images/Map_pin_green.png")
                 }
                 coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
                 anchorPoint.x: imgStartMarket.x/2
