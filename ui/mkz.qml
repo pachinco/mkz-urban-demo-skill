@@ -348,6 +348,8 @@ Mycroft.Delegate {
                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
                 }
                 coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
+                width: 20
+                height: 20
                 anchorPoint.x: imgStartMarket.x/2
                 anchorPoint.y: imgStartMarket.y/2
             }
