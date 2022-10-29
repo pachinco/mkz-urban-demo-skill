@@ -23,10 +23,14 @@ Mycroft.Delegate {
     property bool uiCar: (sessionData.uiIdx===2) ? true:false
     property bool uiMusic: (sessionData.uiIdx===3) ? true:false
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
+    
+    property var carSpeed: 35
+    property var traffic: true
+    property var night: true
 
-    property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
-    property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
-    property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
+//     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
+//     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
+//     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
 
     Image {
         id: uiStage
@@ -247,8 +251,22 @@ Mycroft.Delegate {
 //         Plugin
 
         Map {
-            id: mapView
+            id: map
             anchors.fill: parent
+            states: [
+                State {
+                    name: "overview"
+                    PropertyChanges { target: map; tilt: 0; bearing: 90; zoomLevel: 20 }
+                },
+                State {
+                    name: "navigating"
+                    PropertyChanges { target: map; tilt: 60; zoomLevel: 20 }
+                }
+            ]
+            transitions: [
+                Transition {
+                }
+            ]
             plugin: Plugin {
                 name: "mapboxgl"
                 PluginParameter {
@@ -308,19 +326,19 @@ Mycroft.Delegate {
             Component.onCompleted: {
 //                 console.log("Map loaded. "+mapView.supportedMapTypes.length)
 //                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
-                for (let i=0; i<mapView.supportedMapTypes.length; i++) {
-                    for (let x in mapView.supportedMapTypes[i]) {
-                        console.log('maptypes['+i+'].'+x+": "+mapView.supportedMapTypes[i][x])
+                for (let i=0; i<map.supportedMapTypes.length; i++) {
+                    for (let x in map.supportedMapTypes[i]) {
+                        console.log('maptypes['+i+'].'+x+": "+map.supportedMapTypes[i][x])
                         if (x === "metadata") {
-                            for (let y in mapView.supportedMapTypes[i][x]) {
-                                console.log('maptypes['+i+'].'+x+"."+y+": "+mapView.supportedMapTypes[i][x][y])
+                            for (let y in map.supportedMapTypes[i][x]) {
+                                console.log('maptypes['+i+'].'+x+"."+y+": "+map.supportedMapTypes[i][x][y])
                             }
                         }
                     }
                 }
             }
 
-//             center: mapView.center
+//             center: map.center
 
             Location {
                 id: previousLocation
@@ -340,18 +358,63 @@ Mycroft.Delegate {
 //                 
 //                 previousLocation.coordinate = center
 //             }
-
+            function updateRoute() {
+                routeQuery.clearWaypoints();
+                routeQuery.addWaypoint(startMarker.coordinate);
+                routeQuery.addWaypoint(endMarker.coordinate);
+            }
+            
             MapQuickItem {
-                id: mapMarkerStart
+                id: startMarker
                 sourceItem: Image {
-                    id: imgStartMarket
+                    id: greenMarker
                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
+                    width: 20
+                    height: 20
+                    opacity: 0.5
                 }
                 coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
-                width: 20
-                height: 20
-                anchorPoint.x: imgStartMarket.x/2
-                anchorPoint.y: imgStartMarket.y/2
+                anchorPoint.x: greenMarker.x/2
+                anchorPoint.y: greenMarker.y
+                MouseArea  {
+                    drag.target: parent
+                    anchors.fill: parent
+                }
+
+                onCoordinateChanged: {
+                    map.updateRoute();
+                }
+            }
+            MapQuickItem {
+                id: endMarker
+
+                sourceItem: Image {
+                    id: redMarker
+                    source: Qt.resolvedUrl("../images/Map_pin_red.png")
+                }
+
+                coordinate : QtPositioning.coordinate(37.777,-122.419)
+                anchorPoint.x: redMarker.width / 2
+                anchorPoint.y: redMarker.height
+
+                MouseArea  {
+                    drag.target: parent
+                    anchors.fill: parent
+                }
+
+                onCoordinateChanged: {
+                    map.updateRoute();
+                }
+            }
+            MapItemView {
+                model: routeModel
+
+                delegate: MapRoute {
+                    route: routeData
+                    line.color: "blue"
+                    line.width: 4
+                    opacity: (index == 0) ? 1.0 : 0.3
+                }
             }
 //             MapCircle {
 //                 id: mapCircle
@@ -366,6 +429,32 @@ Mycroft.Delegate {
 //                 }
 //             }
         }
+    }
+    RouteModel {
+        id: routeModel
+
+        autoUpdate: true
+        query: routeQuery
+
+        plugin: Plugin {
+            name: "mapbox"
+
+            // Development access token, do not use in production.
+            PluginParameter {
+                name: "mapbox.access_token"
+                value: "pk.eyJ1IjoicXRzZGsiLCJhIjoiY2l5azV5MHh5MDAwdTMybzBybjUzZnhxYSJ9.9rfbeqPjX2BusLRDXHCOBA"
+            }
+        }
+
+        Component.onCompleted: {
+            if (map) {
+                map.updateRoute();
+            }
+        }
+    }
+
+    RouteQuery {
+        id: routeQuery
     }
 
     Item {
