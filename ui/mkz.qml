@@ -320,12 +320,20 @@ Mycroft.Delegate {
                 }
             }
 
+            center: mapView.center
+
             Location {
                 id: previousLocation
                 coordinate: QtPositioning.coordinate(0, 0)
             }
+            RotationAnimation on bearing {
+                id: bearingAnimation
+                duration: 250
+                alwaysRunToEnd: false
+                direction: RotationAnimation.Shortest
+            }
             onCenterChanged: {
-                if (previousLocation.coordinate == center || !mapView.navigating) return
+                if (previousLocation.coordinate == center) return
 
                 bearingAnimation.to = previousLocation.coordinate.azimuthTo(center)
                 bearingAnimation.start()
@@ -334,8 +342,8 @@ Mycroft.Delegate {
             }
 
             MapQuickItem {
-                id: startMarker
-                Image {
+                id: mapMarkerStart
+                sourceItem: Image {
                     id: imgStartMarket
                     source: "../images/Map_pin_start.png"
                 }
@@ -343,18 +351,18 @@ Mycroft.Delegate {
                 anchorPoint.x: imgStartMarket.x/2
                 anchorPoint.y: imgStartMarket.y/2
             }
-            MapCircle {
-                id: mapCircle
-                center: QtPositioning.coordinate(37.3963974,-122.035018)
-                radius: 200000
-                border.width: 5
+//             MapCircle {
+//                 id: mapCircle
+//                 center: QtPositioning.coordinate(37.3963974,-122.035018)
+//                 radius: 200000
+//                 border.width: 5
 //                 z: 7
 // 
 //                 MouseArea {
 //                     anchors.fill: parent
 //                     drag.target: parent
 //                 }
-            }
+//             }
         }
     }
 
