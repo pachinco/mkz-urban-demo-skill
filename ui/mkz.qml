@@ -326,12 +326,12 @@ Mycroft.Delegate {
                 id: previousLocation
                 coordinate: QtPositioning.coordinate(0, 0)
             }
-            RotationAnimation on bearing {
-                id: bearingAnimation
-                duration: 250
-                alwaysRunToEnd: false
-                direction: RotationAnimation.Shortest
-            }
+//             RotationAnimation on bearing {
+//                 id: bearingAnimation
+//                 duration: 250
+//                 alwaysRunToEnd: false
+//                 direction: RotationAnimation.Shortest
+//             }
             onCenterChanged: {
                 if (previousLocation.coordinate == center) return
 
