@@ -400,7 +400,7 @@ Mycroft.Delegate {
                 sourceItem: Image {
                     id: greenMarker
 //                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
-                    source: "../images/Map_marker_pink.png"
+                    source: "../images/Map_marker_pink2.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
@@ -423,7 +423,7 @@ Mycroft.Delegate {
                 sourceItem: Image {
                     id: redMarker
 //                     source: Qt.resolvedUrl("../images/Map_pin_red.png")
-                    source: "../images/Map_marker_pink.png"
+                    source: "../images/Map_marker_pink2.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
