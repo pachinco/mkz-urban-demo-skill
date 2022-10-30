@@ -301,27 +301,27 @@ Mycroft.Delegate {
             activeMapType: supportedMapTypes[0]
 //             activeMapType: supportedMapTypes[10]
 
-            MapParameter {
-                type: "layer"
-                property var name: "3d-buildings"
-                property var source: "composite"
-                property var sourceLayer: "buildings"
-                property var layerType: "fill-extrusion"
-                property var minzoom: 15.0
-            }
-            MapParameter {
-                type: "filter"
-                property var layer: "3d-buildings"
-                property var filter: ["==","extrude","true"]
-            }
-            MapParameter {
-                type: "paint"
-                property var layer: "3d-buildings"
-                property var fillExtrusionColor: "#00617f"
-                property var fillExtrusionOpacity: 0.6
-                property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
-                property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
-            }
+//             MapParameter {
+//                 type: "layer"
+//                 property var name: "3d-buildings"
+//                 property var source: "composite"
+//                 property var sourceLayer: "buildings"
+//                 property var layerType: "fill-extrusion"
+//                 property var minzoom: 15.0
+//             }
+//             MapParameter {
+//                 type: "filter"
+//                 property var layer: "3d-buildings"
+//                 property var filter: ["==","extrude","true"]
+//             }
+//             MapParameter {
+//                 type: "paint"
+//                 property var layer: "3d-buildings"
+//                 property var fillExtrusionColor: "#00617f"
+//                 property var fillExtrusionOpacity: 0.6
+//                 property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
+//                 property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
+//             }
 
             Component.onCompleted: {
 //                 console.log("Map loaded. "+mapView.supportedMapTypes.length)
