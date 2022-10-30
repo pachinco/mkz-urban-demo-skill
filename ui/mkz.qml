@@ -286,21 +286,9 @@ Mycroft.Delegate {
 //                     name: "antialias"
 //                     value: "true"
 //                 }
-    //             PluginParameter {
-    //                 name: "mapboxgl.api_base_url"
-    //                 value: "https://api.mapbox.com"
-    //             }
-//                 PluginParameter {
-//                     name: "mapboxgl.mapping.use_fbo"
-//                     value: "false"
-//                 }
                 PluginParameter {
                     name: "mapboxgl.mapping.additional_style_urls"
-//                     value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
-                    value: "mapbox://styles/mapbox/navigation-guidance-day-v2,mapbox://styles/mapbox/navigation-guidance-night-v2,mapbox://styles/mapbox/navigation-preview-day-v2,mapbox://styles/mapbox/navigation-preview-night-v2"
-//                     value: "mapbox://styles/mapbox/light-v10"
-//                     value: "mapbox://styles/examples/cj68bstx01a3r2rndlud0pwpv"
-    //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
+                    value: "mapbox://styles/mapbox/navigation-guidance-day-v2,mapbox://styles/mapbox/navigation-guidance-night-v2,mapbox://styles/mapbox/navigation-preview-day-v2,mapbox://styles/mapbox/navigation-preview-night-v2,mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
                 }
                 PluginParameter {
                     name: "mapboxgl.mapping.items.insert_before"
@@ -311,10 +299,7 @@ Mycroft.Delegate {
 //             center: QtPositioning.coordinate(37.777,-122.419) // SF Van Ness Ave
             zoomLevel: 20
             tilt: 60
-            antialias: true
-//             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
-//             activeMapType: supportedMapTypes[0]
-//             activeMapType: supportedMapTypes[10]
+
             activeMapType: {
                 var style;
 
@@ -355,27 +340,24 @@ Mycroft.Delegate {
                 property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
             }
 
-            Component.onCompleted: {
-//                 console.log("Map loaded. "+mapView.supportedMapTypes.length)
-//                 addMarker(QtPositioning.coordinate(37.3963974,-122.035018))
-                for (let i=0; i<map.supportedMapTypes.length; i++) {
-                    for (let x in map.supportedMapTypes[i]) {
-                        console.log('maptypes['+i+'].'+x+": "+map.supportedMapTypes[i][x])
-                        if (x === "metadata") {
-                            for (let y in map.supportedMapTypes[i][x]) {
-                                console.log('maptypes['+i+'].'+x+"."+y+": "+map.supportedMapTypes[i][x][y])
-                            }
-                        }
-                    }
-                }
-            }
-
-//             center: map.center
+//             Component.onCompleted: {
+//                 for (let i=0; i<map.supportedMapTypes.length; i++) {
+//                     for (let x in map.supportedMapTypes[i]) {
+//                         console.log('maptypes['+i+'].'+x+": "+map.supportedMapTypes[i][x])
+//                         if (x === "metadata") {
+//                             for (let y in map.supportedMapTypes[i][x]) {
+//                                 console.log('maptypes['+i+'].'+x+"."+y+": "+map.supportedMapTypes[i][x][y])
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
 
             Location {
                 id: previousLocation
                 coordinate: QtPositioning.coordinate(0, 0)
             }
+
 //             RotationAnimation on bearing {
 //                 id: bearingAnimation
 //                 duration: 250
@@ -390,6 +372,7 @@ Mycroft.Delegate {
 //                 
 //                 previousLocation.coordinate = center
 //             }
+
             function updateRoute() {
                 routeQuery.clearWaypoints();
                 routeQuery.addWaypoint(startMarker.coordinate);
@@ -430,7 +413,7 @@ Mycroft.Delegate {
                     opacity: 1.0
                 }
 
-                coordinate : QtPositioning.coordinate(37.4,-122.04)
+                coordinate : QtPositioning.coordinate(37.4,-122.03)
                 anchorPoint.x: redMarker.width / 2
                 anchorPoint.y: redMarker.height
 
