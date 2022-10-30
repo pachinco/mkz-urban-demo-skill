@@ -27,6 +27,7 @@ Mycroft.Delegate {
     property var carSpeed: 35
     property var traffic: true
     property var night: true
+    property var navigating: true
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
@@ -255,18 +256,26 @@ Mycroft.Delegate {
             anchors.fill: parent
             states: [
                 State {
-                    name: "overview"
-                    PropertyChanges { target: map; tilt: 0; bearing: 90; zoomLevel: 20 }
+                    name: ""
+                    PropertyChanges { target: map; tilt: 0; bearing: 0; zoomLevel: map.zoomLevel }
                 },
                 State {
                     name: "navigating"
                     PropertyChanges { target: map; tilt: 60; zoomLevel: 20 }
                 }
             ]
+
             transitions: [
                 Transition {
+                    to: "*"
+                    RotationAnimation { target: map; property: "bearing"; duration: 100; direction: RotationAnimation.Shortest }
+                    NumberAnimation { target: map; property: "zoomLevel"; duration: 100 }
+                    NumberAnimation { target: map; property: "tilt"; duration: 100 }
                 }
             ]
+
+            state: navigating ? "navigating" : ""
+
             plugin: Plugin {
                 name: "mapboxgl"
                 PluginParameter {
@@ -285,16 +294,16 @@ Mycroft.Delegate {
 //                     name: "mapboxgl.mapping.use_fbo"
 //                     value: "false"
 //                 }
-                PluginParameter {
-                    name: "mapboxgl.mapping.additional_style_urls"
-                    value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
+//                 PluginParameter {
+//                     name: "mapboxgl.mapping.additional_style_urls"
+//                     value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
 //                     value: "mapbox://styles/mapbox/light-v10"
 //                     value: "mapbox://styles/examples/cj68bstx01a3r2rndlud0pwpv"
     //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-                }
+//                 }
                 PluginParameter {
                     name: "mapboxgl.mapping.items.insert_before"
-                    value: "aerialway"
+                    value: "building"
                 }
             }
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
@@ -302,144 +311,164 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
 //             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
-            activeMapType: supportedMapTypes[0]
+//             activeMapType: supportedMapTypes[0]
 //             activeMapType: supportedMapTypes[10]
+            activeMapType: {
+                var style;
 
-            MapParameter {
-                type: "layer"
+                if (navigating) {
+                    style = night ? supportedMapTypes[1] : supportedMapTypes[0];
+                } else {
+                    style = night ? supportedMapTypes[3] : supportedMapTypes[2];
+                }
 
-                property var name: "routeCase"
-                property var layerType: "line"
-                property var source: "routeSource"
-
-                property var before: "aerialway"
+                return style;
             }
 
-            MapParameter {
-                type: "paint"
-
-                property var layer: "routeCase"
-                property var lineColor: "white"
-                property var lineWidth: 20.0
-            }
-
-            MapParameter {
-                type: "layout"
-
-                property var layer: "routeCase"
-                property var lineJoin: "round"
-                property var lineCap: lineJoin
+//             MapParameter {
+//                 id: source
+//                 type: "source"
+// 
+//                 property var name: "routeSource"
+//                 property var sourceType: "geojson"
+//                 property var data: ":source1.geojson"
+//             }
+// 
+//             MapParameter {
+//                 type: "layer"
+// 
+//                 property var name: "routeCase"
+//                 property var layerType: "line"
+//                 property var source: "routeSource"
+// 
+//                 property var before: "aerialway"
+//             }
+// 
+//             MapParameter {
+//                 type: "paint"
+// 
+//                 property var layer: "routeCase"
+//                 property var lineColor: "white"
+//                 property var lineWidth: 20.0
+//             }
+// 
+//             MapParameter {
+//                 type: "layout"
+// 
+//                 property var layer: "routeCase"
+//                 property var lineJoin: "round"
+//                 property var lineCap: lineJoin
 //                 property var visibility: sourceGroup.checkedButton.text.startsWith("JSON") ? "visible" : "none"
-            }
-
-            MapParameter {
-                type: "layer"
-
-                property var name: "route"
-                property var layerType: "line"
-                property var source: "routeSource"
-
-                property var before: "aerialway"
-            }
-
-            MapParameter {
-                id: linePaint
-                type: "paint"
-
-                property var layer: "route"
-                property var lineColor: "blue"
-                property var lineWidth: 8.0
-            }
-
-            MapParameter {
-                type: "layout"
-
-                property var layer: "route"
-                property var lineJoin: "round"
-                property var lineCap: "round"
+//             }
+// 
+//             MapParameter {
+//                 type: "layer"
+// 
+//                 property var name: "route"
+//                 property var layerType: "line"
+//                 property var source: "routeSource"
+// 
+//                 property var before: "aerialway"
+//             }
+// 
+//             MapParameter {
+//                 id: linePaint
+//                 type: "paint"
+// 
+//                 property var layer: "route"
+//                 property var lineColor: "blue"
+//                 property var lineWidth: 8.0
+//             }
+// 
+//             MapParameter {
+//                 type: "layout"
+// 
+//                 property var layer: "route"
+//                 property var lineJoin: "round"
+//                 property var lineCap: "round"
 //                 property var visibility: sourceGroup.checkedButton.text.startsWith("JSON") ? "visible" : "none"
-            }
-
-            MapParameter {
-                type: "image"
-
-                property var name: "label-arrow"
-                property var sprite: ":label-arrow.png"
-            }
-
-            MapParameter {
-                type: "image"
-
-                property var name: "label-background"
-                property var sprite: ":label-background.png"
-            }
-
-            MapParameter {
-                type: "layer"
-
-                property var name: "markerArrow"
-                property var layerType: "symbol"
-                property var source: "routeSource"
-            }
-
-            MapParameter {
-                type: "layout"
-
-                property var layer: "markerArrow"
-                property var iconImage: "label-arrow"
-                property var iconSize: 0.5
-                property var iconIgnorePlacement: true
-                property var iconOffset: [ 0.0, -15.0 ]
+//             }
+// 
+//             MapParameter {
+//                 type: "image"
+// 
+//                 property var name: "label-arrow"
+//                 property var sprite: ":label-arrow.png"
+//             }
+// 
+//             MapParameter {
+//                 type: "image"
+// 
+//                 property var name: "label-background"
+//                 property var sprite: ":label-background.png"
+//             }
+// 
+//             MapParameter {
+//                 type: "layer"
+// 
+//                 property var name: "markerArrow"
+//                 property var layerType: "symbol"
+//                 property var source: "routeSource"
+//             }
+// 
+//             MapParameter {
+//                 type: "layout"
+// 
+//                 property var layer: "markerArrow"
+//                 property var iconImage: "label-arrow"
+//                 property var iconSize: 0.5
+//                 property var iconIgnorePlacement: true
+//                 property var iconOffset: [ 0.0, -15.0 ]
 //                 property var visibility: sourceGroup.checkedButton.text.startsWith("JSON") ? "visible" : "none"
-            }
-
-            MapParameter {
-                type: "layer"
-
-                property var name: "markerBackground"
-                property var layerType: "symbol"
-                property var source: "routeSource"
-            }
-
-            MapParameter {
-                type: "layout"
-
-                property var layer: "markerBackground"
-                property var iconImage: "label-background"
-                property var textField: "{name}"
-                property var iconTextFit: "both"
-                property var iconIgnorePlacement: true
-                property var textIgnorePlacement: true
-                property var textAnchor: "left"
-                property var textSize: 16.0
-                property var textPadding: 0.0
-                property var textLineHeight: 1.0
-                property var textMaxWidth: 8.0
-                property var iconTextFitPadding: [ 15.0, 10.0, 15.0, 10.0 ]
-                property var textOffset: [ -0.5, -1.5 ]
+//             }
+// 
+//             MapParameter {
+//                 type: "layer"
+// 
+//                 property var name: "markerBackground"
+//                 property var layerType: "symbol"
+//                 property var source: "routeSource"
+//             }
+// 
+//             MapParameter {
+//                 type: "layout"
+// 
+//                 property var layer: "markerBackground"
+//                 property var iconImage: "label-background"
+//                 property var textField: "{name}"
+//                 property var iconTextFit: "both"
+//                 property var iconIgnorePlacement: true
+//                 property var textIgnorePlacement: true
+//                 property var textAnchor: "left"
+//                 property var textSize: 16.0
+//                 property var textPadding: 0.0
+//                 property var textLineHeight: 1.0
+//                 property var textMaxWidth: 8.0
+//                 property var iconTextFitPadding: [ 15.0, 10.0, 15.0, 10.0 ]
+//                 property var textOffset: [ -0.5, -1.5 ]
 //                 property var visibility: sourceGroup.checkedButton.text.startsWith("JSON") ? "visible" : "none"
-            }
-
-            MapParameter {
-                type: "paint"
-
-                property var layer: "markerBackground"
-                property var textColor: "white"
-            }
-
-            MapParameter {
-                type: "filter"
-
-                property var layer: "markerArrow"
-                property var filter: [ "==", "$type", "Point" ]
-            }
-
-            MapParameter {
-                type: "filter"
-
-                property var layer: "markerBackground"
-                property var filter: [ "==", "$type", "Point" ]
-            }
+//             }
+// 
+//             MapParameter {
+//                 type: "paint"
+// 
+//                 property var layer: "markerBackground"
+//                 property var textColor: "white"
+//             }
+// 
+//             MapParameter {
+//                 type: "filter"
+// 
+//                 property var layer: "markerArrow"
+//                 property var filter: [ "==", "$type", "Point" ]
+//             }
+// 
+//             MapParameter {
+//                 type: "filter"
+// 
+//                 property var layer: "markerBackground"
+//                 property var filter: [ "==", "$type", "Point" ]
+//             }
 
             MapParameter {
                 type: "layer"
@@ -463,7 +492,7 @@ Mycroft.Delegate {
 
                 property var layer: "3d-buildings"
                 property var fillExtrusionColor: "#00617f"
-                property var fillExtrusionOpacity: 0.6
+                property var fillExtrusionOpacity: 0.5
                 property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
                 property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
             }
