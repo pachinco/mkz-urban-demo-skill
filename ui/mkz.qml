@@ -311,6 +311,7 @@ Mycroft.Delegate {
 //             center: QtPositioning.coordinate(37.777,-122.419) // SF Van Ness Ave
             zoomLevel: 20
             tilt: 60
+            antialias: true
 //             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
 //             activeMapType: supportedMapTypes[0]
 //             activeMapType: supportedMapTypes[10]
