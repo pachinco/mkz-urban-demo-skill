@@ -590,7 +590,7 @@ Mycroft.Delegate {
                     route: routeData
                     line.color: "#e9c396"
                     line.width: 15
-                    opacity: (index == 0) ? 1.0 : 0.3
+                    opacity: (index == 0) ? 0.7 : 0.3
                 }
             }
 //             MapCircle {
