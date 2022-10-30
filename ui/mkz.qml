@@ -292,6 +292,10 @@ Mycroft.Delegate {
 //                     value: "mapbox://styles/examples/cj68bstx01a3r2rndlud0pwpv"
     //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
                 }
+                PluginParameter {
+                    name: "mapboxgl.mapping.items.insert_before"
+                    value: "aerialway"
+                }
             }
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
 //             center: QtPositioning.coordinate(37.777,-122.419) // SF Van Ness Ave
