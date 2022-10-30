@@ -303,7 +303,7 @@ Mycroft.Delegate {
                 }
                 PluginParameter {
                     name: "mapboxgl.mapping.items.insert_before"
-                    value: "building"
+                    value: "road-label-small"
                 }
             }
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
