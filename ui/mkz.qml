@@ -445,9 +445,10 @@ Mycroft.Delegate {
 
                 delegate: MapRoute {
                     route: routeData
-                    line.color: "#e9c396"
+//                     line.color: "#e9c396"
+                    line.color: "#da3373"
                     line.width: 15
-                    opacity: (index == 0) ? 0.7 : 0.3
+                    opacity: (index == 0) ? 0.6 : 0.3
                 }
             }
 //             MapCircle {
