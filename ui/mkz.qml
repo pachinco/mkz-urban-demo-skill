@@ -282,10 +282,10 @@ Mycroft.Delegate {
                     name: "mapboxgl.access_token"
                     value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
                 }
-                PluginParameter {
-                    name: "antialias"
-                    value: "true"
-                }
+//                 PluginParameter {
+//                     name: "antialias"
+//                     value: "true"
+//                 }
     //             PluginParameter {
     //                 name: "mapboxgl.api_base_url"
     //                 value: "https://api.mapbox.com"
@@ -303,7 +303,7 @@ Mycroft.Delegate {
                 }
                 PluginParameter {
                     name: "mapboxgl.mapping.items.insert_before"
-                    value: "building"
+                    value: "symbol"
                 }
             }
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
