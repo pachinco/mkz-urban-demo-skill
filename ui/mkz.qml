@@ -282,10 +282,10 @@ Mycroft.Delegate {
                     name: "mapboxgl.access_token"
                     value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
                 }
-//                 PluginParameter {
-//                     name: "mapboxgl.mapping.antialias"
-//                     value: "true"
-//                 }
+                PluginParameter {
+                    name: "antialias"
+                    value: "true"
+                }
     //             PluginParameter {
     //                 name: "mapboxgl.api_base_url"
     //                 value: "https://api.mapbox.com"
@@ -294,13 +294,13 @@ Mycroft.Delegate {
 //                     name: "mapboxgl.mapping.use_fbo"
 //                     value: "false"
 //                 }
-//                 PluginParameter {
-//                     name: "mapboxgl.mapping.additional_style_urls"
-//                     value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
+                PluginParameter {
+                    name: "mapboxgl.mapping.additional_style_urls"
+                    value: "mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
 //                     value: "mapbox://styles/mapbox/light-v10"
 //                     value: "mapbox://styles/examples/cj68bstx01a3r2rndlud0pwpv"
     //                 value: "https://api.maptiler.com/styles/streets/style.json?key=nGqcqqyYOrE4VtKI6ftl"
-//                 }
+                }
                 PluginParameter {
                     name: "mapboxgl.mapping.items.insert_before"
                     value: "building"
@@ -311,19 +311,19 @@ Mycroft.Delegate {
             zoomLevel: 20
             tilt: 60
 //             activeMapType: supportedMapTypes[supportedMapTypes.length-1]
-//             activeMapType: supportedMapTypes[0]
+            activeMapType: supportedMapTypes[0]
 //             activeMapType: supportedMapTypes[10]
-            activeMapType: {
-                var style;
-
-                if (navigating) {
-                    style = night ? supportedMapTypes[1] : supportedMapTypes[0];
-                } else {
-                    style = night ? supportedMapTypes[3] : supportedMapTypes[2];
-                }
-
-                return style;
-            }
+//             activeMapType: {
+//                 var style;
+// 
+//                 if (navigating) {
+//                     style = night ? supportedMapTypes[1] : supportedMapTypes[0];
+//                 } else {
+//                     style = night ? supportedMapTypes[3] : supportedMapTypes[2];
+//                 }
+// 
+//                 return style;
+//             }
 
 //             MapParameter {
 //                 id: source
