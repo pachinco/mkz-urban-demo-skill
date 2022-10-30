@@ -26,7 +26,7 @@ Mycroft.Delegate {
     
     property var carSpeed: 35
     property var traffic: true
-    property var night: true
+    property var night: false
     property var navigating: true
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
