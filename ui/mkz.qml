@@ -375,6 +375,8 @@ Mycroft.Delegate {
 
             function updateRoute() {
                 routeQuery.clearWaypoints();
+                console.log("start: "+startMarker.coordinate);
+                console.log("end: "+endMarker.coordinate);
                 routeQuery.addWaypoint(startMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
             }
