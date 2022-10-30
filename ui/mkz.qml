@@ -450,7 +450,7 @@ Mycroft.Delegate {
 //                     line.color: "#e9c396"
 //                     line.color: "#da3373"
 //                     line.color: "#ec0f73"
-                    line.color: "f92469"
+                    line.color: "#f92469"
                     line.width: 15
                     opacity: (index == 0) ? 1.0 : 0.3
                 }
