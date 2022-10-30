@@ -403,7 +403,7 @@ Mycroft.Delegate {
                     source: "../images/Map_marker_pink.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
-                    opacity: 0.8
+                    opacity: 1.0
                 }
                 coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
                 anchorPoint.x: greenMarker.width/2
@@ -426,7 +426,7 @@ Mycroft.Delegate {
                     source: "../images/Map_marker_pink.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
-                    opacity: 0.8
+                    opacity: 1.0
                 }
 
                 coordinate : QtPositioning.coordinate(37.4,-122.04)
