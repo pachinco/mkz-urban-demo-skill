@@ -303,7 +303,7 @@ Mycroft.Delegate {
                 }
                 PluginParameter {
                     name: "mapboxgl.mapping.items.insert_before"
-                    value: "3d-buildings"
+                    value: "building"
                 }
             }
             center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
@@ -589,7 +589,7 @@ Mycroft.Delegate {
                 delegate: MapRoute {
                     route: routeData
                     line.color: "blue"
-                    line.width: 10
+                    line.width: 20
                     opacity: (index == 0) ? 1.0 : 0.3
                 }
             }
