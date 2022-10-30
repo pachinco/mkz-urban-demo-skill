@@ -369,9 +369,9 @@ Mycroft.Delegate {
                 sourceItem: Image {
                     id: greenMarker
                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
-                    height: 40
+                    height: 50
                     fillMode: Image.PreserveAspectFit
-                    opacity: 0.7
+                    opacity: 1.0
                 }
                 coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
                 anchorPoint.x: greenMarker.width/2
@@ -391,9 +391,9 @@ Mycroft.Delegate {
                 sourceItem: Image {
                     id: redMarker
                     source: Qt.resolvedUrl("../images/Map_pin_red.png")
-                    height: 40
+                    height: 50
                     fillMode: Image.PreserveAspectFit
-                    opacity: 0.7
+                    opacity: 1.0
                 }
 
                 coordinate : QtPositioning.coordinate(37.4,-122.04)
