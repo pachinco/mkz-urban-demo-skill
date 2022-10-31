@@ -25,9 +25,10 @@ Mycroft.Delegate {
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
     
     property var carSpeed: 35
-    property var traffic: true
-    property var night: false
-    property var navigating: true
+    property bool traffic: true
+    property bool night: false
+    property bool navigating: true
+    property bool mapBackground: false
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
@@ -378,9 +379,32 @@ Mycroft.Delegate {
                 console.log("start: "+startMarker.coordinate);
                 console.log("end: "+endMarker.coordinate);
                 routeQuery.addWaypoint(startMarker.coordinate);
+                routeQuery.addWaypoint(carMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
             }
             
+            MapQuickItem {
+                id: carMarker
+                sourceItem: Image {
+                    id: dotMarker
+//                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
+                    source: "../images/car-marker.png"
+                    height: 50
+                    fillMode: Image.PreserveAspectFit
+                    opacity: 1.0
+                }
+                coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
+                anchorPoint.x: dotMarker.width/2
+                anchorPoint.y: dotMarker.height/2
+                MouseArea  {
+                    drag.target: parent
+                    anchors.fill: parent
+                }
+
+                onCoordinateChanged: {
+                    map.updateRoute();
+                }
+            }
             MapQuickItem {
                 id: startMarker
                 sourceItem: Image {
@@ -391,7 +415,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-                coordinate: QtPositioning.coordinate(37.396,-122.03)
+                coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
                 anchorPoint.x: greenMarker.width/2
                 anchorPoint.y: greenMarker.height
                 MouseArea  {
