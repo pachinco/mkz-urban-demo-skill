@@ -53,7 +53,7 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: uiStage
-                    opacity: 0
+                    opacity: 0.5
                 }
             }
         ]
@@ -160,10 +160,10 @@ Mycroft.Delegate {
 //                     width: parent.width
                     opacity: 1
                 }
-                PropertyChanges {
-                    target: uiStage
-                    opacity: 0
-                }
+//                 PropertyChanges {
+//                     target: uiStage
+//                     opacity: 0
+//                 }
             },
             State {
                 name: "INACTIVE"
@@ -185,10 +185,11 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    ParallelAnimation {
-                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
-                        NumberAnimation { target: map; properties: "opacity,width,height"; duration: 500 }
-                    }
+//                     ParallelAnimation {
+//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: map; properties: "opacity"; duration: 500 }
+//                         NumberAnimation { target: map; properties: "width,height"; duration: 500 }
+//                     }
                 }
             },
             Transition {
