@@ -538,7 +538,7 @@ Mycroft.Delegate {
                 source: (night) ? "../images/moon-solid.svg" : "../images/sun-solid.svg"
                 height: 28
                 opacity: 0.6
-                smooth: true
+                mipmap: true
                 fillMode: Image.PreserveAspectFit
                 MouseArea {
                     anchors.fill: parent
@@ -613,7 +613,7 @@ Mycroft.Delegate {
                         id: menuIcon
                         z: 20
                         width: menuIcons.cellWidth*1.2
-                        smooth: true
+                        mipmap: true
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: menuItem.horizontalCenter
                         source: Qt.resolvedUrl(model.image)
@@ -766,7 +766,7 @@ Mycroft.Delegate {
                         id: actionIcon
                         anchors.top: actionSpacer1.bottom
                         anchors.horizontalCenter: parent.horizontalCenter
-                        smooth: true
+                        mipmap: true
                         source: Qt.resolvedUrl(model.image)
                         height: Kirigami.Units.gridUnit * 5
                         fillMode: Image.PreserveAspectFit
