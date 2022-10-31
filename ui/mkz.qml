@@ -474,6 +474,7 @@ Mycroft.Delegate {
                 id: lTime
                 anchors.left: lSpacer1.right
                 anchors.bottom: frameTop.verticalCenter
+                color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: true
@@ -484,6 +485,7 @@ Mycroft.Delegate {
                 id: lAmpm
                 anchors.left: lTime.right
                 anchors.bottom: frameTop.verticalCenter
+                color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
@@ -500,6 +502,7 @@ Mycroft.Delegate {
                 id: lDay
                 anchors.left: lSpacer2.right
                 anchors.bottom: frameTop.verticalCenter
+                color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: true
@@ -539,6 +542,7 @@ Mycroft.Delegate {
                 source: (night) ? "../images/moon-solid.svg" : "../images/sun-solid.svg"
                 height: 28
                 opacity: 0.6
+                color: (night) ? "#a9cac9" : "#000000"
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
                 MouseArea {
