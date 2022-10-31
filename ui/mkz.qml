@@ -533,9 +533,10 @@ Mycroft.Delegate {
                 id: dayNightIcon
                 signal clicked
                 anchors.right: rSpacer1.left
-                anchors.bottom: frameTop.verticalCenter
+                y: 10
+//                 anchors.bottom: frameTop.verticalCenter
                 source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
-                height: 26
+                height: 28
                 opacity: 0.6
                 fillMode: Image.PreserveAspectFit
                 MouseArea {
