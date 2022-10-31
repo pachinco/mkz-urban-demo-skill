@@ -551,7 +551,7 @@ Mycroft.Delegate {
                     }
                     onClicked: {
                         if (sessionData.uiIdx===model.idx) {
-                            sessionData = (mapOn && (model.idx!=1)) ? 1 : -1;
+                            sessionData.uiIdx = (mapOn && (model.idx!=1)) ? 1 : -1;
                         } else {
                             sessionData.uiIdx = model.idx
                         }
