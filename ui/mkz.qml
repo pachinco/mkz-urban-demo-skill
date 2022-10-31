@@ -766,6 +766,7 @@ Mycroft.Delegate {
                         id: actionIcon
                         anchors.top: actionSpacer1.bottom
                         anchors.horizontalCenter: parent.horizontalCenter
+                        smooth: true
                         source: Qt.resolvedUrl(model.image)
                         height: Kirigami.Units.gridUnit * 5
                         fillMode: Image.PreserveAspectFit
