@@ -393,10 +393,11 @@ Mycroft.Delegate {
 //                     fillMode: Image.PreserveAspectFit
 //                     opacity: 1.0
 //                 }
+                backend: MapCircle.OpenGL
                 color: "#f92469"
                 radius: 8
-                border.width: 0
-//                 border.color: "#f92469"
+                border.width: 10
+                border.color: "#ffffff"
                 center: QtPositioning.coordinate(37.3963974,-122.035018)
 //                 anchorPoint.x: dotMarker.width/2
 //                 anchorPoint.y: dotMarker.height/2
