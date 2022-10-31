@@ -467,13 +467,13 @@ Mycroft.Delegate {
             Item {
                 id: lSpacer1
                 anchors.left: frameTop.left
-                anchors.verticalCenter: frameTop.verticalCenter
+                anchors.bottom: frameTop.verticalCenter
                 width: 20
             }
             Text {
                 id: lTime
                 anchors.left: lSpacer1.right
-                anchors.verticalCenter: frameTop.verticalCenter
+                anchors.bottom: frameTop.verticalCenter
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: true
@@ -483,7 +483,7 @@ Mycroft.Delegate {
             Text {
                 id: lAmpm
                 anchors.left: lTime.right
-                anchors.verticalCenter: frameTop.verticalCenter
+                anchors.bottom: frameTop.verticalCenter
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
@@ -493,13 +493,13 @@ Mycroft.Delegate {
             Item {
                 id: lSpacer2
                 anchors.left: lAmpm.right
-                anchors.verticalCenter: frameTop.verticalCenter
+                anchors.bottom: frameTop.verticalCenter
                 width: 20
             }
             Text {
                 id: lDay
                 anchors.left: lSpacer2.right
-                anchors.verticalCenter: frameTop.verticalCenter
+                anchors.bottom: frameTop.verticalCenter
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: true
@@ -509,13 +509,13 @@ Mycroft.Delegate {
             Item {
                 id: lSpacer3
                 anchors.left: lDay.right
-                anchors.verticalCenter: frameTop.verticalCenter
+                anchors.bottom: frameTop.verticalCenter
                 width: 10
             }
             Text {
                 id: lDate
                 anchors.left: lSpacer3.right
-                anchors.verticalCenter: frameTop.verticalCenter
+                anchors.bottom: frameTop.verticalCenter
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
@@ -526,14 +526,14 @@ Mycroft.Delegate {
             Item {
                 id: rSpacer1
                 anchors.right: frameTop.right
-                anchors.verticalCenter: frameTop.verticalCenter
+                anchors.bottom: frameTop.verticalCenter
                 width: 10
             }
             Image {
                 id: dayNightIcon
                 signal clicked
                 anchors.right: rSpacer1.left
-                anchors.verticalCenter: frameTop.verticalCenter
+                anchors.bottom: frameTop.verticalCenter
                 source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
                 height: 26
                 opacity: 0.6
