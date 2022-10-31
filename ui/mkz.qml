@@ -465,14 +465,42 @@ Mycroft.Delegate {
             anchors.right: parent.right
             source: Qt.resolvedUrl("../images/mkz_frame_top_day.png")
             fillMode: Image.PreserveAspectFit
+            Item {
+                id: lSpacer1
+                anchors.left: frameTop.left
+                anchors.verticalCenter: frameTop.verticalCenter
+                width: 20
+            }
             Text {
                 id: dtime
-                x: 20
-                y: 20
+//                 x: 20
+                anchors.left: lSpacer1.right
+                anchors.verticalCenter: frameTop.verticalCenter
                 z: 20
                 font.pixelSize: 30
                 text: sessionData.datetime
                 opacity: 0.6
+            }
+            Item {
+                id: rSpacer1
+                anchors.right: frameTop.right
+                anchors.verticalCenter: frameTop.verticalCenter
+                width: 20
+            }
+            Image {
+                id: dayNightIcon
+                signal: clicked
+                anchors.right: rSpacer1.left
+                source: (night) ? "../images/moon-solid.svg" : "../images/sun-solid.svg"
+                height: 20
+                fillMode: Image.PreserveAspectFit
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: dayNightIcon.clicked()
+                }
+                onClicked: {
+                    night = (night) ? false : true
+                }
             }
         }
     }
