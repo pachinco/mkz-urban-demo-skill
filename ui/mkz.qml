@@ -477,7 +477,8 @@ Mycroft.Delegate {
                 anchors.left: lSpacer1.right
                 anchors.verticalCenter: frameTop.verticalCenter
                 z: 20
-                font.pixelSize: 30
+                font.pixelSize: 28
+                font.capitalization: Font.SmallCaps
                 text: sessionData.datetime
                 opacity: 0.6
             }
