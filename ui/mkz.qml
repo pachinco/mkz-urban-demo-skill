@@ -37,7 +37,7 @@ Mycroft.Delegate {
     Image {
         id: uiStage
         anchors.fill: parent
-        source: "../images/mkz_background_stage_day.png"
+        source: (night) ? "../images/mkz_background_night.png" : "../images/mkz_background_stage_day.png"
         fillMode: Image.Image.PreserveAspectCrop
         z: -10
         state: "INACTIVE"
@@ -462,7 +462,7 @@ Mycroft.Delegate {
             y: 0
             anchors.left: parent.left
             anchors.right: parent.right
-            source: Qt.resolvedUrl("../images/mkz_frame_top_day.png")
+            source: (night) ? "../images/mkz_frame_top_night.png" : "../images/mkz_frame_top_day.png"
             fillMode: Image.PreserveAspectFit
             Item {
                 id: lSpacer1
@@ -516,6 +516,7 @@ Mycroft.Delegate {
                 id: lDate
                 anchors.left: lSpacer3.right
                 anchors.bottom: frameTop.verticalCenter
+                color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
