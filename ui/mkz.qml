@@ -379,7 +379,7 @@ Mycroft.Delegate {
                 console.log("start: "+startMarker.coordinate);
                 console.log("end: "+endMarker.coordinate);
                 routeQuery.addWaypoint(startMarker.coordinate);
-//                 routeQuery.addWaypoint(carMarker.center);
+                routeQuery.addWaypoint(carMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
             }
             
@@ -387,20 +387,15 @@ Mycroft.Delegate {
                 id: carMarker
                 sourceItem: Image {
                     id: dotMarker
-//                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
                     source: "../images/car-marker.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-//                 color: "#f92469"
-//                 radius: 100/(map.zoomLevel+1)
-//                 border.width: 10
-//                 border.color: "#f92469"
                 coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
-                zoomLevel: 17.5
+                zoomLevel: 17
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
@@ -414,7 +409,6 @@ Mycroft.Delegate {
                 id: startMarker
                 sourceItem: Image {
                     id: greenMarker
-//                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
                     source: "../images/Map_marker_blue.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
@@ -437,7 +431,6 @@ Mycroft.Delegate {
 
                 sourceItem: Image {
                     id: redMarker
-//                     source: Qt.resolvedUrl("../images/Map_pin_red.png")
                     source: "../images/Map_marker_pink.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
