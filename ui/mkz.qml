@@ -539,7 +539,7 @@ Mycroft.Delegate {
                 anchors.right: rSpacer1.left
                 y: 12
 //                 anchors.bottom: frameTop.verticalCenter
-                source: (night) ? "../images/moon-night.svg" : "../images/sun-day.svg"
+                source: (night) ? "../images/moon-night.svg" : "../images/sun-solid.svg"
                 height: 28
                 opacity: (night) ? 1 : 0.6
 //                 color: (night) ? "#a9cac9" : "#000000"
