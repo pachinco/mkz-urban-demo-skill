@@ -479,7 +479,7 @@ Mycroft.Delegate {
                 z: 20
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
-                text: sessionData.datetime
+                text: sessionData.datetime.substring(0,5)
                 opacity: 0.6
             }
             Item {
