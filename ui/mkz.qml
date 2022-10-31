@@ -929,7 +929,7 @@ Mycroft.Delegate {
                         anchors.left: statusSpacer1.right
                         anchors.verticalCenter: statusButton.verticalCenter
                         text: model.text
-                        color: (model.text.substring(model.text.length-1)==="✓") ? "#c0000000" : "#c0f00000"
+                        color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#c0f00000"
                         font.pointSize: Kirigami.Units.gridUnit
                     }
                     MouseArea {
