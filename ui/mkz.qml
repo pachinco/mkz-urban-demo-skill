@@ -479,7 +479,7 @@ Mycroft.Delegate {
                 font.capitalization: Font.SmallCaps
                 font.bold: true
                 text: sessionData.datetime.substring(0,5)
-                opacity: 0.6
+                opacity: (night) 1 : 0.6
             }
             Text {
                 id: lAmpm
@@ -490,7 +490,7 @@ Mycroft.Delegate {
                 font.capitalization: Font.SmallCaps
                 font.bold: false
                 text: sessionData.datetime.substring(5,7)
-                opacity: 0.6
+                opacity: (night) 1 : 0.6
             }
             Item {
                 id: lSpacer2
@@ -507,7 +507,7 @@ Mycroft.Delegate {
                 font.capitalization: Font.SmallCaps
                 font.bold: true
                 text: sessionData.datetime.substring(8,11)
-                opacity: 0.6
+                opacity: (night) 1 : 0.6
             }
             Item {
                 id: lSpacer3
@@ -524,7 +524,7 @@ Mycroft.Delegate {
                 font.capitalization: Font.SmallCaps
                 font.bold: false
                 text: sessionData.datetime.substring(12)
-                opacity: 0.6
+                opacity: (night) 1 : 0.6
             }
 
             Item {
@@ -539,9 +539,9 @@ Mycroft.Delegate {
                 anchors.right: rSpacer1.left
                 y: 12
 //                 anchors.bottom: frameTop.verticalCenter
-                source: (night) ? "../images/moon-solid.svg" : "../images/sun-solid.svg"
+                source: (night) ? "../images/moon-night.svg" : "../images/sun-day.svg"
                 height: 28
-                opacity: 0.6
+                opacity: (night) 1 : 0.6
 //                 color: (night) ? "#a9cac9" : "#000000"
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
