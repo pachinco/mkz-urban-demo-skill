@@ -533,11 +533,12 @@ Mycroft.Delegate {
                 id: dayNightIcon
                 signal clicked
                 anchors.right: rSpacer1.left
-                y: 10
+                y: 12
 //                 anchors.bottom: frameTop.verticalCenter
                 source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
                 height: 28
                 opacity: 0.6
+                smooth: true
                 fillMode: Image.PreserveAspectFit
                 MouseArea {
                     anchors.fill: parent
@@ -612,6 +613,7 @@ Mycroft.Delegate {
                         id: menuIcon
                         z: 20
                         width: menuIcons.cellWidth*1.2
+                        smooth: true
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: menuItem.horizontalCenter
                         source: Qt.resolvedUrl(model.image)
