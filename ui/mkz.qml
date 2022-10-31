@@ -387,7 +387,7 @@ Mycroft.Delegate {
                 id: carMarker
                 sourceItem: Image {
                     id: dotMarker
-                    source: Qt.resolvedUrl("../images/Map_pin_green.png")
+//                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
                     source: "../images/car-marker.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
