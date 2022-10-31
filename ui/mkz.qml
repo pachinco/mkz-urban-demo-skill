@@ -242,8 +242,8 @@ Mycroft.Delegate {
                     value: "road-label-small"
                 }
             }
-            center: QtPositioning.coordinate(37.3963974,-122.03) // UPower Sunnyvale
-            zoomLevel: 10
+            center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
+            zoomLevel: 5
             tilt: 60
 
             activeMapType: {
