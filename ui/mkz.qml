@@ -23,7 +23,7 @@ Mycroft.Delegate {
     property bool uiCar: (sessionData.uiIdx===2) ? true:false
     property bool uiMusic: (sessionData.uiIdx===3) ? true:false
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
-    
+
     property var carSpeed: 25
     property bool traffic: true
     property bool night: false
@@ -535,7 +535,7 @@ Mycroft.Delegate {
                 anchors.right: rSpacer1.left
                 y: 12
 //                 anchors.bottom: frameTop.verticalCenter
-                source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
+                source: (night) ? "../images/moon-solid.svg" : "../images/sun-solid.svg"
                 height: 28
                 opacity: 0.6
                 smooth: true
