@@ -155,7 +155,7 @@ Mycroft.Delegate {
         anchors.fill: parent
 //         visible: true
         z: -5
-        state: (mapOn) ? "ACTIVE" : "INACTIVE"
+        state: ((sessionData.uiIdx===1) || mapOn) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
