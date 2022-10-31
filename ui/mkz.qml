@@ -244,7 +244,7 @@ Mycroft.Delegate {
             }
             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
-            tilt: 60
+//             tilt: 60
 
             activeMapType: {
                 var style;
@@ -550,7 +550,11 @@ Mycroft.Delegate {
                         onClicked: menuItem.clicked()
                     }
                     onClicked: {
-                        sessionData.uiIdx=(sessionData.uiIdx===model.idx) ? -1 : model.idx
+                        if (sessionData.uiIdx===model.idx) {
+                            sessionData = (mapOn && (model.idx!=1)) ? 1 : -1;
+                        } else {
+                            sessionData.uiIdx = model.idx
+                        }
 //                         if (sessionData.uiIdx===-1) mapOn = false
 //                         if (sessionData.uiIdx===1) mapOn = true
                     }
