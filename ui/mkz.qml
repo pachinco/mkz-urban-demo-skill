@@ -383,7 +383,7 @@ Mycroft.Delegate {
                 routeQuery.addWaypoint(endMarker.coordinate);
             }
             
-            MapCircle {
+            MapQuickItem {
                 id: carMarker
                 sourceItem: Image {
                     id: dotMarker
@@ -397,7 +397,7 @@ Mycroft.Delegate {
 //                 radius: 100/(map.zoomLevel+1)
 //                 border.width: 10
 //                 border.color: "#f92469"
-                center: QtPositioning.coordinate(37.3963974,-122.035018)
+                coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
                 zoomLevel: 1.0
