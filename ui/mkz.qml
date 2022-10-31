@@ -332,7 +332,7 @@ Mycroft.Delegate {
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
-                zoomLevel: 17
+                zoomLevel: 10
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
