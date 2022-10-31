@@ -395,7 +395,7 @@ Mycroft.Delegate {
 //                 }
                 color: "#ffffff"
                 radius: 5
-                border.width: 30
+                border.width: 5
                 border.color: "#f92469"
                 center: QtPositioning.coordinate(37.3963974,-122.035018)
 //                 anchorPoint.x: dotMarker.width/2
