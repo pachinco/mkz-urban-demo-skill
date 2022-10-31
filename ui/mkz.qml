@@ -243,7 +243,7 @@ Mycroft.Delegate {
                 }
             }
             center: QtPositioning.coordinate(37.3963974,-122.03) // UPower Sunnyvale
-            zoomLevel: 16
+            zoomLevel: 10
             tilt: 60
 
             activeMapType: {
@@ -332,7 +332,7 @@ Mycroft.Delegate {
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
-                zoomLevel: 10
+                zoomLevel: 17
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
