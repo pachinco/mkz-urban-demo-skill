@@ -555,8 +555,6 @@ Mycroft.Delegate {
                         } else {
                             sessionData.uiIdx = model.idx
                         }
-//                         if (sessionData.uiIdx===-1) mapOn = false
-//                         if (sessionData.uiIdx===1) mapOn = true
                     }
                 }
             }
@@ -572,14 +570,6 @@ Mycroft.Delegate {
                 cellWidth: width/5
                 cellHeight: height
                 highlightFollowsCurrentItem: true
-    //             highlight: Rectangle {
-    //                 id: menuMarker
-    //                 color: "#80800000"
-    //             }
-    //             Rectangle {
-    //                 anchors.fill: parent
-    //                 color: "#50505050"
-    //             }
             }
             Image {
                 id: menuHighlight
@@ -760,29 +750,29 @@ Mycroft.Delegate {
     }
     
     Item {
-        id: configFrame
+        id: statusFrame
         anchors.fill: parent
         state: (uiConfig) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
                 PropertyChanges {
-                    target: configView
+                    target: statusView
                     height: parent.height*0.75
                 }
                 PropertyChanges {
-                    target: configBackshade
+                    target: statusBackshade
                     opacity: 0.5
                 }
             },
             State {
                 name: "INACTIVE"
                 PropertyChanges {
-                    target: configView
+                    target: statusView
                     height: 0
                 }
                 PropertyChanges {
-                    target: configBackshade
+                    target: statusBackshade
                     opacity: 0
                 }
             }
@@ -793,13 +783,13 @@ Mycroft.Delegate {
                 to: "ACTIVE"
                 SequentialAnimation {
                     PropertyAction {
-                        target: configView
+                        target: statusView
                         property: "visible"
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: configView; property: "height"; duration: 500 }
-                        NumberAnimation { target: configBackshade; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: statusView; property: "height"; duration: 500 }
+                        NumberAnimation { target: statusBackshade; properties: "opacity"; duration: 500 }
                     }
                 }
             },
@@ -808,11 +798,11 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     ParallelAnimation {
-                        NumberAnimation { target: configView; property: "height"; duration: 500 }
-                        NumberAnimation { target: configBackshade; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: statusView; property: "height"; duration: 500 }
+                        NumberAnimation { target: statusBackshade; properties: "opacity"; duration: 500 }
                     }
                     PropertyAction {
-                        target: configView
+                        target: statusView
                         property: "visible"
                         value: false
                     }
@@ -820,19 +810,19 @@ Mycroft.Delegate {
             }
         ]
         Rectangle {
-            id: configBackshade
+            id: statusBackshade
             anchors.fill: parent
             z: -1
             color: "#000000"
         }
         Component {
-            id: configDelegate
+            id: statusDelegate
             Item {
                 z: 1
-                width: configView.cellWidth
-                height: configView.cellHeight
+                width: statusView.cellWidth
+                height: statusView.cellHeight
                 Rectangle {
-                    id: configButton
+                    id: statusButton
                     color: "#f0f0f0f0"
                     signal clicked
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -848,38 +838,38 @@ Mycroft.Delegate {
                         samples: 21
                     }
                     Item {
-                        id: configSpacer1
-                        anchors.left: configButton.left
-                        anchors.verticalCenter: configButton.verticalCenter
+                        id: statusSpacer1
+                        anchors.left: statusButton.left
+                        anchors.verticalCenter: statusButton.verticalCenter
                         width: Kirigami.Units.gridUnit
                     }
                     Kirigami.Heading {
-                        id: configLabel
-                        anchors.left: configSpacer1.right
-                        anchors.verticalCenter: configButton.verticalCenter
+                        id: statusLabel
+                        anchors.left: statusSpacer1.right
+                        anchors.verticalCenter: statusButton.verticalCenter
                         text: model.text
                         color: (model.text.substring(model.text.length-1)==="✓") ? "#c0000000" : "#c0f00000"
                         font.pointSize: Kirigami.Units.gridUnit
                     }
                     MouseArea {
-                        id: configMouse
+                        id: statusMouse
                         anchors.fill: parent
-                        onClicked: configButton.clicked()
+                        onClicked: statusButton.clicked()
                     }
                     onClicked: {
-                        console.log("config clicked "+model.text)
+                        console.log("status clicked "+model.text)
                     }
                 }
             }
         }
         GridView {
-            id: configView
+            id: statusView
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             width: parent.width*0.5
             height: parent.height*0.75
-            model: sessionData.configList
-            delegate: configDelegate
+            model: sessionData.statusList
+            delegate: statusDelegate
             cellWidth: width
             cellHeight: height/8
         }
