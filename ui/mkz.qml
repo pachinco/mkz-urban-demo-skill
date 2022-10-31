@@ -489,7 +489,7 @@ Mycroft.Delegate {
             }
             Image {
                 id: dayNightIcon
-                signal: clicked
+                signal clicked
                 anchors.right: rSpacer1.left
                 source: (night) ? "../images/moon-solid.svg" : "../images/sun-solid.svg"
                 height: 20
