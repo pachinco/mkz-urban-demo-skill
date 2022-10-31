@@ -403,9 +403,9 @@ Mycroft.Delegate {
                     anchors.fill: parent
                 }
 
-                onCoordinateChanged: {
-                    map.updateRoute();
-                }
+//                 onCoordinateChanged: {
+//                     map.updateRoute();
+//                 }
             }
             MapQuickItem {
                 id: startMarker
