@@ -379,7 +379,7 @@ Mycroft.Delegate {
                 console.log("start: "+startMarker.coordinate);
                 console.log("end: "+endMarker.coordinate);
                 routeQuery.addWaypoint(startMarker.coordinate);
-                routeQuery.addWaypoint(carMarker.coordinate);
+                routeQuery.addWaypoint(carMarker.center);
                 routeQuery.addWaypoint(endMarker.coordinate);
             }
             
@@ -395,7 +395,7 @@ Mycroft.Delegate {
 //                 }
                 color: "#f92469"
                 radius: 20
-                coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
+                center: QtPositioning.coordinate(37.3963974,-122.035018)
 //                 anchorPoint.x: dotMarker.width/2
 //                 anchorPoint.y: dotMarker.height/2
                 MouseArea  {
