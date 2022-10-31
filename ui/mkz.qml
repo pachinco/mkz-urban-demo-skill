@@ -542,7 +542,7 @@ Mycroft.Delegate {
                 source: (night) ? "../images/moon-solid.svg" : "../images/sun-solid.svg"
                 height: 28
                 opacity: 0.6
-                color: (night) ? "#a9cac9" : "#000000"
+//                 color: (night) ? "#a9cac9" : "#000000"
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
                 MouseArea {
