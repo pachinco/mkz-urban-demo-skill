@@ -212,7 +212,7 @@ Mycroft.Delegate {
                 },
                 State {
                     name: "navigating"
-                    PropertyChanges { target: map; tilt: 60; zoomLevel: 20 }
+                    PropertyChanges { target: map; tilt: 60; zoomLevel: 15 }
                 }
             ]
 
@@ -243,7 +243,7 @@ Mycroft.Delegate {
                 }
             }
             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
-            zoomLevel: 3
+//             zoomLevel: 3
             tilt: 60
 
             activeMapType: {
