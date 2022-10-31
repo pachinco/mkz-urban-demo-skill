@@ -243,7 +243,7 @@ Mycroft.Delegate {
                 }
             }
             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
-            zoomLevel: 5
+            zoomLevel: 3
             tilt: 60
 
             activeMapType: {
