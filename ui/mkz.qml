@@ -329,7 +329,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-                coordinate: QtPositioning.coordinate(37.3963974,-122.034)
+                coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
                 zoomLevel: 17
@@ -351,7 +351,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-                coordinate: QtPositioning.coordinate(37.3963974,-122.035)
+                coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 anchorPoint.x: greenMarker.width/2
                 anchorPoint.y: greenMarker.height
                 MouseArea  {
