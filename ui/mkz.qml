@@ -746,7 +746,7 @@ Mycroft.Delegate {
                 visible: false
                 Rectangle {
                     id: actionsButton
-                    color: "#f0f0f0f0"
+                    color: (night) ? "#ff1e373a" : "#f0f0f0f0"
                     signal clicked
                     width: parent.width-Kirigami.Units.gridUnit*2
                     height: parent.height-Kirigami.Units.gridUnit
@@ -787,7 +787,7 @@ Mycroft.Delegate {
                         anchors.top: actionSpacer2.bottom
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: model.text
-                        color: "#c0000000"
+                        color: (night) ? "#e8fffc" : "#c0000000"
                         font.pointSize: Kirigami.Units.gridUnit*2
                     }
                     MouseArea {
@@ -904,7 +904,7 @@ Mycroft.Delegate {
                 height: statusView.cellHeight
                 Rectangle {
                     id: statusButton
-                    color: "#f0f0f0f0"
+                    color: (night) ? "#ff1e373a" : "#f0f0f0f0"
                     signal clicked
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width-Kirigami.Units.gridUnit*4
