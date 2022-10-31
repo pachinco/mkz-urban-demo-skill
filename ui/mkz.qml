@@ -153,7 +153,6 @@ Mycroft.Delegate {
     Item {
         id: mapFrame
         anchors.fill: parent
-//         visible: true
         z: -5
         state: ((sessionData.uiIdx===1) || mapOn) ? "ACTIVE" : "INACTIVE"
         states: [
@@ -161,21 +160,13 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: map
-//                     height: parent.height
-//                     width: parent.width
                     opacity: 1
                 }
-//                 PropertyChanges {
-//                     target: uiStage
-//                     opacity: 0
-//                 }
             },
             State {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: map
-//                     height: parent.height*2
-//                     width: parent.width*2
                     opacity: 0
                 }
             }
@@ -195,11 +186,7 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-//                     ParallelAnimation {
-//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
-                        NumberAnimation { target: map; properties: "opacity"; duration: 500 }
-//                         NumberAnimation { target: map; properties: "width,height"; duration: 500 }
-//                     }
+                    NumberAnimation { target: map; properties: "opacity"; duration: 500 }
                 }
             },
             Transition {
@@ -255,8 +242,8 @@ Mycroft.Delegate {
                     value: "road-label-small"
                 }
             }
-            center: QtPositioning.coordinate(37.3963974,-122.035) // UPower Sunnyvale
-            zoomLevel: 20
+            center: QtPositioning.coordinate(37.3963974,-122.03) // UPower Sunnyvale
+            zoomLevel: 16
             tilt: 60
 
             activeMapType: {
@@ -342,7 +329,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-                coordinate: QtPositioning.coordinate(37.3963974,-122.035)
+                coordinate: QtPositioning.coordinate(37.3963974,-122.034)
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
                 zoomLevel: 17
@@ -364,7 +351,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-                coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
+                coordinate: QtPositioning.coordinate(37.3963974,-122.035)
                 anchorPoint.x: greenMarker.width/2
                 anchorPoint.y: greenMarker.height
                 MouseArea  {
@@ -401,26 +388,11 @@ Mycroft.Delegate {
 
                 delegate: MapRoute {
                     route: routeData
-//                     line.color: "#e9c396"
-//                     line.color: "#da3373"
-//                     line.color: "#ec0f73"
                     line.color: "#f92469"
                     line.width: 15
                     opacity: (index == 0) ? 1.0 : 0.3
                 }
             }
-//             MapCircle {
-//                 id: mapCircle
-//                 center: QtPositioning.coordinate(37.3963974,-122.035018)
-//                 radius: 200000
-//                 border.width: 5
-//                 z: 7
-// 
-//                 MouseArea {
-//                     anchors.fill: parent
-//                     drag.target: parent
-//                 }
-//             }
         }
     }
     RouteModel {
@@ -432,7 +404,6 @@ Mycroft.Delegate {
         plugin: Plugin {
             name: "mapbox"
 
-            // Development access token, do not use in production.
             PluginParameter {
                 name: "mapbox.access_token"
                 value: "pk.eyJ1IjoicXRzZGsiLCJhIjoiY2l5azV5MHh5MDAwdTMybzBybjUzZnhxYSJ9.9rfbeqPjX2BusLRDXHCOBA"
