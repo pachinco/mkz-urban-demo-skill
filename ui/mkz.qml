@@ -53,7 +53,7 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: uiStage
-                    opacity: 0.5
+                    opacity: 0
                 }
             }
         ]
