@@ -492,7 +492,7 @@ Mycroft.Delegate {
             }
             Item {
                 id: lSpacer2
-                anchors.left: lAmpm.left
+                anchors.left: lAmpm.right
                 anchors.verticalCenter: frameTop.verticalCenter
                 width: 20
             }
@@ -508,7 +508,7 @@ Mycroft.Delegate {
             }
             Item {
                 id: lSpacer3
-                anchors.left: lDay.left
+                anchors.left: lDay.right
                 anchors.verticalCenter: frameTop.verticalCenter
                 width: 20
             }
