@@ -112,6 +112,11 @@ Mycroft.Delegate {
                 to: "ACTIVE"
                 SequentialAnimation {
                     PropertyAction {
+                        target: homescreen
+                        property: "mapOn"
+                        value: false
+                    }
+                    PropertyAction {
                         target: bgHome
                         property: "visible"
                         value: true
@@ -180,6 +185,11 @@ Mycroft.Delegate {
                 from: "INACTIVE"
                 to: "ACTIVE"
                 SequentialAnimation {
+                    PropertyAction {
+                        target: homescreen
+                        property: "mapOn"
+                        value: true
+                    }
                     PropertyAction {
                         target: mapFrame
                         property: "visible"
@@ -570,8 +580,8 @@ Mycroft.Delegate {
                     }
                     onClicked: {
                         sessionData.uiIdx=(sessionData.uiIdx===model.idx) ? -1 : model.idx
-                        if (sessionData.uiIdx===-1) mapOn = false
-                        if (sessionData.uiIdx===1) mapOn = true
+//                         if (sessionData.uiIdx===-1) mapOn = false
+//                         if (sessionData.uiIdx===1) mapOn = true
                     }
                 }
             }
