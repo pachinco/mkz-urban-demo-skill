@@ -24,11 +24,11 @@ Mycroft.Delegate {
     property bool uiMusic: (sessionData.uiIdx===3) ? true:false
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
     
-    property var carSpeed: 35
+    property var carSpeed: 25
     property bool traffic: true
     property bool night: false
     property bool navigating: true
-    property bool mapBackground: false
+    property bool mapOn: false
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
@@ -141,22 +141,23 @@ Mycroft.Delegate {
             id: mkzImage
             source: "../images/Lincoln-UPower.png"
             fillMode: Image.PreserveAspectFit
-            z: 1
+            z: -8
         }
     }
 
     Item {
         id: mapFrame
         anchors.fill: parent
-        visible: true
-        state: (uiMap) ? "ACTIVE" : "INACTIVE"
+//         visible: true
+        z: -5
+        state: (mapOn) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: map
-                    height: parent.height
-                    width: parent.width
+//                     height: parent.height
+//                     width: parent.width
                     opacity: 1
                 }
                 PropertyChanges {
@@ -168,8 +169,8 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: map
-                    height: parent.height*2
-                    width: parent.width*2
+//                     height: parent.height*2
+//                     width: parent.width*2
                     opacity: 0
                 }
             }
@@ -203,55 +204,6 @@ Mycroft.Delegate {
                 }
             }
         ]
-        // OSM
-//         Plugin {
-//             id: mapPlugin
-//             name: "osm"
-//             PluginParameter {
-//                 name: "osm.mapping.highdpi_tiles"
-//                 value: "true"
-//             }
-//             PluginParameter {
-//                 name: "osm.mapping.providersrepository.disabled"
-//                 value: "true"
-//             }
-//             PluginParameter
-//             {
-//                 name: "osm.mapping.custom.host"
-//                 value: "https://api.maptiler.com/maps/winter/%z/%x/%y.png?key=nGqcqqyYOrE4VtKI6ftl"
-//                 value: "https://stamen-tiles.a.ssl.fastly.net/watercolor/"
-//                 value: "https://stamen-tiles.a.ssl.fastly.net/toner/"
-//             }
-//         }
-        // mapbox
-//         Plugin {
-//             id: mapPlugin
-//             name: "mapbox"
-//             PluginParameter {
-//                 name: "mapbox.access_token";
-//                 value: mapboxToken_mkz
-//             }
-//             PluginParameter {
-//                 name: "mapbox.mapping.highdpi_tiles"
-//                 value: "true"
-//             }
-//             PluginParameter {
-//                 name: "mapbox.api_base_url"
-//                 value: "https://api.mapbox.com/styles/v1"
-//             }
-//             PluginParameter {
-//                 name: "mapbox.mapping.api_base_url"
-//                 value: "https://api.mapbox.com/styles/v1"
-//             }
-//             PluginParameter {
-//                 name: "mapbox.mapping.additional_map_ids"
-//                 name: "mapbox.mapping.map_id"
-//                 value: "pachinco/cl9olfi4i000514nzmcj6b8os/tiles"
-//            }
-//         }
-        // mapboxgl
-//         Plugin
-
         Map {
             id: map
             anchors.fill: parent
@@ -283,10 +235,6 @@ Mycroft.Delegate {
                     name: "mapboxgl.access_token"
                     value: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
                 }
-//                 PluginParameter {
-//                     name: "antialias"
-//                     value: "true"
-//                 }
                 PluginParameter {
                     name: "mapboxgl.mapping.additional_style_urls"
                     value: "mapbox://styles/mapbox/navigation-guidance-day-v2,mapbox://styles/mapbox/navigation-guidance-night-v2,mapbox://styles/mapbox/navigation-preview-day-v2,mapbox://styles/mapbox/navigation-preview-night-v2,mapbox://styles/pachinco/cl9olfi4i000514nzmcj6b8os"
@@ -296,44 +244,35 @@ Mycroft.Delegate {
                     value: "road-label-small"
                 }
             }
-            center: QtPositioning.coordinate(37.3963974,-122.035018) // UPower Sunnyvale
-//             center: QtPositioning.coordinate(37.777,-122.419) // SF Van Ness Ave
+            center: QtPositioning.coordinate(37.3963974,-122.035) // UPower Sunnyvale
             zoomLevel: 20
             tilt: 60
 
             activeMapType: {
                 var style;
-
                 if (navigating) {
                     style = night ? supportedMapTypes[1] : supportedMapTypes[0];
                 } else {
                     style = night ? supportedMapTypes[3] : supportedMapTypes[2];
                 }
-
                 return style;
             }
 
-
             MapParameter {
                 type: "layer"
-
                 property var name: "3d-buildings"
                 property var source: "composite"
                 property var sourceLayer: "building"
                 property var layerType: "fill-extrusion"
                 property var minzoom: 15.0
             }
-
             MapParameter {
                 type: "filter"
-
                 property var layer: "3d-buildings"
                 property var filter: [ "==", "extrude", "true" ]
             }
-
             MapParameter {
                 type: "paint"
-
                 property var layer: "3d-buildings"
                 property var fillExtrusionColor: "#00617f"
                 property var fillExtrusionOpacity: 0.5
@@ -379,7 +318,7 @@ Mycroft.Delegate {
                 console.log("start: "+startMarker.coordinate);
                 console.log("end: "+endMarker.coordinate);
                 routeQuery.addWaypoint(startMarker.coordinate);
-                routeQuery.addWaypoint(carMarker.coordinate);
+//                 routeQuery.addWaypoint(carMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
             }
             
@@ -392,7 +331,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-                coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
+                coordinate: QtPositioning.coordinate(37.3963974,-122.035)
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
                 zoomLevel: 17
@@ -421,7 +360,6 @@ Mycroft.Delegate {
                     drag.target: parent
                     anchors.fill: parent
                 }
-
                 onCoordinateChanged: {
                     map.updateRoute();
                 }
@@ -436,16 +374,13 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-
                 coordinate : QtPositioning.coordinate(37.4,-122.03)
                 anchorPoint.x: redMarker.width / 2
                 anchorPoint.y: redMarker.height
-
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
                 }
-
                 onCoordinateChanged: {
                     map.updateRoute();
                 }
@@ -634,6 +569,8 @@ Mycroft.Delegate {
                     }
                     onClicked: {
                         sessionData.uiIdx=(sessionData.uiIdx===model.idx) ? -1 : model.idx
+                        if (sessionData.uiIdx===-1) mapOn = false
+                        if (sessionData.uiIdx===1) mapOn = true
                     }
                 }
             }
