@@ -394,7 +394,7 @@ Mycroft.Delegate {
 //                     opacity: 1.0
 //                 }
                 color: "#f92469"
-                radius: 8
+                radius: 100/(map.zoomLevel+1)
                 border.width: 10
                 border.color: "#f92469"
                 center: QtPositioning.coordinate(37.3963974,-122.035018)
