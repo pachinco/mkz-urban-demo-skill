@@ -385,29 +385,30 @@ Mycroft.Delegate {
             
             MapCircle {
                 id: carMarker
-//                 sourceItem: Image {
-//                     id: dotMarker
-//                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
-//                     source: "../images/car-marker.png"
-//                     height: 50
-//                     fillMode: Image.PreserveAspectFit
-//                     opacity: 1.0
-//                 }
-                color: "#f92469"
-                radius: 100/(map.zoomLevel+1)
-                border.width: 10
-                border.color: "#f92469"
+                sourceItem: Image {
+                    id: dotMarker
+                    source: Qt.resolvedUrl("../images/Map_pin_green.png")
+                    source: "../images/car-marker.png"
+                    height: 50
+                    fillMode: Image.PreserveAspectFit
+                    opacity: 1.0
+                }
+//                 color: "#f92469"
+//                 radius: 100/(map.zoomLevel+1)
+//                 border.width: 10
+//                 border.color: "#f92469"
                 center: QtPositioning.coordinate(37.3963974,-122.035018)
-//                 anchorPoint.x: dotMarker.width/2
-//                 anchorPoint.y: dotMarker.height/2
+                anchorPoint.x: dotMarker.width/2
+                anchorPoint.y: dotMarker.height/2
+                zoomLevel: 1.0
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
                 }
 
-//                 onCoordinateChanged: {
-//                     map.updateRoute();
-//                 }
+                onCoordinateChanged: {
+                    map.updateRoute();
+                }
             }
             MapQuickItem {
                 id: startMarker
