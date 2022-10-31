@@ -510,7 +510,7 @@ Mycroft.Delegate {
                 id: lSpacer3
                 anchors.left: lDay.right
                 anchors.verticalCenter: frameTop.verticalCenter
-                width: 20
+                width: 10
             }
             Text {
                 id: lDate
@@ -527,7 +527,7 @@ Mycroft.Delegate {
                 id: rSpacer1
                 anchors.right: frameTop.right
                 anchors.verticalCenter: frameTop.verticalCenter
-                width: 20
+                width: 10
             }
             Image {
                 id: dayNightIcon
@@ -535,7 +535,7 @@ Mycroft.Delegate {
                 anchors.right: rSpacer1.left
                 anchors.verticalCenter: frameTop.verticalCenter
                 source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
-                height: 30
+                height: 26
                 opacity: 0.6
                 fillMode: Image.PreserveAspectFit
                 MouseArea {
