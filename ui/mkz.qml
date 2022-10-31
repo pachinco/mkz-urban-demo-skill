@@ -459,7 +459,6 @@ Mycroft.Delegate {
         ]
         Image {
             id: frameTop
-//             anchors.top: parent.top
             y: 0
             anchors.left: parent.left
             anchors.right: parent.right
@@ -472,16 +471,58 @@ Mycroft.Delegate {
                 width: 20
             }
             Text {
-                id: dtime
-//                 x: 20
+                id: lTime
                 anchors.left: lSpacer1.right
                 anchors.verticalCenter: frameTop.verticalCenter
-                z: 20
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
+                font.bold: true
                 text: sessionData.datetime.substring(0,5)
                 opacity: 0.6
             }
+            Text {
+                id: lAmpm
+                anchors.left: lTime.right
+                anchors.verticalCenter: frameTop.verticalCenter
+                font.pixelSize: 28
+                font.capitalization: Font.SmallCaps
+                font.bold: false
+                text: sessionData.datetime.substring(5,7)
+                opacity: 0.6
+            }
+            Item {
+                id: lSpacer2
+                anchors.left: lAmpm.left
+                anchors.verticalCenter: frameTop.verticalCenter
+                width: 20
+            }
+            Text {
+                id: lDay
+                anchors.left: lSpacer2.right
+                anchors.verticalCenter: frameTop.verticalCenter
+                font.pixelSize: 28
+                font.capitalization: Font.SmallCaps
+                font.bold: true
+                text: sessionData.datetime.substring(8,11)
+                opacity: 0.6
+            }
+            Item {
+                id: lSpacer3
+                anchors.left: lDay.left
+                anchors.verticalCenter: frameTop.verticalCenter
+                width: 20
+            }
+            Text {
+                id: lDate
+                anchors.left: lSpacer3.right
+                anchors.verticalCenter: frameTop.verticalCenter
+                font.pixelSize: 28
+                font.capitalization: Font.SmallCaps
+                font.bold: false
+                text: sessionData.datetime.substring(12)
+                opacity: 0.6
+            }
+
             Item {
                 id: rSpacer1
                 anchors.right: frameTop.right
