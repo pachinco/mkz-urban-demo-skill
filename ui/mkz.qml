@@ -385,14 +385,14 @@ Mycroft.Delegate {
             
             MapCircle {
                 id: carMarker
-                sourceItem: Image {
-                    id: dotMarker
-                    source: Qt.resolvedUrl("../images/Map_pin_green.png")
-                    source: "../images/car-marker.png"
-                    height: 50
-                    fillMode: Image.PreserveAspectFit
-                    opacity: 1.0
-                }
+//                 sourceItem: Image {
+//                     id: dotMarker
+//                     source: Qt.resolvedUrl("../images/Map_pin_green.png")
+//                     source: "../images/car-marker.png"
+//                     height: 50
+//                     fillMode: Image.PreserveAspectFit
+//                     opacity: 1.0
+//                 }
                 color: "#f92469"
                 radius: 20
                 coordinate: QtPositioning.coordinate(37.3963974,-122.035018)
