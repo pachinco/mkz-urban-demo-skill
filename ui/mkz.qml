@@ -212,7 +212,7 @@ Mycroft.Delegate {
                 },
                 State {
                     name: "navigating"
-                    PropertyChanges { target: map; tilt: 60; zoomLevel: 18 }
+                    PropertyChanges { target: map; tilt: 60; zoomLevel: 17 }
                 }
             ]
 
