@@ -379,7 +379,7 @@ Mycroft.Delegate {
                 console.log("start: "+startMarker.coordinate);
                 console.log("end: "+endMarker.coordinate);
                 routeQuery.addWaypoint(startMarker.coordinate);
-                routeQuery.addWaypoint(carMarker.center);
+//                 routeQuery.addWaypoint(carMarker.center);
                 routeQuery.addWaypoint(endMarker.coordinate);
             }
             
