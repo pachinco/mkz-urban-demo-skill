@@ -621,10 +621,10 @@ Mycroft.Delegate {
                     target: actionsView
                     height: parent.height*0.75
                 }
-                PropertyChanges {
-                    target: uiStage
-                    opacity: 0.5
-                }
+//                 PropertyChanges {
+//                     target: uiStage
+//                     opacity: 0.5
+//                 }
                 PropertyChanges {
                     target: carBackshade
                     opacity: 0.5
@@ -653,7 +653,6 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: actionsView; property: "height"; duration: 500 }
                         NumberAnimation { target: carBackshade; properties: "opacity"; duration: 500 }
                     }
@@ -663,8 +662,10 @@ Mycroft.Delegate {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: actionsView; property: "height"; duration: 500 }
-                    NumberAnimation { target: carBackshade; properties: "opacity"; duration: 500 }
+                    ParallelAnimation {
+                        NumberAnimation { target: actionsView; property: "height"; duration: 500 }
+                        NumberAnimation { target: carBackshade; properties: "opacity"; duration: 500 }
+                    }
                     PropertyAction {
                         target: carFrame
                         property: "visible"
@@ -784,7 +785,7 @@ Mycroft.Delegate {
                     height: parent.height*0.75
                 }
                 PropertyChanges {
-                    target: uiStage
+                    target: configBackshade
                     opacity: 0.5
                 }
             },
@@ -793,6 +794,10 @@ Mycroft.Delegate {
                 PropertyChanges {
                     target: configView
                     height: 0
+                }
+                PropertyChanges {
+                    target: configBackshade
+                    opacity: 0
                 }
             }
         ]
@@ -807,8 +812,8 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: configView; property: "height"; duration: 500 }
+                        NumberAnimation { target: configBackshade; properties: "opacity"; duration: 500 }
                     }
                 }
             },
@@ -816,7 +821,10 @@ Mycroft.Delegate {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: configView; property: "height"; duration: 500 }
+                    ParallelAnimation {
+                        NumberAnimation { target: configView; property: "height"; duration: 500 }
+                        NumberAnimation { target: configBackshade; properties: "opacity"; duration: 500 }
+                    }
                     PropertyAction {
                         target: configView
                         property: "visible"
@@ -825,6 +833,12 @@ Mycroft.Delegate {
                 }
             }
         ]
+        Rectangle {
+            id: configBackshade
+            anchors.fill: parent
+            z: -1
+            color: "#000000"
+        }
         Component {
             id: configDelegate
             Item {
