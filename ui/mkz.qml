@@ -1200,6 +1200,7 @@ Mycroft.Delegate {
 
                             Image {
                                 id: prevTrack
+                                anchors.left: parent.left
                                 source: "../images/rewind.png"
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.leftMargin: 20
@@ -1220,8 +1221,10 @@ Mycroft.Delegate {
                                 }
                             }
 
-                            Rectangle{
+                            Rectangle {
+                                id: ppTrack
                                 width: 30
+                                anchors.left: prevTrack.right
                                 anchors.verticalCenter: parent.verticalCenter
                                 Image {
                                     id: playPause
@@ -1248,6 +1251,7 @@ Mycroft.Delegate {
 
                             Image {
                                 id: nextTrack
+                                anchors.left: ppTrack.right
                                 source: "../images/forward.png"
                                 anchors.verticalCenter: parent.verticalCenter
                                 state: "none"
