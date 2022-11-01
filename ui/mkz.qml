@@ -980,7 +980,7 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: musicView
-                    height: parent.height*0.75
+                    opacity: 1
                 }
                 PropertyChanges {
                     target: musicBackshade
@@ -991,7 +991,7 @@ Mycroft.Delegate {
                 name: "INACTIVE"
                 PropertyChanges {
                     target: musicView
-                    height: 0
+                    opacity: 0
                 }
                 PropertyChanges {
                     target: musicBackshade
@@ -1005,12 +1005,12 @@ Mycroft.Delegate {
                 to: "ACTIVE"
                 SequentialAnimation {
                     PropertyAction {
-                        target: statusView
+                        target: musicView
                         property: "visible"
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: statusView; property: "height"; duration: 500 }
+                        NumberAnimation { target: musicView; property: "opacity"; duration: 500 }
                         NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                 }
@@ -1020,11 +1020,11 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     ParallelAnimation {
-                        NumberAnimation { target: statusView; property: "height"; duration: 500 }
+                        NumberAnimation { target: musicView; property: "opacity"; duration: 500 }
                         NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                     PropertyAction {
-                        target: statusView
+                        target: musicView
                         property: "visible"
                         value: false
                     }
