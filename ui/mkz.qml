@@ -151,7 +151,7 @@ Mycroft.Delegate {
         Colorize {
             anchors.fill: mkzImage
             source: mkzImage
-            saturation: (night) 0.5 : 1
+            saturation: (night) ? 0.5 : 1
         }
     }
 
