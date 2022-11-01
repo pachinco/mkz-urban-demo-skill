@@ -963,7 +963,7 @@ Mycroft.Delegate {
             width: parent.width*0.5
             height: parent.height*0.75
             model: sessionData.statusList
-            delegate: statusDelegate
+//             delegate: statusDelegate
 //             cellWidth: width
 //             cellHeight: height/8
         }
