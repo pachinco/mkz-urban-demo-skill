@@ -1144,10 +1144,10 @@ Mycroft.Delegate {
 
                 Item { // RowLayout
                     id: wrapper
-//                     anchors.fill: parent
-                    anchors.left: parent.left
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
+                    anchors.fill: parent
+//                     anchors.left: parent.left
+//                     anchors.top: parent.top
+//                     anchors.bottom: parent.bottom
 
                     Rectangle {
                         id: leftWrapper
