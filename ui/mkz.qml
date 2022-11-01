@@ -1258,11 +1258,15 @@ Mycroft.Delegate {
                             }
 
                             Item {
-                                Layout.fillWidth: true
+//                                 Layout.fillWidth: true
+                                anchors.left: parent.left
+                                anchors.right: parent.right
 
                                 ColumnLayout {
                                     anchors.verticalCenter: parent.verticalCenter
-                                    Layout.fillWidth: true
+//                                     Layout.fillWidth: true
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
 
                                     Text {
                                         id: trackTitle
@@ -1313,9 +1317,12 @@ Mycroft.Delegate {
 
                         RowLayout {
                             id: lowerWrap
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: 40
-                            Layout.leftMargin: 20
+//                             Layout.fillWidth: true
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+//                             Layout.preferredHeight: 40
+//                             Layout.leftMargin: 20
+                            anchors.verticalCenter: parent.verticalCenter
                             spacing: 15
 
                             Text {
@@ -1327,7 +1334,9 @@ Mycroft.Delegate {
                             }
 
                             SliderBar{
-                                Layout.fillWidth: true
+//                                 Layout.fillWidth: true
+                                anchors.left: parent.left
+                                anchors.right: parent.right
                                 audioPlayer: player
                                 bgImg: "../images/slider_background.png"
                                 bufferImg: "../images/slider_value_right.png"
