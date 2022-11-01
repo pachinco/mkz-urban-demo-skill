@@ -150,6 +150,7 @@ Mycroft.Delegate {
             z: -8
         }
         ColorOverlay {
+            anchors.fill: mkzImage
             source: mkzImage
             color: (night) ? "#80808080" : "#00000000"
         }
