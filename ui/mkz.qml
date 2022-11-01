@@ -148,11 +148,11 @@ Mycroft.Delegate {
             fillMode: Image.PreserveAspectFit
             mipmap: true
             z: -8
-        }
-        ColorOverlay {
-            anchors.fill: mkzImage
-            source: mkzImage
-            color: (night) ? "#80000000" : "#00000000"
+            ColorOverlay {
+                anchors.fill: mkzImage
+                source: mkzImage
+                color: (night) ? "#80000000" : "#00000000"
+            }
         }
     }
 
