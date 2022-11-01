@@ -148,6 +148,11 @@ Mycroft.Delegate {
             fillMode: Image.PreserveAspectFit
             z: -8
         }
+        Colorize {
+            anchors.fill: mkzImage
+            source: mkzImage
+            saturation: (night) 0.5 : 1
+        }
     }
 
     Item {
