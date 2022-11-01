@@ -494,7 +494,7 @@ Mycroft.Delegate {
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
-                font.weight: Font.ExtraLight
+                font.weight: Font.Thin
                 text: sessionData.datetime.substring(5,7)
                 opacity: (night) ? 1 : 0.6
             }
@@ -529,7 +529,7 @@ Mycroft.Delegate {
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
-                font.weight: Font.ExtraLight
+                font.weight: Font.Thin
                 text: sessionData.datetime.substring(12)
                 opacity: (night) ? 1 : 0.6
             }
