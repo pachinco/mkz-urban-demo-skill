@@ -794,7 +794,7 @@ Mycroft.Delegate {
                         anchors.horizontalCenter: parent.horizontalCenter
                         height: Kirigami.Units.gridUnit
                     }
-                    Kirigami.Heading {
+                    Text {
                         id: actionsLabel
                         anchors.top: actionSpacer2.bottom
                         anchors.horizontalCenter: parent.horizontalCenter
