@@ -1192,7 +1192,7 @@ Mycroft.Delegate {
 //                             Layout.fillWidth: true
 //                             Layout.preferredHeight: 100
 //                             Layout.leftMargin: 20
-                            spacing: 25
+//                             spacing: 25
 
                             Image {
                                 id: prevTrack
