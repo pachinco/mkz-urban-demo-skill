@@ -781,6 +781,11 @@ Mycroft.Delegate {
                         source: Qt.resolvedUrl(model.image)
                         height: Kirigami.Units.gridUnit * 5
                         fillMode: Image.PreserveAspectFit
+                        ColorOverlay {
+                            anchors.fill: actionIcon
+                            source: actionIcon
+                            color: (night) ? "#401e373a" : "#00000000"
+                        }
                     }
                     Item {
                         id: actionSpacer2
