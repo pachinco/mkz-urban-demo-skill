@@ -146,6 +146,7 @@ Mycroft.Delegate {
             id: mkzImage
             source: "../images/Lincoln-UPower.png"
             fillMode: Image.PreserveAspectFit
+            pixmap: true
             z: -8
         }
         ColorOverlay {
