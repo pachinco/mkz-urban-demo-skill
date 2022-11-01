@@ -1048,7 +1048,7 @@ Mycroft.Delegate {
             property int index: -1
             property MediaPlayer mediaPlayer: player
             property FolderListModel items: FolderListModel {
-                folder: "music"
+                folder: "../music"
                 nameFilters: ["*.mp3"]
             }
 
@@ -1264,7 +1264,7 @@ Mycroft.Delegate {
                                         id: trackTitle
                                         text: player.metaData.title ? player.metaData.title : "Song title unavailable"
                                         color: "#eeeeee"
-                                        font.family: appFont.name
+//                                         font.family: appFont.name
                                         font.pointSize: 17
                                         font.bold: true
                                         style: Text.Raised
@@ -1275,7 +1275,7 @@ Mycroft.Delegate {
                                         id: trackAlbum
                                         text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
                                         color: "steelblue"
-                                        font.family: appFont.name
+//                                         font.family: appFont.name
                                         font.pointSize: 17
                                         font.bold: true
                                         style: Text.Raised
@@ -1317,7 +1317,7 @@ Mycroft.Delegate {
                             Text {
                                 id: currentTime
                                 text: playLogic.msToTime(player.position)
-                                font.family: appFont.name
+//                                 font.family: appFont.name
                                 color: "#dedede"
                                 font.pointSize: 18
                             }
@@ -1334,7 +1334,7 @@ Mycroft.Delegate {
                             Text {
                                 id: totalTime
                                 text: playLogic.msToTime(player.duration)
-                                font.family: appFont.name
+//                                 font.family: appFont.name
                                 color: "#dedede"
                                 font.pointSize: 18
                             }
