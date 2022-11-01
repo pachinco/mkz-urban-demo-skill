@@ -979,7 +979,7 @@ Mycroft.Delegate {
             State {
                 name: "ACTIVE"
                 PropertyChanges {
-                    target: statusView
+                    target: musicView
                     height: parent.height*0.75
                 }
                 PropertyChanges {
@@ -990,7 +990,7 @@ Mycroft.Delegate {
             State {
                 name: "INACTIVE"
                 PropertyChanges {
-                    target: statusView
+                    target: musicView
                     height: 0
                 }
                 PropertyChanges {
@@ -1048,7 +1048,7 @@ Mycroft.Delegate {
             property int index: -1
             property MediaPlayer mediaPlayer: player
             property FolderListModel items: FolderListModel {
-                folder: "../music"
+                folder: Qt.resolvedUrl("../music")
                 nameFilters: ["*.mp3"]
             }
 
@@ -1130,7 +1130,7 @@ Mycroft.Delegate {
 //         }
 
         Image {
-            id: foreground
+            id: musicView
             source: "../images/bar.png"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -1139,8 +1139,8 @@ Mycroft.Delegate {
                 id: container
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                width: foreground.implicitWidth - 80
-                height: foreground.implicitHeight - 60
+                width: musicView.implicitWidth - 80
+                height: musicView.implicitHeight - 60
 
                 RowLayout {
                     id: wrapper
