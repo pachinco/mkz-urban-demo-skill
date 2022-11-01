@@ -117,7 +117,7 @@ class MkzUrbanDemo(MycroftSkill):
     def _back_config(self):
         self.gui["uiIdx"] = 0
         self.schedule_event(self._back_home, 5)
-        self.gui["statusList"] = [{"text": "▾ Vehicle ✓"},
+        self.gui["statusList"] = [{"text": "▾ Vehicle ❌"},
                                   {"text": "▾   Doors ❌"},
                                   {"text": "      Front Left ❌"},
                                   {"text": "      Front Right ✓"},
