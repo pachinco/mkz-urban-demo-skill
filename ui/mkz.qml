@@ -1151,6 +1151,9 @@ Mycroft.Delegate {
 
                     Rectangle {
                         id: leftWrapper
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
                         height: 126
                         width: 126
                         radius: 7
@@ -1179,6 +1182,7 @@ Mycroft.Delegate {
                         anchors.left: leftWrapper.right
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
+                        anchors.right: parent.right
 //                         anchors.fill: parent
 //                         Layout.fillWidth: true
 //                         Layout.fillHeight: true
