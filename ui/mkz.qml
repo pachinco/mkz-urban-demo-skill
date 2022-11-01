@@ -956,7 +956,7 @@ Mycroft.Delegate {
                 }
             }
         }
-        GridView {
+        TreeView {
             id: statusView
             anchors.left: parent.left
             anchors.bottom: parent.bottom
