@@ -7,6 +7,7 @@ import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 import QtPositioning 5.12
 import QtLocation 5.12
+import QMLTreeView 1.0
 
 Mycroft.Delegate {
     id: homescreen
