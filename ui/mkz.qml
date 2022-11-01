@@ -1173,14 +1173,18 @@ Mycroft.Delegate {
 
                     ColumnLayout {
                         id: rightWapper
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
+                        anchors.fill: parent
+//                         Layout.fillWidth: true
+//                         Layout.fillHeight: true
 
                         RowLayout {
                             id: upperWrap
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: 100
-                            Layout.leftMargin: 20
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+//                             Layout.fillWidth: true
+//                             Layout.preferredHeight: 100
+//                             Layout.leftMargin: 20
                             spacing: 25
 
                             Image {
