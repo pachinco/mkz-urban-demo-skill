@@ -936,14 +936,14 @@ Mycroft.Delegate {
                         anchors.verticalCenter: statusButton.verticalCenter
                         width: Kirigami.Units.gridUnit
                     }
-                    Kirigami.Heading {
+                    Text {
                         id: statusLabel
                         anchors.left: statusSpacer1.right
                         anchors.verticalCenter: statusButton.verticalCenter
                         text: model.text
                         color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#c0f00000"
                         font.bold: (model.text.substring(model.text.length-1)==="✓") ? false : true
-                        font.pixelSize: Kirigami.Units.gridUnit
+                        font.pointSize: Kirigami.Units.gridUnit
                     }
                     MouseArea {
                         id: statusMouse
