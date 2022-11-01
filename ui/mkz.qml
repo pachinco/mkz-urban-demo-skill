@@ -319,8 +319,7 @@ Mycroft.Delegate {
 
             function updateRoute() {
                 routeQuery.clearWaypoints();
-                console.log("start: "+startMarker.coordinate);
-                console.log("end: "+endMarker.coordinate);
+//                 console.log("start: "+startMarker.coordinate+" / end: "+endMarker.coordinate);
                 routeQuery.addWaypoint(startMarker.coordinate);
 //                 routeQuery.addWaypoint(carMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
@@ -495,6 +494,7 @@ Mycroft.Delegate {
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
+                font.weight: Font.ExtraLight
                 text: sessionData.datetime.substring(5,7)
                 opacity: (night) ? 1 : 0.6
             }
@@ -529,6 +529,7 @@ Mycroft.Delegate {
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
+                font.weight: Font.ExtraLight
                 text: sessionData.datetime.substring(12)
                 opacity: (night) ? 1 : 0.6
             }
