@@ -1135,19 +1135,22 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
 
-            ColumnLayout {
+            Item { // ColumnLayout
                 id: container
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
                 width: musicView.implicitWidth - 80
                 height: musicView.implicitHeight - 60
 
-                RowLayout {
+                Item { // RowLayout
                     id: wrapper
-                    anchors.fill: parent
+//                     anchors.fill: parent
+                    anchors.left: parent.left
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
 
                     Rectangle {
-                        id: leftWapper
+                        id: leftWrapper
                         height: 126
                         width: 126
                         radius: 7
@@ -1171,17 +1174,21 @@ Mycroft.Delegate {
 
                     }
 
-                    ColumnLayout {
-                        id: rightWapper
-                        anchors.fill: parent
+                    Item { // ColumnLayout
+                        id: rightWrapper
+                        anchors.left: leftWrapper.right
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+//                         anchors.fill: parent
 //                         Layout.fillWidth: true
 //                         Layout.fillHeight: true
 
-                        RowLayout {
+                        Item { // RowLayout
                             id: upperWrap
                             anchors.left: parent.left
                             anchors.right: parent.right
-                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.top: parent.top
+//                             anchors.verticalCenter: parent.verticalCenter
 //                             Layout.fillWidth: true
 //                             Layout.preferredHeight: 100
 //                             Layout.leftMargin: 20
@@ -1257,39 +1264,39 @@ Mycroft.Delegate {
                                 }
                             }
 
-                            Item {
-//                                 Layout.fillWidth: true
-                                anchors.left: parent.left
-                                anchors.right: parent.right
-
-                                ColumnLayout {
-                                    anchors.verticalCenter: parent.verticalCenter
+                            Item { // RowLayout
+                                id: titleAlbum
+                                anchors.top: parent.top
+                                anchors.bottom: parent.bottom
 //                                     Layout.fillWidth: true
-                                    anchors.left: parent.left
-                                    anchors.right: parent.right
+                                anchors.left: nextTrack.right
 
-                                    Text {
-                                        id: trackTitle
-                                        text: player.metaData.title ? player.metaData.title : "Song title unavailable"
-                                        color: "#eeeeee"
+                                Text {
+                                    id: trackTitle
+                                    anchors.left: parent.left
+                                    anchors.top: parent.top
+                                    text: player.metaData.title ? player.metaData.title : "Song title unavailable"
+                                    color: "#eeeeee"
 //                                         font.family: appFont.name
-                                        font.pointSize: 17
-                                        font.bold: true
-                                        style: Text.Raised
-                                        styleColor: "#111111"
-                                        wrapMode: Text.Wrap
-                                    }
-                                    Text {
-                                        id: trackAlbum
-                                        text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
-                                        color: "steelblue"
+                                    font.pointSize: 17
+                                    font.bold: true
+                                    style: Text.Raised
+                                    styleColor: "#111111"
+                                    wrapMode: Text.Wrap
+                                }
+                                Text {
+                                    id: trackAlbum
+                                    anchors.left: parent.left
+                                    anchors.bottom: parent.bottom
+                                    anchors.top: trackTitle.bottom
+                                    text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
+                                    color: "steelblue"
 //                                         font.family: appFont.name
-                                        font.pointSize: 17
-                                        font.bold: true
-                                        style: Text.Raised
-                                        styleColor: "#111111"
-                                        wrapMode: Text.Wrap
-                                    }
+                                    font.pointSize: 17
+                                    font.bold: true
+                                    style: Text.Raised
+                                    styleColor: "#111111"
+                                    wrapMode: Text.Wrap
                                 }
                             }
 
@@ -1297,6 +1304,8 @@ Mycroft.Delegate {
                                 id: shareTrack
                                 source: "../images/share.png"
                                 anchors.verticalCenter: parent.verticalCenter
+                                anchors.left: titleAlbum.right
+                                anchors.right: parent.right
                                 state: "none"
 
                                 MouseArea {
@@ -1315,18 +1324,21 @@ Mycroft.Delegate {
                             }
                         }
 
-                        RowLayout {
+                        Item { // RowLayout
                             id: lowerWrap
 //                             Layout.fillWidth: true
                             anchors.left: parent.left
                             anchors.right: parent.right
 //                             Layout.preferredHeight: 40
 //                             Layout.leftMargin: 20
-                            anchors.verticalCenter: parent.verticalCenter
-                            spacing: 15
+                            anchors.top: upperWrap.bottom
+                            anchors.bottom: parent.bottom
+//                             spacing: 15
 
                             Text {
                                 id: currentTime
+                                anchors.left: parent.left
+                                anchors.verticalCenter: parent.verticalCenter
                                 text: playLogic.msToTime(player.position)
 //                                 font.family: appFont.name
                                 color: "#dedede"
@@ -1335,8 +1347,9 @@ Mycroft.Delegate {
 
                             SliderBar{
 //                                 Layout.fillWidth: true
-                                anchors.left: parent.left
-                                anchors.right: parent.right
+                                anchors.left: currentTime.right
+                                anchors.right: totalTime.left
+                                anchors.verticalCenter: parent.verticalCenter
                                 audioPlayer: player
                                 bgImg: "../images/slider_background.png"
                                 bufferImg: "../images/slider_value_right.png"
@@ -1346,6 +1359,8 @@ Mycroft.Delegate {
 
                             Text {
                                 id: totalTime
+                                anchors.right: parent.right
+                                anchors.verticalCenter: parent.verticalCenter
                                 text: playLogic.msToTime(player.duration)
 //                                 font.family: appFont.name
                                 color: "#dedede"
