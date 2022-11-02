@@ -1234,7 +1234,7 @@ Mycroft.Delegate {
                 height: Kirigami.Units.gridUnit
                 Rectangle {
                     anchors.fill: parent
-                    height: 8
+                    height: 5
                     color: "#80000000"
                     Rectangle {
                         anchors.left: parent.left
@@ -1245,39 +1245,13 @@ Mycroft.Delegate {
                     }
                 }
             }
-//             ProgressBar {
-//                 id: musicProgress
-//                 anchors.left: parent.left
-//                 anchors.right: parent.right
-//                 anchors.top: artistWrapper.bottom
-//                 anchors.topMargin: Kirigami.Units.gridUnit*0.6
-//                 anchors.leftMargin: Kirigami.Units.gridUnit
-//                 anchors.rightMargin: Kirigami.Units.gridUnit
-//                 to: player.duration
-//                 value: player.position/player.duration
-//                 background: Rectangle {
-//                     implicitWidth: 200
-//                     implicitHeight: 8
-//                     color: "#e6e6e6"
-//                 }
-//                 contentItem: Item {
-//                     implicitWidth: 200
-//                     implicitHeight: 6
-// 
-//                     Rectangle {
-//                         width: control.visualPosition * parent.width
-//                         height: parent.height
-//                         color: (night) ? "#e8fffc" : "#c0000000"
-//                     }
-//                 }
-//             }
 
             Item { // music time
                 id: timeWrap
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: musicProgress.top
-                anchors.topMargin: musicProgress.height*0.5
+                anchors.topMargin: musicProgress.height
 //                 anchors.margins: Kirigami.Units.gridUnit
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
