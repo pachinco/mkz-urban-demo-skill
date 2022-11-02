@@ -817,7 +817,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.7
 //             height: parent.height*0.75
-//             height: 0
+            height: 0
             model: sessionData.actionsList
             delegate: actionDelegate
             cellWidth: width/3
