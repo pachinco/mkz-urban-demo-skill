@@ -1015,8 +1015,8 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: musicView; property: "opacity, height"; duration: 500 }
-                        NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: musicView; property: "opacity, height"; duration: 5000 }
+                        NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 5000 }
                     }
                 }
             },
@@ -1025,8 +1025,8 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     ParallelAnimation {
-                        NumberAnimation { target: musicView; property: "opacity, height"; duration: 500 }
-                        NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: musicView; property: "opacity, height"; duration: 5000 }
+                        NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 5000 }
                     }
                     PropertyAction {
                         target: musicView
@@ -1231,7 +1231,7 @@ Mycroft.Delegate {
                 anchors.topMargin: Kirigami.Units.gridUnit*0.6
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
-                value: player.position/player.duration
+                value: (double)player.position/(double)player.duration
 //                 background: Rectangle {
 //                     implicitWidth: 200
 //                     implicitHeight: 8
