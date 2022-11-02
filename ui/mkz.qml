@@ -1210,7 +1210,7 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.bottom: trackAlbum.top
                         anchors.right: parent.right
-                        text: player.metaData.title ? player.metaData.title : "Song title unavailable"
+                        text: player.metaData.title ? player.metaData.title : "Song album unavailable"
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.pointSize: 20
@@ -1231,7 +1231,7 @@ Mycroft.Delegate {
                 anchors.topMargin: Kirigami.Units.gridUnit*0.6
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
-                value: 1.0*mediaPlayer.position/mediaPlayer.duration
+                value: player.position/player.duration
 //                 background: Rectangle {
 //                     implicitWidth: 200
 //                     implicitHeight: 8
