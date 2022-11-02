@@ -1231,6 +1231,7 @@ Mycroft.Delegate {
                 anchors.topMargin: Kirigami.Units.gridUnit*0.6
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
+                height: Kirigami.Units.gridUnit
                 Rectangle {
                     anchors.fill: parent
                     height: 8
