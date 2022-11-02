@@ -1231,7 +1231,8 @@ Mycroft.Delegate {
                 anchors.topMargin: Kirigami.Units.gridUnit*0.6
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
-                visialPosition: player.position/player.duration
+                to: player.duration
+                value: player.position
 //                 background: Rectangle {
 //                     implicitWidth: 200
 //                     implicitHeight: 8
