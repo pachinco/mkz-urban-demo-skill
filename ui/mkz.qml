@@ -1232,24 +1232,21 @@ Mycroft.Delegate {
                 anchors.right: parent.right
                 anchors.top: topWrapper.bottom
                 value: playLogic.msToTime(player.position)/playLogic.msToTime(player.duration)
-                background: Rectangle {
-                    implicitWidth: 200
-                    implicitHeight: 8
-                    color: "#e6e6e6"
-//                     radius: 3
-                }
-
-                contentItem: Item {
-                    implicitWidth: 200
-                    implicitHeight: 6
-
-                    Rectangle {
-                        width: control.visualPosition * parent.width
-                        height: parent.height
-//                         radius: 2
-                        color: (night) ? "#e8fffc" : "#c0000000"
-                    }
-                }
+//                 background: Rectangle {
+//                     implicitWidth: 200
+//                     implicitHeight: 8
+//                     color: "#e6e6e6"
+//                 }
+//                 contentItem: Item {
+//                     implicitWidth: 200
+//                     implicitHeight: 6
+// 
+//                     Rectangle {
+//                         width: control.visualPosition * parent.width
+//                         height: parent.height
+//                         color: (night) ? "#e8fffc" : "#c0000000"
+//                     }
+//                 }
             }
 
             Rectangle { // music time
