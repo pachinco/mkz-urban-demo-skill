@@ -1287,7 +1287,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: timeWrap.bottom
-                anchors.margins: Kirigami.Units.gridUnit
+                anchors.margins: Kirigami.Units.gridUnit*2
                 height: ppTrack.height
                 color: "#80000080"
 
