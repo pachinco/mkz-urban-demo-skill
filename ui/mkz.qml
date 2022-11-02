@@ -713,7 +713,7 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: actionsView; property: "height"; duration: 500 }
+                        NumberAnimation { target: actionsView; properties: "height"; duration: 500 }
                         NumberAnimation { target: carBackshade; properties: "opacity"; duration: 500 }
                     }
                 }
@@ -723,7 +723,7 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     ParallelAnimation {
-                        NumberAnimation { target: actionsView; property: "height"; duration: 500 }
+                        NumberAnimation { target: actionsView; properties: "height"; duration: 500 }
                         NumberAnimation { target: carBackshade; properties: "opacity"; duration: 500 }
                     }
                     PropertyAction {
@@ -747,7 +747,7 @@ Mycroft.Delegate {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
-                visible: false
+//                 visible: false
                 Rectangle {
                     id: actionsButton
                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
@@ -815,7 +815,7 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             width: parent.width*0.7
-//             height: parent.height*0.75
+            height: parent.height*0.75
 //             height: 0
             model: sessionData.actionsList
             delegate: actionDelegate
