@@ -820,7 +820,7 @@ Mycroft.Delegate {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             width: parent.width*0.7
-            height: parent.height*0.75
+//             height: parent.height*0.75
             model: sessionData.actionsList
             delegate: actionDelegate
             cellWidth: width/3
@@ -963,7 +963,7 @@ Mycroft.Delegate {
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             width: parent.width*0.5
-            height: parent.height*0.75
+//             height: parent.height*0.75
             model: sessionData.statusList
             delegate: statusDelegate
             cellWidth: width
@@ -1157,6 +1157,7 @@ Mycroft.Delegate {
                 id: container
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: parent.top
+                anchors.bottom: parent.bottom
                 width: musicView.width-Kirigami.Units.gridUnit*2
 //                 height: topWrapper.height+Kirigami.Units.gridUnit
                 color: "#f0f0f0"
