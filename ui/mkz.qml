@@ -1153,7 +1153,7 @@ Mycroft.Delegate {
                 radius: 10
                 samples: 21
             }
-            Rectangle { // Artist picture + title/album
+            Item { // Artist picture + title/album
                 id: artistWrapper
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -1250,12 +1250,12 @@ Mycroft.Delegate {
 //                 }
             }
 
-            Rectangle { // music time
+            Item { // music time
                 id: timeWrap
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: musicProgress.top
-                anchors.topMargin: musicProgress.height*0.7
+                anchors.topMargin: musicProgress.height*0.6
 //                 anchors.margins: Kirigami.Units.gridUnit
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
@@ -1282,14 +1282,13 @@ Mycroft.Delegate {
                 }
             }
 
-            Rectangle { // music controls
+            Item { // music controls
                 id: buttonWrapper
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: timeWrap.bottom
                 anchors.margins: Kirigami.Units.gridUnit*2
                 height: ppTrack.height
-                color: "#80000080"
 
                 Image {
                     id: prevTrack
