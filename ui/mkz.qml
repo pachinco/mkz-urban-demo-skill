@@ -1,6 +1,6 @@
 import QtQuick 2.4
-import QtQuick.Layouts 1.4
-import QtQuick.Controls 1.4
+import QtQuick.Layouts 2.15
+import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
 import org.kde.kirigami 2.9 as Kirigami
@@ -1232,7 +1232,7 @@ Mycroft.Delegate {
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
                 to: player.duration
-                value: player.position
+                position: player.position //player.duration
 //                 background: Rectangle {
 //                     implicitWidth: 200
 //                     implicitHeight: 8
