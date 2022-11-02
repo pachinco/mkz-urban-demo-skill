@@ -752,7 +752,7 @@ Mycroft.Delegate {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
-                visible: false
+                visible= false
                 Rectangle {
                     id: actionsButton
                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
@@ -1289,7 +1289,8 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: timeWrap.bottom
-                anchors.margins: Kirigami.Units.gridUnit*2
+                anchors.leftMargin: Kirigami.Units.gridUnit*10
+                anchors.rightMargin: Kirigami.Units.gridUnit*10
                 height: ppTrack.height
 
                 Image {
