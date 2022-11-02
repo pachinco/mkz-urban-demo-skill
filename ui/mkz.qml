@@ -1223,7 +1223,7 @@ Mycroft.Delegate {
                     }
                 }
             }
-            ProgressBar {
+            Item {
                 id: musicProgress
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -1231,8 +1231,28 @@ Mycroft.Delegate {
                 anchors.topMargin: Kirigami.Units.gridUnit*0.6
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
-                to: player.duration
-                position: player.position //player.duration
+                Rectangle {
+                    anchors.fill: parent
+                    color: "#80000000"
+                    Rectangle {
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        width: parent.width*player.position/player.duration
+                        color: (night) ? "#e8fffc" : "#c0000000"
+                    }
+                }
+            }
+//             ProgressBar {
+//                 id: musicProgress
+//                 anchors.left: parent.left
+//                 anchors.right: parent.right
+//                 anchors.top: artistWrapper.bottom
+//                 anchors.topMargin: Kirigami.Units.gridUnit*0.6
+//                 anchors.leftMargin: Kirigami.Units.gridUnit
+//                 anchors.rightMargin: Kirigami.Units.gridUnit
+//                 to: player.duration
+//                 value: player.position/player.duration
 //                 background: Rectangle {
 //                     implicitWidth: 200
 //                     implicitHeight: 8
