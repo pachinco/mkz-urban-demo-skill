@@ -1159,7 +1159,7 @@ Mycroft.Delegate {
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.margins: Kirigami.Units.gridUnit*2
-                height: 150
+                height: topLeftWrapper.height
                 color: "#80800000"
 
                 Rectangle { // Artist picture
@@ -1195,7 +1195,7 @@ Mycroft.Delegate {
 //                                     Layout.fillWidth: true
                     anchors.left: topLeftWrapper.right
                     anchors.right: parent.right
-                    anchors.leftMargin: Kirigami.Units.gridUnit*2
+                    anchors.leftMargin: Kirigami.Units.gridUnit
 
                     Text {
                         id: trackAlbum
@@ -1231,7 +1231,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: artistWrapper.bottom
-                anchors.margins: Kirigami.Units.gridUnit*2
+                anchors.margins: Kirigami.Units.gridUnit
                 value: playLogic.msToTime(player.position/player.duration)
 //                 background: Rectangle {
 //                     implicitWidth: 200
@@ -1260,7 +1260,7 @@ Mycroft.Delegate {
                 anchors.top: musicProgress.bottom
 //                     anchors.bottom: parent.bottom
 //                             spacing: 15
-                anchors.margins: Kirigami.Units.gridUnit*2
+                anchors.margins: Kirigami.Units.gridUnit
                 color: "#80008000"
 
                 Text {
