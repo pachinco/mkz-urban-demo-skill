@@ -747,7 +747,7 @@ Mycroft.Delegate {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
-//                 visible= false
+                visible: false
                 Rectangle {
                     id: actionsButton
                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
@@ -816,7 +816,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.7
 //             height: parent.height*0.75
-            height: 0
+//             height: 0
             model: sessionData.actionsList
             delegate: actionDelegate
             cellWidth: width/3
@@ -1195,7 +1195,7 @@ Mycroft.Delegate {
                         id: trackAlbum
                         anchors.left: parent.left
                         anchors.bottom: parent.bottom
-                        text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
+                        text: player.metaData.albumTitle ? player.metaData.albumTitle : "Title unavailable"
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.capitalization: Font.SmallCaps
@@ -1210,7 +1210,7 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.bottom: trackAlbum.top
                         anchors.right: parent.right
-                        text: player.metaData.title ? player.metaData.title : "Song album unavailable"
+                        text: player.metaData.title ? player.metaData.title : "Album unavailable"
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.pointSize: 20
@@ -1264,7 +1264,7 @@ Mycroft.Delegate {
                     id: currentTime
                     anchors.left: parent.left
                     anchors.top: parent.top
-                    anchors.leftMargin: 3
+                    anchors.leftMargin: 2
                     text: playLogic.msToTime(player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
@@ -1275,7 +1275,7 @@ Mycroft.Delegate {
                     id: totalTime
                     anchors.right: parent.right
                     anchors.top: parent.top
-                    anchors.rightMargin: 3
+                    anchors.rightMargin: 2
                     text: "-"+playLogic.msToTime(player.duration-player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
