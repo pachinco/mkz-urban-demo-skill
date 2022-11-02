@@ -747,7 +747,7 @@ Mycroft.Delegate {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
-//                 visible: false
+                visible: false
                 Rectangle {
                     id: actionsButton
                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
@@ -1231,7 +1231,8 @@ Mycroft.Delegate {
                 anchors.topMargin: Kirigami.Units.gridUnit*0.6
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
-                value: player.position/player.duration
+                to: player.duration
+                position: player.position
 //                 background: Rectangle {
 //                     implicitWidth: 200
 //                     implicitHeight: 8
