@@ -1228,7 +1228,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: artistWrapper.bottom
-                anchors.topMargin: Kirigami.Units.gridUnit
+                anchors.topMargin: Kirigami.Units.gridUnit*0.6
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
                 value: player.position/player.duration
@@ -1254,7 +1254,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: musicProgress.top
-                anchors.topMargin: musicProgress.height*0.6
+                anchors.topMargin: musicProgress.height*0.5
 //                 anchors.margins: Kirigami.Units.gridUnit
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
@@ -1264,6 +1264,7 @@ Mycroft.Delegate {
                     id: currentTime
                     anchors.left: parent.left
                     anchors.top: parent.top
+                    anchors.leftMargin: 5
                     text: playLogic.msToTime(player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
@@ -1274,6 +1275,7 @@ Mycroft.Delegate {
                     id: totalTime
                     anchors.right: parent.right
                     anchors.top: parent.top
+                    anchors.rightMargin: 5
                     text: "-"+playLogic.msToTime(player.duration-player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
@@ -1286,7 +1288,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: timeWrap.bottom
-                anchors.topMargin: Kirigami.Units.gridUnit*2
+                anchors.topMargin: Kirigami.Units.gridUnit*1.5
                 anchors.leftMargin: parent.width*0.2
                 anchors.rightMargin: parent.width*0.2
                 height: ppTrack.height
