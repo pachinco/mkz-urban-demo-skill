@@ -752,7 +752,7 @@ Mycroft.Delegate {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
-                visible: false
+//                 visible: false
                 Rectangle {
                     id: actionsButton
                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
@@ -983,6 +983,10 @@ Mycroft.Delegate {
                     opacity: 1
                 }
                 PropertyChanges {
+                    target: musicView
+                    height: 0.75
+                }
+                PropertyChanges {
                     target: musicBackshade
                     opacity: 0.5
                 }
@@ -992,6 +996,10 @@ Mycroft.Delegate {
                 PropertyChanges {
                     target: musicView
                     opacity: 0
+                }
+                PropertyChanges {
+                    target: musicView
+                    height: 0
                 }
                 PropertyChanges {
                     target: musicBackshade
@@ -1010,7 +1018,7 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: musicView; property: "opacity"; duration: 500 }
+                        NumberAnimation { target: musicView; property: "opacity, height"; duration: 500 }
                         NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                 }
@@ -1020,7 +1028,7 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     ParallelAnimation {
-                        NumberAnimation { target: musicView; property: "opacity"; duration: 500 }
+                        NumberAnimation { target: musicView; property: "opacity, height"; duration: 500 }
                         NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                     PropertyAction {
@@ -1129,28 +1137,40 @@ Mycroft.Delegate {
 //             source: "fonts/OpenSans-Regular.ttf"
 //         }
 
-        Image {
+        Rectangle {
             id: musicView
-            source: "../images/bar.png"
+            color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+            width: parent.width*0.5
+//             height: parent.height*0.75
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-
-            Item { // ColumnLayout
+            anchors.bottom: parent.bottom
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 6
+                verticalOffset: 6
+                color: "#80000000"
+                radius: 10
+                samples: 21
+            }
+            Rectangle { // ColumnLayout
                 id: container
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-                width: musicView.implicitWidth - 80
-                height: musicView.implicitHeight - 60
+                anchors.top: parent.top
+                width: musicView.width-Kirigami.Units.gridUnit*2
+                height: topWrapper.height+Kirigami.Units.gridUnit
+                color: "#f0f0f0"
 
-                Item { // RowLayout
-                    id: wrapper
-                    anchors.fill: parent
-//                     anchors.left: parent.left
-//                     anchors.top: parent.top
-//                     anchors.bottom: parent.bottom
+                Rectangle { // Artist picture + title/album
+                    id: topWrapper
+//                     anchors.fill: parent
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    color: "#e0e0e0"
 
-                    Rectangle {
-                        id: leftWrapper
+                    Rectangle { // Artist picture
+                        id: topLeftWrapper
                         anchors.left: parent.left
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
@@ -1174,214 +1194,183 @@ Mycroft.Delegate {
                                 anchors.margins: 2
                             }
                         }
-
                     }
-
-                    Item { // ColumnLayout
-                        id: rightWrapper
-                        anchors.left: leftWrapper.right
+                    Item { // title/album stack
+                        id: titleAlbum
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
+//                                     Layout.fillWidth: true
+                        anchors.left: topLeftWrapper.right
+
+                        Text {
+                            id: trackAlbum
+                            anchors.left: parent.left
+                            anchors.bottom: parent.bottom
+                            text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
+                            color: "steelblue"
+//                                         font.family: appFont.name
+                            font.pointSize: 17
+                            font.bold: true
+                            style: Text.Raised
+                            styleColor: "#111111"
+                            wrapMode: Text.Wrap
+                        }
+                        Text {
+                            id: trackTitle
+                            anchors.left: parent.left
+                            anchors.bottom: trackAlbum.top
+                            anchors.right: parent.right
+                            text: player.metaData.title ? player.metaData.title : "Song title unavailable"
+                            color: "#eeeeee"
+//                                         font.family: appFont.name
+                            font.pointSize: 17
+                            font.bold: true
+                            style: Text.Raised
+                            styleColor: "#111111"
+                            wrapMode: Text.Wrap
+                        }
+                    }
+                }
+                ProgressBar {
+                    id: musicProgress
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.top: topWrapper.bottom
+                    value: playLogic.msToTime(player.position)/playLogic.msToTime(player.duration)
+                }
+
+                Rectangle { // music time
+                    id: timeWrap
+//                             Layout.fillWidth: true
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+//                             Layout.preferredHeight: 40
+//                             Layout.leftMargin: 20
+                    anchors.top: musicProgress.bottom
+//                     anchors.bottom: parent.bottom
+//                             spacing: 15
+                    color: "#d0d0d0"
+
+                    Text {
+                        id: currentTime
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        text: playLogic.msToTime(player.position)
+//                                 font.family: appFont.name
+                        color: (night) ? "#e8fffc" : "#c0000000"
+                        font.pointSize: 18
+                    }
+
+                    Text {
+                        id: totalTime
                         anchors.right: parent.right
+                        anchors.top: parent.top
+                        text: "-"+playLogic.msToTime(player.duration)
+//                                 font.family: appFont.name
+                        color: (night) ? "#e8fffc" : "#c0000000"
+                        font.pointSize: 18
+                    }
+                }
+
+                Rectangle { // music controls
+                    id: buttonWrapper
+                    anchors.left: parent.left
+//                         anchors.top: parent.top
+                    anchors.top: timeWrap.bottom
+                    anchors.right: parent.right
 //                         anchors.fill: parent
 //                         Layout.fillWidth: true
 //                         Layout.fillHeight: true
+                    color: "#c0c0c0"
 
-                        Item { // RowLayout
-                            id: upperWrap
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.top: parent.top
+                    Rectangle { // RowLayout
+                        id: upperWrap
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.top: parent.top
 //                             anchors.verticalCenter: parent.verticalCenter
 //                             Layout.fillWidth: true
 //                             Layout.preferredHeight: 100
 //                             Layout.leftMargin: 20
 //                             spacing: 25
+                        color: "#b0b0b0"
 
-                            Image {
-                                id: prevTrack
-                                anchors.left: parent.left
-                                source: "../images/rewind.png"
-                                anchors.verticalCenter: parent.verticalCenter
-                                anchors.leftMargin: 20
-                                state: "none"
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: playLogic.previous()
-                                    onPressed: prevTrack.state = "pressed"
-                                    onReleased: prevTrack.state = "none"
-                                }
-                                states: State {
-                                    name: "pressed"
-                                    when: mouseArea.pressed
-                                    PropertyChanges { target: prevTrack; scale: 0.8 }
-                                }
-                                transitions: Transition {
-                                    NumberAnimation { properties: "scale"; duration: 100; easing.type: Easing.InOutQuad }
-                                }
-                            }
-
-                            Rectangle {
-                                id: ppTrack
-                                width: 30
-                                anchors.left: prevTrack.right
-                                anchors.verticalCenter: parent.verticalCenter
-                                Image {
-                                    id: playPause
-                                    source: "../images/play.png"
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    state: "none"
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: playLogic.init();
-                                        onPressed: playPause.state = "pressed"
-                                        onReleased: playPause.state = "none"
-                                    }
-                                    states: State {
-                                        name: "pressed"
-                                        when: mouseArea.pressed
-                                        PropertyChanges { target: playPause; scale: 0.8 }
-                                    }
-                                    transitions: Transition {
-                                        NumberAnimation { properties: "scale"; duration: 100; easing.type: Easing.InOutQuad }
-                                    }
-                                }
-                            }
-
-                            Image {
-                                id: nextTrack
-                                anchors.left: ppTrack.right
-                                source: "../images/forward.png"
-                                anchors.verticalCenter: parent.verticalCenter
-                                state: "none"
-
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: playLogic.next()
-                                    onPressed: nextTrack.state = "pressed"
-                                    onReleased: nextTrack.state = "none"
-                                }
-                                states: State {
-                                    name: "pressed"
-                                    when: mouseArea.pressed
-                                    PropertyChanges { target: nextTrack; scale: 0.8 }
-                                }
-                                transitions: Transition {
-                                    NumberAnimation { properties: "scale"; duration: 100; easing.type: Easing.InOutQuad }
-                                }
-                            }
-
-                            Item { // RowLayout
-                                id: titleAlbum
-                                anchors.top: parent.top
-                                anchors.bottom: parent.bottom
-//                                     Layout.fillWidth: true
-                                anchors.left: nextTrack.right
-
-                                Text {
-                                    id: trackTitle
-                                    anchors.left: parent.left
-                                    anchors.top: parent.top
-                                    text: player.metaData.title ? player.metaData.title : "Song title unavailable"
-                                    color: "#eeeeee"
-//                                         font.family: appFont.name
-                                    font.pointSize: 17
-                                    font.bold: true
-                                    style: Text.Raised
-                                    styleColor: "#111111"
-                                    wrapMode: Text.Wrap
-                                }
-                                Text {
-                                    id: trackAlbum
-                                    anchors.left: parent.left
-                                    anchors.bottom: parent.bottom
-                                    anchors.top: trackTitle.bottom
-                                    text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
-                                    color: "steelblue"
-//                                         font.family: appFont.name
-                                    font.pointSize: 17
-                                    font.bold: true
-                                    style: Text.Raised
-                                    styleColor: "#111111"
-                                    wrapMode: Text.Wrap
-                                }
-                            }
-
-                            Image {
-                                id: shareTrack
-                                source: "../images/share.png"
-                                anchors.verticalCenter: parent.verticalCenter
-                                anchors.left: titleAlbum.right
-                                anchors.right: parent.right
-                                state: "none"
-
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onPressed: shareTrack.state = "pressed"
-                                    onReleased: shareTrack.state = "none"
-                                }
-                                states: State {
-                                    name: "pressed"
-                                    when: mouseArea.pressed
-                                    PropertyChanges { target: shareTrack; scale: 0.8 }
-                                }
-                                transitions: Transition {
-                                    NumberAnimation { properties: "scale"; duration: 100; easing.type: Easing.InOutQuad }
-                                }
-                            }
-                        }
-
-                        Item { // RowLayout
-                            id: lowerWrap
-//                             Layout.fillWidth: true
+                        Image {
+                            id: prevTrack
                             anchors.left: parent.left
-                            anchors.right: parent.right
-//                             Layout.preferredHeight: 40
-//                             Layout.leftMargin: 20
-                            anchors.top: upperWrap.bottom
-                            anchors.bottom: parent.bottom
-//                             spacing: 15
-
-                            Text {
-                                id: currentTime
-                                anchors.left: parent.left
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: playLogic.msToTime(player.position)
-//                                 font.family: appFont.name
-                                color: "#dedede"
-                                font.pointSize: 18
+                            source: "../images/rewind.png"
+                            anchors.top: parent.top
+                            anchors.leftMargin: 20
+                            state: "none"
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: playLogic.previous()
+                                onPressed: prevTrack.state = "pressed"
+                                onReleased: prevTrack.state = "none"
                             }
-
-                            SliderBar{
-//                                 Layout.fillWidth: true
-                                anchors.left: currentTime.right
-                                anchors.right: totalTime.left
-                                anchors.verticalCenter: parent.verticalCenter
-                                audioPlayer: player
-                                bgImg: "../images/slider_background.png"
-                                bufferImg: "../images/slider_value_right.png"
-                                progressImg: "../images/slider_value_left.png"
-                                knobImg: "../images/slider_knob.png"
+                            states: State {
+                                name: "pressed"
+                                when: mouseArea.pressed
+                                PropertyChanges { target: prevTrack; scale: 0.8 }
                             }
-
-                            Text {
-                                id: totalTime
-                                anchors.right: parent.right
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: playLogic.msToTime(player.duration)
-//                                 font.family: appFont.name
-                                color: "#dedede"
-                                font.pointSize: 18
+                            transitions: Transition {
+                                NumberAnimation { properties: "scale"; duration: 100; easing.type: Easing.InOutQuad }
                             }
                         }
 
+                        Rectangle {
+                            id: ppTrack
+                            width: 30
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.top: parent.top
+                            Image {
+                                id: playPause
+                                source: "../images/play.png"
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                state: "none"
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: playLogic.init();
+                                    onPressed: playPause.state = "pressed"
+                                    onReleased: playPause.state = "none"
+                                }
+                                states: State {
+                                    name: "pressed"
+                                    when: mouseArea.pressed
+                                    PropertyChanges { target: playPause; scale: 0.8 }
+                                }
+                                transitions: Transition {
+                                    NumberAnimation { properties: "scale"; duration: 100; easing.type: Easing.InOutQuad }
+                                }
+                            }
+                        }
+
+                        Image {
+                            id: nextTrack
+                            anchors.right: parent.right
+                            source: "../images/forward.png"
+                            anchors.top: parent.top
+                            state: "none"
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: playLogic.next()
+                                onPressed: nextTrack.state = "pressed"
+                                onReleased: nextTrack.state = "none"
+                            }
+                            states: State {
+                                name: "pressed"
+                                when: mouseArea.pressed
+                                PropertyChanges { target: nextTrack; scale: 0.8 }
+                            }
+                            transitions: Transition {
+                                NumberAnimation { properties: "scale"; duration: 100; easing.type: Easing.InOutQuad }
+                            }
+                        }
                     }
-
                 }
-
             }
-
         }
 
     }
