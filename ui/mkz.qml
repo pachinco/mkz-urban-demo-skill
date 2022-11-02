@@ -1010,7 +1010,7 @@ Mycroft.Delegate {
                 to: "ACTIVE"
                 SequentialAnimation {
                     PropertyAction {
-                        target: musicView
+                        target: musicFrame
                         property: "visible"
                         value: true
                     }
@@ -1029,7 +1029,7 @@ Mycroft.Delegate {
                         NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 5000 }
                     }
                     PropertyAction {
-                        target: musicView
+                        target: musicFrame
                         property: "visible"
                         value: false
                     }
