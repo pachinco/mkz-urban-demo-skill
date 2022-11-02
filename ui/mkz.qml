@@ -1268,7 +1268,7 @@ Mycroft.Delegate {
 //                         color: (night) ? "#e8fffc" : "#c0000000"
 //                     }
 //                 }
-            }
+//             }
 
             Item { // music time
                 id: timeWrap
