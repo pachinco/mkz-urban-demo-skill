@@ -1228,7 +1228,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: artistWrapper.bottom
-                anchors.topMargin: Kirigami.Units.gridUnit*0.6
+                anchors.topMargin: Kirigami.Units.gridUnit
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
                 height: 8
@@ -1249,8 +1249,8 @@ Mycroft.Delegate {
                 id: timeWrap
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.top: musicProgress.top
-                anchors.topMargin: musicProgress.height
+                anchors.top: musicProgress.bottom
+//                 anchors.topMargin: musicProgress.height
 //                 anchors.margins: Kirigami.Units.gridUnit
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
