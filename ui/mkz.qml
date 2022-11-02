@@ -1158,7 +1158,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                anchors.margins: Kirigami.Units.gridUnit*2
+                anchors.margins: Kirigami.Units.gridUnit
                 height: topLeftWrapper.height
                 color: "#80800000"
 
@@ -1232,7 +1232,7 @@ Mycroft.Delegate {
                 anchors.right: parent.right
                 anchors.top: artistWrapper.bottom
                 anchors.margins: Kirigami.Units.gridUnit
-                value: playLogic.msToTime(player.position/player.duration)
+                value: player.position/player.duration
 //                 background: Rectangle {
 //                     implicitWidth: 200
 //                     implicitHeight: 8
