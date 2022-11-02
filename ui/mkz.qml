@@ -686,10 +686,6 @@ Mycroft.Delegate {
                     target: actionsView
                     height: parent.height*0.75
                 }
-//                 PropertyChanges {
-//                     target: uiStage
-//                     opacity: 0.5
-//                 }
                 PropertyChanges {
                     target: carBackshade
                     opacity: 0.5
@@ -752,7 +748,7 @@ Mycroft.Delegate {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
-                visible= false
+//                 visible= false
                 Rectangle {
                     id: actionsButton
                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
@@ -821,6 +817,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.7
 //             height: parent.height*0.75
+//             height: 0
             model: sessionData.actionsList
             delegate: actionDelegate
             cellWidth: width/3
