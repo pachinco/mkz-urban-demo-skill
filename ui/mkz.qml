@@ -1260,7 +1260,7 @@ Mycroft.Delegate {
                     id: currentTime
                     anchors.left: parent.left
                     anchors.top: parent.top
-                    anchors.leftMargin: 2
+                    anchors.leftMargin: 1
                     text: playLogic.msToTime(player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
@@ -1271,7 +1271,7 @@ Mycroft.Delegate {
                     id: totalTime
                     anchors.right: parent.right
                     anchors.top: parent.top
-                    anchors.rightMargin: 2
+                    anchors.rightMargin: 1
                     text: "-"+playLogic.msToTime(player.duration-player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
@@ -1294,6 +1294,11 @@ Mycroft.Delegate {
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     source: "../images/rewind.png"
+                    ColorOverlay {
+                        anchors.fill: prevTrack
+                        source: prevTrack
+                        color: (night) ? "#401e373a" : "#40000000"
+                    }
                     state: "none"
                     MouseArea {
                         anchors.fill: parent
@@ -1321,6 +1326,11 @@ Mycroft.Delegate {
                         source: "../images/play.png"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
+                        ColorOverlay {
+                            anchors.fill: playPause
+                            source: playPause
+                            color: (night) ? "#401e373a" : "#40000000"
+                        }
                         state: "none"
                         MouseArea {
                             anchors.fill: parent
@@ -1344,8 +1354,12 @@ Mycroft.Delegate {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     source: "../images/forward.png"
+                    ColorOverlay {
+                        anchors.fill: nextTrack
+                        source: nextTrack
+                        color: (night) ? "#401e373a" : "#40000000"
+                    }
                     state: "none"
-
                     MouseArea {
                         anchors.fill: parent
                         onClicked: playLogic.next()
