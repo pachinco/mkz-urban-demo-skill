@@ -1264,7 +1264,7 @@ Mycroft.Delegate {
                     id: currentTime
                     anchors.left: parent.left
                     anchors.top: parent.top
-                    anchors.leftMargin: 5
+                    anchors.leftMargin: 3
                     text: playLogic.msToTime(player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
@@ -1275,7 +1275,7 @@ Mycroft.Delegate {
                     id: totalTime
                     anchors.right: parent.right
                     anchors.top: parent.top
-                    anchors.rightMargin: 5
+                    anchors.rightMargin: 3
                     text: "-"+playLogic.msToTime(player.duration-player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
