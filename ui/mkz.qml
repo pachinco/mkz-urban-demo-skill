@@ -984,7 +984,7 @@ Mycroft.Delegate {
                 }
                 PropertyChanges {
                     target: musicView
-                    height: 0.75
+                    height: parent.height*0.75
                 }
                 PropertyChanges {
                     target: musicBackshade
