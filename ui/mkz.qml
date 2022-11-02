@@ -1204,8 +1204,8 @@ Mycroft.Delegate {
 //                                         font.family: appFont.name
                         font.pointSize: 20
                         font.bold: true
-                        style: Text.Raised
-                        styleColor: "#80000000"
+//                         style: Text.Raised
+//                         styleColor: "#80000000"
                         wrapMode: Text.Wrap
                     }
                     Text {
@@ -1217,9 +1217,11 @@ Mycroft.Delegate {
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.pointSize: 20
-                        font.bold: true
-                        style: Text.Raised
-                        styleColor: "#80000000"
+                        font.bold: false
+                        font.capitalization: Font.SmallCaps
+                        font.weight: Font.Thin
+//                         style: Text.Raised
+//                         styleColor: "#80000000"
                         wrapMode: Text.Wrap
                     }
                 }
