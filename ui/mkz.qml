@@ -1234,7 +1234,7 @@ Mycroft.Delegate {
                 height: 8
                 Rectangle {
                     anchors.fill: parent
-                    color: "#80000000"
+                    color: "#40000000"
                     Rectangle {
                         anchors.left: parent.left
                         anchors.top: parent.top
