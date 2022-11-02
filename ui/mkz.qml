@@ -1160,7 +1160,6 @@ Mycroft.Delegate {
                 anchors.top: parent.top
                 anchors.margins: Kirigami.Units.gridUnit
                 height: topLeftWrapper.height
-                color: "#80800000"
 
                 Rectangle { // Artist picture
                     id: topLeftWrapper
@@ -1192,7 +1191,6 @@ Mycroft.Delegate {
                     id: titleAlbum
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-//                                     Layout.fillWidth: true
                     anchors.left: topLeftWrapper.right
                     anchors.right: parent.right
                     anchors.leftMargin: Kirigami.Units.gridUnit
@@ -1204,10 +1202,10 @@ Mycroft.Delegate {
                         text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
                         color: "steelblue"
 //                                         font.family: appFont.name
-                        font.pointSize: 24
+                        font.pointSize: 20
                         font.bold: true
                         style: Text.Raised
-                        styleColor: "#111111"
+                        styleColor: "#80000000"
                         wrapMode: Text.Wrap
                     }
                     Text {
@@ -1216,12 +1214,12 @@ Mycroft.Delegate {
                         anchors.bottom: trackAlbum.top
                         anchors.right: parent.right
                         text: player.metaData.title ? player.metaData.title : "Song title unavailable"
-                        color: "#eeeeee"
+                        color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.pointSize: 20
                         font.bold: true
                         style: Text.Raised
-                        styleColor: "#111111"
+                        styleColor: "#80000000"
                         wrapMode: Text.Wrap
                     }
                 }
@@ -1256,13 +1254,12 @@ Mycroft.Delegate {
                 id: timeWrap
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.top: musicProgress.bottom
-//                 anchors.topMargin: Kirigami.Units.gridUnit
+                anchors.top: musicProgress.top
+                anchors.topMargin: musicProgress.height*0.7
 //                 anchors.margins: Kirigami.Units.gridUnit
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
                 height: currentTime.height
-                color: "#80008000"
 
                 Text {
                     id: currentTime
