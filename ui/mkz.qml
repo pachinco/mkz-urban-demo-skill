@@ -677,7 +677,6 @@ Mycroft.Delegate {
     Item {
         id: carFrame
         anchors.fill: parent
-//         visible: uiCar
         state: (uiCar) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
@@ -1015,8 +1014,8 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: musicView; property: "opacity, height"; duration: 5000 }
-                        NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 5000 }
+                        NumberAnimation { target: musicView; properties: "opacity, height"; duration: 500 }
+                        NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                 }
             },
@@ -1025,8 +1024,8 @@ Mycroft.Delegate {
                 to: "INACTIVE"
                 SequentialAnimation {
                     ParallelAnimation {
-                        NumberAnimation { target: musicView; property: "opacity, height"; duration: 5000 }
-                        NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 5000 }
+                        NumberAnimation { target: musicView; properties: "opacity, height"; duration: 500 }
+                        NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                     PropertyAction {
                         target: musicFrame
