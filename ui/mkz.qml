@@ -1154,14 +1154,13 @@ Mycroft.Delegate {
                 samples: 21
             }
             Rectangle { // Artist picture + title/album
-                id: topWrapper
-//                     anchors.fill: parent
+                id: artistWrapper
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.margins: Kirigami.Units.gridUnit*2
-                height: topLeftWrapper.implicitHeight
-                color: "#e0e0e0"
+                height: 200
+                color: "#80800000"
 
                 Rectangle { // Artist picture
                     id: topLeftWrapper
@@ -1230,8 +1229,8 @@ Mycroft.Delegate {
                 id: musicProgress
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.top: topWrapper.bottom
-                value: playLogic.msToTime(player.position)/playLogic.msToTime(player.duration)
+                anchors.top: artistWrapper.bottom
+                value: playLogic.msToTime(player.position/player.duration)
 //                 background: Rectangle {
 //                     implicitWidth: 200
 //                     implicitHeight: 8
@@ -1259,7 +1258,7 @@ Mycroft.Delegate {
                 anchors.top: musicProgress.bottom
 //                     anchors.bottom: parent.bottom
 //                             spacing: 15
-                color: "#c0c0c0"
+                color: "#80008000"
 
                 Text {
                     id: currentTime
@@ -1275,7 +1274,7 @@ Mycroft.Delegate {
                     id: totalTime
                     anchors.right: parent.right
                     anchors.top: parent.top
-                    text: "-"+playLogic.msToTime(player.duration)
+                    text: "-"+playLogic.msToTime(player.duration-player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
                     font.pointSize: 18
@@ -1287,7 +1286,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: timeWrap.bottom
-                color: "#b0b0b0"
+                color: "#80000080"
 
                 Image {
                     id: prevTrack
