@@ -1197,7 +1197,7 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.bottom: parent.bottom
                         text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
-                        color: "steelblue"
+                        color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.capitalization: Font.SmallCaps
                         font.pointSize: 20
