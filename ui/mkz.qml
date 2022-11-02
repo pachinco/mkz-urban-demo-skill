@@ -1204,7 +1204,7 @@ Mycroft.Delegate {
                         text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
                         color: "steelblue"
 //                                         font.family: appFont.name
-                        font.pointSize: 17
+                        font.pointSize: 24
                         font.bold: true
                         style: Text.Raised
                         styleColor: "#111111"
@@ -1218,7 +1218,7 @@ Mycroft.Delegate {
                         text: player.metaData.title ? player.metaData.title : "Song title unavailable"
                         color: "#eeeeee"
 //                                         font.family: appFont.name
-                        font.pointSize: 17
+                        font.pointSize: 20
                         font.bold: true
                         style: Text.Raised
                         styleColor: "#111111"
@@ -1231,6 +1231,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: artistWrapper.bottom
+                anchors.topMargin: Kirigami.Units.gridUnit
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
                 value: player.position/player.duration
@@ -1256,8 +1257,10 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: musicProgress.bottom
-                anchors.topMargin: Kirigami.Units.gridUnit
+//                 anchors.topMargin: Kirigami.Units.gridUnit
 //                 anchors.margins: Kirigami.Units.gridUnit
+                anchors.leftMargin: Kirigami.Units.gridUnit
+                anchors.rightMargin: Kirigami.Units.gridUnit
                 height: currentTime.height
                 color: "#80008000"
 
@@ -1268,7 +1271,7 @@ Mycroft.Delegate {
                     text: playLogic.msToTime(player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
-                    font.pointSize: 18
+                    font.pointSize: 14
                 }
 
                 Text {
@@ -1278,7 +1281,7 @@ Mycroft.Delegate {
                     text: "-"+playLogic.msToTime(player.duration-player.position)
 //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
-                    font.pointSize: 18
+                    font.pointSize: 14
                 }
             }
 
@@ -1287,6 +1290,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: timeWrap.bottom
+                anchors.margins: Kirigami.Units.gridUnit
                 height: ppTrack.height
                 color: "#80000080"
 
