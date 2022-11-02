@@ -1153,12 +1153,12 @@ Mycroft.Delegate {
                 radius: 10
                 samples: 21
             }
-            Rectangle { // ColumnLayout
+            Rectangle { // music view
                 id: container
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: parent.top
                 width: musicView.width-Kirigami.Units.gridUnit*2
-                height: topWrapper.height+Kirigami.Units.gridUnit
+//                 height: topWrapper.height+Kirigami.Units.gridUnit
                 color: "#f0f0f0"
 
                 Rectangle { // Artist picture + title/album
