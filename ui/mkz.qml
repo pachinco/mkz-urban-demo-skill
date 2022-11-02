@@ -1231,7 +1231,8 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: artistWrapper.bottom
-                anchors.margins: Kirigami.Units.gridUnit
+                anchors.leftMargin: Kirigami.Units.gridUnit
+                anchors.rightMargin: Kirigami.Units.gridUnit
                 value: player.position/player.duration
 //                 background: Rectangle {
 //                     implicitWidth: 200
@@ -1252,15 +1253,12 @@ Mycroft.Delegate {
 
             Rectangle { // music time
                 id: timeWrap
-//                             Layout.fillWidth: true
                 anchors.left: parent.left
                 anchors.right: parent.right
-//                             Layout.preferredHeight: 40
-//                             Layout.leftMargin: 20
                 anchors.top: musicProgress.bottom
-//                     anchors.bottom: parent.bottom
-//                             spacing: 15
-                anchors.margins: Kirigami.Units.gridUnit
+                anchors.topMargin: Kirigami.Units.gridUnit
+//                 anchors.margins: Kirigami.Units.gridUnit
+                height: currentTime.height
                 color: "#80008000"
 
                 Text {
@@ -1289,13 +1287,13 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: timeWrap.bottom
+                height: ppTrack.height
                 color: "#80000080"
 
                 Image {
                     id: prevTrack
                     anchors.left: parent.left
-                    anchors.top: parent.top
-//                     anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     source: "../images/rewind.png"
                     state: "none"
                     MouseArea {
@@ -1317,8 +1315,8 @@ Mycroft.Delegate {
                 Rectangle {
                     id: ppTrack
                     width: 30
+                    anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.top: parent.top
                     Image {
                         id: playPause
                         source: "../images/play.png"
@@ -1345,7 +1343,7 @@ Mycroft.Delegate {
                 Image {
                     id: nextTrack
                     anchors.right: parent.right
-                    anchors.top: parent.top
+                    anchors.verticalCenter: parent.verticalCenter
                     source: "../images/forward.png"
                     state: "none"
 
