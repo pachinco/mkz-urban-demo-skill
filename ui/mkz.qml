@@ -569,12 +569,12 @@ Mycroft.Delegate {
                 anchors.top: topFrame.top
                 width: topFrame.width*0.4
                 height: topFrame.height
-//                 opacity: (uiMusic) 0 : 1
+//                 opacity: (uiMusic) ? 0 : 1
 //                 Behavior on opacity { target: musicTopview
                 z: 15
                 Item {
                     id: musicTopProgress
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.horizontalCenter: topFrame.horizontalCenter
                     anchors.top: parent.top
                     anchors.topMargin: Kirigami.Units.gridUnit
     //                 anchors.leftMargin: Kirigami.Units.gridUnit
