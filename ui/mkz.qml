@@ -596,7 +596,7 @@ Mycroft.Delegate {
                     id: musicTopCurrent
                     anchors.right: musicTopProgress.left
                     anchors.verticalCenter: musicTopProgress.verticalCenter
-                    anchors.rightMargin: 3
+                    anchors.rightMargin: 5
                     text: playLogic.msToTime(player.position)
     //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
@@ -606,7 +606,7 @@ Mycroft.Delegate {
                     id: musicTopTotal
                     anchors.left: musicTopProgress.right
                     anchors.verticalCenter: musicTopProgress.verticalCenter
-                    anchors.leftMargin: 3
+                    anchors.leftMargin: 5
                     text: "-"+playLogic.msToTime(player.duration-player.position)
     //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
@@ -1213,7 +1213,7 @@ Mycroft.Delegate {
         Rectangle {
             id: musicView
             color: (night) ? "#ff1e373a" : "#f0f0f0f0"
-            width: parent.width*0.5
+            width: parent.width*0.4
 //             height: parent.height*0.75
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
@@ -1239,8 +1239,8 @@ Mycroft.Delegate {
                     anchors.left: parent.left
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    height: 126
-                    width: 126
+                    height: 150
+                    width: 150
 //                     radius: 7
 
                     BorderImage {
@@ -1321,7 +1321,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: artistWrapper.bottom
-                anchors.topMargin: Kirigami.Units.gridUnit
+                anchors.topMargin: Kirigami.Units.gridUnit*2
                 anchors.leftMargin: Kirigami.Units.gridUnit
                 anchors.rightMargin: Kirigami.Units.gridUnit
                 height: 8
@@ -1377,7 +1377,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: timeWrap.bottom
-                anchors.topMargin: Kirigami.Units.gridUnit*1.5
+                anchors.topMargin: Kirigami.Units.gridUnit*2
                 anchors.leftMargin: parent.width*0.2
                 anchors.rightMargin: parent.width*0.2
                 height: ppTrack.height
