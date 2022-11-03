@@ -637,7 +637,7 @@ Mycroft.Delegate {
         anchors.left: parent.left
         anchors.right: parent.right
         height: frameBottom.height
-        z: 10
+        z: 20
         state: (sessionData.uiIdx>-2) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
@@ -1216,6 +1216,7 @@ Mycroft.Delegate {
 //             height: parent.height*0.75
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
+            z: 15
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
