@@ -574,7 +574,7 @@ Mycroft.Delegate {
                     id: musicTopProgress
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
-                    anchors.topMargin: Kirigami.Units.gridUnit*2
+                    anchors.topMargin: Kirigami.Units.gridUnit*1.5
     //                 anchors.leftMargin: Kirigami.Units.gridUnit
     //                 anchors.rightMargin: Kirigami.Units.gridUnit
                     width: parent.width*0.6
@@ -613,9 +613,8 @@ Mycroft.Delegate {
                 }
                 Text {
                     id: musicTopTitle
-                    anchors.left: parent.left
+                    anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: musicTopProgress.bottom
-                    anchors.right: parent.right
                     text: player.metaData.title ? player.metaData.title : ""
                     color: (night) ? "#e8fffc" : "#c0000000"
     //                                         font.family: appFont.name
