@@ -1033,6 +1033,10 @@ Mycroft.Delegate {
             State {
                 name: "ACTIVE"
                 PropertyChanges {
+                    target: musicTopView
+                    opacity: 0
+                }
+                PropertyChanges {
                     target: musicView
                     opacity: 1
                 }
@@ -1047,6 +1051,10 @@ Mycroft.Delegate {
             },
             State {
                 name: "INACTIVE"
+                PropertyChanges {
+                    target: musicTopView
+                    opacity: 1
+                }
                 PropertyChanges {
                     target: musicView
                     opacity: 0
@@ -1073,6 +1081,7 @@ Mycroft.Delegate {
                     }
                     ParallelAnimation {
                         NumberAnimation { target: musicView; properties: "opacity, height"; duration: 500 }
+                        NumberAnimation { target: musicTopView; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                 }
@@ -1083,6 +1092,7 @@ Mycroft.Delegate {
                 SequentialAnimation {
                     ParallelAnimation {
                         NumberAnimation { target: musicView; properties: "opacity, height"; duration: 500 }
+                        NumberAnimation { target: musicTopView; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                     PropertyAction {
@@ -1132,6 +1142,72 @@ Mycroft.Delegate {
 //             name: "OpenSans-Regular"
 //             source: "fonts/OpenSans-Regular.ttf"
 //         }
+
+        Item {
+            id: musicTopview
+            anchors.horizontalCenter: topFrame.horizontalCenter
+            anchors.top: topFrame.top
+            width: topFrame.width*0.4
+            Item {
+                id: musicTopProgress
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.topMargin: Kirigami.Units.gridUnit
+//                 anchors.leftMargin: Kirigami.Units.gridUnit
+//                 anchors.rightMargin: Kirigami.Units.gridUnit
+                width: parent.width*0.8
+                height: 8
+                Rectangle {
+                    anchors.fill: parent
+                    color: "#40000000"
+                    Rectangle {
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        width: parent.width*player.position/player.duration
+                        color: (night) ? "#e8fffc" : "#c0000000"
+                    }
+                }
+            }
+
+            Text {
+                id: musicTopCurrent
+                anchors.right: musicTopProgress.left
+                anchors.verticalCenter: musicTopProgress.verticalCenter
+                anchors.rightMargin: 3
+                text: playLogic.msToTime(player.position)
+//                                 font.family: appFont.name
+                color: (night) ? "#e8fffc" : "#c0000000"
+                font.pointSize: 14
+            }
+
+            Text {
+                id: musicTopTotal
+                anchors.left: musicTopProgress.left
+                anchors.verticalCenter: musicTopProgress.verticalCenter
+                anchors.rightMargin: 3
+                text: "-"+playLogic.msToTime(player.duration-player.position)
+//                                 font.family: appFont.name
+                color: (night) ? "#e8fffc" : "#c0000000"
+                font.pointSize: 14
+            }
+            Text {
+                id: musicTopTitle
+                anchors.left: parent.left
+                anchors.top: musicTopProgress.bottom
+                anchors.right: parent.right
+                text: player.metaData.title ? player.metaData.title : ""
+                color: (night) ? "#e8fffc" : "#c0000000"
+//                                         font.family: appFont.name
+                font.capitalization: Font.SmallCaps
+                font.weight: Font.Thin
+                font.pointSize: 20
+                font.bold: false
+//                         style: Text.Raised
+//                         styleColor: "#80000000"
+                wrapMode: Text.Wrap
+            }
+        }
 
         Rectangle {
             id: musicView
@@ -1214,6 +1290,7 @@ Mycroft.Delegate {
                         text: player.metaData.title ? player.metaData.title : ""
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
+                        font.capitalization: Font.SmallCaps
                         font.pointSize: 20
                         font.bold: true
 //                         style: Text.Raised
