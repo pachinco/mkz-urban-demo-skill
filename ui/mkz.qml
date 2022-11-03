@@ -562,6 +562,74 @@ Mycroft.Delegate {
                     night = (night) ? false : true
                 }
             }
+
+            Item {
+                id: musicTopview
+                anchors.horizontalCenter: topFrame.horizontalCenter
+                anchors.top: topFrame.top
+                width: topFrame.width*0.4
+                height: topFrame.height
+                z: 15
+                Item {
+                    id: musicTopProgress
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: Kirigami.Units.gridUnit
+    //                 anchors.leftMargin: Kirigami.Units.gridUnit
+    //                 anchors.rightMargin: Kirigami.Units.gridUnit
+                    width: parent.width*0.8
+                    height: 8
+                    Rectangle {
+                        anchors.fill: parent
+                        color: "#40000000"
+                        Rectangle {
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.bottom: parent.bottom
+                            width: parent.width*player.position/player.duration
+                            color: (night) ? "#e8fffc" : "#c0000000"
+                        }
+                    }
+                }
+
+                Text {
+                    id: musicTopCurrent
+                    anchors.right: musicTopProgress.left
+                    anchors.verticalCenter: musicTopProgress.verticalCenter
+                    anchors.rightMargin: 3
+                    text: playLogic.msToTime(player.position)
+    //                                 font.family: appFont.name
+                    color: (night) ? "#e8fffc" : "#c0000000"
+                    font.pointSize: 14
+                }
+
+                Text {
+                    id: musicTopTotal
+                    anchors.left: musicTopProgress.left
+                    anchors.verticalCenter: musicTopProgress.verticalCenter
+                    anchors.rightMargin: 3
+                    text: "-"+playLogic.msToTime(player.duration-player.position)
+    //                                 font.family: appFont.name
+                    color: (night) ? "#e8fffc" : "#c0000000"
+                    font.pointSize: 14
+                }
+                Text {
+                    id: musicTopTitle
+                    anchors.left: parent.left
+                    anchors.top: musicTopProgress.bottom
+                    anchors.right: parent.right
+                    text: player.metaData.title ? player.metaData.title : ""
+                    color: (night) ? "#e8fffc" : "#c0000000"
+    //                                         font.family: appFont.name
+                    font.capitalization: Font.SmallCaps
+                    font.weight: Font.Thin
+                    font.pointSize: 20
+                    font.bold: false
+    //                         style: Text.Raised
+    //                         styleColor: "#80000000"
+                    wrapMode: Text.Wrap
+                }
+            }
         }
     }
 
@@ -1142,74 +1210,6 @@ Mycroft.Delegate {
 //             name: "OpenSans-Regular"
 //             source: "fonts/OpenSans-Regular.ttf"
 //         }
-
-        Item {
-            id: musicTopview
-            anchors.horizontalCenter: topFrame.horizontalCenter
-            anchors.top: topFrame.top
-            width: topFrame.width*0.4
-            height: topFrame.height
-            z: 15
-            Item {
-                id: musicTopProgress
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: Kirigami.Units.gridUnit
-//                 anchors.leftMargin: Kirigami.Units.gridUnit
-//                 anchors.rightMargin: Kirigami.Units.gridUnit
-                width: parent.width*0.8
-                height: 8
-                Rectangle {
-                    anchors.fill: parent
-                    color: "#40000000"
-                    Rectangle {
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.bottom: parent.bottom
-                        width: parent.width*player.position/player.duration
-                        color: (night) ? "#e8fffc" : "#c0000000"
-                    }
-                }
-            }
-
-            Text {
-                id: musicTopCurrent
-                anchors.right: musicTopProgress.left
-                anchors.verticalCenter: musicTopProgress.verticalCenter
-                anchors.rightMargin: 3
-                text: playLogic.msToTime(player.position)
-//                                 font.family: appFont.name
-                color: (night) ? "#e8fffc" : "#c0000000"
-                font.pointSize: 14
-            }
-
-            Text {
-                id: musicTopTotal
-                anchors.left: musicTopProgress.left
-                anchors.verticalCenter: musicTopProgress.verticalCenter
-                anchors.rightMargin: 3
-                text: "-"+playLogic.msToTime(player.duration-player.position)
-//                                 font.family: appFont.name
-                color: (night) ? "#e8fffc" : "#c0000000"
-                font.pointSize: 14
-            }
-            Text {
-                id: musicTopTitle
-                anchors.left: parent.left
-                anchors.top: musicTopProgress.bottom
-                anchors.right: parent.right
-                text: player.metaData.title ? player.metaData.title : ""
-                color: (night) ? "#e8fffc" : "#c0000000"
-//                                         font.family: appFont.name
-                font.capitalization: Font.SmallCaps
-                font.weight: Font.Thin
-                font.pointSize: 20
-                font.bold: false
-//                         style: Text.Raised
-//                         styleColor: "#80000000"
-                wrapMode: Text.Wrap
-            }
-        }
 
         Rectangle {
             id: musicView
