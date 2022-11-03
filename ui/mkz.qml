@@ -570,6 +570,7 @@ Mycroft.Delegate {
                 width: topFrame.width*0.4
                 height: topFrame.height
                 z: 15
+                visible: (player.source!="")
                 Item {
                     id: musicTopProgress
                     anchors.horizontalCenter: parent.horizontalCenter
