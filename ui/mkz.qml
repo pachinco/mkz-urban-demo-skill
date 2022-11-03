@@ -967,6 +967,64 @@ Mycroft.Delegate {
         }
     }
 
+    MediaPlayer {
+        id: player
+    }
+
+    Item {
+        id: playLogic
+
+        property int index: -1
+        property MediaPlayer mediaPlayer: player
+        property FolderListModel items: FolderListModel {
+            folder: Qt.resolvedUrl("../music")
+            nameFilters: ["*.mp3"]
+        }
+
+        function init(){
+            if(mediaPlayer.playbackState===1){
+                mediaPlayer.pause();
+            }else if(mediaPlayer.playbackState===2){
+                mediaPlayer.play();
+            }else{
+                setIndex(0);
+            }
+        }
+
+        function setIndex(i)
+        {
+            index = i;
+
+            if (index < 0 || index >= items.count)
+            {
+                index = -1;
+                mediaPlayer.source = "";
+            }
+            else{
+                mediaPlayer.source = items.get(index,"filePath");
+                mediaPlayer.play();
+            }
+        }
+
+        function next(){
+            setIndex(index + 1);
+        }
+
+        function previous(){
+            setIndex(index - 1);
+        }
+
+        function msToTime(duration) {
+            var seconds = parseInt((duration/1000)%60);
+            var minutes = parseInt((duration/(1000*60))%60);
+
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            return minutes + ":" + seconds;
+        }
+    }
+
     Item {
         id: musicFrame
         anchors.fill: parent
@@ -1042,90 +1100,30 @@ Mycroft.Delegate {
             color: "#000000"
         }
 
-        MediaPlayer {
-            id: player
-        }
+        Connections {
+            target: playLogic.mediaPlayer
 
-        Item {
-            id: playLogic
-
-            property int index: -1
-            property MediaPlayer mediaPlayer: player
-            property FolderListModel items: FolderListModel {
-                folder: Qt.resolvedUrl("../music")
-//                 folder: Qt.resolvedUrl("/Users/holger/Music/iTunes/iTunes Media/Music")
-                nameFilters: ["*.mp3"]
-//                 nameFilters: ["*.m4a"]
+            onPaused: {
+                playPause.source = "../images/play.png";
             }
 
-            function init(){
-                if(mediaPlayer.playbackState===1){
-                    mediaPlayer.pause();
-                }else if(mediaPlayer.playbackState===2){
-                    mediaPlayer.play();
-                }else{
-                    setIndex(0);
-                }
+            onPlaying: {
+                playPause.source = "../images/pause.png";
             }
 
-            function setIndex(i)
-            {
-                index = i;
-
-                if (index < 0 || index >= items.count)
-                {
-                    index = -1;
-                    mediaPlayer.source = "";
-                }
-                else{
-                    mediaPlayer.source = items.get(index,"filePath");
-                    mediaPlayer.play();
-                }
+            onStopped: {
+                playPause.source = "../images/play.png";
+                if (playLogic.mediaPlayer.status == MediaPlayer.EndOfMedia)
+                    playLogic.next();
             }
 
-            function next(){
-                setIndex(index + 1);
+            onError: {
+                console.log(error+" error string is "+errorString);
             }
 
-            function previous(){
-                setIndex(index - 1);
-            }
-
-            function msToTime(duration) {
-                var seconds = parseInt((duration/1000)%60);
-                var minutes = parseInt((duration/(1000*60))%60);
-
-                minutes = (minutes < 10) ? "0" + minutes : minutes;
-                seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-                return minutes + ":" + seconds;
-            }
-
-            Connections {
-                target: playLogic.mediaPlayer
-
-                onPaused: {
-                    playPause.source = "../images/play.png";
-                }
-
-                onPlaying: {
-                    playPause.source = "../images/pause.png";
-                }
-
-                onStopped: {
-                    playPause.source = "../images/play.png";
-                    if (playLogic.mediaPlayer.status == MediaPlayer.EndOfMedia)
-                        playLogic.next();
-                }
-
-                onError: {
-                    console.log(error+" error string is "+errorString);
-                }
-
-                onMediaObjectChanged: {
-                    if (playLogic.mediaPlayer.mediaObject)
-                        playLogic.mediaPlayer.mediaObject.notifyInterval = 50;
-                }
+            onMediaObjectChanged: {
+                if (playLogic.mediaPlayer.mediaObject)
+                    playLogic.mediaPlayer.mediaObject.notifyInterval = 50;
             }
         }
 
@@ -1197,7 +1195,7 @@ Mycroft.Delegate {
                         id: trackAlbum
                         anchors.left: parent.left
                         anchors.bottom: parent.bottom
-                        text: player.metaData.albumTitle ? player.metaData.albumTitle : "Album unavailable"
+                        text: player.metaData.albumTitle ? player.metaData.albumTitle : ""
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.capitalization: Font.SmallCaps
@@ -1213,7 +1211,7 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.bottom: trackAlbum.top
                         anchors.right: parent.right
-                        text: player.metaData.title ? player.metaData.title : "Title unavailable"
+                        text: player.metaData.title ? player.metaData.title : ""
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.pointSize: 20
@@ -1227,7 +1225,7 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.top: parent.top
                         anchors.right: parent.right
-                        text: player.metaData.albumArtist ? player.metaData.albumArtist : "Artist unavailable"
+                        text: player.metaData.albumArtist ? player.metaData.albumArtist : ""
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.pointSize: 24
