@@ -1312,7 +1312,7 @@ Mycroft.Delegate {
                     ColorOverlay {
                         anchors.fill: prevTrack
                         source: prevTrack
-                        color: (night) ? "#801e373a" : "#40000000"
+                        color: (night) ? "#401e373a" : "#40000000"
                     }
                     state: "none"
                     MouseArea {
@@ -1344,7 +1344,7 @@ Mycroft.Delegate {
                         ColorOverlay {
                             anchors.fill: playPause
                             source: playPause
-                            color: (night) ? "#801e373a" : "#40000000"
+                            color: (night) ? "#401e373a" : "#40000000"
                         }
                         state: "none"
                         MouseArea {
@@ -1372,7 +1372,7 @@ Mycroft.Delegate {
                     ColorOverlay {
                         anchors.fill: nextTrack
                         source: nextTrack
-                        color: (night) ? "#801e373a" : "#40000000"
+                        color: (night) ? "#401e373a" : "#40000000"
                     }
                     state: "none"
                     MouseArea {
