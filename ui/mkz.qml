@@ -1309,11 +1309,11 @@ Mycroft.Delegate {
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     source: "../images/rewind.png"
-                    ColorOverlay {
-                        anchors.fill: prevTrack
-                        source: prevTrack
-                        color: (night) ? "#401e373a" : "#40000000"
-                    }
+//                     ColorOverlay {
+//                         anchors.fill: prevTrack
+//                         source: prevTrack
+//                         color: (night) ? "#401e373a" : "#40000000"
+//                     }
                     state: "none"
                     MouseArea {
                         anchors.fill: parent
@@ -1341,11 +1341,11 @@ Mycroft.Delegate {
                         source: "../images/play.png"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        ColorOverlay {
-                            anchors.fill: playPause
-                            source: playPause
-                            color: (night) ? "#401e373a" : "#40000000"
-                        }
+//                         ColorOverlay {
+//                             anchors.fill: playPause
+//                             source: playPause
+//                             color: (night) ? "#401e373a" : "#40000000"
+//                         }
                         state: "none"
                         MouseArea {
                             anchors.fill: parent
@@ -1369,11 +1369,11 @@ Mycroft.Delegate {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     source: "../images/forward.png"
-                    ColorOverlay {
-                        anchors.fill: nextTrack
-                        source: nextTrack
-                        color: (night) ? "#401e373a" : "#40000000"
-                    }
+//                     ColorOverlay {
+//                         anchors.fill: nextTrack
+//                         source: nextTrack
+//                         color: (night) ? "#401e373a" : "#40000000"
+//                     }
                     state: "none"
                     MouseArea {
                         anchors.fill: parent
