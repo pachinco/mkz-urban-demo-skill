@@ -1221,7 +1221,7 @@ Mycroft.Delegate {
                         wrapMode: Text.Wrap
                     }
                     Text {
-                        id: trackTitle
+                        id: trackArtist
                         anchors.left: parent.left
                         anchors.top: parent.top
                         anchors.right: parent.right
