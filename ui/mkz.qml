@@ -569,7 +569,7 @@ Mycroft.Delegate {
                 anchors.top: topFrame.top
                 width: topFrame.width*0.4
                 height: topFrame.height
-                opacity: (uiMusic) 0 : 1
+//                 opacity: (uiMusic) 0 : 1
 //                 Behavior on opacity { target: musicTopview
                 z: 15
                 Item {
