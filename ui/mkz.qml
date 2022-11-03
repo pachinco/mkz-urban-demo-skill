@@ -1195,12 +1195,14 @@ Mycroft.Delegate {
                         id: trackAlbum
                         anchors.left: parent.left
                         anchors.bottom: parent.bottom
-                        text: player.metaData.albumTitle ? player.metaData.albumTitle : "Title unavailable"
+                        text: player.metaData.albumTitle ? player.metaData.albumTitle : "Album unavailable"
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.capitalization: Font.SmallCaps
                         font.pointSize: 20
-                        font.bold: true
+                        font.bold: false
+                        font.capitalization: Font.SmallCaps
+                        font.weight: Font.Thin
 //                         style: Text.Raised
 //                         styleColor: "#80000000"
                         wrapMode: Text.Wrap
@@ -1210,10 +1212,24 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.bottom: trackAlbum.top
                         anchors.right: parent.right
-                        text: player.metaData.title ? player.metaData.title : "Album unavailable"
+                        text: player.metaData.title ? player.metaData.title : "Title unavailable"
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.pointSize: 20
+                        font.bold: true
+//                         style: Text.Raised
+//                         styleColor: "#80000000"
+                        wrapMode: Text.Wrap
+                    }
+                    Text {
+                        id: trackTitle
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.right: parent.right
+                        text: player.metaData.artist ? player.metaData.artist : "Artist unavailable"
+                        color: (night) ? "#e8fffc" : "#c0000000"
+//                                         font.family: appFont.name
+                        font.pointSize: 24
                         font.bold: false
                         font.capitalization: Font.SmallCaps
                         font.weight: Font.Thin
