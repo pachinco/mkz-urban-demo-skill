@@ -1378,7 +1378,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: timeWrap.bottom
-                anchors.topMargin: Kirigami.Units.gridUnit*2
+                anchors.topMargin: Kirigami.Units.gridUnit*3
                 anchors.leftMargin: parent.width*0.2
                 anchors.rightMargin: parent.width*0.2
                 height: ppTrack.height
