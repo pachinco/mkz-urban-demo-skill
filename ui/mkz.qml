@@ -1332,7 +1332,7 @@ Mycroft.Delegate {
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         width: parent.width*player.position/player.duration
-                        color: (night) ? "#e8fffc" : "#c0000000"
+                        color: "#de6e2a"
                     }
                 }
             }
