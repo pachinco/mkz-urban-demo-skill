@@ -563,12 +563,13 @@ Mycroft.Delegate {
                 }
             }
 
-            Item {
+            Rectangle {
                 id: musicTopview
                 anchors.horizontalCenter: topFrame.horizontalCenter
                 anchors.top: topFrame.top
                 width: topFrame.width*0.4
                 height: topFrame.height
+                color: "#80800000"
 //                 opacity: (uiMusic) ? 0 : 1
 //                 Behavior on opacity { target: musicTopview
                 z: 15
@@ -576,7 +577,7 @@ Mycroft.Delegate {
                     id: musicTopProgress
                     anchors.horizontalCenter: topFrame.horizontalCenter
                     anchors.top: parent.top
-                    anchors.topMargin: Kirigami.Units.gridUnit
+                    anchors.topMargin: Kirigami.Units.gridUnit*2
     //                 anchors.leftMargin: Kirigami.Units.gridUnit
     //                 anchors.rightMargin: Kirigami.Units.gridUnit
                     width: parent.width*0.8
@@ -593,7 +594,6 @@ Mycroft.Delegate {
                         }
                     }
                 }
-
                 Text {
                     id: musicTopCurrent
                     anchors.right: musicTopProgress.left
