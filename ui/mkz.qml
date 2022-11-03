@@ -1094,6 +1094,7 @@ Mycroft.Delegate {
     Item {
         id: musicFrame
         anchors.fill: parent
+        z: 15
         state: (uiMusic) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
@@ -1216,7 +1217,6 @@ Mycroft.Delegate {
 //             height: parent.height*0.75
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
-            z: 15
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
