@@ -1052,8 +1052,10 @@ Mycroft.Delegate {
             property int index: -1
             property MediaPlayer mediaPlayer: player
             property FolderListModel items: FolderListModel {
-                folder: Qt.resolvedUrl("../music")
-                nameFilters: ["*.mp3"]
+//                 folder: Qt.resolvedUrl("../music")
+                folder: Qt.resolvedUrl("/Users/holger/Music/iTunes/iTunes Media/Music")
+//                 nameFilters: ["*.mp3"]
+                nameFilters: ["*.m4a"]
             }
 
             function init(){
