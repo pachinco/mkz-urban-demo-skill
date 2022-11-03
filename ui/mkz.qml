@@ -565,8 +565,8 @@ Mycroft.Delegate {
 
             Rectangle {
                 id: musicTopview
-                anchors.horizontalCenter: topFrame.horizontalCenter
-                anchors.top: topFrame.top
+                anchors.horizontalCenter: frameTop.horizontalCenter
+                anchors.top: frameTop.top
                 width: topFrame.width*0.4
                 height: topFrame.height
                 color: "#80800000"
@@ -575,13 +575,13 @@ Mycroft.Delegate {
                 z: 15
                 Item {
                     id: musicTopProgress
-                    anchors.horizontalCenter: topFrame.horizontalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
                     anchors.topMargin: Kirigami.Units.gridUnit*2
     //                 anchors.leftMargin: Kirigami.Units.gridUnit
     //                 anchors.rightMargin: Kirigami.Units.gridUnit
                     width: parent.width*0.8
-                    height: 8
+                    height: 10
                     Rectangle {
                         anchors.fill: parent
                         color: "#40000000"
@@ -604,12 +604,11 @@ Mycroft.Delegate {
                     color: (night) ? "#e8fffc" : "#c0000000"
                     font.pointSize: 14
                 }
-
                 Text {
                     id: musicTopTotal
                     anchors.left: musicTopProgress.right
                     anchors.verticalCenter: musicTopProgress.verticalCenter
-                    anchors.rightMargin: 3
+                    anchors.leftMargin: 3
                     text: "-"+playLogic.msToTime(player.duration-player.position)
     //                                 font.family: appFont.name
                     color: (night) ? "#e8fffc" : "#c0000000"
