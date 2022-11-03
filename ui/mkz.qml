@@ -909,13 +909,14 @@ Mycroft.Delegate {
     Item {
         id: statusFrame
         anchors.fill: parent
+        z: 15
         state: (uiConfig) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: statusView
-                    height: parent.height*0.75
+                    height: parent.height*0.9
                 }
                 PropertyChanges {
                     target: statusBackshade
