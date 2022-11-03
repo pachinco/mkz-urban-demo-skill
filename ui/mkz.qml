@@ -569,6 +569,8 @@ Mycroft.Delegate {
                 anchors.top: topFrame.top
                 width: topFrame.width*0.4
                 height: topFrame.height
+                opacity: (uiMusic) 0 : 1
+//                 Behavior on opacity { target: musicTopview
                 z: 15
                 Item {
                     id: musicTopProgress
@@ -605,7 +607,7 @@ Mycroft.Delegate {
 
                 Text {
                     id: musicTopTotal
-                    anchors.left: musicTopProgress.left
+                    anchors.left: musicTopProgress.right
                     anchors.verticalCenter: musicTopProgress.verticalCenter
                     anchors.rightMargin: 3
                     text: "-"+playLogic.msToTime(player.duration-player.position)
@@ -1101,7 +1103,7 @@ Mycroft.Delegate {
             State {
                 name: "ACTIVE"
                 PropertyChanges {
-                    target: musicTopView
+                    target: musicTopview
                     opacity: 0
                 }
                 PropertyChanges {
@@ -1120,7 +1122,7 @@ Mycroft.Delegate {
             State {
                 name: "INACTIVE"
                 PropertyChanges {
-                    target: musicTopView
+                    target: musicTopview
                     opacity: 1
                 }
                 PropertyChanges {
@@ -1149,7 +1151,7 @@ Mycroft.Delegate {
                     }
                     ParallelAnimation {
                         NumberAnimation { target: musicView; properties: "opacity, height"; duration: 500 }
-                        NumberAnimation { target: musicTopView; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: musicTopview; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                 }
@@ -1160,7 +1162,7 @@ Mycroft.Delegate {
                 SequentialAnimation {
                     ParallelAnimation {
                         NumberAnimation { target: musicView; properties: "opacity, height"; duration: 500 }
-                        NumberAnimation { target: musicTopView; properties: "opacity"; duration: 500 }
+                        NumberAnimation { target: musicTopview; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: musicBackshade; properties: "opacity"; duration: 500 }
                     }
                     PropertyAction {
