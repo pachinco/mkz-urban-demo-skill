@@ -1225,7 +1225,7 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.top: parent.top
                         anchors.right: parent.right
-                        text: player.metaData.artist ? player.metaData.artist : "Artist unavailable"
+                        text: player.metaData.albumArtist ? player.metaData.albumArtist : "Artist unavailable"
                         color: (night) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.pointSize: 24
