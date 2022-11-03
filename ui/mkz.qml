@@ -1201,7 +1201,6 @@ Mycroft.Delegate {
                         font.capitalization: Font.SmallCaps
                         font.pointSize: 20
                         font.bold: false
-                        font.capitalization: Font.SmallCaps
                         font.weight: Font.Thin
 //                         style: Text.Raised
 //                         styleColor: "#80000000"
