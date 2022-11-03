@@ -1148,6 +1148,8 @@ Mycroft.Delegate {
             anchors.horizontalCenter: topFrame.horizontalCenter
             anchors.top: topFrame.top
             width: topFrame.width*0.4
+            height: topFrame.height
+            z: 15
             Item {
                 id: musicTopProgress
                 anchors.horizontalCenter: parent.horizontalCenter
