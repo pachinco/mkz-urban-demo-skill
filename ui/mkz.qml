@@ -404,28 +404,20 @@ Mycroft.Delegate {
     }
     Item {
         id: mapView
-        state: (uiCar) ? "ACTIVE" : "INACTIVE"
+        state: (uiMap) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
                 PropertyChanges {
-                    target: actionsView
-                    height: parent.height*0.75
-                }
-                PropertyChanges {
-                    target: carBackshade
-                    opacity: 0.5
+                    target: routeView
+                    height: parent.height*0.9
                 }
             },
             State {
                 name: "INACTIVE"
                 PropertyChanges {
-                    target: actionsView
+                    target: routeView
                     height: 0
-                }
-                PropertyChanges {
-                    target: carBackshade
-                    opacity: 0
                 }
             }
         ]
@@ -435,26 +427,20 @@ Mycroft.Delegate {
                 to: "ACTIVE"
                 SequentialAnimation {
                     PropertyAction {
-                        target: carFrame
+                        target: mapView
                         property: "visible"
                         value: true
                     }
-                    ParallelAnimation {
-                        NumberAnimation { target: actionsView; properties: "height"; duration: 500 }
-                        NumberAnimation { target: carBackshade; properties: "opacity"; duration: 500 }
-                    }
+                    NumberAnimation { target: routeView; properties: "height"; duration: 500 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    ParallelAnimation {
-                        NumberAnimation { target: actionsView; properties: "height"; duration: 500 }
-                        NumberAnimation { target: carBackshade; properties: "opacity"; duration: 500 }
-                    }
+                    NumberAnimation { target: routeView; properties: "height"; duration: 500 }
                     PropertyAction {
-                        target: carFrame
+                        target: mapView
                         property: "visible"
                         value: false
                     }
@@ -467,10 +453,10 @@ Mycroft.Delegate {
         width: parent.width*0.2
         height: parent.height*0.9
         z: 15
-        Rectangle {
+        Item {
             id: routeView
             anchors.fill: parent
-            color: "white"
+//             color: "white"
             ListView {
                 anchors.fill: parent
     //             spacing: Kirigami.Units.gridUnit
@@ -479,7 +465,7 @@ Mycroft.Delegate {
                 delegate: Rectangle {
     //                 anchors.fill: parent
                     width: parent.width
-                    height: Kirigami.Units.gridUnit*5
+                    height: Kirigami.Units.gridUnit*6
                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
                     opacity: (index%2===0) ? 0.8 : 1
     //                 spacing: 10
@@ -490,7 +476,7 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
-                        anchors.topMargin: Kirigami.Units.gridUnit
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
                         font.pointSize: Kirigami.Units.gridUnit
                     }
@@ -499,7 +485,7 @@ Mycroft.Delegate {
                         anchors.right: parent.right
                         anchors.rightMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
-                        anchors.topMargin: Kirigami.Units.gridUnit
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         text: {
                             switch (modelData.maneuver.direction) {
                                 case RouteManeuver.NoDirection:
