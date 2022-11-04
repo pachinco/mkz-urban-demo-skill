@@ -598,7 +598,7 @@ Mycroft.Delegate {
                         }
                     }
                     onClicked: {
-                        routeList.ListView.(routeList.currentIndex).visible = false
+                        routeList.ListView.itemAtIndex(routeList.currentIndex).visible = false
                         console.log("segment instruction: "+travelSegments[routeList.currentIndex].maneuver.instructionText)
                     }
                 }
