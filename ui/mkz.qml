@@ -500,7 +500,7 @@ Mycroft.Delegate {
                         text: {
                             switch (modelData.maneuver.direction) {
                                 case RouteManeuver.NoDirection:
-                                    return "(None)";
+                                    return "";
                                 case RouteManeuver.DirectionForward:
                                     return "Straight";
                                 case RouteManeuver.DirectionBearRight:
@@ -540,7 +540,7 @@ Mycroft.Delegate {
                         anchors.rightMargin: Kirigami.Units.gridUnit
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
-                        font.pointSize: Kirigami.Units.gridUnit*0.5
+                        font.pointSize: Kirigami.Units.gridUnit*0.8
                         wrapMode: Text.Wrap
                     }
                 }
