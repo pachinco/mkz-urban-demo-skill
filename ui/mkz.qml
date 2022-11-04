@@ -754,7 +754,8 @@ Mycroft.Delegate {
                 anchors.right: parent.right
                 anchors.rightMargin: Kirigami.Units.gridUnit*1.5
 //                 y: 12
-                anchors.bottom: lTime.bottom
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: parent.height*0.4
                 source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
                 height: 30
                 width: 30
