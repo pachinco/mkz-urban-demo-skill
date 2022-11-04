@@ -466,6 +466,7 @@ Mycroft.Delegate {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*6
                     color: (night) ? "#275660" : "#ffffff"
+                    z: 16
 //                     opacity: 0.8
                     layer.enabled: true
                     layer.effect: DropShadow {
