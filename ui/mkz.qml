@@ -499,6 +499,9 @@ Mycroft.Delegate {
                         anchors.rightMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
+                        height: maneuverDist.height
+                        fillMode: Image.PreserveAspectFit
+                        mipmap: true
 //                         color: (night) ? "#a9cac9" : "#000000"
                         source: {
                             switch (modelData.maneuver.direction) {
@@ -530,7 +533,6 @@ Mycroft.Delegate {
                                     return null;
                             }
                         }
-                        font.pointSize: Kirigami.Units.gridUnit
                     }
                     Text {
                         id: maneuverInstr
