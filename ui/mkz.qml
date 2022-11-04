@@ -495,6 +495,7 @@ Mycroft.Delegate {
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         anchors.bottom: parent.bottom
+                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
 //                         height: maneuverDist.height
                         fillMode: Image.PreserveAspectFit
                         mipmap: true
@@ -542,7 +543,7 @@ Mycroft.Delegate {
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.7
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
                         color: (night) ? "#a9cac9" : "#000000"
-                        font.pointSize: Kirigami.Units.gridUnit*0.4
+                        font.pointSize: Kirigami.Units.gridUnit*0.5
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
                     }
