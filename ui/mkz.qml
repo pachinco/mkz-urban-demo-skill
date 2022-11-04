@@ -428,7 +428,7 @@ Mycroft.Delegate {
                     font.pointSize: Kirigami.Units.gridUnit
                 }
                 Text {
-                    ui: maneuverDir
+                    id: maneuverDir
                     anchors.left: maneuverDist.right
                     anchors.leftMargin: Kirigami.Units.gridUnit
                     anchors.verticalCenter: parent.verticalCenter
