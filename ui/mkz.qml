@@ -736,7 +736,7 @@ Mycroft.Delegate {
             }
             Text {
                 id: lDate
-                anchors.left: lAmpm.right
+                anchors.left: lDay.right
                 anchors.bottom: lTime.bottom
                 anchors.leftMargin: Kirigami.Units.gridUnit*0.8
                 color: (night) ? "#a9cac9" : "#000000"
@@ -778,16 +778,9 @@ Mycroft.Delegate {
                 anchors.bottom: lTime.bottom
                 source: (modeAuto) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
                 height: 28
-                opacity: (night) ? 1 : 0.6
-                Colorize {
-                    anchors.fill: autonomousIcon
-                    source: autonomousIcon
-                    hue: (night) ? 178 : 0
-                    saturation: (night) ? 24 : 0
-                    lightness: (night) ? 73 : 0
-                }
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
+                opacity: (night) ? 1 : 0.6
                 MouseArea {
                     anchors.fill: parent
                     onClicked: autonomousIcon.clicked()
@@ -795,6 +788,13 @@ Mycroft.Delegate {
                 onClicked: {
                     modeAuto = (modeAuto) ? false : true
                 }
+            }
+            Colorize {
+                anchors.fill: autonomousIcon
+                source: autonomousIcon
+                hue: (night) ? 178 : 0
+                saturation: (night) ? 24 : 0
+                lightness: (night) ? 73 : 0
             }
 
             Item {
