@@ -596,12 +596,11 @@ Mycroft.Delegate {
                             routeList.currentIndex = index
                             routeList.currentItem.clicked()
                             routeList.currentItem.visible = false
+                            routeList.positionViewAtIndex(index+1, ListView.Beginning)
                         }
                     }
                     onClicked: {
-//                         routeList.ListView.itemAtIndex(routeList.currentIndex).visible = false
                         console.log("segment instruction: "+travelSegments[routeList.currentIndex].maneuver.instructionText)
-//                         travelSegments[routeList.currentIndex].maneuver.valid = false
                     }
                 }
             }
