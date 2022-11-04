@@ -756,8 +756,8 @@ Mycroft.Delegate {
 //                 y: 12
                 anchors.bottom: lTime.bottom
                 source: (night) ? "../images/moon-night.svg" : "../images/sun-solid.svg"
-                height: 28
-                width: 28
+                height: 32
+                width: 32
                 opacity: (night) ? 1 : 0.6
 //                 color: (night) ? "#a9cac9" : "#000000"
                 mipmap: true
@@ -778,11 +778,11 @@ Mycroft.Delegate {
 //                 y: 12
                 anchors.bottom: lTime.bottom
                 source: (modeAuto) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
-                height: 28
-                width: 28
+                height: 32
+                width: 32
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
-                opacity: (night) ? 1 : 0.7
+                opacity: (night) ? 1 : 0.8
                 MouseArea {
                     anchors.fill: parent
                     onClicked: autonomousIcon.clicked()
