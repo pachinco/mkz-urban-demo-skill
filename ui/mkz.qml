@@ -1206,7 +1206,8 @@ Mycroft.Delegate {
                 height: statusView.cellHeight
                 Rectangle {
                     id: statusButton
-                    color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+//                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+                    color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
                     signal clicked
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width-Kirigami.Units.gridUnit*4
@@ -1231,7 +1232,7 @@ Mycroft.Delegate {
                         anchors.left: statusSpacer1.right
                         anchors.verticalCenter: statusButton.verticalCenter
                         text: model.text
-                        color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#c0f00000"
+                        color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#ef7b30"
                         font.bold: (model.text.substring(model.text.length-1)==="✓") ? false : true
                         font.pointSize: Kirigami.Units.gridUnit
                     }
