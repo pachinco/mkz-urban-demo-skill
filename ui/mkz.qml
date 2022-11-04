@@ -475,6 +475,7 @@ Mycroft.Delegate {
         Component.onCompleted: {
             if (map) {
                 map.updateRoute();
+                console.log("route: "+routeModel)
             }
         }
     }
