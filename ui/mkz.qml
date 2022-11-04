@@ -605,7 +605,7 @@ Mycroft.Delegate {
                     }
                 }
                 onCurrentItemChanged: {
-                    console.log("RouteList: "+routeModel.get(routeList.currentIndex).name));
+                    console.log("RouteList: "+routeModel.get(routeList.currentIndex).name);
                 }
             }
         }
