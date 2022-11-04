@@ -462,11 +462,47 @@ Mycroft.Delegate {
                 anchors.fill: parent
                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
                 visible: model ? true : false
+                header: Rectangle {
+                    width: parent.width
+                    height: Kirigami.Units.gridUnit*6
+                    color: (night) ? "#275660" : "#ffffff"
+//                     opacity: 0.8
+                    layer.enabled: true
+                    layer.effect: DropShadow {
+                        transparentBorder: true
+                        verticalOffset: -4
+                        radius: 10
+                        samples: 21
+                        color: "#80000000"
+                    }
+                    Text {
+                        id: routeTravelTime
+                        anchors.left: parent.left
+                        anchors.leftMargin: Kirigami.Units.gridUnit
+                        anchors.top: parent.top
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
+                        color: (night) ? "#ef7b30" : "#47696f"
+                        text: routeModel.travelTime>60 ? Math.floor(routeModel.travelTime/3600)+" hr  "+Math.floor(routeModel.travelTime/60)+" min" : Math.floor(routeModel.travelTime/60)+" min"
+                        font.pointSize: Kirigami.Units.gridUnit*2
+                        font.bold: true
+                    }
+                    Text {
+                        id: routeDist
+                        anchors.left: parent.left
+                        anchors.leftMargin: Kirigami.Units.gridUnit
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
+                        color: (night) ? "white" : "black"
+                        text: routeModel.distance>1000 ? Math.floor(routeModel.distance/1000)+"km" : Math.floor(routeModel.distance)+"m"
+                        font.pointSize: Kirigami.Units.gridUnit
+                        font.bold: true
+                    }
+                }
                 delegate: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*6
-                    color: (night) ? ((index%2===0) ? "#ff73a8a6" : "#ff5f9295") : ((index%2===0) ? "#fdadada" : "#fb2a196")
-                    opacity: 0.8
+                    color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
+//                     opacity: 0.8
                     property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
                     layer.enabled: true
