@@ -473,7 +473,7 @@ Mycroft.Delegate {
                     opacity: (index%2===0) ? 0.8 : 1
     //                 spacing: 10
                     property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
-                    visible: hasManeuver
+                    visible: hasManeuver && (y>0)
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
