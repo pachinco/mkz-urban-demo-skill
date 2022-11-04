@@ -450,7 +450,7 @@ Mycroft.Delegate {
         anchors.leftMargin: Kirigami.Units.gridUnit*2
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        width: parent.width*0.3
+        width: parent.width*0.25
         height: parent.height*0.9
         z: 15
         Item {
@@ -603,6 +603,9 @@ Mycroft.Delegate {
                             routeList.currentIndex = index+1
                         }
                     }
+                }
+                onCurrentItemChanged: {
+                    console.log("RouteList: "+routeModel.get(routeList.currentIndex).name));
                 }
             }
         }
