@@ -503,13 +503,14 @@ Mycroft.Delegate {
                         font.bold: true
                     }
                 }
-                delegate: Button {
+                delegate: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*6
                     color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
 //                     opacity: 0.8
                     property bool hasManeuver: modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
+                    signal clicked
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -589,6 +590,10 @@ Mycroft.Delegate {
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
                     }
+//                     MouseArea {
+//                         anchors.fill: parent
+//                         onClicked: dayNightIcon.clicked()
+//                     }
                     onClicked: {
                         console.log("segment instruction: "+travelSegments[index].maneuver.instructionText)
                     }
