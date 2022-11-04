@@ -592,10 +592,10 @@ Mycroft.Delegate {
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: routeList.itemAtIndex(index).clicked()
+                        onClicked: routeList.currentItem.clicked()
                     }
                     onClicked: {
-                        console.log("segment instruction: "+travelSegments[index].maneuver.instructionText)
+                        console.log("segment instruction: "+travelSegments[currentIndex].maneuver.instructionText)
                     }
                 }
             }
