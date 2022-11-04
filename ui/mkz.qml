@@ -403,20 +403,26 @@ Mycroft.Delegate {
         }
         ListView {
             id: routeView
+            anchors.leftMargin: Kirigami.Units.gridUnit*4
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             width: parent.width*0.5
             height: parent.height*0.9
             spacing: 10
+            z: 15
             model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
             visible: model ? true : false
             delegate: Row {
                 width: parent.width
+                color: (night) ? "#ff1e373a" : "#f0f0f0f0"
                 spacing: 10
                 property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
                 visible: hasManeuver
-                Text { text: (1 + index) + "." }
-                Text { text: hasManeuver ? modelData.maneuver.instructionText : "" }
+//                 Text { text: (1 + index) + "." }
+                Text {
+                    text: hasManeuver ? modelData.maneuver.instructionText : ""
+                    font.pointSize: Kirigami.Units.gridUnit*2
+                }
             }
         }
 
@@ -449,7 +455,6 @@ Mycroft.Delegate {
 //                         anchors.verticalCenter: parent.verticalCenter
 //                         text: model.voiceInstructions[0]
 //                         color: (night) ? "#e8fffc" : "#c0000000"
-//                         font.bold: (model.text.substring(model.text.length-1)==="✓") ? false : true
 //                         font.pointSize: Kirigami.Units.gridUnit*2
 //                     }
 //                     MouseArea {
