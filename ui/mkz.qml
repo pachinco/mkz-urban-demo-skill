@@ -450,7 +450,7 @@ Mycroft.Delegate {
         anchors.leftMargin: Kirigami.Units.gridUnit
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        width: parent.width*0.4
+        width: parent.width*0.3
         height: parent.height*0.9
         z: 15
         Item {
@@ -461,6 +461,8 @@ Mycroft.Delegate {
             ListView {
                 anchors.fill: parent
                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
+                property var routeTravelTime: routeModel.get(0).travelTime
+                property var routeTravelDist: routeModel.get(0).distance
                 visible: model ? true : false
                 header: Rectangle {
                     width: parent.width
@@ -477,13 +479,13 @@ Mycroft.Delegate {
                         color: "#80000000"
                     }
                     Text {
-                        id: routeTravelTime
+                        id: routeTravel
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "#ef7b30" : "#47696f"
-                        text: routeModel.travelTime>60 ? Math.floor(routeModel.travelTime/3600)+" hr  "+Math.floor(routeModel.travelTime/60)+" min" : Math.floor(routeModel.travelTime/60)+" min"
+                        text: routeTravelTime>60 ? Math.floor(routeTravelTime/3600)+" hr  "+Math.floor(routeTravelTime/60)+" min" : Math.floor(routeTravelTime/60)+" min"
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
                     }
@@ -494,7 +496,7 @@ Mycroft.Delegate {
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "white" : "black"
-                        text: routeModel.distance>1000 ? Math.floor(routeModel.distance/1000)+"km" : routeModel.distance+"m"
+                        text: routeTravelDist>1000 ? Math.floor(routeTravelDist/1000)+"km" : routeTravelDist+"m"
                         font.pointSize: Kirigami.Units.gridUnit
                         font.bold: true
                     }
@@ -573,7 +575,7 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.top: maneuverDist.bottom
-                        anchors.topMargin: Kirigami.Units.gridUnit*0.3
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.2
                         anchors.bottom: parent.bottom
                         anchors.right: maneuverDir.left
                         anchors.rightMargin: Kirigami.Units.gridUnit
