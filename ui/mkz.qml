@@ -790,12 +790,13 @@ Mycroft.Delegate {
                 onClicked: {
                     modeAuto = (modeAuto) ? false : true
                 }
-                Colorize {
+                ColorOverlay {
                     anchors.fill: autonomousIcon
                     source: autonomousIcon
-                    hue: 178
-                    saturation: 24
-                    lightness: 73
+                    color: (night) ? "#a9cac9" : "#000000"
+//                     hue: 178
+//                     saturation: 24
+//                     lightness: 73
 //                     hue: (night) ? 178 : 0
 //                     saturation: (night) ? 24 : 0
 //                     lightness: (night) ? 73 : 0
