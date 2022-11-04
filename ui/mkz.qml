@@ -539,7 +539,7 @@ Mycroft.Delegate {
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
 //                         color: (night) ? "#a9cac9" : "#000000"
 //                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
-                        text: (hasManeuver && index>0) ? Math.floor(travelSegments[index-1].maneuver.distanceToNextInstruction)+"m" : ""
+                        text: (hasManeuver && index>0) ? (travelSegments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.floor(travelSegments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.floor(travelSegments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
                     }
