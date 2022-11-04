@@ -505,6 +505,7 @@ Mycroft.Delegate {
                 delegate: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*6
+                    signal clicked
                     color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
 //                     opacity: 0.8
                     property bool hasManeuver: modelData.maneuver && modelData.maneuver.valid
@@ -587,6 +588,13 @@ Mycroft.Delegate {
                         font.pointSize: Kirigami.Units.gridUnit*0.5
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: delegateItem.clicked()
+                    }
+                    onClicked: {
+                        console.log("segment instruction: "+travelSegments[currentIndex].maneuver.instructionText)
                     }
                 }
             }
