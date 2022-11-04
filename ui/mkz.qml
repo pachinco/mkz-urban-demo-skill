@@ -1237,7 +1237,7 @@ Mycroft.Delegate {
                         color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#bababa")
                         signal clicked
                         anchors.horizontalCenter: parent.horizontalCenter
-                        width: parent.width-Kirigami.Units.gridUnit*4
+                        width: parent.width
                         height: parent.height
                         Item {
                             id: statusSpacer1
