@@ -1202,7 +1202,10 @@ Mycroft.Delegate {
             id: statusView
             anchors.left: parent.left
             anchors.bottom: parent.bottom
-            width: parent.width*0.5
+            anchors.leftMargin: Kirigami.Units.gridUnit*2
+            anchors.right: parent.horizontalCenter
+            anchors.rightMargin: Kirigami.Units.gridUnit*2
+//             width: parent.width*0.5
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
