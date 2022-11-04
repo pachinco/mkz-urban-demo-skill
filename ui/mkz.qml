@@ -447,10 +447,10 @@ Mycroft.Delegate {
                 }
             }
         ]
-        anchors.leftMargin: Kirigami.Units.gridUnit
+        anchors.leftMargin: Kirigami.Units.gridUnit*4
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        width: parent.width*0.25
+        width: parent.width*0.2
         height: parent.height*0.9
         z: 15
         Item {
@@ -458,16 +458,21 @@ Mycroft.Delegate {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
+//             anchors.fill: parent
+//             color: "white"
             ListView {
                 id: routeList
                 anchors.fill: routeList
+    //             spacing: Kirigami.Units.gridUnit
                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
                 visible: model ? true : false
                 delegate: Rectangle {
-                    width: routeList.width
-                    height: Kirigami.Units.gridUnit*5
+    //                 anchors.fill: parent
+                    width: parent.width
+                    height: Kirigami.Units.gridUnit*6
                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
-//                     opacity: (index%2===0) ? 0.8 : 1
+                    opacity: (index%2===0) ? 0.8 : 1
+    //                 spacing: 10
                     property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
                     layer.enabled: true
@@ -486,17 +491,16 @@ Mycroft.Delegate {
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
 //                         color: (night) ? "#a9cac9" : "#000000"
                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
-                        font.pointSize: Kirigami.Units.gridUnit*2
+                        font.pointSize: Kirigami.Units.gridUnit*1.5
                         font.bold: true
                     }
                     Image {
                         id: maneuverDir
                         anchors.right: parent.right
+                        anchors.rightMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
-                        anchors.margins: Kirigami.Units.gridUnit
-//                         anchors.rightMargin: Kirigami.Units.gridUnit
-//                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
-                        height: parent.height
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
+                        height: maneuverDist.height
                         fillMode: Image.PreserveAspectFit
                         mipmap: true
 //                         color: (night) ? "#a9cac9" : "#000000"
@@ -543,7 +547,7 @@ Mycroft.Delegate {
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.7
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
                         color: (night) ? "#a9cac9" : "#000000"
-                        font.pointSize: Kirigami.Units.gridUnit*0.4
+                        font.pointSize: Kirigami.Units.gridUnit*0.6
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
                     }
