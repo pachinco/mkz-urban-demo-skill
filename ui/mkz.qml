@@ -1207,7 +1207,7 @@ Mycroft.Delegate {
                 Rectangle {
                     id: statusButton
 //                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
-                    color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
+                    color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#bababa")
                     signal clicked
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width-Kirigami.Units.gridUnit*4
@@ -1216,7 +1216,7 @@ Mycroft.Delegate {
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 6
-                        verticalOffset: -6
+                        verticalOffset: 6
                         color: "#80000000"
                         radius: 10
                         samples: 21
