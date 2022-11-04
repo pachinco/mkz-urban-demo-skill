@@ -590,10 +590,10 @@ Mycroft.Delegate {
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
                     }
-//                     MouseArea {
-//                         anchors.fill: parent
-//                         onClicked: dayNightIcon.clicked()
-//                     }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: routeList.currentItem.clicked()
+                    }
                     onClicked: {
                         console.log("segment instruction: "+travelSegments[index].maneuver.instructionText)
                     }
