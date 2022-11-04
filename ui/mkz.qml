@@ -455,7 +455,10 @@ Mycroft.Delegate {
         z: 15
         Item {
             id: routeView
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+//             anchors.fill: parent
 //             color: "white"
             ListView {
                 anchors.fill: parent
