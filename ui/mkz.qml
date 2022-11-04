@@ -450,7 +450,7 @@ Mycroft.Delegate {
         anchors.leftMargin: Kirigami.Units.gridUnit
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        width: parent.width*0.25
+        width: parent.width*0.4
         height: parent.height*0.9
         z: 15
         Item {
