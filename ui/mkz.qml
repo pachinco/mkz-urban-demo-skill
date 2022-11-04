@@ -494,7 +494,8 @@ Mycroft.Delegate {
                         anchors.rightMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
-                        height: maneuverDist.height
+                        anchors.bottom: parent.bottom
+//                         height: maneuverDist.height
                         fillMode: Image.PreserveAspectFit
                         mipmap: true
 //                         color: (night) ? "#a9cac9" : "#000000"
