@@ -424,7 +424,7 @@ Mycroft.Delegate {
                     anchors.left: parent.left
                     anchors.leftMargin: Kirigami.Units.gridUnit
                     anchors.verticalCenter: parent.verticalCenter
-                    text: hasManeuver ? modelData.maneuver.instructionText : ""
+                    text: hasManeuver ? modelData.maneuver.distanceToNextInstruction+"m" : ""
                     font.pointSize: Kirigami.Units.gridUnit
                 }
                 Text {
