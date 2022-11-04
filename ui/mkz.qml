@@ -406,16 +406,16 @@ Mycroft.Delegate {
             anchors.leftMargin: Kirigami.Units.gridUnit*4
             anchors.left: parent.left
             anchors.bottom: parent.bottom
-            width: parent.width*0.5
+            width: parent.width*0.2
             height: parent.height*0.9
-            spacing: Kirigami.Units.gridUnit
+//             spacing: Kirigami.Units.gridUnit
             z: 15
             model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
             visible: model ? true : false
             delegate: Rectangle {
 //                 anchors.fill: parent
                 width: parent.width
-                height: Kirigami.Units.gridUnit*3
+                height: Kirigami.Units.gridUnit*5
                 color: (night) ? "#ff1e373a" : "#f0f0f0f0"
                 opacity: (index%2===0) ? 0.8 : 1
 //                 spacing: 10
@@ -425,7 +425,8 @@ Mycroft.Delegate {
                     id: maneuverDist
                     anchors.left: parent.left
                     anchors.leftMargin: Kirigami.Units.gridUnit
-                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: Kirigami.Units.gridUnit
                     text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
                     font.pointSize: Kirigami.Units.gridUnit
                 }
@@ -433,7 +434,8 @@ Mycroft.Delegate {
                     id: maneuverDir
                     anchors.left: maneuverDist.right
                     anchors.leftMargin: Kirigami.Units.gridUnit
-                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: Kirigami.Units.gridUnit
                     text: {
                         switch (modelData.maneuver.direction) {
                             case RouteManeuver.NoDirection:
