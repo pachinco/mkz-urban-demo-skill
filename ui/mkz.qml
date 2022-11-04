@@ -595,7 +595,7 @@ Mycroft.Delegate {
                         onClicked: routeList.currentItem.clicked()
                     }
                     onClicked: {
-                        console.log("segment instruction: "+travelSegments[currentIndex].maneuver.instructionText)
+                        console.log("segment instruction: "+travelSegments[index].maneuver.instructionText)
                     }
                 }
             }
