@@ -702,7 +702,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.leftMargin: Kirigami.Units.gridUnit*1.5
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: parent.height*0.25
+                anchors.bottomMargin: parent.height*0.4
                 color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
@@ -778,7 +778,7 @@ Mycroft.Delegate {
                 anchors.bottom: lTime.bottom
                 source: (modeAuto) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
                 height: 28
-                mipmap: true
+//                 mipmap: true
                 fillMode: Image.PreserveAspectFit
                 opacity: (night) ? 1 : 0.6
                 MouseArea {
@@ -788,13 +788,13 @@ Mycroft.Delegate {
                 onClicked: {
                     modeAuto = (modeAuto) ? false : true
                 }
-            }
-            Colorize {
-                anchors.fill: autonomousIcon
-                source: autonomousIcon
-                hue: (night) ? 178 : 0
-                saturation: (night) ? 24 : 0
-                lightness: (night) ? 73 : 0
+                Colorize {
+                    anchors.fill: autonomousIcon
+                    source: autonomousIcon
+                    hue: (night) ? 178 : 0
+                    saturation: (night) ? 24 : 0
+                    lightness: (night) ? 73 : 0
+                }
             }
 
             Item {
