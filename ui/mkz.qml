@@ -602,7 +602,7 @@ Mycroft.Delegate {
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
                     }
-                    Area {
+                    MouseArea {
                         anchors.fill: parent
                         onClicked: {
 //                             routeList.currentIndex = index+1
