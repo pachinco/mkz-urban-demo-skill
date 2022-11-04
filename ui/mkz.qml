@@ -433,34 +433,33 @@ Mycroft.Delegate {
                     anchors.leftMargin: Kirigami.Units.gridUnit
                     anchors.verticalCenter: parent.verticalCenter
                     text: {
-                            switch (modelData.maneuver.direction) {
-                                case RouteManeuver.NoDirection:
-                                    return "(None)";
-                                case RouteManeuver.DirectionForward:
-                                    return "Straight";
-                                case RouteManeuver.DirectionBearRight:
-                                    return "Bear Right";
-                                case RouteManeuver.DirectionLightRight:
-                                    return "Light Right";
-                                case RouteManeuver.DirectionRight:
-                                    return "Right";
-                                case RouteManeuver.DirectionHardRight:
-                                    return "Hard Right";
-                                case RouteManeuver.DirectionUTurnRight:
-                                    return "U-Turn Right";
-                                case RouteManeuver.DirectionUTurnLeft:
-                                    return "U-Turn Left";
-                                case RouteManeuver.DirectionHardLeft:
-                                    return "Hard Left";
-                                case RouteManeuver.DirectionLeft:
-                                    return "Left";
-                                case RouteManeuver.DirectionLightLeft:
-                                    return "Light Left";
-                                case RouteManeuver.DirectionBearLeft:
-                                    return "Bear Left";
-                                default:
-                                    return "(Unknown)";
-                            }
+                        switch (modelData.maneuver.direction) {
+                            case RouteManeuver.NoDirection:
+                                return "(None)";
+                            case RouteManeuver.DirectionForward:
+                                return "Straight";
+                            case RouteManeuver.DirectionBearRight:
+                                return "Bear Right";
+                            case RouteManeuver.DirectionLightRight:
+                                return "Light Right";
+                            case RouteManeuver.DirectionRight:
+                                return "Right";
+                            case RouteManeuver.DirectionHardRight:
+                                return "Hard Right";
+                            case RouteManeuver.DirectionUTurnRight:
+                                return "U-Turn Right";
+                            case RouteManeuver.DirectionUTurnLeft:
+                                return "U-Turn Left";
+                            case RouteManeuver.DirectionHardLeft:
+                                return "Hard Left";
+                            case RouteManeuver.DirectionLeft:
+                                return "Left";
+                            case RouteManeuver.DirectionLightLeft:
+                                return "Light Left";
+                            case RouteManeuver.DirectionBearLeft:
+                                return "Bear Left";
+                            default:
+                                return "(Unknown)";
                         }
                     }
                     font.pointSize: Kirigami.Units.gridUnit
