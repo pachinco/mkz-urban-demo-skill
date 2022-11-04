@@ -460,7 +460,8 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             ListView {
                 anchors.fill: parent
-                model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
+                model: routeReady ? routeModel.get(0).segments : null
+//                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
                 visible: model ? true : false
                 snapMode: ListView.SnapToItem
                 headerPositioning: ListView.OverlayHeader
@@ -485,7 +486,7 @@ Mycroft.Delegate {
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "#ef7b30" : "#47696f"
-                        text: travelTime>60 ? Math.floor(travelTime/3600)+" hr  "+Math.floor(travelTime/60)+" min" : Math.floor(travelTime/60)+" min"
+                        text: travelTime>3600 ? Math.floor(travelTime/3600)+" hr  "+Math.floor(travelTime/60)+" min" : Math.floor(travelTime/60)+" min"
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
                     }
