@@ -490,7 +490,7 @@ Mycroft.Delegate {
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "#ef7b30" : "#47696f"
-                        text: travelTime>3600 ? Math.floor(travelTime/3600)+" hr  "+Math.floor(travelTime/60)+" min" : Math.round(travelTime/60)+" min"
+                        text: travelTime>3600 ? Math.floor(travelTime/3600)+" hr  "+Math.floor((travelTime%3600)/60)+" min" : Math.round(travelTime/60)+" min"
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
                     }
@@ -602,7 +602,7 @@ Mycroft.Delegate {
 //                             routeList.currentItem.visible = false
 //                             routeList.currentItem.remove();
                             routeList.positionViewAtIndex(index+1, ListView.Beginning)
-                            routeList.currentIndex = index+1
+//                             routeList.currentIndex = index+1
                         }
                     }
                 }
