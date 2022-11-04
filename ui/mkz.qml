@@ -410,7 +410,7 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: routeView
-                    height: parent.height*0.9
+                    height: parent.height
                 }
             },
             State {
