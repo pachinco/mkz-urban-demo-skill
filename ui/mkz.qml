@@ -1051,7 +1051,7 @@ Mycroft.Delegate {
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 6
-                        verticalOffset: 6
+                        verticalOffset: -6
                         color: "#80000000"
                         radius: 10
                         samples: 21
@@ -1216,7 +1216,7 @@ Mycroft.Delegate {
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 6
-                        verticalOffset: 6
+                        verticalOffset: -6
                         color: "#80000000"
                         radius: 10
                         samples: 21
@@ -1448,7 +1448,7 @@ Mycroft.Delegate {
             layer.effect: DropShadow {
                 transparentBorder: true
                 horizontalOffset: 6
-                verticalOffset: 6
+                verticalOffset: -6
                 color: "#80000000"
                 radius: 10
                 samples: 21
