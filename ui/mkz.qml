@@ -494,7 +494,7 @@ Mycroft.Delegate {
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "white" : "black"
-                        text: routeModel.distance>1000 ? Math.floor(routeModel.distance/1000)+"km" : Math.floor(routeModel.distance)+"m"
+                        text: routeModel.distance>1000 ? Math.floor(routeModel.distance/1000)+"km" : routeModel.distance+"m"
                         font.pointSize: Kirigami.Units.gridUnit
                         font.bold: true
                     }
