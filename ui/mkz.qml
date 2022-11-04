@@ -780,7 +780,7 @@ Mycroft.Delegate {
                 source: (modeAuto) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
                 height: 28
                 width: 28
-//                 mipmap: true
+                mipmap: true
                 fillMode: Image.PreserveAspectFit
                 opacity: (night) ? 1 : 0.6
                 MouseArea {
