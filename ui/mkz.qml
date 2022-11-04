@@ -474,14 +474,14 @@ Mycroft.Delegate {
     //                 spacing: 10
                     property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
-//                     layer.enabled: true
-//                     layer.effect: DropShadow {
-//                         transparentBorder: true
-//                         verticalOffset: -4
-//                         radius: 10
-//                         samples: 21
-//                         color: "#80000000"
-//                     }
+                    layer.enabled: true
+                    layer.effect: DropShadow {
+                        transparentBorder: true
+                        verticalOffset: -4
+                        radius: 10
+                        samples: 21
+                        color: "#80000000"
+                    }
                     Text {
                         id: maneuverDist
                         anchors.left: parent.left
@@ -528,6 +528,20 @@ Mycroft.Delegate {
                             }
                         }
                         font.pointSize: Kirigami.Units.gridUnit
+                    }
+                    Text {
+                        id: maneuverInstr
+                        anchors.left: parent.left
+                        anchors.leftMargin: Kirigami.Units.gridUnit
+                        anchors.top: maneuverDist.bottom
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.bottom: parent.bottom
+                        anchors.right: parent.right
+                        anchors.rightMargin: Kirigami.Units.gridUnit
+                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
+                        text: hasManeuver ? modelData.maneuver.instructionText : ""
+                        font.pointSize: Kirigami.Units.gridUnit*0.5
+                        wrapMode: Text.Wrap
                     }
                 }
             }
