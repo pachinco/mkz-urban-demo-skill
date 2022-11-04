@@ -29,6 +29,7 @@ Mycroft.Delegate {
     property real carSpeed: sessionData.carSpeed
     property var carPosition: sessionData.carPosition
     property bool carDriving: sessionData.carDriving
+    property bool modeAuto: sessionData.modeAuto
     property bool traffic: true
     property bool night: sessionData.nightMode
     property bool navigating: true
@@ -696,16 +697,12 @@ Mycroft.Delegate {
             anchors.right: parent.right
             source: (night) ? "../images/mkz_frame_top_night.png" : "../images/mkz_frame_top_day.png"
             fillMode: Image.PreserveAspectFit
-            Item {
-                id: lSpacer1
-                anchors.left: frameTop.left
-                anchors.bottom: frameTop.verticalCenter
-                width: 20
-            }
             Text {
                 id: lTime
-                anchors.left: lSpacer1.right
-                anchors.bottom: frameTop.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: Kirigami.Units.gridUnit*1.5
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: parent.height*0.25
                 color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
@@ -716,7 +713,7 @@ Mycroft.Delegate {
             Text {
                 id: lAmpm
                 anchors.left: lTime.right
-                anchors.bottom: frameTop.verticalCenter
+                anchors.bottom: lTime.bottom
                 color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
@@ -725,16 +722,11 @@ Mycroft.Delegate {
                 text: sessionData.datetime.substring(5,7)
                 opacity: (night) ? 1 : 0.6
             }
-            Item {
-                id: lSpacer2
-                anchors.left: lAmpm.right
-                anchors.bottom: frameTop.verticalCenter
-                width: 20
-            }
             Text {
                 id: lDay
-                anchors.left: lSpacer2.right
-                anchors.bottom: frameTop.verticalCenter
+                anchors.left: lAmpm.right
+                anchors.bottom: lTime.bottom
+                anchors.leftMargin: Kirigami.Units.gridUnit*1.5
                 color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
@@ -742,16 +734,11 @@ Mycroft.Delegate {
                 text: sessionData.datetime.substring(8,11)
                 opacity: (night) ? 1 : 0.6
             }
-            Item {
-                id: lSpacer3
-                anchors.left: lDay.right
-                anchors.bottom: frameTop.verticalCenter
-                width: 10
-            }
             Text {
                 id: lDate
-                anchors.left: lSpacer3.right
-                anchors.bottom: frameTop.verticalCenter
+                anchors.left: lAmpm.right
+                anchors.bottom: lTime.bottom
+                anchors.leftMargin: Kirigami.Units.gridUnit*0.8
                 color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
@@ -761,18 +748,13 @@ Mycroft.Delegate {
                 opacity: (night) ? 1 : 0.6
             }
 
-            Item {
-                id: rSpacer1
-                anchors.right: frameTop.right
-                anchors.bottom: frameTop.verticalCenter
-                width: 10
-            }
             Image {
                 id: dayNightIcon
                 signal clicked
-                anchors.right: rSpacer1.left
-                y: 12
-//                 anchors.bottom: frameTop.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: Kirigami.Units.gridUnit*1.5
+//                 y: 12
+                anchors.bottom: lTime.bottom
                 source: (night) ? "../images/moon-night.svg" : "../images/sun-solid.svg"
                 height: 28
                 opacity: (night) ? 1 : 0.6
@@ -785,6 +767,33 @@ Mycroft.Delegate {
                 }
                 onClicked: {
                     night = (night) ? false : true
+                }
+            }
+            Image {
+                id: AutonomousIcon
+                signal clicked
+                anchors.right: dayNightIcon.left
+                anchors.rightMargin: Kirigami.Units.gridUnit
+//                 y: 12
+                anchors.bottom: lTime.bottom
+                source: (modeAuto) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
+                height: 28
+                opacity: (night) ? 1 : 0.6
+                Colorize {
+                    anchors.fill: AutonomousIcon
+                    source: AutonomousIcon
+                    hue: (night) ? 178 : 0
+                    saturation: (night) ? 24 : 0
+                    lightness: (night) ? 73 : 0
+                }
+                mipmap: true
+                fillMode: Image.PreserveAspectFit
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: AutonomousIcon.clicked()
+                }
+                onClicked: {
+                    modeAuto = (modeAuto) ? false : true
                 }
             }
 
