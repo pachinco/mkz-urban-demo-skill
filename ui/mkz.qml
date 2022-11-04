@@ -466,7 +466,7 @@ Mycroft.Delegate {
                 visible: model ? true : false
                 snapMode: ListView.SnapToItem
                 headerPositioning: ListView.OverlayHeader
-                crop: true
+                clip: true
                 header: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*7
