@@ -465,8 +465,8 @@ Mycroft.Delegate {
                 delegate: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*6
-                    color: (night) ? "#ff1e373a" : "#f0f0f0f0"
-                    opacity: (index%2===0) ? 0.8 : 1
+                    color: (night) ? ((index%2===0) ? "#ff73a8a6" : "#ff5f9295") : ((index%2===0) ? "#fdadada" : "#fb2a196")
+                    opacity: 0.8
                     property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
                     layer.enabled: true
@@ -538,11 +538,11 @@ Mycroft.Delegate {
                         anchors.top: maneuverDist.bottom
                         anchors.topMargin: Kirigami.Units.gridUnit*0.3
                         anchors.bottom: parent.bottom
-                        anchors.right: parent.right
+                        anchors.right: maneuverDir.left
                         anchors.rightMargin: Kirigami.Units.gridUnit
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.7
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
-                        color: (night) ? "#a9cac9" : "#000000"
+//                         color: (night) ? "#a9cac9" : "#000000"
                         font.pointSize: Kirigami.Units.gridUnit*0.5
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
