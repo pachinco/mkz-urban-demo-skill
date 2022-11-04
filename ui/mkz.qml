@@ -457,7 +457,7 @@ Mycroft.Delegate {
             id: routeView
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.bottom: parent.bottom
+            anchors.top: parent.top
             ListView {
                 id: routeList
                 anchors.fill: parent
