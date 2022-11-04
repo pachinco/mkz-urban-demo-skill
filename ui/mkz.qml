@@ -455,11 +455,20 @@ Mycroft.Delegate {
         width: parent.width*0.25
         height: parent.height*0.9
         z: 15
-        Item {
+        Rectangle {
             id: routeView
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                verticalOffset: -6
+                horizontalOffset: 6
+                radius: 10
+                samples: 21
+                color: "#80000000"
+            }
             ListView {
                 id: routeList
                 anchors.fill: parent
@@ -593,7 +602,7 @@ Mycroft.Delegate {
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
                     }
-                    MouseArea {
+                    Area {
                         anchors.fill: parent
                         onClicked: {
 //                             routeList.currentIndex = index+1
