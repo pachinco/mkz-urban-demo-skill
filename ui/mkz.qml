@@ -461,14 +461,14 @@ Mycroft.Delegate {
             ListView {
                 anchors.fill: parent
                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
-                property var routeTravelTime: routeModel.get(0).travelTime
-                property var routeTravelDist: routeModel.get(0).distance
                 visible: model ? true : false
                 header: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*6
                     color: (night) ? "#275660" : "#ffffff"
                     z: 16
+                    property int travelTime: routeModel.get(0).travelTime
+                    property real travelDistance: routeModel.get(0).distance
 //                     opacity: 0.8
                     layer.enabled: true
                     layer.effect: DropShadow {
@@ -479,13 +479,13 @@ Mycroft.Delegate {
                         color: "#80000000"
                     }
                     Text {
-                        id: routeTravel
+                        id: routeTravelTime
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "#ef7b30" : "#47696f"
-                        text: routeTravelTime>60 ? Math.floor(routeTravelTime/3600)+" hr  "+Math.floor(routeTravelTime/60)+" min" : Math.floor(routeTravelTime/60)+" min"
+                        text: travelTime>60 ? Math.floor(travelTime/3600)+" hr  "+Math.floor(travelTime/60)+" min" : Math.floor(travelTime/60)+" min"
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
                     }
@@ -496,7 +496,7 @@ Mycroft.Delegate {
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "white" : "black"
-                        text: routeTravelDist>1000 ? Math.floor(routeTravelDist/1000)+"km" : routeTravelDist+"m"
+                        text: travelDistance>1000 ? Math.floor(travelDistance/1000)+"km" : travelDistance+"m"
                         font.pointSize: Kirigami.Units.gridUnit
                         font.bold: true
                     }
@@ -506,7 +506,7 @@ Mycroft.Delegate {
                     height: Kirigami.Units.gridUnit*6
                     color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
 //                     opacity: 0.8
-                    property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
+                    property bool hasManeuver: modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
                     layer.enabled: true
                     layer.effect: DropShadow {
