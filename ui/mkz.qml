@@ -756,8 +756,8 @@ Mycroft.Delegate {
 //                 y: 12
                 anchors.bottom: lTime.bottom
                 source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
-                height: 32
-                width: 32
+                height: 30
+                width: 30
                 opacity: 0.7
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
@@ -782,8 +782,8 @@ Mycroft.Delegate {
 //                 y: 12
                 anchors.bottom: lTime.bottom
                 source: (modeAuto) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
-                height: 32
-                width: 32
+                height: 30
+                width: 30
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
                 opacity: 0.7
