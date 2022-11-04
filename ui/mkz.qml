@@ -782,7 +782,7 @@ Mycroft.Delegate {
                 width: 28
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
-                opacity: (night) ? 1 : 0.8
+                opacity: (night) ? 1 : 0.7
                 MouseArea {
                     anchors.fill: parent
                     onClicked: autonomousIcon.clicked()
