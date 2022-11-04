@@ -595,7 +595,7 @@ Mycroft.Delegate {
                         onClicked: routeList.currentItem.clicked()
                     }
                     onClicked: {
-                        routeList.ListModel.currentItem.visibility = false
+                        routeList.ListModel.itemAtIndex(index).visibility = false
                         console.log("segment instruction: "+travelSegments[index].maneuver.instructionText)
                     }
                 }
