@@ -467,6 +467,7 @@ Mycroft.Delegate {
                     height: Kirigami.Units.gridUnit*6
                     color: (night) ? "#275660" : "#ffffff"
                     z: 16
+                    headerPositioning: ListView.OverlayHeader
                     property int travelTime: routeModel.get(0).travelTime
                     property real travelDistance: routeModel.get(0).distance
 //                     opacity: 0.8
