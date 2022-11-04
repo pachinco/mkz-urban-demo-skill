@@ -409,14 +409,14 @@ Mycroft.Delegate {
             State {
                 name: "ACTIVE"
                 PropertyChanges {
-                    target: routeView
-                    height: parent.height
+                    target: mapView
+                    height: parent.height*0.9
                 }
             },
             State {
                 name: "INACTIVE"
                 PropertyChanges {
-                    target: routeView
+                    target: mapView
                     height: 0
                 }
             }
@@ -431,14 +431,14 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    NumberAnimation { target: routeView; properties: "height"; duration: 500 }
+                    NumberAnimation { target: mapView; properties: "height"; duration: 500 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    NumberAnimation { target: routeView; properties: "height"; duration: 500 }
+                    NumberAnimation { target: mapView; properties: "height"; duration: 500 }
                     PropertyAction {
                         target: mapView
                         property: "visible"
@@ -451,7 +451,7 @@ Mycroft.Delegate {
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         width: parent.width*0.3
-        height: parent.height*0.9
+//         height: parent.height*0.9
         z: 15
         Item {
             id: routeView
