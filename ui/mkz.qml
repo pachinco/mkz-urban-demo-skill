@@ -26,9 +26,11 @@ Mycroft.Delegate {
     property bool uiMusic: (sessionData.uiIdx===3) ? true:false
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
 
-    property var carSpeed: 25
+    property real carSpeed: sessionData.carSpeed
+    property var carPosition: sessionData.carPosition
+    property bool carDriving: sessionData.carDriving
     property bool traffic: true
-    property bool night: false
+    property bool night: sessionData.nightMode
     property bool navigating: true
     property bool mapOn: false
 
