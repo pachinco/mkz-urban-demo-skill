@@ -401,129 +401,140 @@ Mycroft.Delegate {
                 }
             }
         }
-        ListView {
-            id: routeView
-            anchors.leftMargin: Kirigami.Units.gridUnit*4
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-            width: parent.width*0.2
-            height: parent.height*0.9
-//             spacing: Kirigami.Units.gridUnit
-            z: 15
-            model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
-            visible: model ? true : false
-            delegate: Rectangle {
-//                 anchors.fill: parent
-                width: parent.width
-                height: Kirigami.Units.gridUnit*5
-                color: (night) ? "#ff1e373a" : "#f0f0f0f0"
-                opacity: (index%2===0) ? 0.8 : 1
-//                 spacing: 10
-                property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
-                visible: hasManeuver
-                Text {
-                    id: maneuverDist
-                    anchors.left: parent.left
-                    anchors.leftMargin: Kirigami.Units.gridUnit
-                    anchors.top: parent.top
-                    anchors.topMargin: Kirigami.Units.gridUnit
-                    text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
-                    font.pointSize: Kirigami.Units.gridUnit
+    }
+    Item {
+        id: mapView
+        state: (uiCar) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: actionsView
+                    height: parent.height*0.75
                 }
-                Text {
-                    id: maneuverDir
-                    anchors.left: maneuverDist.right
-                    anchors.leftMargin: Kirigami.Units.gridUnit
-                    anchors.top: parent.top
-                    anchors.topMargin: Kirigami.Units.gridUnit
-                    text: {
-                        switch (modelData.maneuver.direction) {
-                            case RouteManeuver.NoDirection:
-                                return "(None)";
-                            case RouteManeuver.DirectionForward:
-                                return "Straight";
-                            case RouteManeuver.DirectionBearRight:
-                                return "Bear Right";
-                            case RouteManeuver.DirectionLightRight:
-                                return "Light Right";
-                            case RouteManeuver.DirectionRight:
-                                return "Right";
-                            case RouteManeuver.DirectionHardRight:
-                                return "Hard Right";
-                            case RouteManeuver.DirectionUTurnRight:
-                                return "U-Turn Right";
-                            case RouteManeuver.DirectionUTurnLeft:
-                                return "U-Turn Left";
-                            case RouteManeuver.DirectionHardLeft:
-                                return "Hard Left";
-                            case RouteManeuver.DirectionLeft:
-                                return "Left";
-                            case RouteManeuver.DirectionLightLeft:
-                                return "Light Left";
-                            case RouteManeuver.DirectionBearLeft:
-                                return "Bear Left";
-                            default:
-                                return "(Unknown)";
-                        }
+                PropertyChanges {
+                    target: carBackshade
+                    opacity: 0.5
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: actionsView
+                    height: 0
+                }
+                PropertyChanges {
+                    target: carBackshade
+                    opacity: 0
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                SequentialAnimation {
+                    PropertyAction {
+                        target: carFrame
+                        property: "visible"
+                        value: true
                     }
-                    font.pointSize: Kirigami.Units.gridUnit
+                    ParallelAnimation {
+                        NumberAnimation { target: actionsView; properties: "height"; duration: 500 }
+                        NumberAnimation { target: carBackshade; properties: "opacity"; duration: 500 }
+                    }
+                }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                SequentialAnimation {
+                    ParallelAnimation {
+                        NumberAnimation { target: actionsView; properties: "height"; duration: 500 }
+                        NumberAnimation { target: carBackshade; properties: "opacity"; duration: 500 }
+                    }
+                    PropertyAction {
+                        target: carFrame
+                        property: "visible"
+                        value: false
+                    }
+                }
+            }
+        ]
+        anchors.leftMargin: Kirigami.Units.gridUnit*4
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        width: parent.width*0.2
+        height: parent.height*0.9
+        z: 15
+        Rectangle {
+            id: routeView
+            anchors.fill: parent
+            color: "white"
+            ListView {
+                anchors.fill: parent
+    //             spacing: Kirigami.Units.gridUnit
+                model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
+                visible: model ? true : false
+                delegate: Rectangle {
+    //                 anchors.fill: parent
+                    width: parent.width
+                    height: Kirigami.Units.gridUnit*5
+                    color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+                    opacity: (index%2===0) ? 0.8 : 1
+    //                 spacing: 10
+                    property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
+                    visible: hasManeuver
+                    Text {
+                        id: maneuverDist
+                        anchors.left: parent.left
+                        anchors.leftMargin: Kirigami.Units.gridUnit
+                        anchors.top: parent.top
+                        anchors.topMargin: Kirigami.Units.gridUnit
+                        text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
+                        font.pointSize: Kirigami.Units.gridUnit
+                    }
+                    Text {
+                        id: maneuverDir
+                        anchors.right: parent.right
+                        anchors.rightMargin: Kirigami.Units.gridUnit
+                        anchors.top: parent.top
+                        anchors.topMargin: Kirigami.Units.gridUnit
+                        text: {
+                            switch (modelData.maneuver.direction) {
+                                case RouteManeuver.NoDirection:
+                                    return "(None)";
+                                case RouteManeuver.DirectionForward:
+                                    return "Straight";
+                                case RouteManeuver.DirectionBearRight:
+                                    return "Bear Right";
+                                case RouteManeuver.DirectionLightRight:
+                                    return "Light Right";
+                                case RouteManeuver.DirectionRight:
+                                    return "Right";
+                                case RouteManeuver.DirectionHardRight:
+                                    return "Hard Right";
+                                case RouteManeuver.DirectionUTurnRight:
+                                    return "U-Turn Right";
+                                case RouteManeuver.DirectionUTurnLeft:
+                                    return "U-Turn Left";
+                                case RouteManeuver.DirectionHardLeft:
+                                    return "Hard Left";
+                                case RouteManeuver.DirectionLeft:
+                                    return "Left";
+                                case RouteManeuver.DirectionLightLeft:
+                                    return "Light Left";
+                                case RouteManeuver.DirectionBearLeft:
+                                    return "Bear Left";
+                                default:
+                                    return "(Unknown)";
+                            }
+                        }
+                        font.pointSize: Kirigami.Units.gridUnit
+                    }
                 }
             }
         }
-
-//         Component {
-//             id: routeDelegate
-//             Item {
-//                 z: 15
-//                 width: routeView.cellWidth
-//                 height: routeView.cellHeight
-//                 Rectangle {
-//                     id: routeButton
-//                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
-//                     signal clicked
-//                     anchors.horizontalCenter: parent.horizontalCenter
-//                     width: parent.width-Kirigami.Units.gridUnit*4
-//                     height: parent.height
-//                     layer.enabled: true
-//                     layer.effect: DropShadow {
-//                         transparentBorder: true
-//                         horizontalOffset: 6
-//                         verticalOffset: 6
-//                         color: "#80000000"
-//                         radius: 10
-//                         samples: 21
-//                     }
-//                     Text {
-//                         id: routeLabel
-//                         anchors.left: parent.left
-//                         anchors.leftMargin: Kirigami.Units.gridUnit
-//                         anchors.verticalCenter: parent.verticalCenter
-//                         text: model.voiceInstructions[0]
-//                         color: (night) ? "#e8fffc" : "#c0000000"
-//                         font.pointSize: Kirigami.Units.gridUnit*2
-//                     }
-//                     MouseArea {
-//                         id: routeMouse
-//                         anchors.fill: parent
-//                         onClicked: routeButton.clicked()
-//                     }
-//                     onClicked: {
-//                         console.log("route clicked "+model.voiceInstructions[0])
-//                     }
-//                 }
-//             }
-//         }
-//         GridView {
-//             id: routeList
-//             anchors.left: parent.left
-//             anchors.bottom: parent.bottom
-//             width: parent.width*0.5
-//             height: parent.height*0.9
-//             model: routeModel.route[0].legs[0].steps
-//             delegate: routeDelegate
-//             cellWidth: width
-//             cellHeight: height/4
-//         }
     }
 
     RouteModel {
