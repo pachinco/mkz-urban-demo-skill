@@ -497,7 +497,7 @@ Mycroft.Delegate {
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "white" : "black"
-                        text: travelDistance>1000 ? Math.floor(travelDistance/1000)+"km" : travelDistance+"m"
+                        text: travelDistance>1000 ? Math.floor(travelDistance/1000)+" km" : travelDistance+" m"
                         font.pointSize: Kirigami.Units.gridUnit
                         font.bold: true
                     }
