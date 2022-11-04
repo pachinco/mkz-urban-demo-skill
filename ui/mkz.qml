@@ -415,6 +415,7 @@ Mycroft.Delegate {
             delegate: Rectangle {
                 width: parent.width
                 color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+                opacity (index%1===0) ? 0.8 : 1
 //                 spacing: 10
                 property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
                 visible: hasManeuver
