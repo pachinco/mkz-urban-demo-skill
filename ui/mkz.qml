@@ -408,18 +408,20 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.5
             height: parent.height*0.9
-            spacing: 10
+            spacing: Kirigami.Units.gridUnit
             z: 15
-            color: (night) ? "#ff1e373a" : "#f0f0f0f0"
             model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
             visible: model ? true : false
-            delegate: Row {
+            delegate: Rectangle {
                 width: parent.width
-                spacing: 10
+                color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+//                 spacing: 10
                 property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
                 visible: hasManeuver
 //                 Text { text: (1 + index) + "." }
                 Text {
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
                     text: hasManeuver ? modelData.maneuver.instructionText : ""
                     font.pointSize: Kirigami.Units.gridUnit*2
                 }
