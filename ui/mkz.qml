@@ -466,6 +466,7 @@ Mycroft.Delegate {
                 visible: model ? true : false
                 snapMode: ListView.SnapToItem
                 headerPositioning: ListView.OverlayHeader
+                crop: true
                 header: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*7
@@ -593,14 +594,15 @@ Mycroft.Delegate {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            routeList.currentIndex = index
-                            routeList.currentItem.clicked()
-                            routeList.currentItem.visible = false
+//                             routeList.currentIndex = index
+                            console.log("segment instruction: "+travelSegments[index].maneuver.instructionText)
+//                             routeList.currentItem.clicked()
+//                             routeList.currentItem.visible = false
+                            routeList.remove(index)
                             routeList.positionViewAtIndex(index+1, ListView.Beginning)
                         }
                     }
                     onClicked: {
-                        console.log("segment instruction: "+travelSegments[routeList.currentIndex].maneuver.instructionText)
                     }
                 }
             }
@@ -629,7 +631,6 @@ Mycroft.Delegate {
         Component.onCompleted: {
             if (map) {
                 map.updateRoute();
-                console.log("route: "+routeModel)
             }
         }
     }
