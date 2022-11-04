@@ -459,6 +459,7 @@ Mycroft.Delegate {
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             ListView {
+                id: routeList
                 anchors.fill: parent
                 model: routeReady ? routeModel.get(0).segments : null
 //                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
@@ -594,7 +595,7 @@ Mycroft.Delegate {
                         onClicked: delegateItem.clicked()
                     }
                     onClicked: {
-                        console.log("segment instruction: "+travelSegments[currentIndex].maneuver.instructionText)
+                        console.log("segment instruction: "+travelSegments[routeList.currentIndex].maneuver.instructionText)
                     }
                 }
             }
