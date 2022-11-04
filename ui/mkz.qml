@@ -474,6 +474,14 @@ Mycroft.Delegate {
     //                 spacing: 10
                     property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
+                    layer.enabled: true
+                    layer.effect: DropShadow {
+                        transparentBorder: true
+                        verticalOffset: -6
+                        radius: 10
+                        samples: 21
+                        color: "#80000000"
+                    }
                     Text {
                         id: maneuverDist
                         anchors.left: parent.left
