@@ -1,4 +1,3 @@
-import Qt 6.4
 import QtQuick 2.4
 import QtQuick.Layouts 1.4
 import QtQuick.Controls 1.4
@@ -463,12 +462,13 @@ Mycroft.Delegate {
                 anchors.fill: parent
                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
                 visible: model ? true : false
+                snapMode: ListView.SnapToItem
+                headerPositioning: ListView.OverlayHeader
                 header: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*6
                     color: (night) ? "#275660" : "#ffffff"
                     z: 16
-                    headerPositioning: ListView.OverlayHeader
                     property int travelTime: routeModel.get(0).travelTime
                     property real travelDistance: routeModel.get(0).distance
 //                     opacity: 0.8
