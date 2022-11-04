@@ -549,7 +549,7 @@ Mycroft.Delegate {
                         source: {
                             switch (modelData.maneuver.direction) {
                                 case RouteManeuver.NoDirection:
-                                    return null;
+                                    return "";
                                 case RouteManeuver.DirectionForward:
                                     return "../images/Dir-Straight.png";
                                 case RouteManeuver.DirectionBearRight:
@@ -607,7 +607,7 @@ Mycroft.Delegate {
                     }
                 }
                 onCurrentItemChanged: {
-                    console.log("RouteList: "+routeModel.get(routeList.currentIndex).maneuver.instructionText);
+                    console.log("RouteList: "+travelSegments[routeList.currentIndex].maneuver.instructionText);
                 }
             }
         }
