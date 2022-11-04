@@ -29,7 +29,9 @@ Mycroft.Delegate {
     property real carSpeed: sessionData.carSpeed
     property var carPosition: sessionData.carPosition
     property bool carDriving: sessionData.carDriving
+//     property var carMode: sessionData.carMode
     property bool modeAuto: sessionData.modeAuto
+    property bool modeGuidance: sessionData.modeGuidance
     property bool traffic: true
     property bool night: sessionData.nightMode
     property bool navigating: true
@@ -753,7 +755,6 @@ Mycroft.Delegate {
                 signal clicked
                 anchors.right: parent.right
                 anchors.rightMargin: Kirigami.Units.gridUnit*1.5
-//                 y: 12
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: parent.height*0.4
                 source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
@@ -780,7 +781,6 @@ Mycroft.Delegate {
                 signal clicked
                 anchors.right: dayNightIcon.left
                 anchors.rightMargin: Kirigami.Units.gridUnit
-//                 y: 12
                 anchors.verticalCenter: dayNightIcon.verticalCenter
                 source: (modeAuto) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
                 height: 30
@@ -798,6 +798,31 @@ Mycroft.Delegate {
                 ColorOverlay {
                     anchors.fill: autonomousIcon
                     source: autonomousIcon
+                    color: (night) ? "#a9cac9" : "#000000"
+                }
+            }
+            Image {
+                id: followIcon
+                signal clicked
+                anchors.right: autonomousIcon.left
+                anchors.rightMargin: Kirigami.Units.gridUnit
+                anchors.verticalCenter: dayNightIcon.verticalCenter
+                source: (modeGuidance) ? "../images/mode-navigation.png" : "../images/mode-follow.png"
+                height: 30
+                width: 30
+                mipmap: true
+                fillMode: Image.PreserveAspectFit
+                opacity: 0.7
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: followIcon.clicked()
+                }
+                onClicked: {
+                    modeGuidance = (modeGuidance) ? false : true
+                }
+                ColorOverlay {
+                    anchors.fill: followIcon
+                    source: followIcon
                     color: (night) ? "#a9cac9" : "#000000"
                 }
             }
