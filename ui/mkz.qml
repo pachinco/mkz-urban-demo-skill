@@ -408,11 +408,12 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.5
             height: parent.height*0.9
-            spacing: Kirigami.Units.gridUnit*2
+            spacing: Kirigami.Units.gridUnit*4
             z: 15
             model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
             visible: model ? true : false
             delegate: Rectangle {
+                anchors.fill: parent
                 width: parent.width
                 color: (night) ? "#ff1e373a" : "#f0f0f0f0"
                 opacity: (index%1===0) ? 0.8 : 1
