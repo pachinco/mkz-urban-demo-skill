@@ -488,44 +488,46 @@ Mycroft.Delegate {
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
+//                         color: (night) ? "#a9cac9" : "#000000"
                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
-                        font.pointSize: Kirigami.Units.gridUnit
+                        font.pointSize: Kirigami.Units.gridUnit*1.5
                         font.bold: true
                     }
-                    Text {
+                    Image {
                         id: maneuverDir
                         anchors.right: parent.right
                         anchors.rightMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
-                        text: {
+//                         color: (night) ? "#a9cac9" : "#000000"
+                        source: {
                             switch (modelData.maneuver.direction) {
                                 case RouteManeuver.NoDirection:
-                                    return "";
+                                    return null;
                                 case RouteManeuver.DirectionForward:
-                                    return "Straight";
+                                    return "../images/Dir-Straight.png";
                                 case RouteManeuver.DirectionBearRight:
-                                    return "Bear Right";
+                                    return "../images/Dir-Bear-right.png";
                                 case RouteManeuver.DirectionLightRight:
-                                    return "Light Right";
+                                    return "../images/Dir-LightTurn-right.png";
                                 case RouteManeuver.DirectionRight:
-                                    return "Right";
+                                    return "../images/Dir-Turn-right.png";
                                 case RouteManeuver.DirectionHardRight:
-                                    return "Hard Right";
+                                    return "../images/Dir-SharpTurn-right.png";
                                 case RouteManeuver.DirectionUTurnRight:
-                                    return "U-Turn Right";
+                                    return "../images/Dir-Uturn-right.png";
                                 case RouteManeuver.DirectionUTurnLeft:
-                                    return "U-Turn Left";
+                                    return "../images/Dir-Uturn-left.png";
                                 case RouteManeuver.DirectionHardLeft:
-                                    return "Hard Left";
+                                    return "../images/Dir-SharpTurn-left.png";
                                 case RouteManeuver.DirectionLeft:
-                                    return "Left";
+                                    return "../images/Dir-Turn-left.png";
                                 case RouteManeuver.DirectionLightLeft:
-                                    return "Light Left";
+                                    return "../images/Dir-LightTurn-left.png";
                                 case RouteManeuver.DirectionBearLeft:
-                                    return "Bear Left";
+                                    return "../images/Dir-Bear-left.png";
                                 default:
-                                    return "(Unknown)";
+                                    return null;
                             }
                         }
                         font.pointSize: Kirigami.Units.gridUnit
@@ -541,7 +543,8 @@ Mycroft.Delegate {
                         anchors.rightMargin: Kirigami.Units.gridUnit
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.7
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
-                        font.pointSize: Kirigami.Units.gridUnit*0.7
+                        color: (night) ? "#a9cac9" : "#000000"
+                        font.pointSize: Kirigami.Units.gridUnit*0.6
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
                     }
