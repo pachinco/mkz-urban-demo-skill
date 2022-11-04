@@ -793,9 +793,12 @@ Mycroft.Delegate {
                 Colorize {
                     anchors.fill: autonomousIcon
                     source: autonomousIcon
-                    hue: (night) ? 178 : 0
-                    saturation: (night) ? 24 : 0
-                    lightness: (night) ? 73 : 0
+                    hue: 178
+                    saturation: 24
+                    lightness: 73
+//                     hue: (night) ? 178 : 0
+//                     saturation: (night) ? 24 : 0
+//                     lightness: (night) ? 73 : 0
                 }
             }
 
