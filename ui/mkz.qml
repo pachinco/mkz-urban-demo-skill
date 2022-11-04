@@ -406,7 +406,7 @@ Mycroft.Delegate {
     }
     Item {
         id: mapView
-        state: (uiMap) ? "ACTIVE" : "INACTIVE"
+        state: (uiMap && routeReady) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
