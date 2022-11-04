@@ -444,7 +444,7 @@ Mycroft.Delegate {
                 }
             }
         }
-        ListView {
+        GridView {
             id: routeList
             anchors.left: parent.left
             anchors.bottom: parent.bottom
