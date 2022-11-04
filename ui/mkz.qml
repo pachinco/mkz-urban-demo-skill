@@ -755,10 +755,10 @@ Mycroft.Delegate {
                 anchors.rightMargin: Kirigami.Units.gridUnit*1.5
 //                 y: 12
                 anchors.bottom: lTime.bottom
-                source: (night) ? "../images/moon-night.svg" : "../images/sun-solid.svg"
+                source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
                 height: 32
                 width: 32
-                opacity: (night) ? 1 : 0.6
+                opacity: 0.8
 //                 color: (night) ? "#a9cac9" : "#000000"
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
@@ -768,6 +768,11 @@ Mycroft.Delegate {
                 }
                 onClicked: {
                     night = (night) ? false : true
+                }
+                ColorOverlay {
+                    anchors.fill: dayNightIcon
+                    source: dayNightIcon
+                    color: (night) ? "#a9cac9" : "#000000"
                 }
             }
             Image {
@@ -782,7 +787,7 @@ Mycroft.Delegate {
                 width: 32
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
-                opacity: (night) ? 1 : 0.8
+                opacity: 0.8
                 MouseArea {
                     anchors.fill: parent
                     onClicked: autonomousIcon.clicked()
