@@ -464,8 +464,6 @@ Mycroft.Delegate {
                 visible: model ? true : false
                 snapMode: ListView.SnapToItem
                 headerPositioning: ListView.OverlayHeader
-                property int travelTime: routeModel.status == RouteModel.Ready ? routeModel.get(0).travelTime : 0
-                property real travelDistance: routeModel.status == RouteModel.Ready ? routeModel.get(0).distance : 0
                 header: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*7
@@ -593,6 +591,9 @@ Mycroft.Delegate {
         }
     }
 
+    property int travelTime: routeModel.status == RouteModel.Ready ? routeModel.get(0).travelTime : 0
+    property real travelDistance: routeModel.status == RouteModel.Ready ? routeModel.get(0).distance : 0
+    property bool routeReady: routeModel.status == RouteModel.Ready ? true : false
     RouteModel {
         id: routeModel
 
