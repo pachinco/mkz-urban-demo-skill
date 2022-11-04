@@ -1198,60 +1198,20 @@ Mycroft.Delegate {
             z: -1
             color: "#000000"
         }
-        Component {
-            id: statusDelegate
-            Item {
-                z: 1
-                width: statusView.cellWidth
-                height: statusView.cellHeight
-                Rectangle {
-                    id: statusButton
-//                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
-                    color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#bababa")
-                    signal clicked
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: parent.width-Kirigami.Units.gridUnit*4
-                    height: parent.height
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 6
-                        verticalOffset: 6
-                        color: "#80000000"
-                        radius: 10
-                        samples: 21
-                    }
-                    Item {
-                        id: statusSpacer1
-                        anchors.left: statusButton.left
-                        anchors.verticalCenter: statusButton.verticalCenter
-                        width: Kirigami.Units.gridUnit
-                    }
-                    Text {
-                        id: statusLabel
-                        anchors.left: statusSpacer1.right
-                        anchors.verticalCenter: statusButton.verticalCenter
-                        text: model.text
-                        color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#ef7b30"
-                        font.bold: (model.text.substring(model.text.length-1)==="✓") ? false : true
-                        font.pointSize: Kirigami.Units.gridUnit
-                    }
-                    MouseArea {
-                        id: statusMouse
-                        anchors.fill: parent
-                        onClicked: statusButton.clicked()
-                    }
-                    onClicked: {
-                        console.log("status clicked "+model.text)
-                    }
-                }
-            }
-        }
         Rectangle {
             id: statusView
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             width: parent.width*0.5
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 6
+                verticalOffset: -6
+                color: "#80000000"
+                radius: 10
+                samples: 21
+            }
             ListView {
                 id: statusListView
                 anchors.fill: parent
@@ -1259,10 +1219,48 @@ Mycroft.Delegate {
 //                 anchors.bottom: parent.bottom
 //                 width: parent.width*0.5
     //             height: parent.height*0.75
-                model: sessionData.statusList
-                delegate: statusDelegate
     //             cellWidth: width
     //             cellHeight: height/8
+                model: sessionData.statusList
+                delegate: Item {
+                    z: 1
+//                     width: statusView.cellWidth
+//                     height: statusView.cellHeight
+                    width: parent.width
+                    height: Kirigami.Units.gridUnit*3
+                    Rectangle {
+                        id: statusButton
+    //                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+                        color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#bababa")
+                        signal clicked
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: parent.width-Kirigami.Units.gridUnit*4
+                        height: parent.height
+                        Item {
+                            id: statusSpacer1
+                            anchors.left: statusButton.left
+                            anchors.verticalCenter: statusButton.verticalCenter
+                            width: Kirigami.Units.gridUnit
+                        }
+                        Text {
+                            id: statusLabel
+                            anchors.left: statusSpacer1.right
+                            anchors.verticalCenter: statusButton.verticalCenter
+                            text: model.text
+                            color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#ef7b30"
+                            font.bold: (model.text.substring(model.text.length-1)==="✓") ? false : true
+                            font.pointSize: Kirigami.Units.gridUnit
+                        }
+                        MouseArea {
+                            id: statusMouse
+                            anchors.fill: parent
+                            onClicked: statusButton.clicked()
+                        }
+                        onClicked: {
+                            console.log("status clicked "+model.text)
+                        }
+                    }
+                }
             }
         }
     }
