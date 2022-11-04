@@ -781,7 +781,7 @@ Mycroft.Delegate {
                 anchors.right: dayNightIcon.left
                 anchors.rightMargin: Kirigami.Units.gridUnit
 //                 y: 12
-                anchors.bottom: lTime.bottom
+                anchors.verticalCenter: dayNightIcon.verticalCenter
                 source: (modeAuto) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
                 height: 30
                 width: 30
