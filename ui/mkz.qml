@@ -461,8 +461,7 @@ Mycroft.Delegate {
 //             anchors.fill: parent
 //             color: "white"
             ListView {
-                id: routeList
-                anchors.fill: routeList
+                anchors.fill: parent
     //             spacing: Kirigami.Units.gridUnit
                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
                 visible: model ? true : false
