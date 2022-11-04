@@ -702,7 +702,7 @@ Mycroft.Delegate {
                 anchors.left: parent.left
                 anchors.leftMargin: Kirigami.Units.gridUnit*1.5
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: parent.height*0.4
+                anchors.bottomMargin: parent.height*0.35
                 color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
