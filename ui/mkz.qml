@@ -770,7 +770,7 @@ Mycroft.Delegate {
                 }
             }
             Image {
-                id: AutonomousIcon
+                id: autonomousIcon
                 signal clicked
                 anchors.right: dayNightIcon.left
                 anchors.rightMargin: Kirigami.Units.gridUnit
@@ -780,8 +780,8 @@ Mycroft.Delegate {
                 height: 28
                 opacity: (night) ? 1 : 0.6
                 Colorize {
-                    anchors.fill: AutonomousIcon
-                    source: AutonomousIcon
+                    anchors.fill: autonomousIcon
+                    source: autonomousIcon
                     hue: (night) ? 178 : 0
                     saturation: (night) ? 24 : 0
                     lightness: (night) ? 73 : 0
@@ -790,7 +790,7 @@ Mycroft.Delegate {
                 fillMode: Image.PreserveAspectFit
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: AutonomousIcon.clicked()
+                    onClicked: autonomousIcon.clicked()
                 }
                 onClicked: {
                     modeAuto = (modeAuto) ? false : true
