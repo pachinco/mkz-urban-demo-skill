@@ -408,7 +408,7 @@ Mycroft.Delegate {
             anchors.bottom: parent.bottom
             width: parent.width*0.5
             height: parent.height*0.9
-            spacing: Kirigami.Units.gridUnit*3
+            spacing: Kirigami.Units.gridUnit
             z: 15
             model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
             visible: model ? true : false
@@ -416,8 +416,8 @@ Mycroft.Delegate {
 //                 anchors.fill: parent
                 width: parent.width
                 height: Kirigami.Units.gridUnit*3
-//                 color: (night) ? "#ff1e373a" : "#f0f0f0f0"
-                opacity: (index%1===0) ? 0.8 : 1
+                color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+                opacity: (index%2===0) ? 0.8 : 1
 //                 spacing: 10
                 property bool hasManeuver : modelData.maneuver && modelData.maneuver.valid
                 visible: hasManeuver
