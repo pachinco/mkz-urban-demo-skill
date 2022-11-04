@@ -595,11 +595,11 @@ Mycroft.Delegate {
                         anchors.fill: parent
                         onClicked: {
 //                             routeList.currentIndex = index
-                            console.log("segment instruction: "+travelSegments[index].maneuver.instructionText)
+                            console.log("segment instruction: "+travelSegments[index].maneuver.instructionText);
 //                             routeList.currentItem.clicked()
 //                             routeList.currentItem.visible = false
-                            routeList.remove(index)
-                            routeList.positionViewAtIndex(index+1, ListView.Beginning)
+                            routeList.currentItem.remove();
+//                             routeList.positionViewAtIndex(index+1, ListView.Beginning)
                         }
                     }
                     onClicked: {
