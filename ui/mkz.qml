@@ -490,6 +490,7 @@ Mycroft.Delegate {
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
                         font.pointSize: Kirigami.Units.gridUnit
+                        font.bold: true
                     }
                     Text {
                         id: maneuverDir
@@ -534,13 +535,14 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.top: maneuverDist.bottom
-                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.3
                         anchors.bottom: parent.bottom
                         anchors.right: parent.right
                         anchors.rightMargin: Kirigami.Units.gridUnit
-                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.7
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
-                        font.pointSize: Kirigami.Units.gridUnit*0.8
+                        font.pointSize: Kirigami.Units.gridUnit*0.7
+                        font.weight: Font.Thin
                         wrapMode: Text.Wrap
                     }
                 }
