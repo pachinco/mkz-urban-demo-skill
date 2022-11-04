@@ -1247,16 +1247,23 @@ Mycroft.Delegate {
                 }
             }
         }
-        GridView {
+        Rectangle {
             id: statusView
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             width: parent.width*0.5
-//             height: parent.height*0.75
-            model: sessionData.statusList
-            delegate: statusDelegate
-            cellWidth: width
-            cellHeight: height/8
+            ListView {
+                id: statusListView
+                anchors.fill: parent
+//                 anchors.left: parent.left
+//                 anchors.bottom: parent.bottom
+//                 width: parent.width*0.5
+    //             height: parent.height*0.75
+                model: sessionData.statusList
+                delegate: statusDelegate
+    //             cellWidth: width
+    //             cellHeight: height/8
+            }
         }
     }
 
