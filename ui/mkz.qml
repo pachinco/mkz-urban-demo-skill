@@ -401,7 +401,62 @@ Mycroft.Delegate {
                 }
             }
         }
+        Component {
+            id: routeDelegate
+            Item {
+                z: 15
+                width: routeView.cellWidth
+                height: routeView.cellHeight
+                Rectangle {
+                    id: routeButton
+                    color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+                    signal clicked
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width-Kirigami.Units.gridUnit*4
+                    height: parent.height
+                    layer.enabled: true
+                    layer.effect: DropShadow {
+                        transparentBorder: true
+                        horizontalOffset: 6
+                        verticalOffset: 6
+                        color: "#80000000"
+                        radius: 10
+                        samples: 21
+                    }
+                    Text {
+                        id: routeLabel
+                        anchors.left: parent.left
+                        anchors.leftMargin: Kirigami.Units.gridUnit
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: model.voiceInstructions[0]
+                        color: (night) ? "#e8fffc" : "#c0000000"
+//                         font.bold: (model.text.substring(model.text.length-1)==="✓") ? false : true
+                        font.pointSize: Kirigami.Units.gridUnit*2
+                    }
+                    MouseArea {
+                        id: routeMouse
+                        anchors.fill: parent
+                        onClicked: routeButton.clicked()
+                    }
+                    onClicked: {
+                        console.log("route clicked "+model.voiceInstructions[0])
+                    }
+                }
+            }
+        }
+        ListView {
+            id: routeList
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            width: parent.width*0.5
+            height: parent.height*0.9
+            model: routeModel.route[0].legs[0].steps
+            delegate: routeDelegate
+            cellWidth: width
+            cellHeight: height/4
+        }
     }
+
     RouteModel {
         id: routeModel
 
