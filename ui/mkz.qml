@@ -450,7 +450,7 @@ Mycroft.Delegate {
         anchors.leftMargin: Kirigami.Units.gridUnit*2
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        width: parent.width*0.25
+        width: parent.width*0.3
         height: parent.height*0.9
         z: 15
         Item {
@@ -524,7 +524,8 @@ Mycroft.Delegate {
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
 //                         color: (night) ? "#a9cac9" : "#000000"
-                        text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
+//                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
+                        text: (hasManeuver && index>0) ? Math.floor(routeSegments[index-1].maneuver.distanceToNextInstruction)+"m" : ""
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
                     }
@@ -592,6 +593,7 @@ Mycroft.Delegate {
         }
     }
 
+    property var travelSegments: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
     property int travelTime: routeModel.status == RouteModel.Ready ? routeModel.get(0).travelTime : 0
     property real travelDistance: routeModel.status == RouteModel.Ready ? routeModel.get(0).distance : 0
     property bool routeReady: routeModel.status == RouteModel.Ready ? true : false
