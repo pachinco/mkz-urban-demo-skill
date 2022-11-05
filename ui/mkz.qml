@@ -316,7 +316,7 @@ Mycroft.Delegate {
 //                         routeQuery.addWaypoint(carMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
                 console.log("routeModel.onCompleted: "+(routeReady?"ready":"not ready"));
-                routeList.currentIndex = 0;
+//                 routeList.currentIndex = 0;
             }
 
 //             RotationAnimation on bearing {
@@ -623,9 +623,9 @@ Mycroft.Delegate {
                 onCurrentItemChanged: {
                     console.log("RouteList: "+travelSegments[routeList.currentIndex].maneuver.instructionText);
                 }
-//                 onCompleted: {
-//                     routeList.currentIndex = 0;
-//                 }
+            }
+            Component.onCompleted: {
+                routeList.currentIndex = 0;
             }
         }
     }
@@ -657,6 +657,9 @@ Mycroft.Delegate {
 
     RouteQuery {
         id: routeQuery
+        Component.onCompleted: {
+            routeList.currentIndex = 0;
+        }
     }
 
     Item {
