@@ -17,6 +17,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-line-buttons.qml")
         self.mkz_home_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
+        self.gui.register_handler('mkz.route.new', self._route_new)
         self.gui["actionsList"] = []
         self.gui["background"] = str(self.mkzdemo_img)
         self.gui["foreground"] = str(self.mkzdemo_over)
@@ -28,7 +29,6 @@ class MkzUrbanDemo(MycroftSkill):
         self.ad["operation"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
         #self.ad["exceptions"] = {}
         self.ad_status_announce = True
-        self.gui.register_handler('mkz.route.new', self._route_new)
 
     @resting_screen_handler('MKZ homescreen')
     def handle_homescreen(self, message):
