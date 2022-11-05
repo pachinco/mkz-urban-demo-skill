@@ -631,9 +631,16 @@ Mycroft.Delegate {
         }
     }
 
-    property bool routeReady: routeModel.status == RouteModel.Ready ? true : false
+    property bool routeReady: {
+        if (routeModel.status == RouteModel.Ready) {
+            routeList.currentIndex = 0;
+            return true;
+        } else {
+            return false
+        }
+    }
     property var routeSegments: routeReady ? routeModel.get(0).segments : null
-    property int routeTime: routeReady ? routeModel.get(0).routeTime : 0
+    property int routeTime: routeReady ? routeModel.get(0).travelTime : 0
     property real routeDistance: routeReady ? routeModel.get(0).distance : 0
 //     property bool sessionData.routeReady: routeReady
 //     property int sessionData.routeTime: routeTime
