@@ -317,10 +317,6 @@ Mycroft.Delegate {
                 routeQuery.addWaypoint(endMarker.coordinate);
             }
 
-            function routeReset() {
-                routeQuery.clearWaypoints();
-            }
-
 //             RotationAnimation on bearing {
 //                 id: bearingAnimation
 //                 duration: 250
@@ -632,10 +628,10 @@ Mycroft.Delegate {
         }
     }
 
-    property var travelSegments: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
-    property int travelTime: routeModel.status == RouteModel.Ready ? routeModel.get(0).travelTime : 0
-    property real travelDistance: routeModel.status == RouteModel.Ready ? routeModel.get(0).distance : 0
     property bool routeReady: routeModel.status == RouteModel.Ready ? true : false
+    property var travelSegments: routeReady ? routeModel.get(0).segments : null
+    property int travelTime: routeReady ? routeModel.get(0).travelTime : 0
+    property real travelDistance: routeReady ? routeModel.get(0).distance : 0
 
     RouteModel {
         id: routeModel
@@ -653,9 +649,8 @@ Mycroft.Delegate {
         }
 
         Component.onCompleted: {
-            if (map) {
-                map.routeUpdate();
-            }
+            map.routeUpdate();
+            routeList.view.currentIndex = 0;
         }
     }
 
