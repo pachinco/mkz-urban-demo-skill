@@ -622,12 +622,12 @@ Mycroft.Delegate {
                     }
                     Component.onCompleted: {
                         if (index === 1)
-                            console.log("routeList delegate onCompleted: ["+index+"] "+routeSegments[0].maneuver.instructionText);
+                            console.log("routeList delegate onCompleted: ["+index+"] "+routeModel.get(0).segments[0].maneuver.instructionText);
                     }
                 }
                 onCurrentItemChanged: {
                     if (routeModel.status === RouteModel.Ready) {
-                        console.log("RouteList onCurrentItemChanged: "+routeSegments[routeList.currentIndex].maneuver.instructionText);
+                        console.log("RouteList onCurrentItemChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
 //                     } else {
 //                         console.log("RouteList onCurrentItemChanged: no segments");
                     }
