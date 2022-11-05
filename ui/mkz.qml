@@ -672,7 +672,7 @@ Mycroft.Delegate {
                 sessionData.routeSegments = routeModel.get(0).segments
                 sessionData.routeTime = routeModel.get(0).travelTime
                 sessionData.routeDistance = routeModel.get(0).distance
-                triggerGuiEvent("mkz-urban-demo-skill.pachinco.route_new", {"string": routeModel.get(0).segments[0].maneuver.instructionText})
+                triggerGuiEvent("MkzUrbanDemo.route_new", {"string": routeModel.get(0).segments[0].maneuver.instructionText})
                 console.log("RouteModel onStatusChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
 //             } else {
 //                 console.log("RouteModel onStatusChanged: not ready");
