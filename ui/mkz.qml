@@ -621,6 +621,9 @@ Mycroft.Delegate {
                 onCurrentItemChanged: {
                     console.log("RouteList: "+travelSegments[routeList.currentIndex].maneuver.instructionText);
                 }
+                onCompleted: {
+                    routeList.currentIndex = 0;
+                }
             }
         }
     }
@@ -648,7 +651,6 @@ Mycroft.Delegate {
         Component.onCompleted: {
             if (map) {
                 map.updateRoute();
-                routeList.currentIndex = 0;
             }
         }
     }
