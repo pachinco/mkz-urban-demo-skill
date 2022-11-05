@@ -44,8 +44,8 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeDistance"] = 0
         self.gui["routeTime"] = 0
         self.gui["routeSegments"] = []
-        self.gui["modeAuto"] = False
-        self.gui["modeGuidance"] = False
+        self.gui["modeAutonomous"] = False
+        self.gui["modeGuidance"] = True
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
                                   {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},

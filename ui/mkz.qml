@@ -638,7 +638,7 @@ Mycroft.Delegate {
 //                     } else {
 //                         console.log("RouteList onCurrentItemChanged: no segments");
 //                     }
-                }
+//                 }
             }
         }
     }
