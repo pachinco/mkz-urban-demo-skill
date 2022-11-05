@@ -36,6 +36,7 @@ Mycroft.Delegate {
     property bool night: sessionData.nightMode
     property bool navigating: true
     property bool mapOn: false
+//     property var sessionData.routeSegments
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
@@ -418,7 +419,7 @@ Mycroft.Delegate {
     }
     Item {
         id: mapView
-        state: (uiMap && routeReady) ? "ACTIVE" : "INACTIVE"
+        state: (uiMap && (routeModel.status == RouteModel.Ready)) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
                 name: "ACTIVE"
@@ -484,7 +485,7 @@ Mycroft.Delegate {
             ListView {
                 id: routeList
                 anchors.fill: parent
-                model: routeReady ? routeModel.get(0).segments : null
+                model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
 //                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
                 visible: model ? true : false
                 snapMode: ListView.SnapToItem
@@ -552,7 +553,7 @@ Mycroft.Delegate {
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
 //                         color: (night) ? "#a9cac9" : "#000000"
 //                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
-                        text: (hasManeuver && index>0) ? (routeSegments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.floor(routeSegments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.floor(routeSegments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
+                        text: (hasManeuver && index>0) ? (routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.floor(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.floor(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
                     }
@@ -619,7 +620,7 @@ Mycroft.Delegate {
                         anchors.fill: parent
                         onClicked: {
 //                             routeList.currentIndex = index+1
-                            console.log("segment instruction: "+routeSegments[index].maneuver.instructionText);
+                            console.log("segment instruction: "+routeModel.get(0).segments[index].maneuver.instructionText);
 //                             routeList.currentItem.clicked()
 //                             routeList.currentItem.visible = false
 //                             routeList.currentItem.remove();
@@ -643,14 +644,8 @@ Mycroft.Delegate {
         }
     }
 
-    property bool routeReady: routeModel.status == RouteModel.Ready ? true : false
-    property var routeSegments: routeReady ? routeModel.get(0).segments : null
-    property int routeTime: routeReady ? routeModel.get(0).travelTime : 0
-    property real routeDistance: routeReady ? routeModel.get(0).distance : 0
-//     property bool sessionData.routeReady: routeReady
-//     property int sessionData.routeTime: routeTime
-//     property real sessionData.routeDistance: routeDistance
-//     property var sessionData.routeSegments: routeSegments
+    property int routeTime: routeModel.status == RouteModel.Ready ? routeModel.get(0).travelTime : 0
+    property real routeDistance: routeModel.status == RouteModel.Ready ? routeModel.get(0).distance : 0
     
     RouteModel {
         id: routeModel
@@ -674,6 +669,10 @@ Mycroft.Delegate {
         onStatusChanged: {
             if (routeModel.status === RouteModel.Ready) {
                 routeList.currentIndex = 0;
+                sessionData.routeSegments = routeModel.get(0).segments
+                sessionData.routeTime = routeModel.get(0).travelTime
+                sessionData.routeDistance = routeModel.get(0).distance
+                triggerGuiEvent("skill.new.route", {"string": routeModel.get(0).segments[0].maneuver.instructionText})
                 console.log("RouteModel onStatusChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
 //             } else {
 //                 console.log("RouteModel onStatusChanged: not ready");
