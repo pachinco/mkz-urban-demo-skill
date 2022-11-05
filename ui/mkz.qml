@@ -315,6 +315,8 @@ Mycroft.Delegate {
                 routeQuery.addWaypoint(startMarker.coordinate);
 //                         routeQuery.addWaypoint(carMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
+                console.log("routeModel.onCompleted: "+(routeReady?"ready":"not ready"));
+                routeList.view.currentIndex = 0;
             }
 
 //             RotationAnimation on bearing {
@@ -650,8 +652,6 @@ Mycroft.Delegate {
 
         Component.onCompleted: {
             map.routeUpdate();
-            console.log("routeModel.onCompleted: "+(routeReady?"ready":"not ready"));
-            routeList.view.currentIndex = 0;
         }
     }
 
