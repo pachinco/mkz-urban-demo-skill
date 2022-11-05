@@ -315,8 +315,8 @@ Mycroft.Delegate {
                 routeQuery.addWaypoint(startMarker.coordinate);
 //                         routeQuery.addWaypoint(carMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
-                console.log("routeModel.onCompleted: "+(routeReady?"ready":"not ready"));
-//                 routeList.currentIndex = 0;
+//                 console.log("routeModel.onCompleted: "+(routeReady?"ready":"not ready"));
+                routeList.currentIndex = 0;
             }
 
 //             RotationAnimation on bearing {
@@ -1298,6 +1298,7 @@ Mycroft.Delegate {
                             anchors.left: statusButton.right
                             anchors.leftMargin: Kirigami.Units.gridUnit
                             anchors.verticalCenter: statusButton.verticalCenter
+                            height: parent.height
                             text: model.text
                             color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#ef7b30"
                             font.bold: (model.text.substring(model.text.length-1)==="✓") ? false : true
