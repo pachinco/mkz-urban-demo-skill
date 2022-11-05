@@ -650,6 +650,7 @@ Mycroft.Delegate {
 
         Component.onCompleted: {
             map.routeUpdate();
+            console.log("routeModel.onCompleted:");
             routeList.view.currentIndex = 0;
         }
     }
