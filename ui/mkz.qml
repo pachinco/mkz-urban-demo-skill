@@ -1280,9 +1280,9 @@ Mycroft.Delegate {
     //             cellHeight: height/8
                 model: sessionData.statusList
                 delegate: Item {
-                    z: 1
-                    width: statusView.cellWidth
-                    height: statusView.cellHeight
+//                     z: 1
+//                     width: statusView.cellWidth
+//                     height: statusView.cellHeight
                     width: parent.width
                     height: Kirigami.Units.gridUnit*3
                     Rectangle {
@@ -1296,9 +1296,10 @@ Mycroft.Delegate {
 //                         height: parent.height
                         Text {
                             id: statusLabel
-                            anchors.left: statusButton.right
+                            anchors.left: parent.right
+                            anchors.right: parent.right
                             anchors.leftMargin: Kirigami.Units.gridUnit
-                            anchors.verticalCenter: statusButton.verticalCenter
+                            anchors.verticalCenter: parent.verticalCenter
                             height: parent.height
                             text: model.text
                             color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#ef7b30"
