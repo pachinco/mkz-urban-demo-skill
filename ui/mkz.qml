@@ -309,6 +309,14 @@ Mycroft.Delegate {
                 coordinate: QtPositioning.coordinate(0, 0)
             }
 
+            function routeUpdate() {
+                routeQuery.clearWaypoints();
+//                         console.log("start: "+startMarker.coordinate+" / end: "+endMarker.coordinate);
+                routeQuery.addWaypoint(startMarker.coordinate);
+//                         routeQuery.addWaypoint(carMarker.coordinate);
+                routeQuery.addWaypoint(endMarker.coordinate);
+            }
+
 //             RotationAnimation on bearing {
 //                 id: bearingAnimation
 //                 duration: 250
@@ -323,14 +331,6 @@ Mycroft.Delegate {
 //                 
 //                 previousLocation.coordinate = center
 //             }
-
-            function updateRoute() {
-                routeQuery.clearWaypoints();
-//                 console.log("start: "+startMarker.coordinate+" / end: "+endMarker.coordinate);
-                routeQuery.addWaypoint(startMarker.coordinate);
-//                 routeQuery.addWaypoint(carMarker.coordinate);
-                routeQuery.addWaypoint(endMarker.coordinate);
-            }
             
             MapQuickItem {
                 id: carMarker
@@ -351,7 +351,7 @@ Mycroft.Delegate {
                 }
 
                 onCoordinateChanged: {
-                    map.updateRoute();
+                    map.routeUpdate();
                 }
             }
             MapQuickItem {
@@ -371,7 +371,7 @@ Mycroft.Delegate {
                     anchors.fill: parent
                 }
                 onCoordinateChanged: {
-                    map.updateRoute();
+                    map.routeUpdate();
                 }
             }
             MapQuickItem {
@@ -392,7 +392,7 @@ Mycroft.Delegate {
                     anchors.fill: parent
                 }
                 onCoordinateChanged: {
-                    map.updateRoute();
+                    map.routeUpdate();
                 }
             }
             MapItemView {
@@ -621,9 +621,9 @@ Mycroft.Delegate {
                 onCurrentItemChanged: {
                     console.log("RouteList: "+travelSegments[routeList.currentIndex].maneuver.instructionText);
                 }
-                onCompleted: {
-                    routeList.currentIndex = 0;
-                }
+//                 onCompleted: {
+//                     routeList.currentIndex = 0;
+//                 }
             }
         }
     }
@@ -650,7 +650,7 @@ Mycroft.Delegate {
 
         Component.onCompleted: {
             if (map) {
-                map.updateRoute();
+                map.routeUpdate();
             }
         }
     }
@@ -822,6 +822,11 @@ Mycroft.Delegate {
                 }
                 onClicked: {
                     modeGuidance = (modeGuidance) ? false : true
+                    if (modeGuidance) {
+                        map.routeUpdate();
+                    } else {
+                        routeModel.reset()
+                    }
                 }
                 ColorOverlay {
                     anchors.fill: followIcon
@@ -1281,15 +1286,10 @@ Mycroft.Delegate {
                         anchors.horizontalCenter: parent.horizontalCenter
                         width: parent.width
                         height: parent.height
-                        Item {
-                            id: statusSpacer1
-                            anchors.left: statusButton.left
-                            anchors.verticalCenter: statusButton.verticalCenter
-                            width: Kirigami.Units.gridUnit
-                        }
                         Text {
                             id: statusLabel
-                            anchors.left: statusSpacer1.right
+                            anchors.left: statusButton.right
+                            anchors.leftMargin: Kirigami.Units.gridUnit
                             anchors.verticalCenter: statusButton.verticalCenter
                             text: model.text
                             color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#ef7b30"
