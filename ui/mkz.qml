@@ -624,7 +624,7 @@ Mycroft.Delegate {
                     if (routeSegments) {
                         console.log("RouteList onCurrentItemChanged: "+routeSegments[routeList.currentIndex].maneuver.instructionText);
                     } else {
-                        console.log("RouteList onCurrentItemChanged: no segments";
+                        console.log("RouteList onCurrentItemChanged: no segments");
                     }
                 }
             }
