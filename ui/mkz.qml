@@ -316,7 +316,7 @@ Mycroft.Delegate {
 //                         routeQuery.addWaypoint(carMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
                 console.log("routeModel.onCompleted: "+(routeReady?"ready":"not ready"));
-                routeList.view.currentIndex = 0;
+                routeList.currentIndex = 0;
             }
 
 //             RotationAnimation on bearing {
