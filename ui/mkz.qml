@@ -1283,20 +1283,21 @@ Mycroft.Delegate {
 //                     z: 1
 //                     width: statusView.cellWidth
 //                     height: statusView.cellHeight
-                    width: parent.width
+                    width: statusListView.width
                     height: Kirigami.Units.gridUnit*3
                     Rectangle {
                         id: statusButton
     //                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
                         color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#bababa")
                         signal clicked
-                        anchors.fill: parent
-//                         anchors.horizontalCenter: parent.horizontalCenter
-//                         width: parent.width
-//                         height: parent.height
+//                         anchors.fill: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        width: parent.width
+                        height: parent.height
                         Text {
                             id: statusLabel
-                            anchors.left: parent.right
+                            anchors.left: parent.left
                             anchors.right: parent.right
                             anchors.leftMargin: Kirigami.Units.gridUnit
                             anchors.verticalCenter: parent.verticalCenter
