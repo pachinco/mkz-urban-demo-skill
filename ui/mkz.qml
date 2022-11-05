@@ -30,7 +30,7 @@ Mycroft.Delegate {
     property var carPosition: sessionData.carPosition
     property bool carDriving: sessionData.carDriving
 //     property var carMode: sessionData.carMode
-    property bool modeAuto: sessionData.modeAuto
+    property bool modeAutonomous: sessionData.modeAutonomous
     property bool modeGuidance: sessionData.modeGuidance
     property bool traffic: true
     property bool night: sessionData.nightMode
@@ -811,7 +811,7 @@ Mycroft.Delegate {
                 anchors.right: dayNightIcon.left
                 anchors.rightMargin: Kirigami.Units.gridUnit
                 anchors.verticalCenter: dayNightIcon.verticalCenter
-                source: (modeAuto) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
+                source: (modeAutonomous) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
                 height: 30
                 width: 30
                 mipmap: true
@@ -822,7 +822,7 @@ Mycroft.Delegate {
                     onClicked: autonomousIcon.clicked()
                 }
                 onClicked: {
-                    modeAuto = (modeAuto) ? false : true
+                    modeAutonomous = (modeAutonomous) ? false : true
                 }
                 ColorOverlay {
                     anchors.fill: autonomousIcon
