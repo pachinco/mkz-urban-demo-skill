@@ -634,10 +634,10 @@ Mycroft.Delegate {
     property var routeSegments: routeReady ? routeModel.get(0).segments : null
     property int routeTime: routeReady ? routeModel.get(0).routeTime : 0
     property real routeDistance: routeReady ? routeModel.get(0).distance : 0
-    property bool sessionData.routeReady: routeReady
-    property int sessionData.routeTime: routeTime
-    property real sessionData.routeDistance: routeDistance
-    property var sessionData.routeSegments: routeSegments
+//     property bool sessionData.routeReady: routeReady
+//     property int sessionData.routeTime: routeTime
+//     property real sessionData.routeDistance: routeDistance
+//     property var sessionData.routeSegments: routeSegments
     
     RouteModel {
         id: routeModel
