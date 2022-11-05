@@ -521,6 +521,7 @@ Mycroft.Delegate {
                     }
                 }
                 delegate: Rectangle {
+                    id: routeListdelegate
                     width: parent.width
                     height: Kirigami.Units.gridUnit*6
                     color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
@@ -618,6 +619,9 @@ Mycroft.Delegate {
                             routeList.positionViewAtIndex(index+1, ListView.Beginning)
 //                             routeList.currentIndex = index+1
                         }
+                    }
+                    Component.onCompleted: {
+                        console.log("routeList delegate onCompleted: "+routeListdelegate.ListView.maneuverInstr.text);
                     }
                 }
                 onCurrentItemChanged: {
