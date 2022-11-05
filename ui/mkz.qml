@@ -504,7 +504,7 @@ Mycroft.Delegate {
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "#ef7b30" : "#47696f"
-                        text: travelTime>3600 ? Math.floor(travelTime/3600)+" hr  "+Math.floor((travelTime%3600)/60)+" min" : Math.round(travelTime/60)+" min"
+                        text: routeTime>3600 ? Math.floor(routeTime/3600)+" hr  "+Math.floor((routeTime%3600)/60)+" min" : Math.round(routeTime/60)+" min"
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
                     }
@@ -515,7 +515,7 @@ Mycroft.Delegate {
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         color: (night) ? "white" : "black"
-                        text: travelDistance>1000 ? Math.floor(travelDistance/1000)+" km" : Math.round(travelDistance)+" m"
+                        text: routeDistance>1000 ? Math.floor(routeDistance/1000)+" km" : Math.round(routeDistance)+" m"
                         font.pointSize: Kirigami.Units.gridUnit
                         font.bold: true
                     }
@@ -544,7 +544,7 @@ Mycroft.Delegate {
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
 //                         color: (night) ? "#a9cac9" : "#000000"
 //                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
-                        text: (hasManeuver && index>0) ? (travelSegments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.floor(travelSegments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.floor(travelSegments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
+                        text: (hasManeuver && index>0) ? (routeSegments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.floor(routeSegments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.floor(routeSegments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
                     }
@@ -611,7 +611,7 @@ Mycroft.Delegate {
                         anchors.fill: parent
                         onClicked: {
 //                             routeList.currentIndex = index+1
-                            console.log("segment instruction: "+travelSegments[index].maneuver.instructionText);
+                            console.log("segment instruction: "+routeSegments[index].maneuver.instructionText);
 //                             routeList.currentItem.clicked()
 //                             routeList.currentItem.visible = false
 //                             routeList.currentItem.remove();
@@ -621,7 +621,7 @@ Mycroft.Delegate {
                     }
                 }
                 onCurrentItemChanged: {
-                    console.log("RouteList: "+travelSegments[routeList.currentIndex].maneuver.instructionText);
+                    console.log("RouteList: "+routeSegments[routeList.currentIndex].maneuver.instructionText);
                 }
             }
             Component.onCompleted: {
@@ -631,10 +631,14 @@ Mycroft.Delegate {
     }
 
     property bool routeReady: routeModel.status == RouteModel.Ready ? true : false
-    property var travelSegments: routeReady ? routeModel.get(0).segments : null
-    property int travelTime: routeReady ? routeModel.get(0).travelTime : 0
-    property real travelDistance: routeReady ? routeModel.get(0).distance : 0
-
+    property var routeSegments: routeReady ? routeModel.get(0).segments : null
+    property int routeTime: routeReady ? routeModel.get(0).routeTime : 0
+    property real routeDistance: routeReady ? routeModel.get(0).distance : 0
+    property bool sessionData.routeReady: routeReady
+    property int sessionData.routeTime: routeTime
+    property real sessionData.routeDistance: routeDistance
+    property var sessionData.routeSegments: routeSegments
+    
     RouteModel {
         id: routeModel
 
