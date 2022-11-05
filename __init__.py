@@ -28,7 +28,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.ad["operation"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
         #self.ad["exceptions"] = {}
         self.ad_status_announce = True
-        self.gui.register_handler('skill.route.new', self._route_new)
+        self.gui.register_handler('mkz.route.new', self._route_new)
 
     @resting_screen_handler('MKZ homescreen')
     def handle_homescreen(self, message):
@@ -147,11 +147,11 @@ class MkzUrbanDemo(MycroftSkill):
         self.log.info("datetime: "+dt_str)
         #hh_mm = nice_time(dt, speech=False, use_24hour=False)
         self.gui["datetime"] = dt_str
-        
+
     def _route_new(self, message):
         self.speak(message.data["string"], wait=True)
         self.schedule_event(self._route_next_maneuver, 3)
-        
+
     def _route_next_maneuver(self):
         self.log.info("distance: "+self.gui["routeDistance"])
         self.log.info("time: "+self.gui["routeTime"])
