@@ -623,10 +623,10 @@ Mycroft.Delegate {
                 onCurrentItemChanged: {
                     console.log("RouteList onCurrentItemChanged: "+routeSegments[routeList.currentIndex].maneuver.instructionText);
                 }
-            }
-            Component.onCompleted: {
-                routeList.currentIndex = 0;
-                console.log("RouteList onCompleted: "+routeSegments[routeList.currentIndex].maneuver.instructionText);
+                Component.onCompleted: {
+                    routeList.currentIndex = 0;
+                    console.log("RouteList onCompleted: "+routeSegments[routeList.currentIndex].maneuver.instructionText);
+                }
             }
         }
     }
