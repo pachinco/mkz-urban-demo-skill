@@ -317,6 +317,10 @@ Mycroft.Delegate {
                 routeQuery.addWaypoint(endMarker.coordinate);
             }
 
+            function routeReset() {
+                routeQuery.clearWaypoints();
+            }
+
 //             RotationAnimation on bearing {
 //                 id: bearingAnimation
 //                 duration: 250
@@ -825,7 +829,7 @@ Mycroft.Delegate {
                     if (modeGuidance) {
                         if (map) map.routeUpdate();
                     } else {
-                        routeModel.reset()
+                        if (map) map.routeReset();
                     }
                 }
                 ColorOverlay {
