@@ -1281,8 +1281,8 @@ Mycroft.Delegate {
                 model: sessionData.statusList
                 delegate: Item {
                     z: 1
-//                     width: statusView.cellWidth
-//                     height: statusView.cellHeight
+                    width: statusView.cellWidth
+                    height: statusView.cellHeight
                     width: parent.width
                     height: Kirigami.Units.gridUnit*3
                     Rectangle {
@@ -1290,9 +1290,10 @@ Mycroft.Delegate {
     //                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
                         color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#bababa")
                         signal clicked
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: parent.width
-                        height: parent.height
+                        anchors.fill: parent
+//                         anchors.horizontalCenter: parent.horizontalCenter
+//                         width: parent.width
+//                         height: parent.height
                         Text {
                             id: statusLabel
                             anchors.left: statusButton.right
