@@ -309,6 +309,11 @@ Mycroft.Delegate {
                 coordinate: QtPositioning.coordinate(0, 0)
             }
 
+            function routeReset() {
+                routeQuery.clearWaypoints();
+                routeModel.reset();
+            }
+
             function routeUpdate() {
                 routeQuery.clearWaypoints();
 //                         console.log("start: "+startMarker.coordinate+" / end: "+endMarker.coordinate);
