@@ -621,7 +621,7 @@ Mycroft.Delegate {
                         }
                     }
                     Component.onCompleted: {
-                        console.log("routeList delegate onCompleted: "+routeListdelegate.maneuverInstr.text);
+                        console.log("routeList delegate onCompleted: "+routeSegments[0].maneuver.instructionText);
                     }
                 }
                 onCurrentItemChanged: {
