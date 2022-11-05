@@ -626,7 +626,7 @@ Mycroft.Delegate {
                     }
                 }
                 onCurrentItemChanged: {
-                    if (status === RouteModel.Ready) {
+                    if (routeModel.status === RouteModel.Ready) {
                         console.log("RouteList onCurrentItemChanged: "+routeSegments[routeList.currentIndex].maneuver.instructionText);
 //                     } else {
 //                         console.log("RouteList onCurrentItemChanged: no segments");
@@ -665,7 +665,7 @@ Mycroft.Delegate {
             map.routeUpdate();
         }
         onStatusChanged: {
-            if (status === RouteModel.Ready) {
+            if (routeModel.status === RouteModel.Ready) {
 //                 routeList.currentIndex = 0;
                 console.log("RouteModel onStatusChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
 //             } else {
