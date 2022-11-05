@@ -317,8 +317,8 @@ Mycroft.Delegate {
             function routeUpdate() {
                 routeQuery.clearWaypoints();
 //                         console.log("start: "+startMarker.coordinate+" / end: "+endMarker.coordinate);
-                routeQuery.addWaypoint(startMarker.coordinate);
-//                         routeQuery.addWaypoint(carMarker.coordinate);
+//                 routeQuery.addWaypoint(startMarker.coordinate);
+                routeQuery.addWaypoint(carMarker.coordinate);
                 routeQuery.addWaypoint(endMarker.coordinate);
 //                 console.log("routeModel.onCompleted: "+(routeReady?"ready":"not ready"));
                 routeList.currentIndex = 0;
@@ -361,26 +361,27 @@ Mycroft.Delegate {
                     map.routeUpdate();
                 }
             }
-            MapQuickItem {
-                id: startMarker
-                sourceItem: Image {
-                    id: greenMarker
-                    source: "../images/Map_marker_blue.png"
-                    height: 50
-                    fillMode: Image.PreserveAspectFit
-                    opacity: 1.0
-                }
-                coordinate: QtPositioning.coordinate(37.3964,-122.034)
-                anchorPoint.x: greenMarker.width/2
-                anchorPoint.y: greenMarker.height
-                MouseArea  {
-                    drag.target: parent
-                    anchors.fill: parent
-                }
-                onCoordinateChanged: {
-                    map.routeUpdate();
-                }
-            }
+//             MapQuickItem {
+//                 id: startMarker
+//                 sourceItem: Image {
+//                     id: greenMarker
+//                     source: "../images/Map_marker_blue.png"
+//                     height: 50
+//                     fillMode: Image.PreserveAspectFit
+//                     opacity: 1.0
+//                 }
+//                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
+//                 anchorPoint.x: greenMarker.width/2
+//                 anchorPoint.y: greenMarker.height
+//                 visible: modeGuidance
+//                 MouseArea  {
+//                     drag.target: parent
+//                     anchors.fill: parent
+//                 }
+//                 onCoordinateChanged: {
+//                     map.routeUpdate();
+//                 }
+//             }
             MapQuickItem {
                 id: endMarker
 
@@ -394,6 +395,7 @@ Mycroft.Delegate {
                 coordinate : QtPositioning.coordinate(37.4,-122.03)
                 anchorPoint.x: redMarker.width / 2
                 anchorPoint.y: redMarker.height
+                visible: modeGuidance
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
@@ -625,17 +627,17 @@ Mycroft.Delegate {
 //                             routeList.currentIndex = index+1
                         }
                     }
-                    Component.onCompleted: {
-                        if (index === 1)
-                            console.log("routeList delegate onCompleted: ["+index+"] "+routeModel.get(0).segments[0].maneuver.instructionText);
-                    }
+//                     Component.onCompleted: {
+//                         if (index === 1)
+//                             console.log("routeList delegate onCompleted: ["+index+"] "+routeModel.get(0).segments[0].maneuver.instructionText);
+//                     }
                 }
-                onCurrentItemChanged: {
-                    if (routeModel.status === RouteModel.Ready) {
-                        console.log("RouteList onCurrentItemChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
+//                 onCurrentItemChanged: {
+//                     if (routeModel.status === RouteModel.Ready) {
+//                         console.log("RouteList onCurrentItemChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
 //                     } else {
 //                         console.log("RouteList onCurrentItemChanged: no segments");
-                    }
+//                     }
                 }
             }
         }
@@ -671,7 +673,7 @@ Mycroft.Delegate {
         }
         onStatusChanged: {
             if (routeModel.status === RouteModel.Ready) {
-//                 routeList.currentIndex = 0;
+                routeList.currentIndex = 0;
                 console.log("RouteModel onStatusChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
 //             } else {
 //                 console.log("RouteModel onStatusChanged: not ready");
