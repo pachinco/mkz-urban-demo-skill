@@ -664,7 +664,7 @@ Mycroft.Delegate {
 //                 routeList.currentIndex = 0;
                 console.log("RouteModel onStatusChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
             } else {
-                console.log("RouteModel onStatusChanged: not ready";
+                console.log("RouteModel onStatusChanged: not ready");
             }
         }
     }
