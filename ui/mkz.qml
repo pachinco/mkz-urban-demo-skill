@@ -656,7 +656,7 @@ Mycroft.Delegate {
         }
 
         Component.onCompleted: {
-            console.log("RouteModel onCompleted";
+            console.log("RouteModel onCompleted");
             map.routeUpdate();
         }
         onStatusChanged: {
