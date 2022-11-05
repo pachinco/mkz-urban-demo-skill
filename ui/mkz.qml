@@ -823,7 +823,7 @@ Mycroft.Delegate {
                 onClicked: {
                     modeGuidance = (modeGuidance) ? false : true
                     if (modeGuidance) {
-                        map.routeUpdate();
+                        if (map) map.routeUpdate();
                     } else {
                         routeModel.reset()
                     }
