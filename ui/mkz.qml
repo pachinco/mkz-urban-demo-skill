@@ -623,22 +623,11 @@ Mycroft.Delegate {
                 onCurrentItemChanged: {
                     console.log("RouteList onCurrentItemChanged: "+routeSegments[routeList.currentIndex].maneuver.instructionText);
                 }
-                Component.onCompleted: {
-                    routeList.currentIndex = 0;
-                    console.log("RouteList onCompleted: "+routeSegments[routeList.currentIndex].maneuver.instructionText);
-                }
             }
         }
     }
 
-    property bool routeReady: {
-        if (routeModel.status == RouteModel.Ready) {
-            routeList.currentIndex = 0;
-            return true;
-        } else {
-            return false
-        }
-    }
+    property bool routeReady: routeModel.status == RouteModel.Ready ? true : false
     property var routeSegments: routeReady ? routeModel.get(0).segments : null
     property int routeTime: routeReady ? routeModel.get(0).travelTime : 0
     property real routeDistance: routeReady ? routeModel.get(0).distance : 0
@@ -665,13 +654,16 @@ Mycroft.Delegate {
         Component.onCompleted: {
             map.routeUpdate();
         }
+        onStatusChanged: {
+            if (routeReady) {
+                routeList.currentIndex = 0;
+                console.log("RouteModel onStatusChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
+            }
+        }
     }
 
     RouteQuery {
         id: routeQuery
-        Component.onCompleted: {
-            routeList.currentIndex = 0;
-        }
     }
 
     Item {
