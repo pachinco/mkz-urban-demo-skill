@@ -150,8 +150,8 @@ class MkzUrbanDemo(MycroftSkill):
 
     def _route_new(self, message):
         self.speak(message.data["string"], wait=True)
-        self.log.info("time: "+self.gui["routeTime"])
-        self.log.info("distance: "+self.gui["routeDistance"])
+        self.log.info("time: %d",self.gui["routeTime"])
+        self.log.info("distance: %d",self.gui["routeDistance"])
         self.schedule_event(self._route_next_maneuver, 3)
 
     def _route_next_maneuver(self):
