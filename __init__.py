@@ -43,7 +43,7 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
-        self.gui.register_handler('mkz-urban-demo-skill.route_update', self._route_new)
+        self.gui.register_handler('mkz-urban-demo-skill.route_update', self._route_update)
         self.gui.register_handler('mkz-urban-demo-skill.route_next_segment', self._route_next_segment)
         self.gui["uiIdx"] = -2
         self.gui["routeReady"] = False
