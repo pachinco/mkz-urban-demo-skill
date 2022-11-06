@@ -690,13 +690,13 @@ Mycroft.Delegate {
         sessionData.routeInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
-        path = ""+routeModel.get(route).segments[man].path[0].latitude+","+routeModel.get(route).segments[man].path[0].longitude;
+        routePath = ""+routeModel.get(route).segments[man].path[0].latitude+","+routeModel.get(route).segments[man].path[0].longitude;
         for (let i = 1; i < routeModel.get(route).segments[man].path.length; i++) {
-            path = path+","+routeModel.get(route).segments[man].path[0].latitude+","+routeModel.get(route).segments[man].path[0].longitude;
+            routePath = routePath+","+routeModel.get(route).segments[man].path[0].latitude+","+routeModel.get(route).segments[man].path[0].longitude;
             console.log("maneuver path #"+i+": Lat="+routeModel.get(route).segments[man].path[i].latitude+" Lon="+routeModel.get(route).segments[man].path[i].longitude);
         }
-        sessionData.routePath = path;
-        console.log("route path: "+path);
+        sessionData.routePath = routePath;
+        console.log("route path: "+routePath);
         if (man+1<routeModel.get(route).segments.length) {
             man=man+1;
             sessionData.routeNext = true;
