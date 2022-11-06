@@ -651,6 +651,9 @@ Mycroft.Delegate {
                 displaced: Transition {
                     NumberAnimation { properties: "y"; duration: 500; easing.type: Easing.OutBounce }
                 }
+                move: Transition {
+                    NumberAnimation { properties: "y"; duration: 500; easing.type: Easing.OutBounce }
+                }
             }
         }
     }
