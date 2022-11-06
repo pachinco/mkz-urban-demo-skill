@@ -180,6 +180,7 @@ class MkzUrbanDemo(MycroftSkill):
             self.schedule_event(self._route_next_maneuver, 5)
 
     def _route_next_maneuver(self):
+        self.gui["carPosition"] = {"latitude": self.gui["routeNextPositionLat"], "longitude": self.gui["routeNextPositionLon"]}
         if (self.gui["modeAutonomous"]):
             self.speak("Next, "+self.gui["routeNextInstruction"], wait=True)
         else:

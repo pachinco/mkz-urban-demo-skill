@@ -26,6 +26,7 @@ Mycroft.Delegate {
     property bool uiMusic: (sessionData.uiIdx===3) ? true:false
     property bool uiContact: (sessionData.uiIdx===4) ? true:false
 
+//     property coordinate carPos: QtPositioning.coordinate(0,0)
     property real carSpeed: sessionData.carSpeed
     property var carPosition: sessionData.carPosition
     property bool carDriving: sessionData.carDriving
@@ -45,6 +46,10 @@ Mycroft.Delegate {
     }
     onModeGuidanceChanged: {
         sessionData.modeGuidance = modeGuidance;
+    }
+    onCarPositionChanged: {
+        console.log("onCarPositionChanged: "+QtPositioning.coordinate(carPosition.latitude, carPosition.longitude));
+        carLocation.coordinate = QtPositioning.coordinate(carPosition.latitude, carPosition.longitude);
     }
 
     Image {
@@ -311,8 +316,12 @@ Mycroft.Delegate {
 //             }
 
             Location {
-                id: previousLocation
+                id: prevLocation
                 coordinate: QtPositioning.coordinate(0, 0)
+            }
+            Location {
+                id: carLocation
+                coordinate: QtPositioning.coordinate(37.3964,-122.034)
             }
 
             function routeReset() {
@@ -358,7 +367,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-                coordinate: QtPositioning.coordinate(37.3964,-122.034)
+                coordinate: carLocation.coordinate
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
                 zoomLevel: 17
@@ -367,9 +376,9 @@ Mycroft.Delegate {
                     anchors.fill: parent
                 }
 
-                onCoordinateChanged: {
-                    map.routeUpdate();
-                }
+//                 onCoordinateChanged: {
+//                     map.routeUpdate();
+//                 }
             }
 //             MapQuickItem {
 //                 id: startMarker
