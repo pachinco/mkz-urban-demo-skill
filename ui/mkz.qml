@@ -596,15 +596,15 @@ Mycroft.Delegate {
                         id: maneuverInstr
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
-                        anchors.top: parent.top
-                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
-                        anchors.bottom: maneuverDist.top
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.top: maneuverDist.bottom
                         anchors.right: maneuverDir.left
-                        anchors.rightMargin: Kirigami.Units.gridUnit
+                        anchors.rightMargin: Kirigami.Units.gridUnit*0.5
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
 //                         color: (night) ? "#a9cac9" : "#000000"
-                        font.pointSize: Kirigami.Units.gridUnit*0.6
+                        font.pointSize: Kirigami.Units.gridUnit*0.5
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
                     }
@@ -612,8 +612,8 @@ Mycroft.Delegate {
                         id: maneuverDist
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
-                        anchors.bottom: parent.bottom
-                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.top: parent.top
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
 //                         color: (night) ? "#a9cac9" : "#000000"
 //                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
                         text: (hasManeuver && index>0) ? (routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
