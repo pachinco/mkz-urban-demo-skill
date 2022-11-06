@@ -346,17 +346,17 @@ Mycroft.Delegate {
 
             RotationAnimation on bearing {
                 id: bearingAnimation
-                duration: 250
+                duration: 500
                 alwaysRunToEnd: false
                 direction: RotationAnimation.Shortest
             }
             onCenterChanged: {
-                if (previousLocation.coordinate == center) return
+                if (prevLocation.coordinate == center) return
 
-                bearingAnimation.to = previousLocation.coordinate.azimuthTo(center)
+                bearingAnimation.to = prevLocation.coordinate.azimuthTo(center)
                 bearingAnimation.start()
                 
-                previousLocation.coordinate = center
+                prevLocation.coordinate = center
             }
             
             MapQuickItem {
