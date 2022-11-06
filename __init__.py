@@ -144,7 +144,7 @@ class MkzUrbanDemo(MycroftSkill):
         dt_str = dt.strftime("%I:%M%p %a %b %-d")
         dt_str = dt_str.replace("AM","am")
         dt_str = dt_str.replace("PM","pm")
-        self.log.info("datetime: "+dt_str)
+        #self.log.info("datetime: "+dt_str)
         #hh_mm = nice_time(dt, speech=False, use_24hour=False)
         self.gui["datetime"] = dt_str
 
@@ -155,9 +155,9 @@ class MkzUrbanDemo(MycroftSkill):
         self.schedule_event(self._route_next_maneuver, 3)
 
     def _route_next_maneuver(self):
-        self.log.info("distance: "+self.gui["routeDistance"])
-        self.log.info("time: "+self.gui["routeTime"])
-        #self.log.info("segments: "+self.gui["routeSegments"])
+        self.log.info("distance: "+str(self.gui["routeDistance"]))
+        self.log.info("time: "+str(self.gui["routeTime"]))
+        self.log.info("segments: "+str(self.gui["routeSegments"]))
 
 def create_skill():
     return MkzUrbanDemo()
