@@ -29,6 +29,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.ad["operation"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
         #self.ad["exceptions"] = {}
         self.ad_status_announce = True
+        self.path = []
         self.route_path = 0
         self.route_segment = 0
 
@@ -179,13 +180,22 @@ class MkzUrbanDemo(MycroftSkill):
         self.log.info("position: %f %f",self.gui["routePositionLat"],self.gui["routePositionLon"])
         self.log.info("next position: %f %f",self.gui["routeNextPositionLat"],self.gui["routeNextPositionLon"])
         self.log.info("segments: %d",self.gui["routeSegments"])
-        path = ast.literal_eval(self.gui["routePath"])
-        self.log.info("path: %d",len(path))
-        if (self.gui["routeNext"]):
-            self.schedule_event(self._route_next_maneuver, 5)
+        self.path = ast.literal_eval(self.gui["routePath"])
+        self.log.info("path: %d",len(self.path))
+        if (len(self.path)>0):
+            self.schedule_event(self._route_next_path, 2)
 
+    def _route_next_path(self):
+        self.route_path = self.route_path+1
+        if (self.route_path<len(self.path)):
+            self.gui["carPosition"] = {"latitude": self.path[self.route_path][lat], "longitude": self.path[self.route_path][lon]}
+            self.schedule_event(self._route_next_path, 2)
+        else:
+            if (self.gui["routeNext"]):
+                self.schedule_event(self._route_next_maneuver, 2)
+            
     def _route_next_maneuver(self):
-        self.gui["carPosition"] = {"latitude": self.gui["routeNextPositionLat"], "longitude": self.gui["routeNextPositionLon"]}
+        #self.gui["carPosition"] = {"latitude": self.gui["routeNextPositionLat"], "longitude": self.gui["routeNextPositionLon"]}
         if (self.gui["modeAutonomous"]):
             self.speak("Next, "+self.gui["routeNextInstruction"], wait=True)
         else:

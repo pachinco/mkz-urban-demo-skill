@@ -690,9 +690,9 @@ Mycroft.Delegate {
         sessionData.routeInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
-        var routePath = "[{'latitude':"+routeModel.get(route).segments[man].path[0].latitude+",'longitude':"+routeModel.get(route).segments[man].path[0].longitude+"}";
+        var routePath = "[{'lat':"+routeModel.get(route).segments[man].path[0].latitude+",'lon':"+routeModel.get(route).segments[man].path[0].longitude+"}";
         for (let i = 1; i < routeModel.get(route).segments[man].path.length; i++) {
-            routePath = routePath+",{'latitude':"+routeModel.get(route).segments[man].path[0].latitude+",'longitude':"+routeModel.get(route).segments[man].path[0].longitude+"}";
+            routePath = routePath+",{'lat':"+routeModel.get(route).segments[man].path[0].latitude+",'lon':"+routeModel.get(route).segments[man].path[0].longitude+"}";
             console.log("maneuver path #"+i+": Lat="+routeModel.get(route).segments[man].path[i].latitude+" Lon="+routeModel.get(route).segments[man].path[i].longitude);
         }
         sessionData.routePath = routePath+"]";
