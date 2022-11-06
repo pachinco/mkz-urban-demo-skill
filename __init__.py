@@ -70,7 +70,13 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeNextTime"] = ""
         self.gui["routeNextInstruction"] = ""
         self.gui["modeAutonomous"] = False
-        self.gui["modeGuidance"] = False
+        self.gui["modeRoute"] = False
+        self.gui["modeMarker"] = True
+        self.gui["modeFollow"] = True
+        self.gui["modeNorth"] = False
+        self.gui["mode3D"] = True
+        self.gui["modeTraffic"] = False
+        self.gui["modeNight"] = False
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
                                   {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},

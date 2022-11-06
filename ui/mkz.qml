@@ -32,10 +32,14 @@ Mycroft.Delegate {
     property bool carDriving: sessionData.carDriving
     property int routeSegment: sessionData.routeSegment
     property bool modeAutonomous: sessionData.modeAutonomous
-    property bool modeGuidance: sessionData.modeGuidance
-    property bool traffic: true
-    property bool night: sessionData.nightMode
-    property bool modeNavigating: true
+    property bool modeRoute: sessionData.modeRoute
+    property bool modeMarker: sessionData.modeMarker
+    property bool modeFollow: sessionData.modeFollow
+    property bool modeNorth: sessionData.modeNorth
+    property bool mode3D: sessionData.mode3D
+    property bool modeTraffic: sessionData.modeTraffic
+    property bool modeNight: sessionData.modeNight
+    property bool carAnimate: true
     property bool mapOn: false
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
@@ -45,8 +49,26 @@ Mycroft.Delegate {
     onModeAutonomousChanged: {
         sessionData.modeAutonomous = modeAutonomous;
     }
-    onModeGuidanceChanged: {
-        sessionData.modeGuidance = modeGuidance;
+    onModeRouteChanged: {
+        sessionData.modeRoute = modeRoute;
+    }
+    onModeMarkerChanged: {
+        sessionData.modeMarker = modeMarker;
+    }
+    onModeFollowChanged: {
+        sessionData.modeFollow = modeFollow;
+    }
+    onModeNorthChanged: {
+        sessionData.modeNorth = modeNorth;
+    }
+    onMode3DChanged: {
+        sessionData.mode3D = mode3D;
+    }
+    onModeTrafficChanged: {
+        sessionData.modeTraffic = modeTraffic;
+    }
+    onModeNightChanged: {
+        sessionData.modeFollow = modeNight;
     }
     onCarPositionChanged: {
         console.log("onCarPositionChanged: Lat="+carPosition.latitude+" Lon="+carPosition.longitude);
@@ -64,7 +86,7 @@ Mycroft.Delegate {
     Image {
         id: uiStage
         anchors.fill: parent
-        source: (night) ? "../images/mkz_background_night.png" : "../images/mkz_background_stage_day.png"
+        source: (modeNight) ? "../images/mkz_background_night.png" : "../images/mkz_background_stage_day.png"
         fillMode: Image.Image.PreserveAspectCrop
         z: -10
         state: "INACTIVE"
@@ -178,13 +200,13 @@ Mycroft.Delegate {
             ColorOverlay {
                 anchors.fill: mkzImage
                 source: mkzImage
-                color: (night) ? "#40000000" : "#00000000"
+                color: (modeNight) ? "#40000000" : "#00000000"
             }
         }
     }
 
     Item {
-        id: mapFrame
+        id: mapMap
         anchors.fill: parent
         z: -5
         state: ((sessionData.uiIdx===1) || mapOn) ? "ACTIVE" : "INACTIVE"
@@ -215,7 +237,7 @@ Mycroft.Delegate {
                         value: true
                     }
                     PropertyAction {
-                        target: mapFrame
+                        target: mapMap
                         property: "visible"
                         value: true
                     }
@@ -228,7 +250,7 @@ Mycroft.Delegate {
                 SequentialAnimation {
                     NumberAnimation { target: map; properties: "opacity"; duration: 500 }
                     PropertyAction {
-                        target: mapFrame
+                        target: mapMap
                         property: "visible"
                         value: false
                     }
@@ -258,7 +280,7 @@ Mycroft.Delegate {
                 }
             ]
 
-            state: modeGuidance ? "navigating" : ""
+            state: modeFollow ? "navigating" : ""
 
             plugin: Plugin {
                 name: "mapboxgl"
@@ -275,17 +297,17 @@ Mycroft.Delegate {
                     value: "road-label-small"
                 }
             }
-            center: modeGuidance ? carLocation.coordinate : map.center
+            center: modeFollow ? carLocation.coordinate : map.center
 //             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
 //             tilt: 60
 
             activeMapType: {
                 var style;
-                if (modeNavigating) {
-                    style = night ? supportedMapTypes[1] : supportedMapTypes[0];
+                if (modeRoute) {
+                    style = modeNight ? supportedMapTypes[1] : supportedMapTypes[0];
                 } else {
-                    style = night ? supportedMapTypes[3] : supportedMapTypes[2];
+                    style = modeNight ? supportedMapTypes[3] : supportedMapTypes[2];
                 }
                 return style;
             }
@@ -324,6 +346,22 @@ Mycroft.Delegate {
 //                     }
 //                 }
 //             }
+            MouseArea {
+                anchors.fill: parent
+
+                onWheel: {
+                    modeAutonomous = false
+                    wheel.accepted = false
+                }
+            }
+
+            gesture.onPanStarted: {
+                modeAutonomous = false
+            }
+
+            gesture.onPinchStarted: {
+                modeAutonomous = false
+            }
 
             Location {
                 id: prevLocation
@@ -341,7 +379,7 @@ Mycroft.Delegate {
 
             function routeUpdate() {
                 routeQuery.clearWaypoints();
-                if (modeGuidance) {
+                if (modeRoute) {
 //                         console.log("start: "+startMarker.coordinate+" / end: "+endMarker.coordinate);
 //                 routeQuery.addWaypoint(startMarker.coordinate);
                     routeQuery.addWaypoint(carMarker.coordinate);
@@ -413,7 +451,7 @@ Mycroft.Delegate {
 //                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
 //                 anchorPoint.x: greenMarker.width/2
 //                 anchorPoint.y: greenMarker.height
-//                 visible: modeGuidance
+//                 visible: modeRoute
 //                 MouseArea  {
 //                     drag.target: parent
 //                     anchors.fill: parent
@@ -435,13 +473,13 @@ Mycroft.Delegate {
                 coordinate : QtPositioning.coordinate(37.4,-122.03)
                 anchorPoint.x: redMarker.width / 2
                 anchorPoint.y: redMarker.height
-                visible: modeGuidance
+//                 visible: modeRoute
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
                 }
                 onCoordinateChanged: {
-                    map.routeUpdate();
+                    if (modeRoute) map.routeUpdate();
                 }
             }
             MapItemView {
@@ -457,7 +495,206 @@ Mycroft.Delegate {
         }
     }
     Item {
-        id: mapView
+        id: mapFrame
+        state: (uiMap) ? "ACTIVE" : "INACTIVE"
+        states: [
+            State {
+                name: "ACTIVE"
+                PropertyChanges {
+                    target: mapFrame
+                    width: Kirigami.Units.gridUnit*10
+                }
+                PropertyChanges {
+                    target: mapFrame
+                    opacity: 1
+                }
+            },
+            State {
+                name: "INACTIVE"
+                PropertyChanges {
+                    target: mapFrame
+                    width: 0
+                }
+                PropertyChanges {
+                    target: mapFrame
+                    opacity: 0
+                }
+            }
+        ]
+        transitions: [
+            Transition {
+                from: "INACTIVE"
+                to: "ACTIVE"
+                SequentialAnimation {
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: true
+                    }
+                    NumberAnimation { target: routeView; properties: "width,opacity"; duration: 500 }
+                }
+            },
+            Transition {
+                from: "ACTIVE"
+                to: "INACTIVE"
+                SequentialAnimation {
+                    NumberAnimation { target: routeView; properties: "width,opacity"; duration: 500 }
+                    PropertyAction {
+                        target: mapFrame
+                        property: "visible"
+                        value: false
+                    }
+                }
+            }
+        ]
+        anchors.right: parent.right
+//         anchors.rightMargin: Kirigami.Units.gridUnit*2
+        anchors.top: parent.top
+//         anchors.topMargin: Kirigami.Units.gridUnit*2
+        anchors.bottom: parent.bottom
+//         anchors.bottomMargin: Kirigami.Units.gridUnit*2
+//         width: parent.width*0.25
+        z: 15
+        Column {
+            id: mapControls
+            anchors.fill: parent
+            anchors.margins: Kirigami.Units.gridUnit*2
+            spacing: Kirigami.Units.gridUnit*2
+//             layer.enabled: true
+//             layer.effect: DropShadow {
+//                 transparentBorder: true
+//                 verticalOffset: -6
+//                 horizontalOffset: 6
+//                 radius: 10
+//                 samples: 21
+//                 color: "#80000000"
+//             }
+            Image {
+                id: iconRoute
+                signal clicked
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: (modeRoute) ? "../images/mode-route.png" : "../images/mode-browse.png"
+                height: 30
+                width: 30
+                mipmap: true
+                fillMode: Image.PreserveAspectFit
+                opacity: 1
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: iconRoute.clicked()
+                }
+                onClicked: {
+                    modeRoute = (modeRoute) ? false : true;
+                    if (modeRoute) {
+                        modeMarker = true;
+                        if (map) map.routeUpdate();
+                    } else {
+                        if (map) map.routeReset();
+                    }
+                }
+                ColorOverlay {
+                    anchors.fill: iconRoute
+                    source: iconRoute
+                    color: (modeNight) ? "#a9cac9" : "#ffffff"
+                }
+            }
+            Image {
+                id: iconMarker
+                signal clicked
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: (modeMarker) ? "../images/map-location.png" : "../images/map-solid.png"
+                height: 30
+                width: 30
+                mipmap: true
+                fillMode: Image.PreserveAspectFit
+                opacity: 1
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: iconMarker.clicked()
+                }
+                onClicked: {
+                    modeMarker = (modeRoute) ? true : ((modeMarker) ? false : true);
+                }
+                ColorOverlay {
+                    anchors.fill: iconMarker
+                    source: iconMarker
+                    color: (modeNight) ? "#a9cac9" : "#ffffff"
+                }
+            }
+            Image {
+                id: iconFollow
+                signal clicked
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: (modeFollow) ? "../images/mode-location.png" : "../images/mode-follow.png"
+                height: 30
+                width: 30
+                mipmap: true
+                fillMode: Image.PreserveAspectFit
+                opacity: 1
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: iconFollow.clicked()
+                }
+                onClicked: {
+                    modeFollow = (modeFollow) ? false : true
+                }
+                ColorOverlay {
+                    anchors.fill: iconFollow
+                    source: iconFollow
+                    color: (modeNight) ? "#a9cac9" : "#ffffff"
+                }
+            }
+            Image {
+                id: icon3D
+                signal clicked
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: (mode3D) ? "../images/mode-3D.png" : "../images/mode-2D.png"
+                height: 30
+                width: 30
+                mipmap: true
+                fillMode: Image.PreserveAspectFit
+                opacity: 1
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: icon3D.clicked()
+                }
+                onClicked: {
+                    mode3D = (mode3D) ? false : true
+                }
+                ColorOverlay {
+                    anchors.fill: icon3D
+                    source: icon3D
+                    color: (modeNight) ? "#a9cac9" : "#ffffff"
+                }
+            }
+            Image {
+                id: iconNorth
+                signal clicked
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: (modeNorth) ? "../images/mode-compass.png" : "../images/mode-direction.png"
+                height: 30
+                width: 30
+                mipmap: true
+                fillMode: Image.PreserveAspectFit
+                opacity: 1
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: iconNorth.clicked()
+                }
+                onClicked: {
+                    modeNorth = (modeNorth) ? false : true
+                }
+                ColorOverlay {
+                    anchors.fill: iconNorth
+                    source: iconNorth
+                    color: (modeNight) ? "#a9cac9" : "#ffffff"
+                }
+            }
+        }
+    }
+
+    Item {
+        id: mapRoute
         state: (uiMap && (routeModel.status == RouteModel.Ready)) ? "ACTIVE" : "INACTIVE"
         states: [
             State {
@@ -481,7 +718,7 @@ Mycroft.Delegate {
                 to: "ACTIVE"
                 SequentialAnimation {
                     PropertyAction {
-                        target: mapView
+                        target: mapRoute
                         property: "visible"
                         value: true
                     }
@@ -494,7 +731,7 @@ Mycroft.Delegate {
                 SequentialAnimation {
                     NumberAnimation { target: routeView; properties: "height"; duration: 500 }
                     PropertyAction {
-                        target: mapView
+                        target: mapRoute
                         property: "visible"
                         value: false
                     }
@@ -532,7 +769,7 @@ Mycroft.Delegate {
                 header: Rectangle {
                     width: parent.width
                     height: Kirigami.Units.gridUnit*7
-                    color: (night) ? "#275660" : "#ffffff"
+                    color: (modeNight) ? "#275660" : "#ffffff"
                     z: 16
 //                     opacity: 0.8
                     layer.enabled: true
@@ -549,7 +786,7 @@ Mycroft.Delegate {
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
-                        color: (night) ? "#ef7b30" : "#47696f"
+                        color: (modeNight) ? "#ef7b30" : "#47696f"
                         text: routeTime>3600 ? Math.floor(routeTime/3600)+" hr  "+Math.floor((routeTime%3600)/60)+" min" : Math.round(routeTime/60)+" min"
                         font.pointSize: Kirigami.Units.gridUnit*2
                         font.bold: true
@@ -560,7 +797,7 @@ Mycroft.Delegate {
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
-                        color: (night) ? "white" : "black"
+                        color: (modeNight) ? "white" : "black"
                         text: routeDistance>1000 ? Math.floor(routeDistance/1000)+" km" : Math.round(routeDistance)+" m"
                         font.pointSize: Kirigami.Units.gridUnit
                         font.bold: true
@@ -570,7 +807,7 @@ Mycroft.Delegate {
                     id: routeListdelegate
                     width: parent.width
                     height: Kirigami.Units.gridUnit*6
-                    color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
+                    color: (modeNight) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
 //                     opacity: 0.8
                     property bool hasManeuver: modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
@@ -594,7 +831,7 @@ Mycroft.Delegate {
 //                         height: maneuverDist.height
                         fillMode: Image.PreserveAspectFit
                         mipmap: true
-//                         color: (night) ? "#a9cac9" : "#000000"
+//                         color: (modeNight) ? "#a9cac9" : "#000000"
                         source: {
                             switch (modelData.maneuver.direction) {
                                 case RouteManeuver.NoDirection:
@@ -637,7 +874,7 @@ Mycroft.Delegate {
                         anchors.right: maneuverDir.left
                         anchors.rightMargin: Kirigami.Units.gridUnit*0.5
                         text: hasManeuver ? routeAdaptDriver(modelData.maneuver.instructionText) : ""
-//                         color: (night) ? "#a9cac9" : "#000000"
+//                         color: (modeNight) ? "#a9cac9" : "#000000"
                         font.pointSize: Kirigami.Units.gridUnit*0.5
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
@@ -648,7 +885,7 @@ Mycroft.Delegate {
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
                         anchors.topMargin: Kirigami.Units.gridUnit*0.3
-//                         color: (night) ? "#a9cac9" : "#000000"
+//                         color: (modeNight) ? "#a9cac9" : "#000000"
 //                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
                         text: (hasManeuver && index>0) ? (routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
                         font.pointSize: Kirigami.Units.gridUnit*1.8
@@ -749,7 +986,7 @@ Mycroft.Delegate {
 
         Component.onCompleted: {
             console.log("RouteModel onCompleted");
-            if (modeGuidance)
+            if (modeRoute)
                 map.routeUpdate();
         }
         onStatusChanged: {
@@ -809,7 +1046,7 @@ Mycroft.Delegate {
             y: 0
             anchors.left: parent.left
             anchors.right: parent.right
-            source: (night) ? "../images/mkz_frame_top_night.png" : "../images/mkz_frame_top_day.png"
+            source: (modeNight) ? "../images/mkz_frame_top_night.png" : "../images/mkz_frame_top_day.png"
             fillMode: Image.PreserveAspectFit
             Text {
                 id: lTime
@@ -817,50 +1054,50 @@ Mycroft.Delegate {
                 anchors.leftMargin: Kirigami.Units.gridUnit*1.5
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: parent.height*0.35
-                color: (night) ? "#a9cac9" : "#000000"
+                color: (modeNight) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: true
                 text: sessionData.datetime.substring(0,5)
-                opacity: (night) ? 1 : 0.6
+                opacity: (modeNight) ? 1 : 0.6
             }
             Text {
                 id: lAmpm
                 anchors.left: lTime.right
                 anchors.leftMargin: 2
                 anchors.bottom: lTime.bottom
-                color: (night) ? "#a9cac9" : "#000000"
+                color: (modeNight) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
                 font.weight: Font.Thin
                 text: sessionData.datetime.substring(5,7)
-                opacity: (night) ? 1 : 0.6
+                opacity: (modeNight) ? 1 : 0.6
             }
             Text {
                 id: lDay
                 anchors.left: lAmpm.right
                 anchors.bottom: lTime.bottom
                 anchors.leftMargin: Kirigami.Units.gridUnit*1.5
-                color: (night) ? "#a9cac9" : "#000000"
+                color: (modeNight) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: true
                 text: sessionData.datetime.substring(8,11)
-                opacity: (night) ? 1 : 0.6
+                opacity: (modeNight) ? 1 : 0.6
             }
             Text {
                 id: lDate
                 anchors.left: lDay.right
                 anchors.bottom: lTime.bottom
                 anchors.leftMargin: Kirigami.Units.gridUnit*0.8
-                color: (night) ? "#a9cac9" : "#000000"
+                color: (modeNight) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
                 font.capitalization: Font.SmallCaps
                 font.bold: false
                 font.weight: Font.Thin
                 text: sessionData.datetime.substring(12)
-                opacity: (night) ? 1 : 0.6
+                opacity: (modeNight) ? 1 : 0.6
             }
 
             Image {
@@ -870,7 +1107,7 @@ Mycroft.Delegate {
                 anchors.rightMargin: Kirigami.Units.gridUnit*1.5
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: parent.height*0.4
-                source: (night) ? "../images/moon-solid.png" : "../images/sun-solid.png"
+                source: (modeNight) ? "../images/moon-solid.png" : "../images/sun-solid.png"
                 height: 30
                 width: 30
                 opacity: 0.7
@@ -881,12 +1118,12 @@ Mycroft.Delegate {
                     onClicked: dayNightIcon.clicked()
                 }
                 onClicked: {
-                    night = (night) ? false : true
+                    modeNight = (modeNight) ? false : true
                 }
                 ColorOverlay {
                     anchors.fill: dayNightIcon
                     source: dayNightIcon
-                    color: (night) ? "#a9cac9" : "#000000"
+                    color: (modeNight) ? "#a9cac9" : "#000000"
                 }
             }
             Image {
@@ -911,37 +1148,7 @@ Mycroft.Delegate {
                 ColorOverlay {
                     anchors.fill: autonomousIcon
                     source: autonomousIcon
-                    color: (night) ? "#a9cac9" : "#000000"
-                }
-            }
-            Image {
-                id: followIcon
-                signal clicked
-                anchors.right: autonomousIcon.left
-                anchors.rightMargin: Kirigami.Units.gridUnit
-                anchors.verticalCenter: dayNightIcon.verticalCenter
-                source: (modeGuidance) ? "../images/mode-navigation.png" : "../images/mode-follow.png"
-                height: 30
-                width: 30
-                mipmap: true
-                fillMode: Image.PreserveAspectFit
-                opacity: 0.7
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: followIcon.clicked()
-                }
-                onClicked: {
-                    modeGuidance = (modeGuidance) ? false : true
-                    if (modeGuidance) {
-                        if (map) map.routeUpdate();
-                    } else {
-                        if (map) map.routeReset();
-                    }
-                }
-                ColorOverlay {
-                    anchors.fill: followIcon
-                    source: followIcon
-                    color: (night) ? "#a9cac9" : "#000000"
+                    color: (modeNight) ? "#a9cac9" : "#000000"
                 }
             }
 
@@ -981,7 +1188,7 @@ Mycroft.Delegate {
                     anchors.rightMargin: 5
                     text: playLogic.msToTime(player.position)
     //                                 font.family: appFont.name
-                    color: (night) ? "#e8fffc" : "#c0000000"
+                    color: (modeNight) ? "#e8fffc" : "#c0000000"
                     font.pointSize: 14
                 }
                 Text {
@@ -991,7 +1198,7 @@ Mycroft.Delegate {
                     anchors.leftMargin: 5
                     text: "-"+playLogic.msToTime(player.duration-player.position)
     //                                 font.family: appFont.name
-                    color: (night) ? "#e8fffc" : "#c0000000"
+                    color: (modeNight) ? "#e8fffc" : "#c0000000"
                     font.pointSize: 14
                 }
                 Text {
@@ -999,7 +1206,7 @@ Mycroft.Delegate {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: musicTopProgress.bottom
                     text: player.metaData.title ? player.metaData.title : ""
-                    color: (night) ? "#e8fffc" : "#c0000000"
+                    color: (modeNight) ? "#e8fffc" : "#c0000000"
     //                                         font.family: appFont.name
                     font.capitalization: Font.SmallCaps
                     font.weight: Font.Thin
@@ -1198,7 +1405,7 @@ Mycroft.Delegate {
                 visible: false
                 Rectangle {
                     id: actionsButton
-                    color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+                    color: (modeNight) ? "#ff1e373a" : "#f0f0f0f0"
                     signal clicked
                     width: parent.width-Kirigami.Units.gridUnit*2
                     height: parent.height-Kirigami.Units.gridUnit
@@ -1230,7 +1437,7 @@ Mycroft.Delegate {
                         ColorOverlay {
                             anchors.fill: actionIcon
                             source: actionIcon
-                            color: (night) ? "#401e373a" : "#00000000"
+                            color: (modeNight) ? "#401e373a" : "#00000000"
                         }
                     }
                     Item {
@@ -1244,7 +1451,7 @@ Mycroft.Delegate {
                         anchors.top: actionSpacer2.bottom
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: model.text
-                        color: (night) ? "#e8fffc" : "#c0000000"
+                        color: (modeNight) ? "#e8fffc" : "#c0000000"
                         font.pointSize: Kirigami.Units.gridUnit*2
                     }
                     MouseArea {
@@ -1390,8 +1597,8 @@ Mycroft.Delegate {
                     height: Kirigami.Units.gridUnit*3
                     Rectangle {
                         id: statusButton
-    //                     color: (night) ? "#ff1e373a" : "#f0f0f0f0"
-                        color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#bababa")
+    //                     color: (modeNight) ? "#ff1e373a" : "#f0f0f0f0"
+                        color: (modeNight) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#bababa")
                         signal clicked
                         anchors.fill: parent
 //                         anchors.verticalCenter: parent.verticalCenter
@@ -1406,7 +1613,7 @@ Mycroft.Delegate {
                             anchors.verticalCenter: parent.verticalCenter
 //                             height: parent.height
                             text: model.text
-                            color: (model.text.substring(model.text.length-1)==="✓") ? ((night) ? "#e8fffc" : "#c0000000") : "#ef7b30"
+                            color: (model.text.substring(model.text.length-1)==="✓") ? ((modeNight) ? "#e8fffc" : "#c0000000") : "#ef7b30"
                             font.bold: (model.text.substring(model.text.length-1)==="✓") ? false : true
                             font.pointSize: Kirigami.Units.gridUnit
                         }
@@ -1603,7 +1810,7 @@ Mycroft.Delegate {
 
         Rectangle {
             id: musicView
-            color: (night) ? "#ff1e373a" : "#f0f0f0f0"
+            color: (modeNight) ? "#ff1e373a" : "#f0f0f0f0"
             width: parent.width*0.4
 //             height: parent.height*0.75
             anchors.horizontalCenter: parent.horizontalCenter
@@ -1664,7 +1871,7 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.bottom: parent.bottom
                         text: player.metaData.albumTitle ? player.metaData.albumTitle : ""
-                        color: (night) ? "#e8fffc" : "#c0000000"
+                        color: (modeNight) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.capitalization: Font.SmallCaps
                         font.pointSize: 20
@@ -1680,7 +1887,7 @@ Mycroft.Delegate {
                         anchors.bottom: trackAlbum.top
                         anchors.right: parent.right
                         text: player.metaData.title ? player.metaData.title : ""
-                        color: (night) ? "#e8fffc" : "#c0000000"
+                        color: (modeNight) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.capitalization: Font.SmallCaps
                         font.pointSize: 20
@@ -1695,7 +1902,7 @@ Mycroft.Delegate {
                         anchors.top: parent.top
                         anchors.right: parent.right
                         text: player.metaData.albumArtist ? player.metaData.albumArtist : ""
-                        color: (night) ? "#e8fffc" : "#c0000000"
+                        color: (modeNight) ? "#e8fffc" : "#c0000000"
 //                                         font.family: appFont.name
                         font.pointSize: 24
                         font.bold: false
@@ -1747,7 +1954,7 @@ Mycroft.Delegate {
                     anchors.leftMargin: 1
                     text: playLogic.msToTime(player.position)
 //                                 font.family: appFont.name
-                    color: (night) ? "#e8fffc" : "#c0000000"
+                    color: (modeNight) ? "#e8fffc" : "#c0000000"
                     font.pointSize: 14
                 }
 
@@ -1758,7 +1965,7 @@ Mycroft.Delegate {
                     anchors.rightMargin: 1
                     text: "-"+playLogic.msToTime(player.duration-player.position)
 //                                 font.family: appFont.name
-                    color: (night) ? "#e8fffc" : "#c0000000"
+                    color: (modeNight) ? "#e8fffc" : "#c0000000"
                     font.pointSize: 14
                 }
             }
@@ -1781,7 +1988,7 @@ Mycroft.Delegate {
 //                     ColorOverlay {
 //                         anchors.fill: prevTrack
 //                         source: prevTrack
-//                         color: (night) ? "#401e373a" : "#40000000"
+//                         color: (modeNight) ? "#401e373a" : "#40000000"
 //                     }
                     state: "none"
                     MouseArea {
@@ -1813,7 +2020,7 @@ Mycroft.Delegate {
 //                         ColorOverlay {
 //                             anchors.fill: playPause
 //                             source: playPause
-//                             color: (night) ? "#401e373a" : "#40000000"
+//                             color: (modeNight) ? "#401e373a" : "#40000000"
 //                         }
                         state: "none"
                         MouseArea {
@@ -1841,7 +2048,7 @@ Mycroft.Delegate {
 //                     ColorOverlay {
 //                         anchors.fill: nextTrack
 //                         source: nextTrack
-//                         color: (night) ? "#401e373a" : "#40000000"
+//                         color: (modeNight) ? "#401e373a" : "#40000000"
 //                     }
                     state: "none"
                     MouseArea {
