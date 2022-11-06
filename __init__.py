@@ -165,13 +165,13 @@ class MkzUrbanDemo(MycroftSkill):
     def _route_new(self, message):
         self.speak(message.data["string"], wait=True)
         self.log.info("total time: %d seconds",self.gui["routeTime"])
-        self.log.info("total distance: %f meter",self.gui["routeDistance"])
+        self.log.info("total distance: %d meters",self.gui["routeDistance"])
         self.log.info("segments: %d",self.gui["routeSegments"])
         if (self.gui["routeNext"]):
             self.schedule_event(self._route_next_maneuver, 5)
 
     def _route_next_maneuver(self):
-        self.speak("In %d meter. ",str(self.gui["routeDistanceToNext"])+self.gui["routeNextInstruction"], wait=True)
+        self.speak("In ",str(round(self.gui["routeDistanceToNext"]))+" meters. "+self.gui["routeNextInstruction"], wait=True)
 
 def create_skill():
     return MkzUrbanDemo()
