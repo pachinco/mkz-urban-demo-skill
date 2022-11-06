@@ -643,6 +643,18 @@ Mycroft.Delegate {
     property int routeTime: routeModel.status == RouteModel.Ready ? routeModel.get(0).travelTime : 0
     property real routeDistance: routeModel.status == RouteModel.Ready ? routeModel.get(0).distance : 0
 
+    function routeAdaptDriver(inst) {
+        if (modeAutonomous) {
+            if (inst.slice(0,3)==="You") {
+                return inst.replace("You", "We");
+            } else if (inst.slice(0,4)==="Your") {
+                return inst.replace("Your", "Our");
+            } else
+                return "We'll "+inst;
+        } else
+            return inst;
+    }
+
     function sessionGetManeuver(route, man) {
         sessionData.routeNum = route;
         sessionData.routeSegment = man;
@@ -653,7 +665,7 @@ Mycroft.Delegate {
 //         sessionData.routePosition = routeModel.get(route).segments[man].position;
         sessionData.routeTime = routeModel.get(route).segments[man].travelTime;
         sessionData.routeDirection = routeModel.get(route).segments[man].maneuver.direction;
-        sessionData.routeInstruction = routeModel.get(route).segments[man].maneuver.instructionText;
+        sessionData.routeInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
 //         sessionData.routePath[0] = routeModel.get(route).segments[man].path[0];
@@ -669,7 +681,7 @@ Mycroft.Delegate {
 //             sessionData.routeNextPosition = routeModel.get(route).segments[man].position;
             sessionData.routeNextTime = routeModel.get(route).segments[man].travelTime;
             sessionData.routeNextDirection = routeModel.get(route).segments[man].maneuver.direction;
-            sessionData.routeNextInstruction = routeModel.get(route).segments[man].maneuver.instructionText;
+            sessionData.routeNextInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
         } else {
             sessionData.routeNext = false;
         }
@@ -699,8 +711,8 @@ Mycroft.Delegate {
             if (routeModel.status === RouteModel.Ready) {
                 routeList.currentIndex = 0;
                 sessionGetManeuver(0, 0);
-                triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": routeModel.get(0).segments[0].maneuver.instructionText});
-                console.log("RouteModel onStatusChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
+                triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText)});
+                console.log("RouteModel onStatusChanged: "+routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText));
 //             } else {
 //                 console.log("RouteModel onStatusChanged: not ready");
             }
