@@ -35,7 +35,6 @@ Mycroft.Delegate {
     property bool night: sessionData.nightMode
     property bool navigating: true
     property bool mapOn: false
-//     property var sessionData.routeSegments
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
@@ -669,23 +668,26 @@ Mycroft.Delegate {
         sessionData.routeTotalTime = routeModel.get(route).travelTime;
         sessionData.routeTotalDistance = routeModel.get(route).distance;
         sessionData.routeDistance = routeModel.get(route).segments[man].distance;
-//         sessionData.routePosition = routeModel.get(route).segments[man].position;
+        sessionData.routePositionLat = routeModel.get(route).segments[man].position.latitude;
+        sessionData.routePositionLon = routeModel.get(route).segments[man].position.longitude;
         sessionData.routeTime = routeModel.get(route).segments[man].travelTime;
         sessionData.routeDirection = routeModel.get(route).segments[man].maneuver.direction;
         sessionData.routeInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
-//         sessionData.routePath[0] = routeModel.get(route).segments[man].path[0];
-//         for (let i = 0; i < routeModel.get(route).segments[man].path.length; i++) {
-//             sessionData.routePath[i] = routeModel.get(route).segments[man].path[i];
-//             console.log("maneuver path #"+i+": "+routeModel.get(route).segments[man].path[i]);
-//         }
+        sessionData.routePathLat[0] = routeModel.get(route).segments[man].path[0].latitude;
+        sessionData.routePathLon[0] = routeModel.get(route).segments[man].path[0].longitude;
+        for (let i = 0; i < routeModel.get(route).segments[man].path.length; i++) {
+            sessionData.routePath[i] = routeModel.get(route).segments[man].path[i];
+            console.log("maneuver path #"+i+": Lat="+routeModel.get(route).segments[man].path[i].latitude+" Lon="+routeModel.get(route).segments[man].path[i].longitude);
+        }
         if (man+1<routeModel.get(route).segments.length) {
             man=man+1;
             sessionData.routeNext = true;
             sessionData.routeNextSegment = man;
             sessionData.routeNextDistance = routeModel.get(route).segments[man].distance;
-//             sessionData.routeNextPosition = routeModel.get(route).segments[man].position;
+            sessionData.routeNextPositionLat = routeModel.get(route).segments[man].position.latitude;
+            sessionData.routeNextPositionLon = routeModel.get(route).segments[man].position.longitude;
             sessionData.routeNextTime = routeModel.get(route).segments[man].travelTime;
             sessionData.routeNextDirection = routeModel.get(route).segments[man].maneuver.direction;
             sessionData.routeNextInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
