@@ -29,7 +29,6 @@ Mycroft.Delegate {
     property real carSpeed: sessionData.carSpeed
     property var carPosition: sessionData.carPosition
     property bool carDriving: sessionData.carDriving
-//     property var carMode: sessionData.carMode
     property bool modeAutonomous: sessionData.modeAutonomous
     property bool modeGuidance: sessionData.modeGuidance
     property bool traffic: true
@@ -656,10 +655,10 @@ Mycroft.Delegate {
         sessionData.routeInstruction = routeModel.get(route).segments[man].maneuver.instructionText;
         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
-        sessionData.routePath = routeModel.get(route).segments[man].path
-//         for (const path of routeModel.get(route).segments[man].path) {
-//             
-//         }
+        sessionData.routePath = []
+        for (let i = 0; i < routeModel.get(route).segments[man].path.length; i++) {
+            sessionData.routePath[i] = routeModel.get(route).segments[man].path[i]
+        }
         if (man+1<routeModel.get(route).segments.length) {
             man=man+1;
             sessionData.routeNext = true;
