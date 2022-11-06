@@ -660,11 +660,11 @@ Mycroft.Delegate {
         } else
             return inst;
     }
-
+/*
     Location {
         id: loc
         coordinate: 
-    }
+    }*/
 
     function sessionGetManeuver(route, man) {
         sessionData.routeNum = route;
