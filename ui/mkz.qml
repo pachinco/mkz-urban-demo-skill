@@ -600,7 +600,7 @@ Mycroft.Delegate {
                         anchors.topMargin: Kirigami.Units.gridUnit*0.2
                         anchors.right: maneuverDir.left
                         anchors.rightMargin: Kirigami.Units.gridUnit*0.5
-                        text: hasManeuver ? modelData.maneuver.instructionText : ""
+                        text: hasManeuver ? routeAdaptDriver(modelData.maneuver.instructionText) : ""
 //                         color: (night) ? "#a9cac9" : "#000000"
                         font.pointSize: Kirigami.Units.gridUnit*0.5
                         font.weight: Font.Thin
@@ -650,7 +650,7 @@ Mycroft.Delegate {
             } else if (inst.slice(0,4)==="Your") {
                 return inst.replace("Your", "Our");
             } else
-                return "We'll "+inst;
+                return "We'll "+inst.slice(0,1).toLowerCase+inst.slice(1);
         } else
             return inst;
     }
