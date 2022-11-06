@@ -696,7 +696,7 @@ Mycroft.Delegate {
             console.log("maneuver path #"+i+": Lat="+routeModel.get(route).segments[man].path[i].latitude+" Lon="+routeModel.get(route).segments[man].path[i].longitude);
         }
         sessionData.routePath = sessionData.routePath+"]";
-        console.log("route path:"+sessionData.routePath;
+        console.log("route path:"+sessionData.routePath);
         if (man+1<routeModel.get(route).segments.length) {
             man=man+1;
             sessionData.routeNext = true;
