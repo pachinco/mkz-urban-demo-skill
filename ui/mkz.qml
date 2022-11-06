@@ -41,6 +41,7 @@ Mycroft.Delegate {
     property bool modeNight: sessionData.modeNight
     property bool carAnimate: true
     property bool mapOn: false
+    property real carBearing: 0
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
@@ -260,27 +261,31 @@ Mycroft.Delegate {
         Map {
             id: map
             anchors.fill: parent
-            states: [
-                State {
-                    name: ""
-                    PropertyChanges { target: map; tilt: 0; bearing: 0; zoomLevel: map.zoomLevel }
-                },
-                State {
-                    name: "navigating"
-                    PropertyChanges { target: map; tilt: 60; zoomLevel: 17 }
-                }
-            ]
-
-            transitions: [
-                Transition {
-                    to: "*"
-                    RotationAnimation { target: map; property: "bearing"; duration: 500; direction: RotationAnimation.Shortest }
-                    NumberAnimation { target: map; property: "zoomLevel"; duration: 500 }
-                    NumberAnimation { target: map; property: "tilt"; duration: 500 }
-                }
-            ]
-
-            state: modeFollow ? "navigating" : ""
+//             states: [
+//                 State {
+//                     name: "North2D"
+//                     PropertyChanges { target: map; tilt: 0; bearing: 0 }
+//                 },
+//                 State {
+//                     name: "Follow2D"
+//                     PropertyChanges { target: map; tilt: 0; bearing: carBearing }
+//                 },
+//                 State {
+//                     name: "Follow3D"
+//                     PropertyChanges { target: map; tilt: 60; bearing: carBearing }
+//                 }
+//             ]
+// 
+//             transitions: [
+//                 Transition {
+//                     to: "*"
+//                     RotationAnimation { target: map; property: "bearing"; duration: 500; direction: RotationAnimation.Shortest }
+//                     NumberAnimation { target: map; property: "zoomLevel"; duration: 500 }
+//                     NumberAnimation { target: map; property: "tilt"; duration: 500 }
+//                 }
+//             ]
+// 
+//             state: mode3D ? "3D" : "2D"
 
             plugin: Plugin {
                 name: "mapboxgl"
@@ -298,6 +303,26 @@ Mycroft.Delegate {
                 }
             }
             center: modeFollow ? carLocation.coordinate : map.center
+            bearing: modeNorth ? 0 : carBearing
+            tilt: mode3D ? 60 : 0
+            
+            Behavior on tilt {
+                NumberAnimation { duration: 1000 }
+            }
+            Behavior on bearing {
+                RotationAnimation {
+                    duration: 1000
+                    alwaysRunToEnd: false
+                    direction: RotationAnimation.Shortest
+                }
+            }
+            Behavior on center {
+                CoordinateAnimation {
+                    duration: 1000
+                    alwaysRunToEnd: false
+                    easing.type: Easing.Linear
+                }
+            }
 //             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
 //             tilt: 60
@@ -364,12 +389,18 @@ Mycroft.Delegate {
             }
 
             Location {
-                id: prevLocation
+                id: oldLocation
                 coordinate: QtPositioning.coordinate(0, 0)
             }
             Location {
                 id: carLocation
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
+                onCoordinateChanged: {
+                    if (oldLocation.coordinate != carLocation.coordinate) {
+                        carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
+                        oldLocation.coordinate = carLocation.coordinate;
+                    }
+                }
             }
 
             function routeReset() {
@@ -391,35 +422,35 @@ Mycroft.Delegate {
                 }
             }
 
-            RotationAnimation on bearing {
-                id: bearingAnimation
-                duration: 500
-                alwaysRunToEnd: false
-                direction: RotationAnimation.Shortest
-            }
-            CoordinateAnimation {
-                id: carAnimation
-                duration: 1000
-                target: carLocation
-                property: "coordinate"
-                alwaysRunToEnd: false
-                easing.type: Easing.Linear
-            }
-            onCenterChanged: {
-                if (prevLocation.coordinate == center) return
-
-                if (modeFollow) {
-                    carAnimation.from = prevLocation.coordinate;
-                    carAnimation.to = carLocation.coordinate;
-                    carAnimation.start();
-                }
-                if (!modeNorth) {
-                    bearingAnimation.to = prevLocation.coordinate.azimuthTo(center);
-                    bearingAnimation.start();
-                }
-                
-                prevLocation.coordinate = center;
-            }
+//             RotationAnimation on bearing {
+//                 id: bearingAnimation
+//                 duration: 500
+//                 alwaysRunToEnd: false
+//                 direction: RotationAnimation.Shortest
+//             }
+//             CoordinateAnimation {
+//                 id: carAnimation
+//                 duration: 1000
+//                 target: carLocation
+//                 property: "coordinate"
+//                 alwaysRunToEnd: false
+//                 easing.type: Easing.Linear
+//             }
+//             onCenterChanged: {
+//                 if (prevLocation.coordinate == center) return
+// 
+//                 if (modeFollow) {
+//                     carAnimation.from = prevLocation.coordinate;
+//                     carAnimation.to = carLocation.coordinate;
+//                     carAnimation.start();
+//                 }
+//                 if (!modeNorth) {
+//                     bearingAnimation.to = prevLocation.coordinate.azimuthTo(center);
+//                     bearingAnimation.start();
+//                 }
+//                 
+//                 prevLocation.coordinate = center;
+//             }
             
             MapQuickItem {
                 id: carMarker
