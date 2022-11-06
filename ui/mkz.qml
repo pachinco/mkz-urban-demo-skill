@@ -553,7 +553,7 @@ Mycroft.Delegate {
                     Rectangle {
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.top
-                        width: maneuverDist.width
+                        width: maneuverDist.width+Kirigami.Units.gridUnit*2
                         height: maneuverDist.height
                         color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
 //                         z: -1
