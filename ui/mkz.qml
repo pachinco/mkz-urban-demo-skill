@@ -502,7 +502,7 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: mapFrame
-                    width: Kirigami.Units.gridUnit*10
+                    width: Kirigami.Units.gridUnit*8
                 }
                 PropertyChanges {
                     target: mapFrame
@@ -558,8 +558,8 @@ Mycroft.Delegate {
         Column {
             id: mapControls
             anchors.fill: parent
-            anchors.margins: Kirigami.Units.gridUnit*2
-            spacing: Kirigami.Units.gridUnit*2
+            anchors.margins: Kirigami.Units.gridUnit*1.5
+            spacing: Kirigami.Units.gridUnit*1.5
 //             layer.enabled: true
 //             layer.effect: DropShadow {
 //                 transparentBorder: true
