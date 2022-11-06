@@ -541,7 +541,6 @@ Mycroft.Delegate {
                     property bool hasManeuver: modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
                     signal clicked
-                    clip: false
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -549,34 +548,6 @@ Mycroft.Delegate {
                         radius: 10
                         samples: 21
                         color: "#80000000"
-                    }
-                    Rectangle {
-                        anchors.left: parent.left
-                        anchors.verticalCenter: parent.top
-                        width: maneuverDist.width+Kirigami.Units.gridUnit*2
-                        height: maneuverDist.height
-                        color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
-//                         z: -1
-                        layer.enabled: true
-                        layer.effect: DropShadow {
-                            transparentBorder: true
-                            verticalOffset: -4
-                            radius: 10
-                            samples: 21
-                            color: "#80000000"
-                        }
-                    }
-                    Text {
-                        id: maneuverDist
-                        anchors.left: parent.left
-                        anchors.leftMargin: Kirigami.Units.gridUnit
-                        anchors.verticalCenter: parent.top
-//                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
-//                         color: (night) ? "#a9cac9" : "#000000"
-//                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
-                        text: (hasManeuver && index>0) ? (routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
-                        font.pointSize: Kirigami.Units.gridUnit*2
-                        font.bold: true
                     }
                     Image {
                         id: maneuverDir
@@ -625,17 +596,29 @@ Mycroft.Delegate {
                         id: maneuverInstr
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
-                        anchors.top: maneuverDist.bottom
-                        anchors.topMargin: Kirigami.Units.gridUnit*0.2
-                        anchors.bottom: parent.bottom
+                        anchors.top: parent.top
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.bottom: maneuverDist.top
                         anchors.right: maneuverDir.left
                         anchors.rightMargin: Kirigami.Units.gridUnit
-                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.7
+                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
 //                         color: (night) ? "#a9cac9" : "#000000"
-                        font.pointSize: Kirigami.Units.gridUnit*0.5
+                        font.pointSize: Kirigami.Units.gridUnit*0.6
                         font.weight: Font.Thin
                         wrapMode: Text.Wrap
+                    }
+                    Text {
+                        id: maneuverDist
+                        anchors.left: parent.left
+                        anchors.leftMargin: Kirigami.Units.gridUnit
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
+//                         color: (night) ? "#a9cac9" : "#000000"
+//                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
+                        text: (hasManeuver && index>0) ? (routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
+                        font.pointSize: Kirigami.Units.gridUnit*2
+                        font.bold: true
                     }
                     MouseArea {
                         anchors.fill: parent
