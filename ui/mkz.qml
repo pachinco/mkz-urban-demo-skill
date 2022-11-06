@@ -359,11 +359,12 @@ Mycroft.Delegate {
                 alwaysRunToEnd: false
                 direction: RotationAnimation.Shortest
             }
-            CoordinateAnimation on carLocation.coordinate {
+            CoordinateAnimation {
                 id: carAnimation
                 duration: 1000
+                target: carLocation
+                property: "coordinate"
                 alwaysRunToEnd: false
-                direction: RotationAnimation.Shortest
             }
             onCenterChanged: {
                 if (prevLocation.coordinate == center) return
