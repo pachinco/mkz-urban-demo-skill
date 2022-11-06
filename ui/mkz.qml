@@ -365,6 +365,7 @@ Mycroft.Delegate {
                 target: carLocation
                 property: "coordinate"
                 alwaysRunToEnd: false
+                easing.type: Easing.Linear
             }
             onCenterChanged: {
                 if (prevLocation.coordinate == center) return
