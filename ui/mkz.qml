@@ -41,6 +41,13 @@ Mycroft.Delegate {
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
 
+    onModeAutonomousChanged: {
+        sessionData.modeAutonomous = modeAutonomous;
+    }
+    onModeGuidanceChanged: {
+        sessionData.modeGuidance = modeGuidance;
+    }
+
     Image {
         id: uiStage
         anchors.fill: parent
