@@ -658,7 +658,7 @@ Mycroft.Delegate {
         sessionData.routePath[0] = "";
         for (let i = 0; i < routeModel.get(route).segments[man].path.length; i++) {
             sessionData.routePath[i] = QtPositioning.coordToMercator(routeModel.get(route).segments[man].path[i]);
-            console.log("maneuver path #"+i+": "+QtPositioning.coordToMercator(routeModel.get(route).segments[man].path[i]);
+            console.log("maneuver path #"+i+": "+QtPositioning.coordToMercator(routeModel.get(route).segments[man].path[i]));
         }
         if (man+1<routeModel.get(route).segments.length) {
             man=man+1;
