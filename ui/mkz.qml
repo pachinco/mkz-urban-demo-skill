@@ -692,7 +692,7 @@ Mycroft.Delegate {
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
         var routePath = "[{'lat':"+routeModel.get(route).segments[man].path[0].latitude+",'lon':"+routeModel.get(route).segments[man].path[0].longitude+"}";
         for (let i = 1; i < routeModel.get(route).segments[man].path.length; i++) {
-            routePath = routePath+",{'lat':"+routeModel.get(route).segments[man].path[0].latitude+",'lon':"+routeModel.get(route).segments[man].path[0].longitude+"}";
+            routePath = routePath+",{'lat':"+routeModel.get(route).segments[man].path[i].latitude+",'lon':"+routeModel.get(route).segments[man].path[i].longitude+"}";
             console.log("maneuver path #"+i+": Lat="+routeModel.get(route).segments[man].path[i].latitude+" Lon="+routeModel.get(route).segments[man].path[i].longitude);
         }
         sessionData.routePath = routePath+"]";
