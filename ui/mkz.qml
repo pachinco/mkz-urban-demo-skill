@@ -664,7 +664,8 @@ Mycroft.Delegate {
 
         Component.onCompleted: {
             console.log("RouteModel onCompleted");
-            map.routeUpdate();
+            if (modeGuidance)
+                map.routeUpdate();
         }
         onStatusChanged: {
             if (routeModel.status === RouteModel.Ready) {
