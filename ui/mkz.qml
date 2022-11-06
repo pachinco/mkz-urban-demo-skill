@@ -622,27 +622,11 @@ Mycroft.Delegate {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-//                             routeList.currentIndex = index+1
                             console.log("segment instruction: "+routeModel.get(0).segments[index].maneuver.instructionText);
-//                             routeList.currentItem.clicked()
-//                             routeList.currentItem.visible = false
-//                             routeList.currentItem.remove();
                             routeList.positionViewAtIndex(index+1, ListView.Beginning)
-//                             routeList.currentIndex = index+1
                         }
                     }
-//                     Component.onCompleted: {
-//                         if (index === 1)
-//                             console.log("routeList delegate onCompleted: ["+index+"] "+routeModel.get(0).segments[0].maneuver.instructionText);
-//                     }
                 }
-//                 onCurrentItemChanged: {
-//                     if (routeModel.status === RouteModel.Ready) {
-//                         console.log("RouteList onCurrentItemChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
-//                     } else {
-//                         console.log("RouteList onCurrentItemChanged: no segments");
-//                     }
-//                 }
                 add: Transition {
                     NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
                     NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
@@ -672,6 +656,10 @@ Mycroft.Delegate {
         sessionData.routeInstruction = routeModel.get(route).segments[man].maneuver.instructionText;
         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
+        sessionData.routePath = routeModel.get(route).segments[man].path
+//         for (const path of routeModel.get(route).segments[man].path) {
+//             
+//         }
         if (man+1<routeModel.get(route).segments.length) {
             man=man+1;
             sessionData.routeNext = true;
