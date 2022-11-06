@@ -673,8 +673,8 @@ Mycroft.Delegate {
         sessionData.routeTotalTime = routeModel.get(route).travelTime;
         sessionData.routeTotalDistance = routeModel.get(route).distance;
         sessionData.routeDistance = routeModel.get(route).segments[man].distance;
-//         sessionData.routePositionLat = routeModel.get(route).segments[man].position.latitude;
-//         sessionData.routePositionLon = routeModel.get(route).segments[man].position.longitude;
+        sessionData.routePositionLat = routeModel.get(route).segments[man].maneuver.position.latitude;
+        sessionData.routePositionLon = routeModel.get(route).segments[man].maneuver.position.longitude;
         sessionData.routeTime = routeModel.get(route).segments[man].travelTime;
         sessionData.routeDirection = routeModel.get(route).segments[man].maneuver.direction;
         sessionData.routeInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
@@ -691,8 +691,8 @@ Mycroft.Delegate {
             sessionData.routeNext = true;
             sessionData.routeNextSegment = man;
             sessionData.routeNextDistance = routeModel.get(route).segments[man].distance;
-//             sessionData.routeNextPositionLat = routeModel.get(route).segments[man].position.latitude;
-//             sessionData.routeNextPositionLon = routeModel.get(route).segments[man].position.longitude;
+            sessionData.routeNextPositionLat = routeModel.get(route).segments[man].maneuver.position.latitude;
+            sessionData.routeNextPositionLon = routeModel.get(route).segments[man].maneuver.position.longitude;
             sessionData.routeNextTime = routeModel.get(route).segments[man].travelTime;
             sessionData.routeNextDirection = routeModel.get(route).segments[man].maneuver.direction;
             sessionData.routeNextInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
