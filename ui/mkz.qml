@@ -657,10 +657,10 @@ Mycroft.Delegate {
         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
         sessionData.routePath[0] = "";
-        for (let i = 0; i < routeModel.get(route).segments[man].path.length; i++) {
-            sessionData.routePath[i] = routeModel.get(route).segments[man].path[i];
-            console.log("maneuver path #"+i+": "+routeModel.get(route).segments[man].path[i]);
-        }
+//         for (let i = 0; i < routeModel.get(route).segments[man].path.length; i++) {
+//             sessionData.routePath[i] = routeModel.get(route).segments[man].path[i];
+//             console.log("maneuver path #"+i+": "+routeModel.get(route).segments[man].path[i]);
+//         }
         if (man+1<routeModel.get(route).segments.length) {
             man=man+1;
             sessionData.routeNext = true;
