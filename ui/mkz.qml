@@ -645,10 +645,10 @@ Mycroft.Delegate {
 
     function routeAdaptDriver(inst) {
         if (modeAutonomous) {
-            if (inst.slice(0,3)==="You") {
-                return inst.replace("You", "We");
-            } else if (inst.slice(0,4)==="Your") {
+            if (inst.slice(0,4)==="Your") {
                 return inst.replace("Your", "Our");
+            } else if (inst.slice(0,3)==="You") {
+                return inst.replace("You", "We");
             } else
                 return "We'll "+inst.substring(0,1).toLowerCase()+inst.slice(1);
         } else
