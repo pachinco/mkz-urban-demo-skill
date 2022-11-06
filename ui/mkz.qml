@@ -613,11 +613,11 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.top: parent.top
-                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.3
 //                         color: (night) ? "#a9cac9" : "#000000"
 //                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
                         text: (hasManeuver && index>0) ? (routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
-                        font.pointSize: Kirigami.Units.gridUnit*2
+                        font.pointSize: Kirigami.Units.gridUnit*1.8
                         font.bold: true
                     }
                     MouseArea {
