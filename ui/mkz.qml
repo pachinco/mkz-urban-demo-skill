@@ -52,7 +52,7 @@ Mycroft.Delegate {
         console.log("onCarPositionChanged: Lat="+carPosition.latitude+" Lon="+carPosition.longitude);
         carLocation.coordinate = QtPositioning.coordinate(carPosition.latitude, carPosition.longitude);
     }
-    onRouteSegmentChanged {
+    onRouteSegmentChanged: {
         sessionData.routeSegment = routeSegment;
         routeList.currentIndex = routeSegment;
         routeList.positionViewAtIndex(routeSegment, ListView.Beginning)
