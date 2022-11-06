@@ -597,9 +597,9 @@ Mycroft.Delegate {
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
                         anchors.bottom: parent.bottom
-                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.7
                         anchors.top: maneuverDist.bottom
-                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.2
                         anchors.right: maneuverDir.left
                         anchors.rightMargin: Kirigami.Units.gridUnit*0.5
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
