@@ -46,7 +46,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeTime"] = 0
         self.gui["routeSegments"] = []
         self.gui["modeAutonomous"] = False
-        self.gui["modeGuidance"] = True
+        self.gui["modeGuidance"] = False
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
                                   {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
@@ -149,11 +149,13 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["datetime"] = dt_str
 
     def _route_new(self, message):
+        route=message.data["route"]
+        self.log.info("route: "+route)
         self.speak(message.data["string"], wait=True)
         self.schedule_event(self._route_next_maneuver, 3)
 
     def _route_next_maneuver(self):
-        self.log.info("distance: "+self.gui["routeDistance"])
+        #self.log.info("distance: "+self.gui["routeDistance"])
         self.log.info("time: "+self.gui["routeTime"])
         self.log.info("segments: "+self.gui["routeSegments"])
 
