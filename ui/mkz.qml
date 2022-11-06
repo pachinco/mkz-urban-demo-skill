@@ -650,7 +650,7 @@ Mycroft.Delegate {
             } else if (inst.slice(0,4)==="Your") {
                 return inst.replace("Your", "Our");
             } else
-                return "We'll "+inst.slice(0,1).toLowerCase+inst.slice(1);
+                return "We'll "+inst.substring(0,1).toLowerCase()+inst.slice(1);
         } else
             return inst;
     }
