@@ -408,11 +408,15 @@ Mycroft.Delegate {
             onCenterChanged: {
                 if (prevLocation.coordinate == center) return
 
-                bearingAnimation.to = prevLocation.coordinate.azimuthTo(center);
-                carAnimation.from = prevLocation.coordinate;
-                carAnimation.to = carLocation.coordinate;
-                bearingAnimation.start();
-                carAnimation.start();
+                if (modeFollow) {
+                    carAnimation.from = prevLocation.coordinate;
+                    carAnimation.to = carLocation.coordinate;
+                    carAnimation.start();
+                }
+                if (!modeNorth) {
+                    bearingAnimation.to = prevLocation.coordinate.azimuthTo(center);
+                    bearingAnimation.start();
+                }
                 
                 prevLocation.coordinate = center;
             }
@@ -473,7 +477,7 @@ Mycroft.Delegate {
                 coordinate : QtPositioning.coordinate(37.4,-122.03)
                 anchorPoint.x: redMarker.width / 2
                 anchorPoint.y: redMarker.height
-//                 visible: modeRoute
+                visible: modeMarker
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
