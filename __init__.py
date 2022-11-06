@@ -17,7 +17,6 @@ class MkzUrbanDemo(MycroftSkill):
         #self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-line-buttons.qml")
         self.mkz_home_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
-        self.gui.register_handler('MkzUrbanDemo.route_new', self._route_new)
         self.gui["actionsList"] = []
         self.gui["background"] = str(self.mkzdemo_img)
         self.gui["foreground"] = str(self.mkzdemo_over)
@@ -40,6 +39,7 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
+        self.gui.register_handler('mkz-urban-demo-skill.route_new', self._route_new)
         self.gui["uiIdx"] = -2
         self.gui["routeReady"] = True
         self.gui["routeDistance"] = 0
