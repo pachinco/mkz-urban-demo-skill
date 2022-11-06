@@ -30,6 +30,7 @@ Mycroft.Delegate {
     property real carSpeed: sessionData.carSpeed
     property var carPosition: sessionData.carPosition
     property bool carDriving: sessionData.carDriving
+    property int routeSegment: sessionData.routeSegment
     property bool modeAutonomous: sessionData.modeAutonomous
     property bool modeGuidance: sessionData.modeGuidance
     property bool traffic: true
@@ -51,7 +52,15 @@ Mycroft.Delegate {
         console.log("onCarPositionChanged: Lat="+carPosition.latitude+" Lon="+carPosition.longitude);
         carLocation.coordinate = QtPositioning.coordinate(carPosition.latitude, carPosition.longitude);
     }
-
+    onRouteSegmentChanged {
+        sessionData.routeSegment = routeSegment;
+        routeList.currentIndex = routeSegment;
+        routeList.positionViewAtIndex(routeSegment, ListView.Beginning)
+        sessionGetManeuver(0, routeSegment);
+        triggerGuiEvent("mkz-urban-demo-skill.route_update", {"string": routeAdaptDriver(routeModel.get(0).segments[routeSegment].maneuver.instructionText)});
+        console.log("RouteModel onStatusChanged: "+routeAdaptDriver(routeModel.get(0).segments[routeSegment].maneuver.instructionText));
+    }
+    
     Image {
         id: uiStage
         anchors.fill: parent
@@ -736,7 +745,7 @@ Mycroft.Delegate {
             if (routeModel.status === RouteModel.Ready) {
                 routeList.currentIndex = 0;
                 sessionGetManeuver(0, 0);
-                triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText)});
+                triggerGuiEvent("mkz-urban-demo-skill.route_update", {"string": routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText)});
                 console.log("RouteModel onStatusChanged: "+routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText));
 //             } else {
 //                 console.log("RouteModel onStatusChanged: not ready");
