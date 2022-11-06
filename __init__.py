@@ -175,7 +175,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.log.info("position: %s",self.gui["routePosition"])
         #self.log.info("next position: %s",self.gui["routeNextPosition"])
         self.log.info("segments: %d",self.gui["routeSegments"])
-        self.log.info("path: %d",len(self.gui["routePath"]))
+        self.log.info("path: %d",len(self.gui["routePathLat"]))
         if (self.gui["routeNext"]):
             self.schedule_event(self._route_next_maneuver, 5)
 
