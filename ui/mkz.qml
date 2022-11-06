@@ -34,7 +34,7 @@ Mycroft.Delegate {
     property bool modeGuidance: sessionData.modeGuidance
     property bool traffic: true
     property bool night: sessionData.nightMode
-    property bool navigating: true
+    property bool modeNavigating: true
     property bool mapOn: false
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
@@ -48,7 +48,7 @@ Mycroft.Delegate {
         sessionData.modeGuidance = modeGuidance;
     }
     onCarPositionChanged: {
-        console.log("onCarPositionChanged: "+QtPositioning.coordinate(carPosition.latitude, carPosition.longitude));
+        console.log("onCarPositionChanged: Lat="+carPosition.latitude+" Lon="+carPosition.longitude);
         carLocation.coordinate = QtPositioning.coordinate(carPosition.latitude, carPosition.longitude);
     }
 
@@ -249,7 +249,7 @@ Mycroft.Delegate {
                 }
             ]
 
-            state: navigating ? "navigating" : ""
+            state: modeGuidance ? "navigating" : ""
 
             plugin: Plugin {
                 name: "mapboxgl"
@@ -266,13 +266,14 @@ Mycroft.Delegate {
                     value: "road-label-small"
                 }
             }
-            center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
+            center: modeGuidance ? carLocation.coordinate : map.center
+//             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
 //             tilt: 60
 
             activeMapType: {
                 var style;
-                if (navigating) {
+                if (modeNavigating) {
                     style = night ? supportedMapTypes[1] : supportedMapTypes[0];
                 } else {
                     style = night ? supportedMapTypes[3] : supportedMapTypes[2];
@@ -343,20 +344,20 @@ Mycroft.Delegate {
                 }
             }
 
-//             RotationAnimation on bearing {
-//                 id: bearingAnimation
-//                 duration: 250
-//                 alwaysRunToEnd: false
-//                 direction: RotationAnimation.Shortest
-//             }
-//             onCenterChanged: {
-//                 if (previousLocation.coordinate == center) return
-// 
-//                 bearingAnimation.to = previousLocation.coordinate.azimuthTo(center)
-//                 bearingAnimation.start()
-//                 
-//                 previousLocation.coordinate = center
-//             }
+            RotationAnimation on bearing {
+                id: bearingAnimation
+                duration: 250
+                alwaysRunToEnd: false
+                direction: RotationAnimation.Shortest
+            }
+            onCenterChanged: {
+                if (previousLocation.coordinate == center) return
+
+                bearingAnimation.to = previousLocation.coordinate.azimuthTo(center)
+                bearingAnimation.start()
+                
+                previousLocation.coordinate = center
+            }
             
             MapQuickItem {
                 id: carMarker
