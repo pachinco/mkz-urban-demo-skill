@@ -541,6 +541,7 @@ Mycroft.Delegate {
                     property bool hasManeuver: modelData.maneuver && modelData.maneuver.valid
                     visible: hasManeuver
                     signal clicked
+                    clip: false
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
