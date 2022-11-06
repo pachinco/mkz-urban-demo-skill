@@ -184,13 +184,15 @@ class MkzUrbanDemo(MycroftSkill):
         self.log.info("path: %d",len(self.path))
         self.log.info(self.path[0])
         if (len(self.path)>0):
-            self.schedule_event(self._route_next_path, 2)
+            self.schedule_event(self._route_next_path, 1)
 
     def _route_next_path(self):
         self.route_path = self.route_path+1
+        self.log.info("route_path=%d",self.route_path)
         if (self.route_path<len(self.path)):
+            self.log.info(self.path[self.route_path])
             self.gui["carPosition"] = {"latitude": self.path[self.route_path]["lat"], "longitude": self.path[self.route_path]["lon"]}
-            self.schedule_event(self._route_next_path, 2)
+            self.schedule_event(self._route_next_path, 1)
         else:
             if (self.gui["routeNext"]):
                 self.schedule_event(self._route_next_maneuver, 2)
