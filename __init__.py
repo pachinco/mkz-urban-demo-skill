@@ -167,7 +167,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.log.info("total time: %d seconds",self.gui["routeTime"])
         self.log.info("total distance: %f meter",self.gui["routeDistance"])
         self.log.info("segments: %d",self.gui["routeSegments"])
-        if (self.gui["routeNext"])
+        if (self.gui["routeNext"]):
             self.schedule_event(self._route_next_maneuver, 5)
 
     def _route_next_maneuver(self):
