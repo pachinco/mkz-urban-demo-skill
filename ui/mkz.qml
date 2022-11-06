@@ -599,9 +599,9 @@ Mycroft.Delegate {
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         anchors.top: maneuverDist.bottom
+                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
                         anchors.right: maneuverDir.left
                         anchors.rightMargin: Kirigami.Units.gridUnit*0.5
-                        anchors.bottomMargin: Kirigami.Units.gridUnit*0.5
                         text: hasManeuver ? modelData.maneuver.instructionText : ""
 //                         color: (night) ? "#a9cac9" : "#000000"
                         font.pointSize: Kirigami.Units.gridUnit*0.5
