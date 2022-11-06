@@ -545,12 +545,28 @@ Mycroft.Delegate {
                         samples: 21
                         color: "#80000000"
                     }
+                    Rectangle {
+                        anchors.left: parent.left
+                        anchors.verticalCenter: parent.top
+                        width: maneuverDist.width
+                        height: maneuverDist.height
+                        color: (night) ? ((index%2===0) ? "#73a8a6" : "#5f9295") : ((index%2===0) ? "#dadada" : "#b2a196")
+//                         z: -1
+                        layer.enabled: true
+                        layer.effect: DropShadow {
+                            transparentBorder: true
+                            verticalOffset: -4
+                            radius: 10
+                            samples: 21
+                            color: "#80000000"
+                        }
+                    }
                     Text {
                         id: maneuverDist
                         anchors.left: parent.left
                         anchors.leftMargin: Kirigami.Units.gridUnit
-                        anchors.top: parent.top
-                        anchors.topMargin: Kirigami.Units.gridUnit*0.5
+                        anchors.verticalCenter: parent.top
+//                         anchors.topMargin: Kirigami.Units.gridUnit*0.5
 //                         color: (night) ? "#a9cac9" : "#000000"
 //                         text: hasManeuver ? Math.floor(modelData.maneuver.distanceToNextInstruction)+"m" : ""
                         text: (hasManeuver && index>0) ? (routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction>1000 ? Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction/100)/10+" km" : Math.round(routeModel.get(0).segments[index-1].maneuver.distanceToNextInstruction)+" m") : ""
