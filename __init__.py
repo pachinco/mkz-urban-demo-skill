@@ -47,8 +47,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeNum"] = 0
         self.gui["routeSegments"] = 0
         self.gui["routeSegment"] = 0
-        self.gui["routePathLat"] = []
-        self.gui["routePathLon"] = []
+        self.gui["routePath"] = [{"latitude": 0, "longitude": 0}]
         self.gui["routeDistance"] = 0
         self.gui["routePositionLat"] = 0
         self.gui["routePositionLon"] = 0
