@@ -492,7 +492,7 @@ Mycroft.Delegate {
                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
 //                 model: routeModel.status == RouteModel.Ready ? routeModel.get(0).segments : null
                 visible: model ? true : false
-                snapMode: ListView.SnapToItem
+//                 snapMode: ListView.SnapToItem
                 headerPositioning: ListView.OverlayHeader
                 clip: true
                 header: Rectangle {
