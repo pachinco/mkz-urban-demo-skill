@@ -632,6 +632,7 @@ Mycroft.Delegate {
 //                             routeList.currentIndex = index+1
                         }
                     }
+                    Behavior on y { NumberAnimation { duration: 1000 } }
 //                     Component.onCompleted: {
 //                         if (index === 1)
 //                             console.log("routeList delegate onCompleted: ["+index+"] "+routeModel.get(0).segments[0].maneuver.instructionText);
