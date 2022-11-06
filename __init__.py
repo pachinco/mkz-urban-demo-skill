@@ -41,10 +41,24 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         self.gui.register_handler('mkz-urban-demo-skill.route_new', self._route_new)
         self.gui["uiIdx"] = -2
-        self.gui["routeReady"] = True
+        self.gui["routeReady"] = False
+        self.gui["routeTotalTime"] = 0
+        self.gui["routeTotalDistance"] = 0
+        self.gui["routeNum"] = 0
+        self.gui["routeSegments"] = 0
+        self.gui["routeSegment"] = 0
         self.gui["routeDistance"] = 0
-        self.gui["routeTime"] = 0
-        self.gui["routeSegments"] = []
+        self.gui["routeDirection"] = 0
+        self.gui["routeTime"] = ""
+        self.gui["routeInstruction"] = ""
+        self.gui["routeTimeToNext"] = 0
+        self.gui["routeDistanceToNext"] = 0
+        self.gui["routeNext"] = False
+        self.gui["routeNextSegment"] = 0;
+        self.gui["routeNextDistance"] = 0
+        self.gui["routeNextDirection"] = 0
+        self.gui["routeNextTime"] = ""
+        self.gui["routeNextInstruction"] = ""
         self.gui["modeAutonomous"] = False
         self.gui["modeGuidance"] = False
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
@@ -150,14 +164,13 @@ class MkzUrbanDemo(MycroftSkill):
 
     def _route_new(self, message):
         self.speak(message.data["string"], wait=True)
-        self.log.info("time: %d",self.gui["routeTime"])
-        self.log.info("distance: %d",self.gui["routeDistance"])
+        self.log.info("total time: %d seconds",self.gui["routeTime"])
+        self.log.info("total distance: %f meter",self.gui["routeDistance"])
+        self.log.info("segments: %d",self.gui["routeSegments"])
         self.schedule_event(self._route_next_maneuver, 3)
 
     def _route_next_maneuver(self):
-        self.log.info("distance: "+str(self.gui["routeDistance"]))
-        self.log.info("time: "+str(self.gui["routeTime"]))
-        self.log.info("segments: "+str(self.gui["routeSegments"]))
+        self.speak("In "+str(self.gui["routeDistanceToNext"])+" meter. "+self.gui["routeNextInstruction"], wait=True)
 
 def create_skill():
     return MkzUrbanDemo()

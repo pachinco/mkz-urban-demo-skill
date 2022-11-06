@@ -646,7 +646,32 @@ Mycroft.Delegate {
 
     property int routeTime: routeModel.status == RouteModel.Ready ? routeModel.get(0).travelTime : 0
     property real routeDistance: routeModel.status == RouteModel.Ready ? routeModel.get(0).distance : 0
-    
+
+    function sessionGetManeuver(route, man) {
+        sessionData.routeNum = route;
+        sessionData.routeSegment = man;
+        sessionData.routeSegments = routeModel.get(route).segments.length;
+        sessionData.routeTotalTime = routeModel.get(route).travelTime;
+        sessionData.routeTotalDistance = routeModel.get(route).distance;
+        sessionData.routeDistance = routeModel.get(route).segments[man].distance;
+        sessionData.routeTime = routeModel.get(route).segments[man].travelTime;
+        sessionData.routeDirection = routeModel.get(route).segments[man].maneuver.direction;
+        sessionData.routeInstruction = routeModel.get(route).segments[man].maneuver.instructionText;
+        sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
+        sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
+        if (man+1<routeModel.get(route).segments.length) {
+            man=man+1;
+            sessionData.routeNext = true;
+            sessionData.routeNextSegment = man;
+            sessionData.routeNextDistance = routeModel.get(route).segments[man].distance;
+            sessionData.routeNextTime = routeModel.get(route).segments[man].travelTime;
+            sessionData.routeNextDirection = routeModel.get(route).segments[man].maneuver.direction;
+            sessionData.routeNextInstruction = routeModel.get(route).segments[man].maneuver.instructionText;
+        } else {
+            sessionData.routeNext = false;
+        }
+    }
+
     RouteModel {
         id: routeModel
 
@@ -670,9 +695,7 @@ Mycroft.Delegate {
         onStatusChanged: {
             if (routeModel.status === RouteModel.Ready) {
                 routeList.currentIndex = 0;
-                sessionData.routeSegments = routeModel.get(0).segments
-                sessionData.routeTime = routeModel.get(0).travelTime
-                sessionData.routeDistance = routeModel.get(0).distance
+                sessionGetManeuver(0, 0);
                 triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": routeModel.get(0).segments[0].maneuver.instructionText});
                 console.log("RouteModel onStatusChanged: "+routeModel.get(0).segments[0].maneuver.instructionText);
 //             } else {
