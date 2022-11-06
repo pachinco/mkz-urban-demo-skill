@@ -50,7 +50,8 @@ Mycroft.Delegate {
     }
     onCarPositionChanged: {
         console.log("onCarPositionChanged: Lat="+carPosition.latitude+" Lon="+carPosition.longitude);
-        carLocation.coordinate = QtPositioning.coordinate(carPosition.latitude, carPosition.longitude);
+//         carLocation.coordinate = QtPositioning.coordinate(carPosition.latitude, carPosition.longitude);
+        carLocation = QtPositioning.coordinate(carPosition.latitude, carPosition.longitude);
     }
     onRouteSegmentChanged: {
         sessionData.routeSegment = routeSegment;
@@ -275,7 +276,8 @@ Mycroft.Delegate {
                     value: "road-label-small"
                 }
             }
-            center: modeGuidance ? carLocation.coordinate : map.center
+            center: modeGuidance ? carLocation : map.center
+//             center: modeGuidance ? carLocation.coordinate : map.center
 //             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
 //             tilt: 60
@@ -329,7 +331,7 @@ Mycroft.Delegate {
                 id: prevLocation
                 coordinate: QtPositioning.coordinate(0, 0)
             }
-            property Location carLocation: QtPositioning.coordinate(37.3964,-122.034)
+            property coordinate carLocation: QtPositioning.coordinate(37.3964,-122.034)
 //             Location {
 //                 id: carLocation
 //                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
@@ -387,7 +389,8 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-                coordinate: carLocation.coordinate
+                coordinate: carLocation
+//                 coordinate: carLocation.coordinate
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
                 zoomLevel: 17
