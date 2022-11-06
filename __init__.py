@@ -195,8 +195,8 @@ class MkzUrbanDemo(MycroftSkill):
             self.schedule_event(self._route_next_path, 1)
         else:
             route_segment = self.gui["routeSegment"]+1
-            if (self.route_segment<self.gui["routeSegments"]):
-                self.gui["routeSegment"] = self.route_segment
+            if (route_segment<self.gui["routeSegments"]):
+                self.gui["routeSegment"] = route_segment
             #if (self.gui["routeNext"]):
                 #self.schedule_event(self._route_next_segment, 2)
             
