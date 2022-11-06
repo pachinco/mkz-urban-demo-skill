@@ -3,6 +3,7 @@ from pathlib import Path
 from mycroft.util import play_wav
 from mycroft.skills import resting_screen_handler
 from datetime import datetime
+import ast
 
 class MkzUrbanDemo(MycroftSkill):
     def __init__(self):
@@ -178,7 +179,8 @@ class MkzUrbanDemo(MycroftSkill):
         self.log.info("position: %f %f",self.gui["routePositionLat"],self.gui["routePositionLon"])
         self.log.info("next position: %f %f",self.gui["routeNextPositionLat"],self.gui["routeNextPositionLon"])
         self.log.info("segments: %d",self.gui["routeSegments"])
-        self.log.info("path: %d",len(self.gui["routePath"]))
+        path = ast.literal_eval(self.gui["routePath"])
+        self.log.info("path: %d",len(path))
         if (self.gui["routeNext"]):
             self.schedule_event(self._route_next_maneuver, 5)
 
