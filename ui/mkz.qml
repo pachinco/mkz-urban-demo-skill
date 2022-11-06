@@ -331,7 +331,7 @@ Mycroft.Delegate {
                 id: prevLocation
                 coordinate: QtPositioning.coordinate(0, 0)
             }
-            property coordinate carLocation: QtPositioning.coordinate(37.3964,-122.034)
+            property Coordinate carLocation: QtPositioning.coordinate(37.3964,-122.034)
 //             Location {
 //                 id: carLocation
 //                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
