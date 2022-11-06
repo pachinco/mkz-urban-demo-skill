@@ -549,9 +549,9 @@ Mycroft.Delegate {
         ]
         anchors.right: parent.right
 //         anchors.rightMargin: Kirigami.Units.gridUnit*2
-        anchors.top: frameTop.bottom
+        anchors.top: topFrame.bottom
 //         anchors.topMargin: Kirigami.Units.gridUnit*2
-        anchors.bottom: frameBottom.top
+        anchors.bottom: bottomFrame.top
 //         anchors.bottomMargin: Kirigami.Units.gridUnit*2
 //         width: parent.width*0.25
         z: 15
