@@ -243,9 +243,9 @@ Mycroft.Delegate {
             transitions: [
                 Transition {
                     to: "*"
-                    RotationAnimation { target: map; property: "bearing"; duration: 100; direction: RotationAnimation.Shortest }
-                    NumberAnimation { target: map; property: "zoomLevel"; duration: 100 }
-                    NumberAnimation { target: map; property: "tilt"; duration: 100 }
+                    RotationAnimation { target: map; property: "bearing"; duration: 500; direction: RotationAnimation.Shortest }
+                    NumberAnimation { target: map; property: "zoomLevel"; duration: 500 }
+                    NumberAnimation { target: map; property: "tilt"; duration: 500 }
                 }
             ]
 
