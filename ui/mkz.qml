@@ -317,12 +317,16 @@ Mycroft.Delegate {
 
             function routeUpdate() {
                 routeQuery.clearWaypoints();
+                if (modeGuidance) {
 //                         console.log("start: "+startMarker.coordinate+" / end: "+endMarker.coordinate);
 //                 routeQuery.addWaypoint(startMarker.coordinate);
-                routeQuery.addWaypoint(carMarker.coordinate);
-                routeQuery.addWaypoint(endMarker.coordinate);
+                    routeQuery.addWaypoint(carMarker.coordinate);
+                    routeQuery.addWaypoint(endMarker.coordinate);
 //                 console.log("routeModel.onCompleted: "+(routeReady?"ready":"not ready"));
-                routeList.currentIndex = 0;
+                    routeList.currentIndex = 0;
+                } else {
+                    routeModel.reset();
+                }
             }
 
 //             RotationAnimation on bearing {
