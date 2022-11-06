@@ -189,7 +189,7 @@ class MkzUrbanDemo(MycroftSkill):
     def _route_next_path(self):
         self.route_path = self.route_path+1
         if (self.route_path<len(self.path)):
-            self.gui["carPosition"] = {"latitude": self.path[self.route_path][lat], "longitude": self.path[self.route_path][lon]}
+            self.gui["carPosition"] = {"latitude": self.path[self.route_path]["lat"], "longitude": self.path[self.route_path]["lon"]}
             self.schedule_event(self._route_next_path, 2)
         else:
             if (self.gui["routeNext"]):
