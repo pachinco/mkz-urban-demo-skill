@@ -632,13 +632,6 @@ Mycroft.Delegate {
 //                             routeList.currentIndex = index+1
                         }
                     }
-                    add: Transition {
-                        NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
-//                         NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
-                    }
-                    displaced: Transition {
-                        NumberAnimation { properties: "y"; duration: 500; easing.type: Easing.OutBounce }
-                    }
 //                     Component.onCompleted: {
 //                         if (index === 1)
 //                             console.log("routeList delegate onCompleted: ["+index+"] "+routeModel.get(0).segments[0].maneuver.instructionText);
@@ -651,6 +644,13 @@ Mycroft.Delegate {
 //                         console.log("RouteList onCurrentItemChanged: no segments");
 //                     }
 //                 }
+                add: Transition {
+                    NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
+                    NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
+                }
+                displaced: Transition {
+                    NumberAnimation { properties: "y"; duration: 500; easing.type: Easing.OutBounce }
+                }
             }
         }
     }
