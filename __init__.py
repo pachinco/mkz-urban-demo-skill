@@ -169,8 +169,8 @@ class MkzUrbanDemo(MycroftSkill):
         self.speak(message.data["string"], wait=True)
         self.log.info("total time: %d seconds",self.gui["routeTime"])
         self.log.info("total distance: %d meters",self.gui["routeDistance"])
-        self.log.info("position: %s",self.gui["routePosition"])
-        self.log.info("next position: %s",self.gui["routeNextPosition"])
+        #self.log.info("position: %s",self.gui["routePosition"])
+        #self.log.info("next position: %s",self.gui["routeNextPosition"])
         self.log.info("segments: %d",self.gui["routeSegments"])
         self.log.info("path: %d",len(self.gui["routePath"]))
         if (self.gui["routeNext"]):

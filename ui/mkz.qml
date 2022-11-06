@@ -650,13 +650,13 @@ Mycroft.Delegate {
         sessionData.routeTotalTime = routeModel.get(route).travelTime;
         sessionData.routeTotalDistance = routeModel.get(route).distance;
         sessionData.routeDistance = routeModel.get(route).segments[man].distance;
-        sessionData.routePosition = routeModel.get(route).segments[man].position;
+//         sessionData.routePosition = routeModel.get(route).segments[man].position;
         sessionData.routeTime = routeModel.get(route).segments[man].travelTime;
         sessionData.routeDirection = routeModel.get(route).segments[man].maneuver.direction;
         sessionData.routeInstruction = routeModel.get(route).segments[man].maneuver.instructionText;
         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
-        sessionData.routePath[0] = routeModel.get(route).segments[man].path[0];
+//         sessionData.routePath[0] = routeModel.get(route).segments[man].path[0];
 //         for (let i = 0; i < routeModel.get(route).segments[man].path.length; i++) {
 //             sessionData.routePath[i] = routeModel.get(route).segments[man].path[i];
 //             console.log("maneuver path #"+i+": "+routeModel.get(route).segments[man].path[i]);
@@ -666,7 +666,7 @@ Mycroft.Delegate {
             sessionData.routeNext = true;
             sessionData.routeNextSegment = man;
             sessionData.routeNextDistance = routeModel.get(route).segments[man].distance;
-            sessionData.routeNextPosition = routeModel.get(route).segments[man].position;
+//             sessionData.routeNextPosition = routeModel.get(route).segments[man].position;
             sessionData.routeNextTime = routeModel.get(route).segments[man].travelTime;
             sessionData.routeNextDirection = routeModel.get(route).segments[man].maneuver.direction;
             sessionData.routeNextInstruction = routeModel.get(route).segments[man].maneuver.instructionText;
