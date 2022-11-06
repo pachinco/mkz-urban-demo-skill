@@ -359,13 +359,22 @@ Mycroft.Delegate {
                 alwaysRunToEnd: false
                 direction: RotationAnimation.Shortest
             }
+            CoordinateAnimation on carLocation {
+                id: carAnimation
+                duration: 1000
+                alwaysRunToEnd: false
+                direction: RotationAnimation.Shortest
+            }
             onCenterChanged: {
                 if (prevLocation.coordinate == center) return
 
-                bearingAnimation.to = prevLocation.coordinate.azimuthTo(center)
-                bearingAnimation.start()
+                bearingAnimation.to = prevLocation.coordinate.azimuthTo(center);
+                carAnimation.from = prevLocation.coordinate;
+                carAnimation.to = carLocation;
+                bearingAnimation.start();
+                carAnimation.start();
                 
-                prevLocation.coordinate = center
+                prevLocation.coordinate = center;
             }
             
             MapQuickItem {
