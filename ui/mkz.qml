@@ -780,6 +780,7 @@ Mycroft.Delegate {
             Text {
                 id: lAmpm
                 anchors.left: lTime.right
+                anchors.leftMargin: 2
                 anchors.bottom: lTime.bottom
                 color: (night) ? "#a9cac9" : "#000000"
                 font.pixelSize: 28
