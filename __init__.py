@@ -171,7 +171,7 @@ class MkzUrbanDemo(MycroftSkill):
             self.schedule_event(self._route_next_maneuver, 5)
 
     def _route_next_maneuver(self):
-        self.speak("In ",str(round(self.gui["routeDistanceToNext"]))+" meters. "+self.gui["routeNextInstruction"], wait=True)
+        self.speak("In "+str(round(self.gui["routeDistanceToNext"]))+" meters. "+self.gui["routeNextInstruction"], wait=True)
 
 def create_skill():
     return MkzUrbanDemo()
