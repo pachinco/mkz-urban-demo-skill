@@ -329,10 +329,11 @@ Mycroft.Delegate {
                 id: prevLocation
                 coordinate: QtPositioning.coordinate(0, 0)
             }
-            Location {
-                id: carLocation
-                coordinate: QtPositioning.coordinate(37.3964,-122.034)
-            }
+            property Location carLocation: QtPositioning.coordinate(37.3964,-122.034)
+//             Location {
+//                 id: carLocation
+//                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
+//             }
 
             function routeReset() {
                 routeQuery.clearWaypoints();
