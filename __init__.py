@@ -49,6 +49,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeSegment"] = 0
         self.gui["routePath"] = []
         self.gui["routeDistance"] = 0
+        self.gui["routePosition"] = ""
         self.gui["routeDirection"] = 0
         self.gui["routeTime"] = ""
         self.gui["routeInstruction"] = ""
@@ -57,6 +58,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeNext"] = False
         self.gui["routeNextSegment"] = 0;
         self.gui["routeNextDistance"] = 0
+        self.gui["routeNextPosition"] = ""
         self.gui["routeNextDirection"] = 0
         self.gui["routeNextTime"] = ""
         self.gui["routeNextInstruction"] = ""
