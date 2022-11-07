@@ -495,13 +495,13 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                     transform: [
-                        Rotation { origin.x: 93; origin.y: 130;  angle: carBearing-map.bearing }
-//                         Rotation { origin.x: 93; origin.y: 130; axis: { x: 1; y: 0; z: 0 } angle: -map.tilt }
+                        Rotation { origin.x: 50; origin.y: 50;  angle: carBearing-map.bearing }
+//                         Rotation { origin.x: 50; origin.y: 50; axis: { x: 1; y: 0; z: 0 } angle: -map.tilt }
                     ]
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 anchorPoint.x: greenMarker.width/2
-                anchorPoint.y: greenMarker.height
+                anchorPoint.y: greenMarker.height/2
                 visible: modeMarker
                 MouseArea  {
                     drag.target: parent
@@ -522,7 +522,7 @@ Mycroft.Delegate {
                     opacity: 1.0
                 }
                 coordinate : QtPositioning.coordinate(37.4,-122.03)
-                anchorPoint.x: redMarker.width / 2
+                anchorPoint.x: redMarker.width/2
                 anchorPoint.y: redMarker.height
                 visible: modeMarker
                 MouseArea  {
