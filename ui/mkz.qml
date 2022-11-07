@@ -406,16 +406,17 @@ Mycroft.Delegate {
                 id: carLocation
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 onCoordinateChanged: {
-                    if ((oldLocation.coordinate != carLocation.coordinate) && !carMarkerAnimator.running) {
+                    if (carMarkerAnimator.running) return
+                    if (oldLocation.coordinate != carLocation.coordinate) {
                         carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
                         var distance = oldLocation.coordinate.distanceTo(carLocation.coordinate);
-                        console.log("carLocation distance: ",distance);
-                        console.log("carLocation speed: ",carAnimateSpeed);
+//                         console.log("carLocation distance: ",distance);
+//                         console.log("carLocation speed: ",carAnimateSpeed);
                         carAnimateTime = distance*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
-                        if (carAnimate)
-                            map.center = carLocation.coordinate;
+//                         if (carAnimate && modeFollow)
+//                             map.center = carLocation.coordinate;
                     }
                 }
                 Behavior on coordinate {
