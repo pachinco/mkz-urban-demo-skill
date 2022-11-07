@@ -89,7 +89,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
         #self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_repeating_event(self._update_display_time, None, 10)
-        self.schedule_event(self._whats_next, 3)
+        #self.schedule_event(self._whats_next, 3)
 
     @intent_file_handler('status.ad.mkz.intent')
     def handle_ad_status_mkz(self, message):
