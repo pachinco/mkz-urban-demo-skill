@@ -425,7 +425,7 @@ Mycroft.Delegate {
                 Behavior on coordinate {
                     enabled: carAnimate
                     CoordinateAnimation {
-                        duration: carAnimateTime
+                        duration: (carAnimateTime>0) ? carAnimateTime : 10
                         alwaysRunToEnd: false
                         easing.type: Easing.Linear
                         onRunningChanged: {
@@ -1079,8 +1079,8 @@ Mycroft.Delegate {
         }
         onStatusChanged: {
             if (routeModel.status === RouteModel.Ready) {
-                routeSegment = 0;
-                routePath = 0;
+//                 routeSegment = 0;
+//                 routePath = 0;
                 routeList.currentIndex = 0;
                 carAnimateNextStep(true);
 //                 sessionGetManeuver(0, 0);
