@@ -405,7 +405,7 @@ Mycroft.Delegate {
                 id: carLocation
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 onCoordinateChanged: {
-                    if (carMarkerAnimator.running) return
+//                     if (carMarkerAnimator.running) return
                     if (oldLocation.coordinate != carLocation.coordinate) {
                         carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
                         var distance = oldLocation.coordinate.distanceTo(carLocation.coordinate);
