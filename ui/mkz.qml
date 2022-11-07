@@ -323,7 +323,7 @@ Mycroft.Delegate {
                     easing.type: Easing.Linear
                 }
             }
-            onCenterChanged] {
+            onCenterChanged: {
                 if (modeFollow)
                     center = carLocation.coordinate
             }
