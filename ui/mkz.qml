@@ -423,7 +423,7 @@ Mycroft.Delegate {
                         var distance = oldLocation.coordinate.distanceTo(carLocation.coordinate);
                         console.log("carLocation distance: ",distance);
                         console.log("carLocation speed: ",carAnimateSpeed);
-                        carAnimateTime = distance*1000/carAnimateSpeed;
+                        carAnimateTime = (distance>0) ? distance*1000/carAnimateSpeed : 1;
                         console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
                     }
