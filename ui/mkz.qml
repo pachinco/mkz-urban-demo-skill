@@ -55,7 +55,10 @@ Mycroft.Delegate {
 
     onRouteSegmentNextChanged: {
         sessionData.routeSegmentNext = false;
-//         sessionGetManeuver(0, 
+        routePath=0;
+        sessionGetManeuver(0, routeSegment+1);
+        carAnimateNextStep(false);
+//         triggerGuiEvent("mkz-urban-demo-skill.route_position", {"lat": newLocation.coordinate.latitude, "lon": newLocation.coordinate.longitude});
     }
     onModeAutonomousChanged: {
         sessionData.modeAutonomous = modeAutonomous;
@@ -222,21 +225,20 @@ Mycroft.Delegate {
         }
     }
 
-    function carAnimateNextStep() {
+    function carAnimateNextStep(next) {
         if (routeModel.status != RouteModel.Ready) return
 //         console.log("segment #"+routeSegment+"/"+routeModel.get(0).segments.length);
 //         console.log("path #"+routePath+"/"+routeModel.get(0).segments[routeSegment].path.length);
-        if (routePath===0) {
-        }
-        if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
-            routePath = routePath+1;
-        } else if (routeSegment<routeModel.get(0).segments.length-1) {
-            routePath = 1;
-            routeSegment = routeSegment+1;
-//             sessionGetManeuver(0, routeSegment);
-        } else {
-//             carAnimate = false;
-            return
+        if (next) {
+            if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
+                routePath = routePath+1;
+//             } else if (routeSegment<routeModel.get(0).segments.length-1) {
+//                 routePath = 1;
+//                 routeSegment = routeSegment+1;
+            } else {
+    //             carAnimate = false;
+                return
+            }
         }
         var distance = routeModel.get(0).segments[routeSegment].distance;
         var time = routeModel.get(0).segments[routeSegment].travelTime;
@@ -247,7 +249,7 @@ Mycroft.Delegate {
     }
     onCarAnimateChanged: {
         if (carAnimate)
-            carAnimateNextStep(false);
+            carAnimateNextStep(true);
     }
 
 
@@ -462,7 +464,7 @@ Mycroft.Delegate {
                         triggerGuiEvent("mkz-urban-demo-skill.route_position", {"lat": newLocation.coordinate.latitude, "lon": newLocation.coordinate.longitude});
 //                         carLocation.coordinate = newLocation.coordinate;
 //                         console.log("carMarkerAnimator finished.");
-                        carAnimateNextStep(false)
+                        carAnimateNextStep(next)
 //                     } else {
 //                         console.log("carMarkerAnimator from: "+oldLocation.coordinate);
 //                         console.log("carMarkerAnimator to: "+newLocation.coordinate);
@@ -1118,7 +1120,7 @@ Mycroft.Delegate {
                 routeSegment = 0;
                 routePath = 0;
                 routeList.currentIndex = 0;
-                carAnimateNextStep(true);
+                carAnimateNextStep(false);
                 sessionGetManeuver(0, 0);
                 triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText)});
 //                 triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": ""});

@@ -53,6 +53,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeNum"] = 0
         self.gui["routeSegments"] = 0
         self.gui["routeSegment"] = 0
+        self.gui["routeSegmentNext"] = False
         #self.gui["routePath"] = 0
         #self.gui["routePath"] = []
         self.gui["routeDistance"] = 0
@@ -218,7 +219,8 @@ class MkzUrbanDemo(MycroftSkill):
             and(abs(self.gui["routeNextPositionLat"]-lat)<0.0001)\
             and (abs(self.gui["routeNextPositionLon"]-lon)<0.0001)):
             self.gui["routeNextAnnouced"] = True
-            self.speak(self.gui["routeNextInstruction"])
+            self.speak(self.gui["routeNextInstruction"], wait=True)
+            self.gui["routeSegmentNext"] = True
         #else:
             #self.schedule_event(self._route_wait_next_position, 1)
 
