@@ -741,7 +741,7 @@ Mycroft.Delegate {
                 id: iconFollow
                 signal clicked
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: (modeFollow) ? "../images/mode-location.png" : "../images/mode-road.png"
+                source: (modeFollow) ? "../images/mode-location.png" : "../images/map-road.png"
                 height: 30
                 width: 30
                 mipmap: true
