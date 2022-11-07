@@ -304,7 +304,7 @@ Mycroft.Delegate {
                     value: "road-label-small"
                 }
             }
-            center: modeFollow ? carLocation.coordinate : map.center
+            center: modeFollow ? carMarker.coordinate : map.center
             bearing: modeNorth ? 0 : carBearing
             tilt: mode3D ? 60 : 0
             zoomLevel: 17
