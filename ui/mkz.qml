@@ -216,6 +216,7 @@ Mycroft.Delegate {
         if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
             routePath = routePath+1;
         } else if (routeSegment<routeModel.get(0).segments.length-1) {
+            routePath = 0;
             routeSegment = routeSegment+1;
         } else
             return
