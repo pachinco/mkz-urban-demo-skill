@@ -430,12 +430,15 @@ Mycroft.Delegate {
                 duration: (carAnimateTime>1) ? carAnimateTime : 1
                 target: carLocation
                 property: "coordinate"
-                from: (oldLocation.coordinate.isValid) ? oldLocation.coordinate : carLocation.coordinate
+                from: oldLocation.coordinate
                 to: newLocation.coordinate
                 alwaysRunToEnd: true
                 easing.type: Easing.Linear
                 onRunningChanged: {
-                    if (!carMarkerAnimator.running) {
+                    if (carMarkerAnimator.running) {
+                        console.log("carMarkerAnimator from: "+oldLocation.coordinate);
+                        console.log("carMarkerAnimator to: "+newLocation.coordinate);
+                    } else {
                         oldLocation.coordinate = newLocation.coordinate;
                         console.log("carMarkerAnimator finished.");
                         carAnimateNextStep(false)
