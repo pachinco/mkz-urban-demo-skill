@@ -211,6 +211,8 @@ class MkzUrbanDemo(MycroftSkill):
     def _route_wait_next_position(self):
         if ((abs(self.gui["carPositionLat"]-self.gui["routeNextPositionLat"])<0.0001) && (abs(self.gui["carPositionLon"]-self.gui["routeNextPositionLon"])<0.0001)):
             self.speak(self.gui["routeNextInstruction"])
+        else:
+            self.schedule_event(self._route_wait_next_position, 1)
 
     #def _route_next_path(self):
         #self.route_path = self.route_path+1
