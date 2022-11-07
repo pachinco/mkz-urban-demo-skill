@@ -59,8 +59,8 @@ Mycroft.Delegate {
             routePath=0;
             routeSegment = routeSegment+1;
             sessionGetManeuver(0, routeSegment);
-            carAnimateNextStep(false);
-            triggerGuiEvent("mkz-urban-demo-skill.route_next_segment", {"lat": newLocation.coordinate.latitude, "lon": newLocation.coordinate.longitude});
+            triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": ""});
+            carAnimateNextStep(true);
         }
     }
     onModeAutonomousChanged: {
