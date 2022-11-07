@@ -238,10 +238,9 @@ Mycroft.Delegate {
 //             for (let i = 1; i < routeModel.get(route).segments[man].path.length; i++)
 //                 distance = distance+routeModel.get(0).segments[routeSegment].path[i-1].distanceTo(routeModel.get(0).segments[routeSegment].path[i]);
 //         }
-        carAnimateSpeed = distane/time;
+        carAnimateSpeed = distance/time;
         console.log("carAnimateSpeed: ",carAnimateSpeed);
-        if (carAnimateSpeed>0)
-            carLocation.coordinate = QtPositioning.coordinate();
+        carLocation.coordinate = QtPositioning.coordinate();
     }
     onCarAnimateChanged: {
         if (carAnimate)
