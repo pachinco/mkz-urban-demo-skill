@@ -498,15 +498,15 @@ Mycroft.Delegate {
                         Rotation { origin.x: 93; origin.y: 130;  angle: carBearing-map.bearing },
                         Rotation { origin.x: 93; origin.y: 130; axis: { x: 1; y: 0; z: 0 } angle: -map.tilt }
                     ]
-                }
-                DropShadow {
-                    anchors.fill: greenMarker
-                    horizontalOffset: 3
-                    verticalOffset: 3
-                    radius: 5.0
-                    samples: 11
-                    color: "#80000000"
-                    source: greenMarker
+                    DropShadow {
+                        anchors.fill: greenMarker
+                        horizontalOffset: 3
+                        verticalOffset: 3
+                        radius: 5.0
+                        samples: 11
+                        color: "#80000000"
+                        source: greenMarker
+                    }
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 anchorPoint.x: greenMarker.width/2
