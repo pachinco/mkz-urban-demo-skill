@@ -207,6 +207,35 @@ Mycroft.Delegate {
         }
     }
 
+    function carAnimateNextStep(init) {
+        if (routeModel.status != RouteModel.Ready) return
+        switch (init) {
+            case 0:
+                if (routeModel.get(0).segments.length<1) return
+                if (routeModel.get(0).segments[0].path.length<1) return
+                routeSegment = 0;
+                routePath = 0;
+                break;
+            case -1:
+                if (routeSegment>=routeModel.get(0).segments.length || routePath>=routeModel.get(0).segments[routeSegment].path.length-1) return
+                break;
+            default:
+                if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
+                    routePath = routePath+1;
+                } else if (routeSegment<routeModel.get(0).segments.length) {
+                    routeSegment = routeSegment+1;
+                } else
+                    return
+        }
+        carSpeed = routeModel.get(0).segments[segment].distane/routeModel.get(0).segments[segment].travelTime;
+        carLocation.coordinate = QtPositioning.coordinate();
+    }
+    onCarAnimateChanged: {
+        if (carAnimate)
+            mapMap.map.carAnimateNextStep(-1);
+    }
+
+
     Item {
         id: mapMap
         anchors.fill: parent
@@ -368,38 +397,9 @@ Mycroft.Delegate {
                 modeFollow = false
             }
             
-            onCarAnimateChanged: {
-                if (carAnimate)
-                    carAnimateNextStep(-1);
-            }
-
             Location {
                 id: oldLocation
                 coordinate: QtPositioning.coordinate(0, 0)
-            }
-            function carAnimateNextStep(init) {
-                if (routeModel.status != RouteModel.Ready) return
-                switch (init) {
-                    case 0:
-                        if (routeModel.get(0).segments.length<1) return
-                        if (routeModel.get(0).segments[0].path.length<1) return
-                        routeSegment = 0;
-                        routePath = 0;
-                        break;
-                    case -1:
-                        if (routeSegment>=routeModel.get(0).segments.length || routePath>=routeModel.get(0).segments[routeSegment].path.length-1) return
-                        break;
-                    default:
-                        if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
-                            routePath = routePath+1;
-                        } else if (routeSegment<routeModel.get(0).segments.length) {
-                            routeSegment = routeSegment+1;
-                            carAnimateSetSpeed(routeSegment);
-                        } else
-                            return
-                }
-                carSpeed = routeModel.get(0).segments[segment].distane/routeModel.get(0).segments[segment].travelTime;
-                carLocation.coordinate = QtPositioning.coordinate();
             }
             Location {
                 id: carLocation
