@@ -78,6 +78,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["mode3D"] = True
         self.gui["modeTraffic"] = False
         self.gui["modeNight"] = False
+        self.gui["carPosition"] = {"lat": 37.3964, "lon": -122.034}
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
                                   {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
@@ -190,7 +191,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.path = ast.literal_eval(self.gui["routePath"])
         self.log.info("path: %d",len(self.path))
         self.log.info(self.path[self.route_path])
-        self.gui["carPosition"] = {"latitude": self.path[self.route_path]["lat"], "longitude": self.path[self.route_path]["lon"]}
+        self.gui["carPosition"] = {"lat": self.path[self.route_path]["lat"], "lon": self.path[self.route_path]["lon"]}
         if (len(self.path)>0):
             self.schedule_event(self._route_next_path, 1)
 
