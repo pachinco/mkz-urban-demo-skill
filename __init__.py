@@ -221,7 +221,7 @@ class MkzUrbanDemo(MycroftSkill):
             and (abs(self.gui["routeNextPositionLon"]-lon)<0.0001)):
             self.gui["routeNextAnnouced"] = True
             self.speak(self.gui["routeNextInstruction"], wait=True)
-            self.gui["routeSegmentNext"] = True
+            self.gui["routeSegmentNext"] = not self.gui["routeSegmentNext"]
         #else:
             #self.schedule_event(self._route_wait_next_position, 1)
 
