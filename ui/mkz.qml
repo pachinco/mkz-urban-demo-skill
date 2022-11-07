@@ -490,13 +490,13 @@ Mycroft.Delegate {
                 id: carMarker
                 sourceItem: Image {
                     id: greenMarker
-                    source: "../images/Map_marker_blue_up.png"
+                    source: "../images/marker_arrow_blue.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                     transform: [
-                        Rotation { origin.x: 25; origin.y: 25;  angle: carBearing-map.bearing }
-//                         Rotation { origin.x: 25; origin.y: 25; axis: { x: 1; y: 0; z: 0 } angle: map.tilt }
+                        Rotation { origin.x: 93; origin.y: 130;  angle: carBearing-map.bearing },
+                        Rotation { origin.x: 93; origin.y: 130; axis: { x: 1; y: 0; z: 0 } angle: -map.tilt }
                     ]
                 }
                 DropShadow {
