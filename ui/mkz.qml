@@ -229,7 +229,8 @@ Mycroft.Delegate {
                 } else
                     return
         }
-        carSpeed = routeModel.get(0).segments[routeSegment].distane/routeModel.get(0).segments[routeSegment].travelTime;
+        carAnimateSpeed = routeModel.get(0).segments[routeSegment].distane/routeModel.get(0).segments[routeSegment].travelTime;
+        console.log("carAnimateSpeed: ",carAnimateSpeed);
         carLocation.coordinate = QtPositioning.coordinate();
     }
     onCarAnimateChanged: {
@@ -409,7 +410,8 @@ Mycroft.Delegate {
                 onCoordinateChanged: {
                     if (oldLocation.coordinate != carLocation.coordinate) {
                         carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
-                        carAnimateTime = oldLocation.coordinate.distanceTo(carLocation.coordinate)*1000/carAnimateSpeed;
+                        carAnimateTime = abs(oldLocation.coordinate.distanceTo(carLocation.coordinate))*1000/carAnimateSpeed;
+                        console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
                     }
                 }
