@@ -468,30 +468,26 @@ Mycroft.Delegate {
                 }
             }
             
+//             MapQuickItem {
+//                 id: carMarker
+//                 sourceItem: Image {
+//                     id: dotMarker
+//                     source: "../images/car-marker.png"
+//                     height: 50
+//                     fillMode: Image.PreserveAspectFit
+//                     opacity: 1.0
+//                 }
+//                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
+//                 anchorPoint.x: dotMarker.width/2
+//                 anchorPoint.y: dotMarker.height/2
+//                 zoomLevel: 17
+//                 MouseArea  {
+//                     drag.target: parent
+//                     anchors.fill: parent
+//                 }
+//             }
             MapQuickItem {
                 id: carMarker
-                sourceItem: Image {
-                    id: dotMarker
-                    source: "../images/car-marker.png"
-                    height: 50
-                    fillMode: Image.PreserveAspectFit
-                    opacity: 1.0
-                }
-                coordinate: QtPositioning.coordinate(37.3964,-122.034)
-                anchorPoint.x: dotMarker.width/2
-                anchorPoint.y: dotMarker.height/2
-                zoomLevel: 17
-                MouseArea  {
-                    drag.target: parent
-                    anchors.fill: parent
-                }
-
-//                 onCoordinateChanged: {
-//                     map.routeUpdate();
-//                 }
-            }
-            MapQuickItem {
-                id: startMarker
                 sourceItem: Image {
                     id: greenMarker
                     source: "../images/Map_marker_blue_up.png"
@@ -499,7 +495,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                     transform: [
-                        Rotation { origin.x: 25; origin.y: 25; axis: { x: 0; y: 0; z: 1 } angle: carBearing },
+                        Rotation { origin.x: 25; origin.y: 25; axis: { x: 0; y: 0; z: 1 } angle: map.bearing-carBearing },
                         Rotation { origin.x: 25; origin.y: 25; axis: { x: 1; y: 0; z: 0 } angle: map.tilt }
                     ]
                 }
@@ -507,8 +503,8 @@ Mycroft.Delegate {
                     anchors.fill: greenMarker
                     horizontalOffset: 3
                     verticalOffset: 3
-                    radius: 8.0
-                    samples: 17
+                    radius: 5.0
+                    samples: 11
                     color: "#80000000"
                     source: greenMarker
                 }
