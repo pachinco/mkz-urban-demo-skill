@@ -450,6 +450,8 @@ Mycroft.Delegate {
             function routeUpdate() {
                 routeQuery.clearWaypoints();
                 if (modeRoute) {
+                    if (!carMarker.coordinate.isValid)
+                        carMarker.coordinate = QtPositioning.coordinate(carPosition.lat, carPosition.lon);
                     console.log("start: "+carMarker.coordinate+" / end: "+endMarker.coordinate);
 //                 routeQuery.addWaypoint(startMarker.coordinate);
                     routeQuery.addWaypoint(carMarker.coordinate);
