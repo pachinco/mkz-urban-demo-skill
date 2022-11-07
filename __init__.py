@@ -186,8 +186,8 @@ class MkzUrbanDemo(MycroftSkill):
 
     def _route_new(self, message):
         #self.route_path = 0
-        #self.speak(message.data["string"])
-        self.speak(self.gui["routeInstruction"])
+        self.speak(message.data["string"], wait=True)
+        #self.speak(self.gui["routeInstruction"])
         self.log.info("total time: %d seconds",self.gui["routeTime"])
         self.log.info("total distance: %d meters",self.gui["routeDistance"])
         self.log.info("position: %f %f",self.gui["routePositionLat"],self.gui["routePositionLon"])
