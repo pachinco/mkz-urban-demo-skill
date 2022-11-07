@@ -190,13 +190,10 @@ class MkzUrbanDemo(MycroftSkill):
         if (len(message.data["string"])>0):
             self.speak(message.data["string"], wait=True)
         #self.speak(self.gui["routeInstruction"])
-        self.log.info("total time: %d seconds",self.gui["routeTime"])
-        self.log.info("total distance: %d meters",self.gui["routeDistance"])
-        self.log.info("position: %f %f",self.gui["routePositionLat"],self.gui["routePositionLon"])
-        self.log.info("next position: %f %f",self.gui["routeNextPositionLat"],self.gui["routeNextPositionLon"])
-        self.log.info("segments: %d",self.gui["routeSegments"])
-        self.log.info("segment: %d",self.gui["routeSegment"])
-        self.log.info("next: ",self.gui["routeNext"])
+        self.log.info("total time: %d seconds / %d meters",self.gui["routeTime"],self.gui["routeDistance"])
+        self.log.info("position: %f,%f -> %f,%f",self.gui["routePositionLat"],self.gui["routePositionLon"],self.gui["routeNextPositionLat"],self.gui["routeNextPositionLon"])
+        self.log.info("segments: %d/%d",self.gui["routeSegment"],self.gui["routeSegments"])
+        self.log.info("next: %s in %d seconds",(self.gui["routeNext"]?"yes":"no"),self.gui["routeTimeToNext"])
         #self.path = ast.literal_eval(self.gui["routePath"])
         #self.log.info("path: %d",len(self.path))
         #self.log.info(self.path[self.route_path])
@@ -217,6 +214,8 @@ class MkzUrbanDemo(MycroftSkill):
     def _route_position(self, message):
         lat = message.data["lat"]
         lon = message.data["lon"]
+        self.log.info("route position: %f %f",lat,lon)
+        self.log.info("segment: %d / path: %d",message.data["segment"],message.data["path"])
         if (self.gui["routeNext"]\
             and not self.gui["routeNextAnnouced"]\
             and (abs(self.gui["routeNextPositionLat"]-lat)<0.0001)\

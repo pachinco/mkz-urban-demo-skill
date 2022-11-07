@@ -741,7 +741,7 @@ Mycroft.Delegate {
                 id: iconFollow
                 signal clicked
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: (modeFollow) ? "../images/mode-location.png" : "../images/mode-follow.png"
+                source: (modeFollow) ? "../images/mode-location.png" : "../images/mode-road.png"
                 height: 30
                 width: 30
                 mipmap: true
@@ -787,7 +787,7 @@ Mycroft.Delegate {
                 id: iconNorth
                 signal clicked
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: (modeNorth) ? "../images/mode-compass.png" : "../images/mode-direction.png"
+                source: (modeNorth) ? "../images/mode-compass.png" : "../images/mode-follow.png"
                 height: 30
                 width: 30
                 mipmap: true
@@ -810,7 +810,7 @@ Mycroft.Delegate {
                 id: iconAnimate
                 signal clicked
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: (carAnimate) ? "../images/music-play.png" : "../images/music-stop.png"
+                source: (carAnimate) ? "../images/music-stop.png" : "../images/music-play.png"
                 height: 30
                 width: 30
                 mipmap: true
