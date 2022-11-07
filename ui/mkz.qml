@@ -213,9 +213,9 @@ Mycroft.Delegate {
         if (routeModel.status != RouteModel.Ready) return
         console.log("segment #"+routeSegment+"/",routeModel.get(0).segments.length);
         console.log("path #"+routePath+"/",routeModel.get(0).segments[routeSegment].path.length);
-        if (routePath<routeModel.get(0).segments[routeSegment].path.length) {
+        if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
             routePath = routePath+1;
-        } else if (routeSegment<routeModel.get(0).segments.length) {
+        } else if (routeSegment<routeModel.get(0).segments.length-1) {
             routeSegment = routeSegment+1;
         } else
             return
