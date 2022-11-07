@@ -82,9 +82,9 @@ Mycroft.Delegate {
         sessionData.routeSegment = routeSegment;
         routeList.currentIndex = routeSegment;
         routeList.positionViewAtIndex(routeSegment, ListView.Beginning)
-        sessionGetManeuver(0, routeSegment);
-        triggerGuiEvent("mkz-urban-demo-skill.route_update", {"string": routeAdaptDriver(routeModel.get(0).segments[routeSegment].maneuver.instructionText)});
-        console.log("RouteModel onStatusChanged: "+routeAdaptDriver(routeModel.get(0).segments[routeSegment].maneuver.instructionText));
+//         sessionGetManeuver(0, routeSegment);
+//         triggerGuiEvent("mkz-urban-demo-skill.route_update", {"string": routeAdaptDriver(routeModel.get(0).segments[routeSegment].maneuver.instructionText)});
+//         console.log("RouteModel onStatusChanged: "+routeAdaptDriver(routeModel.get(0).segments[routeSegment].maneuver.instructionText));
     }
     
     Image {
@@ -213,7 +213,7 @@ Mycroft.Delegate {
         if (routeModel.status != RouteModel.Ready) return
         console.log("segment #"+routeSegment+"/",routeModel.get(0).segments.length);
         console.log("path #"+routePath+"/",routeModel.get(0).segments[routeSegment].path.length);
-        if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
+        if (routePath<routeModel.get(0).segments[routeSegment].path.length) {
             routePath = routePath+1;
         } else if (routeSegment<routeModel.get(0).segments.length) {
             routeSegment = routeSegment+1;
