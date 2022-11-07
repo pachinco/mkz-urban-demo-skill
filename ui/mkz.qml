@@ -221,10 +221,10 @@ Mycroft.Delegate {
             return
         var distance = routeModel.get(0).segments[routeSegment].distance;
         var time = routeModel.get(0).segments[routeSegment].travelTime;
-        console.log("segment #"+routeSegment+" distance: ",distance);
-        console.log("segment #"+routeSegment+" time: ",time);
+//         console.log("segment #"+routeSegment+" distance: ",distance);
+//         console.log("segment #"+routeSegment+" time: ",time);
         carAnimateSpeed = distance/time;
-        console.log("carAnimateSpeed: ",carAnimateSpeed);
+//         console.log("carAnimateSpeed: ",carAnimateSpeed);
         carLocation.coordinate = routeModel.get(0).segments[routeSegment].path[routePath];
     }
     onCarAnimateChanged: {
@@ -315,7 +315,7 @@ Mycroft.Delegate {
             Behavior on bearing {
                 RotationAnimation {
                     duration: 500
-                    alwaysRunToEnd: false
+//                     alwaysRunToEnd: false
                     direction: RotationAnimation.Shortest
                 }
             }
@@ -417,7 +417,7 @@ Mycroft.Delegate {
                     enabled: carAnimate
                     CoordinateAnimation {
                         duration: (carAnimateTime>10) ? carAnimateTime : 10
-                        alwaysRunToEnd: false
+//                         alwaysRunToEnd: false
                         easing.type: Easing.Linear
                         onRunningChanged: {
                             if (!running)
