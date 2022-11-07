@@ -216,12 +216,13 @@ Mycroft.Delegate {
         if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
             routePath = routePath+1;
         } else if (routeSegment<routeModel.get(0).segments.length-1) {
-            routePath = 0;
+            routePath = 1;
             routeSegment = routeSegment+1;
         } else
             return
         var distance = routeModel.get(0).segments[routeSegment].distance;
         var time = routeModel.get(0).segments[routeSegment].travelTime;
+        console.log("route "+routeSegment+"/"+routePath+" coordinate: "+routeModel.get(0).segments[routeSegment].path[routePath].latitude+","routeModel.get(0).segments[routeSegment].path[routePath].longitude;
 //         console.log("segment #"+routeSegment+" distance: ",distance);
 //         console.log("segment #"+routeSegment+" time: ",time);
         carAnimateSpeed = distance/time;
