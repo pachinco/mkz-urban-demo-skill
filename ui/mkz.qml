@@ -1114,7 +1114,7 @@ Mycroft.Delegate {
                 carAnimateNextStep(true);
                 sessionGetManeuver(0, 0);
 //                 triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText)});
-                triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": "")});
+                triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": ""});
                 console.log("RouteModel onStatusChanged: "+routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText));
 //             } else {
 //                 console.log("RouteModel onStatusChanged: not ready");
