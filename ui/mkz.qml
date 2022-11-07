@@ -419,15 +419,16 @@ Mycroft.Delegate {
                     }
                 }
                 Behavior on coordinate {
-                    id: carMarkerAnimator
                     enabled: carAnimate
                     CoordinateAnimation {
+                        id: carMarkerAnimator
                         duration: (carAnimateTime>1) ? carAnimateTime : 1
                         alwaysRunToEnd: true
                         easing.type: Easing.Linear
-                    }
-                    onFinished: {
-                        carAnimateNextStep(false)
+                        onRunningChanged: {
+                            if (!carMarkerAnimator)
+                                carAnimateNextStep(false)
+                        }
                     }
                 }
             }
