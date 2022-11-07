@@ -219,8 +219,8 @@ Mycroft.Delegate {
 
     function carAnimateNextStep() {
         if (routeModel.status != RouteModel.Ready) return
-        console.log("segment #"+routeSegment+"/",routeModel.get(0).segments.length);
-        console.log("path #"+routePath+"/",routeModel.get(0).segments[routeSegment].path.length);
+//         console.log("segment #"+routeSegment+"/"+routeModel.get(0).segments.length);
+//         console.log("path #"+routePath+"/"+routeModel.get(0).segments[routeSegment].path.length);
         if (routePath===0) {
         }
         if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
@@ -235,7 +235,7 @@ Mycroft.Delegate {
         }
         var distance = routeModel.get(0).segments[routeSegment].distance;
         var time = routeModel.get(0).segments[routeSegment].travelTime;
-        console.log("route "+routeSegment+"/"+routePath+" coordinate: "+routeModel.get(0).segments[routeSegment].path[routePath].latitude+","+routeModel.get(0).segments[routeSegment].path[routePath].longitude);
+        console.log("carAnimateNextStep "+routeSegment+"/"+routePath+" coordinate: "+routeModel.get(0).segments[routeSegment].path[routePath].latitude+","+routeModel.get(0).segments[routeSegment].path[routePath].longitude);
         carAnimateSpeed = distance/time;
 //         console.log("carAnimateSpeed: ",carAnimateSpeed);
         newLocation.coordinate = routeModel.get(0).segments[routeSegment].path[routePath];
@@ -423,7 +423,7 @@ Mycroft.Delegate {
                         carBearing = oldLocation.coordinate.azimuthTo(newLocation.coordinate);
                         var distance = oldLocation.coordinate.distanceTo(newLocation.coordinate);
                         carAnimateTime = distance*1000/carAnimateSpeed;
-                        console.log("carAnimateTime: ",carAnimateTime);
+//                         console.log("carAnimateTime: ",carAnimateTime);
                         carMarkerAnimator.from = oldLocation.coordinate;
                         carMarkerAnimator.to = newLocation.coordinate;
                         carMarkerAnimator.start();
@@ -474,8 +474,8 @@ Mycroft.Delegate {
                 if (modeRoute) {
                     if (!carMarker.coordinate.isValid)
                         carMarker.coordinate = QtPositioning.coordinate(carPosition.lat, carPosition.lon);
-                    console.log("routeUpdate start: "+carMarker.coordinate.latitude+","+carMarker.coordinate.longitude)
-                    console.log("routeUpdate end: "+endMarker.coordinate.latitude+","+endMarker.coordinate.longitude)
+//                     console.log("routeUpdate start: "+carMarker.coordinate.latitude+","+carMarker.coordinate.longitude)
+//                     console.log("routeUpdate end: "+endMarker.coordinate.latitude+","+endMarker.coordinate.longitude)
 //                 routeQuery.addWaypoint(startMarker.coordinate);
                     routeQuery.addWaypoint(carMarker.coordinate);
                     routeQuery.addWaypoint(endMarker.coordinate);
