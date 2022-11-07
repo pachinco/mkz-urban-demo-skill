@@ -495,7 +495,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                     transform: [
-                        Rotation { origin.x: 25; origin.y: 25; axis: { x: 0; y: 0; z: 1 } angle: -map.bearing-carBearing }
+                        Rotation { origin.x: 25; origin.y: 25;  angle: map.bearing+carBearing }
 //                         Rotation { origin.x: 25; origin.y: 25; axis: { x: 1; y: 0; z: 0 } angle: map.tilt }
                     ]
                 }
