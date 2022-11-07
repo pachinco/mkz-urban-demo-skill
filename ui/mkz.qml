@@ -317,22 +317,22 @@ Mycroft.Delegate {
             Behavior on bearing {
                 RotationAnimation {
                     duration: 500
-//                     alwaysRunToEnd: false
+                    alwaysRunToEnd: false
                     direction: RotationAnimation.Shortest
                 }
             }
             Behavior on center {
-//                 enabled: (carAnimate) ? false : true
+                enabled: (carAnimate) ? false : true
                 CoordinateAnimation {
                     duration: 500
                     alwaysRunToEnd: false
                     easing.type: Easing.Linear
                 }
             }
-            onCenterChanged: {
-                if (modeFollow)
-                    center = carLocation.coordinate
-            }
+//             onCenterChanged: {
+//                 if (modeFollow && !carAnimate)
+//                     center = carLocation.coordinate
+//             }
 //             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
 //             tilt: 60
