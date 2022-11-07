@@ -225,7 +225,7 @@ Mycroft.Delegate {
         console.log("route "+routeSegment+"/"+routePath+" coordinate: "+routeModel.get(0).segments[routeSegment].path[routePath].latitude+","+routeModel.get(0).segments[routeSegment].path[routePath].longitude);
         carAnimateSpeed = distance/time;
 //         console.log("carAnimateSpeed: ",carAnimateSpeed);
-        carLocation.coordinate = routeModel.get(0).segments[routeSegment].path[routePath];
+        newLocation.coordinate = routeModel.get(0).segments[routeSegment].path[routePath];
     }
     onCarAnimateChanged: {
         if (carAnimate)
@@ -399,24 +399,28 @@ Mycroft.Delegate {
             
             Location {
                 id: oldLocation
-                coordinate: QtPositioning.coordinate(0, 0)
+                coordinate: QtPositioning.coordinate(37.3964,-122.034)
             }
             Location {
-                id: carLocation
+                id: newLocation
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 onCoordinateChanged: {
 //                     if (carMarkerAnimator.running) return
-                    if (oldLocation.coordinate != carLocation.coordinate) {
-                        carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
-                        var distance = oldLocation.coordinate.distanceTo(carLocation.coordinate);
+                    if (oldLocation.coordinate != newLocation.coordinate) {
+                        carBearing = oldLocation.coordinate.azimuthTo(newLocation.coordinate);
+                        var distance = oldLocation.coordinate.distanceTo(newLocation.coordinate);
                         carAnimateTime = distance*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
                         carMarkerAnimator.start();
-                        oldLocation.coordinate = carLocation.coordinate;
+//                             oldLocation.coordinate = newLocation.coordinate;
 //                         if (carAnimate && modeFollow) map.center = carLocation.coordinate;
 //                         if (carAnimate && !modeNorth) map.bearing = carBearing;
                     }
                 }
+            }
+            Location {
+                id: carLocation
+                coordinate: QtPositioning.coordinate(37.3964,-122.034)
 //                 Behavior on coordinate {
 //                     enabled: carAnimate
 //                 }
@@ -427,11 +431,12 @@ Mycroft.Delegate {
                 target: carLocation
                 property: coordinate
                 from: (oldLocation.coordinate.isValid) ? oldLocation.coordinate : carLocation.coordinate
-                to: carLocation.coordinate
+                to: newLocation.coordinate
                 alwaysRunToEnd: true
                 easing.type: Easing.Linear
                 onRunningChanged: {
                     if (!carMarkerAnimator.running) {
+                        oldLocation.coordinate = newLocation.coordinate;
                         console.log("carMarkerAnimator finished.");
                         carAnimateNextStep(false)
                     }
