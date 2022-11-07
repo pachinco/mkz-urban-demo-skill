@@ -322,6 +322,7 @@ Mycroft.Delegate {
                 }
             }
             Behavior on center {
+                enabled: (carAnimate) ? false : true
                 CoordinateAnimation {
                     duration: 500
                     alwaysRunToEnd: false
@@ -413,6 +414,8 @@ Mycroft.Delegate {
                         carAnimateTime = distance*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
+                        if (carAnimate)
+                            center = carLocation.coordinate;
                     }
                 }
                 Behavior on coordinate {
