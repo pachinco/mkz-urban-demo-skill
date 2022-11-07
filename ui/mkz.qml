@@ -211,24 +211,18 @@ Mycroft.Delegate {
 
     function carAnimateNextStep(init) {
         if (routeModel.status != RouteModel.Ready) return
-        switch (init) {
-            case 0:
-                if (routeModel.get(0).segments.length<1) return
-                if (routeModel.get(0).segments[0].path.length<1) return
-                routeSegment = 0;
-                routePath = 0;
-                break;
-            case -1:
-                if (routeSegment>=routeModel.get(0).segments.length || routePath>=routeModel.get(0).segments[routeSegment].path.length-1) return
-                break;
-            default:
-                if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
-                    routePath = routePath+1;
-                } else if (routeSegment<routeModel.get(0).segments.length) {
-                    routeSegment = routeSegment+1;
-                } else
-                    return
+        if (init) {
+            routeSegment = 0;
+            routePath = 0;
+//             if (routeModel.get(0).segments.length<1) return
+//             if (routeModel.get(0).segments[routeSegment].path.length<2) return
         }
+        if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
+            routePath = routePath+1;
+        } else if (routeSegment<routeModel.get(0).segments.length) {
+            routeSegment = routeSegment+1;
+        } else
+            return
         var distance = routeModel.get(0).segments[routeSegment].distance;
         var time = routeModel.get(0).segments[routeSegment].travelTime;
         console.log("segment #"+routeSegment+" distance: ",distance);
@@ -244,7 +238,7 @@ Mycroft.Delegate {
     }
     onCarAnimateChanged: {
         if (carAnimate)
-            carAnimateNextStep(-1);
+            carAnimateNextStep(false);
     }
 
 
