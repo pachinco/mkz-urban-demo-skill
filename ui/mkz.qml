@@ -423,7 +423,7 @@ Mycroft.Delegate {
             function routeUpdate() {
                 routeQuery.clearWaypoints();
                 if (modeRoute) {
-//                         console.log("start: "+startMarker.coordinate+" / end: "+endMarker.coordinate);
+                    console.log("start: "+carMarker.coordinate+" / end: "+endMarker.coordinate);
 //                 routeQuery.addWaypoint(startMarker.coordinate);
                     routeQuery.addWaypoint(carMarker.coordinate);
                     routeQuery.addWaypoint(endMarker.coordinate);
