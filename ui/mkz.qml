@@ -322,6 +322,7 @@ Mycroft.Delegate {
             center: modeFollow ? carLocation.coordinate : map.center
             bearing: modeNorth ? 0 : carBearing
             tilt: mode3D ? 60 : 0
+            zoomLevel: 15
             
             Behavior on tilt {
                 NumberAnimation { duration: 500 }
