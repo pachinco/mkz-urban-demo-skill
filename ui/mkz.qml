@@ -316,7 +316,7 @@ Mycroft.Delegate {
 //                 enabled: (carAnimate) ? false : true
                 RotationAnimation {
                     duration: 500
-                    alwaysRunToEnd: false
+                    alwaysRunToEnd: true
                     direction: RotationAnimation.Shortest
                 }
             }
@@ -324,7 +324,7 @@ Mycroft.Delegate {
 //                 enabled: (carAnimate) ? false : true
                 CoordinateAnimation {
                     duration: 500
-                    alwaysRunToEnd: false
+                    alwaysRunToEnd: true
                     easing.type: Easing.Linear
                 }
             }
