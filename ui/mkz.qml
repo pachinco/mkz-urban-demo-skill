@@ -313,18 +313,18 @@ Mycroft.Delegate {
                 NumberAnimation { duration: 500 }
             }
             Behavior on bearing {
-//                 enabled: (carAnimate) ? false : true
+                enabled: (carAnimate) ? false : true
                 RotationAnimation {
                     duration: 500
-                    alwaysRunToEnd: true
+                    alwaysRunToEnd: false
                     direction: RotationAnimation.Shortest
                 }
             }
             Behavior on center {
-//                 enabled: (carAnimate) ? false : true
+                enabled: (carAnimate) ? false : true
                 CoordinateAnimation {
                     duration: 500
-                    alwaysRunToEnd: true
+                    alwaysRunToEnd: false
                     easing.type: Easing.Linear
                 }
             }
