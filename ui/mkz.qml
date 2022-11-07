@@ -407,10 +407,10 @@ Mycroft.Delegate {
                         duration: carAnimateTime
                         alwaysRunToEnd: false
                         easing.type: Easing.Linear
-                    }
-                    onRunningChanged: {
-                        if (!running)
-                            carAnimateNextStep(false)
+                        onRunningChanged: {
+                            if (!running)
+                                carAnimateNextStep(false)
+                        }
                     }
                 }
             }
