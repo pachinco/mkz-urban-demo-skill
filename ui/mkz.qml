@@ -322,7 +322,7 @@ Mycroft.Delegate {
                 }
             }
             Behavior on center {
-                enabled: (carAnimate) ? false : true
+//                 enabled: (carAnimate) ? false : true
                 CoordinateAnimation {
                     duration: 500
                     alwaysRunToEnd: false
@@ -406,7 +406,7 @@ Mycroft.Delegate {
                 id: carLocation
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 onCoordinateChanged: {
-                    if (oldLocation.coordinate != carLocation.coordinate) {
+                    if ((oldLocation.coordinate != carLocation.coordinate) && !carMarkerAnimator.running) {
                         carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
                         var distance = oldLocation.coordinate.distanceTo(carLocation.coordinate);
                         console.log("carLocation distance: ",distance);
@@ -419,6 +419,7 @@ Mycroft.Delegate {
                     }
                 }
                 Behavior on coordinate {
+                    id: carMarkerAnimator
                     enabled: carAnimate
                     CoordinateAnimation {
                         duration: (carAnimateTime>10) ? carAnimateTime : 10
