@@ -52,6 +52,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeNum"] = 0
         self.gui["routeSegments"] = 0
         self.gui["routeSegment"] = 0
+        self.gui["routePath"] = 0
         self.gui["routePath"] = []
         self.gui["routeDistance"] = 0
         self.gui["routePositionLat"] = 0
@@ -198,7 +199,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.log.info("route_path=%d",self.route_path)
         if (self.route_path<len(self.path)):
             self.log.info(self.path[self.route_path])
-            self.gui["carPosition"] = {"latitude": self.path[self.route_path]["lat"], "longitude": self.path[self.route_path]["lon"]}
+            self.gui["carPosition"] = {"lat": self.path[self.route_path]["lat"], "lon": self.path[self.route_path]["lon"]}
             self.schedule_event(self._route_next_path, 1)
         else:
             route_segment = self.gui["routeSegment"]+1
