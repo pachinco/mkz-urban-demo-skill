@@ -424,6 +424,7 @@ Mycroft.Delegate {
             CoordinateAnimation {
                 id: carMarkerAnimator
                 duration: (carAnimateTime>1) ? carAnimateTime : 1
+                from: (oldLocation.coordinate.isValid) ? oldLocation.coordinate : carLocation.coordinate
                 to: carLocation.coordinate
                 alwaysRunToEnd: true
                 easing.type: Easing.Linear
