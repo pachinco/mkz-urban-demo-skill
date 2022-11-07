@@ -45,6 +45,7 @@ Mycroft.Delegate {
     property real carBearing: 0
     property int routeSegment: sessionData.routeSegment
     property int routePath: sessionData.routePath
+    property bool routeSegmentNext: sessionData.routeSegmentNext
 //     property real carPositionLat: sessionData.carPositionLat
 //     property real carPositionLon: sessionData.carPositionLon
 
@@ -52,6 +53,10 @@ Mycroft.Delegate {
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
 
+    onRouteSegmentNextChanged: {
+        sessionData.routeSegmentNext = false;
+//         sessionGetManeuver(0, 
+    }
     onModeAutonomousChanged: {
         sessionData.modeAutonomous = modeAutonomous;
     }
@@ -1075,6 +1080,7 @@ Mycroft.Delegate {
         if (man+1<routeModel.get(route).segments.length) {
             man=man+1;
             sessionData.routeNext = true;
+            sessionData.routeNextAnnouced = false;
             sessionData.routeNextSegment = man;
             sessionData.routeNextDistance = routeModel.get(route).segments[man].distance;
             sessionData.routeNextPositionLat = routeModel.get(route).segments[man].maneuver.position.latitude;
