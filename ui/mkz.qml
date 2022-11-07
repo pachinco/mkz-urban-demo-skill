@@ -429,7 +429,7 @@ Mycroft.Delegate {
                 id: carMarkerAnimator
                 duration: (carAnimateTime>1) ? carAnimateTime : 1
                 target: carLocation
-                property: coordinate
+                property: "coordinate"
                 from: (oldLocation.coordinate.isValid) ? oldLocation.coordinate : carLocation.coordinate
                 to: newLocation.coordinate
                 alwaysRunToEnd: true
