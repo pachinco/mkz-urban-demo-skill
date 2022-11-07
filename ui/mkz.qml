@@ -352,17 +352,6 @@ Mycroft.Delegate {
                     easing.type: Easing.Linear
                 }
             }
-//             onCenterChanged: {
-//                 if (!carAnimate) {
-//                     if (modeFollow)
-//                         center = carMarker.coordinate;
-//                     else
-//                         centerFollower.enabled = true;
-//                 }
-//             }
-//             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
-//             zoomLevel: 3
-//             tilt: 60
 
             activeMapType: {
                 var style;
@@ -433,50 +422,28 @@ Mycroft.Delegate {
                 id: newLocation
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 onCoordinateChanged: {
-//                     if (carMarkerAnimator.running) return
                     if (oldLocation.coordinate != newLocation.coordinate) {
                         carBearing = oldLocation.coordinate.azimuthTo(newLocation.coordinate);
                         var distance = oldLocation.coordinate.distanceTo(newLocation.coordinate);
                         carAnimateTime = distance*1000/carAnimateSpeed;
                         carMarkerAnimator.duration = (carAnimateTime>1) ? carAnimateTime : 1;
-//                         console.log("carAnimateTime: ",carAnimateTime);
                         carMarkerAnimator.from = oldLocation.coordinate;
                         carMarkerAnimator.to = newLocation.coordinate;
                         carMarkerAnimator.start();
-//                             oldLocation.coordinate = newLocation.coordinate;
-//                         if (carAnimate && modeFollow) map.center = carLocation.coordinate;
-//                         if (carAnimate && !modeNorth) map.bearing = carBearing;
                     }
                 }
             }
-//             Location {
-//                 id: carLocation
-//                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
-//                 Behavior on coordinate {
-//                     enabled: carAnimate
-//                 }
-//             }
             CoordinateAnimation {
                 id: carMarkerAnimator
                 target: carMarker
                 property: "coordinate"
-//                 duration: (carAnimateTime>1) ? carAnimateTime : 1
-//                 from: oldLocation.coordinate
-//                 to: newLocation.coordinate
                 alwaysRunToEnd: false
                 easing.type: Easing.Linear
                 onRunningChanged: {
                     if (!carMarkerAnimator.running) {
                         oldLocation.coordinate = newLocation.coordinate;
-//                         sessionData.carPositionLat = newLocation.coordinate.latitude;
-//                         sessionData.carPositionLon = newLocation.coordinate.longitude;
                         triggerGuiEvent("mkz-urban-demo-skill.route_position", {"lat": newLocation.coordinate.latitude, "lon": newLocation.coordinate.longitude, "segment": routeSegment, "path": routePath});
-//                         carLocation.coordinate = newLocation.coordinate;
-//                         console.log("carMarkerAnimator finished.");
                         carAnimateNextStep(true);
-//                     } else {
-//                         console.log("carMarkerAnimator from: "+oldLocation.coordinate);
-//                         console.log("carMarkerAnimator to: "+newLocation.coordinate);
                     }
                 }
             }
@@ -493,45 +460,13 @@ Mycroft.Delegate {
                         carMarker.coordinate = QtPositioning.coordinate(carPosition.lat, carPosition.lon);
 //                     console.log("routeUpdate start: "+carMarker.coordinate.latitude+","+carMarker.coordinate.longitude)
 //                     console.log("routeUpdate end: "+endMarker.coordinate.latitude+","+endMarker.coordinate.longitude)
-//                 routeQuery.addWaypoint(startMarker.coordinate);
                     routeQuery.addWaypoint(carMarker.coordinate);
                     routeQuery.addWaypoint(endMarker.coordinate);
-//                 console.log("routeModel.onCompleted: "+(routeReady?"ready":"not ready"));
                     routeList.currentIndex = 0;
                 } else {
                     routeModel.reset();
                 }
             }
-
-//             RotationAnimation on bearing {
-//                 id: bearingAnimation
-//                 duration: 500
-//                 alwaysRunToEnd: false
-//                 direction: RotationAnimation.Shortest
-//             }
-//             CoordinateAnimation {
-//                 id: carAnimation
-//                 duration: 1000
-//                 target: carLocation
-//                 property: "coordinate"
-//                 alwaysRunToEnd: false
-//                 easing.type: Easing.Linear
-//             }
-//             onCenterChanged: {
-//                 if (prevLocation.coordinate == center) return
-// 
-//                 if (modeFollow) {
-//                     carAnimation.from = prevLocation.coordinate;
-//                     carAnimation.to = carLocation.coordinate;
-//                     carAnimation.start();
-//                 }
-//                 if (!modeNorth) {
-//                     bearingAnimation.to = prevLocation.coordinate.azimuthTo(center);
-//                     bearingAnimation.start();
-//                 }
-//                 
-//                 prevLocation.coordinate = center;
-//             }
             
             MapQuickItem {
                 id: carMarker
@@ -555,27 +490,27 @@ Mycroft.Delegate {
 //                     map.routeUpdate();
 //                 }
             }
-//             MapQuickItem {
-//                 id: startMarker
-//                 sourceItem: Image {
-//                     id: greenMarker
-//                     source: "../images/Map_marker_blue.png"
-//                     height: 50
-//                     fillMode: Image.PreserveAspectFit
-//                     opacity: 1.0
-//                 }
-//                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
-//                 anchorPoint.x: greenMarker.width/2
-//                 anchorPoint.y: greenMarker.height
-//                 visible: modeRoute
-//                 MouseArea  {
-//                     drag.target: parent
-//                     anchors.fill: parent
-//                 }
+            MapQuickItem {
+                id: startMarker
+                sourceItem: Image {
+                    id: greenMarker
+                    source: "../images/Map_marker_blue_up.png"
+                    height: 50
+                    fillMode: Image.PreserveAspectFit
+                    opacity: 1.0
+                }
+                coordinate: QtPositioning.coordinate(37.3964,-122.034)
+                anchorPoint.x: greenMarker.width/2
+                anchorPoint.y: greenMarker.height
+                visible: modeRoute
+                MouseArea  {
+                    drag.target: parent
+                    anchors.fill: parent
+                }
 //                 onCoordinateChanged: {
 //                     map.routeUpdate();
 //                 }
-//             }
+            }
             MapQuickItem {
                 id: endMarker
 
