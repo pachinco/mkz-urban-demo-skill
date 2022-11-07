@@ -54,14 +54,14 @@ Mycroft.Delegate {
 //     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
 
     onRouteSegmentNextChanged: {
-        sessionData.routeSegmentNext = false;
+//         sessionData.routeSegmentNext = false;
         if (routeSegment<routeModel.get(0).segments.length-1) {
             routePath=0;
             routeSegment = routeSegment+1;
             sessionGetManeuver(0, routeSegment);
             carAnimateNextStep(false);
+            triggerGuiEvent("mkz-urban-demo-skill.route_next_segment", {"lat": newLocation.coordinate.latitude, "lon": newLocation.coordinate.longitude});
         }
-//         triggerGuiEvent("mkz-urban-demo-skill.route_position", {"lat": newLocation.coordinate.latitude, "lon": newLocation.coordinate.longitude});
     }
     onModeAutonomousChanged: {
         sessionData.modeAutonomous = modeAutonomous;

@@ -45,7 +45,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.clear()
         self.gui.register_handler('mkz-urban-demo-skill.route_new', self._route_new)
         self.gui.register_handler('mkz-urban-demo-skill.route_position', self._route_position)
-        #self.gui.register_handler('mkz-urban-demo-skill.route_next_segment', self._route_next_segment)
+        self.gui.register_handler('mkz-urban-demo-skill.route_next_segment', self._route_next_instruction)
         self.gui["uiIdx"] = -2
         self.gui["routeReady"] = False
         self.gui["routeTotalTime"] = 0
