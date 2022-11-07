@@ -424,13 +424,15 @@ Mycroft.Delegate {
             CoordinateAnimation {
                 id: carMarkerAnimator
                 duration: (carAnimateTime>1) ? carAnimateTime : 1
+                target: carLocation
+                property: coordinate
                 from: (oldLocation.coordinate.isValid) ? oldLocation.coordinate : carLocation.coordinate
                 to: carLocation.coordinate
                 alwaysRunToEnd: true
                 easing.type: Easing.Linear
                 onRunningChanged: {
                     if (!carMarkerAnimator.running) {
-                                console.log("carMarkerAnimator finished.");
+                        console.log("carMarkerAnimator finished.");
                         carAnimateNextStep(false)
                     }
                 }
