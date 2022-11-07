@@ -235,7 +235,7 @@ Mycroft.Delegate {
             routeSegment = routeSegment+1;
 //             sessionGetManeuver(0, routeSegment);
         } else {
-            carAnimate = false;
+//             carAnimate = false;
             return
         }
         var distance = routeModel.get(0).segments[routeSegment].distance;
