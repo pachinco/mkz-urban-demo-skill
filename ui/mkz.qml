@@ -54,7 +54,7 @@ Mycroft.Delegate {
 //     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
 
     onRouteSegmentNextChanged: {
-//         sessionData.routeSegmentNext = false;
+        sessionData.routeSegmentNext = false;
         if (routeSegment<routeModel.get(0).segments.length-1) {
             routePath=0;
             routeSegment = routeSegment+1;
