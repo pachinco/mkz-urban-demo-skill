@@ -209,12 +209,10 @@ Mycroft.Delegate {
         }
     }
 
-    function carAnimateNextStep(init) {
+    function carAnimateNextStep() {
         if (routeModel.status != RouteModel.Ready) return
-//         if (init===true) {
-//             routeSegment = 0;
-//             routePath = 0;
-//         }
+        console.log("segment #"+routeSegment+"/",routeSegment<routeModel.get(0).segments.length);
+        console.log("path #"+routePath+"/",routeSegment<routeModel.get(0).segments[routeSegment].path.length);
         if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
             routePath = routePath+1;
         } else if (routeSegment<routeModel.get(0).segments.length) {
@@ -225,11 +223,6 @@ Mycroft.Delegate {
         var time = routeModel.get(0).segments[routeSegment].travelTime;
         console.log("segment #"+routeSegment+" distance: ",distance);
         console.log("segment #"+routeSegment+" time: ",time);
-//         if (distance<1) {
-//             distance = 0;
-//             for (let i = 1; i < routeModel.get(route).segments[man].path.length; i++)
-//                 distance = distance+routeModel.get(0).segments[routeSegment].path[i-1].distanceTo(routeModel.get(0).segments[routeSegment].path[i]);
-//         }
         carAnimateSpeed = distance/time;
         console.log("carAnimateSpeed: ",carAnimateSpeed);
         carLocation.coordinate = QtPositioning.coordinate();
@@ -444,7 +437,8 @@ Mycroft.Delegate {
                 if (modeRoute) {
                     if (!carMarker.coordinate.isValid)
                         carMarker.coordinate = QtPositioning.coordinate(carPosition.lat, carPosition.lon);
-                    console.log("start: "+carMarker.coordinate+" / end: "+endMarker.coordinate);
+                    console.log("routeUpdate start: "+carMarker.coordinate.latitude+","+carMarker.coordinate.longitude)
+                    console.log("routeUpdate end: "+endMarker.coordinate.latitude+","+endMarker.coordinate.longitude)
 //                 routeQuery.addWaypoint(startMarker.coordinate);
                     routeQuery.addWaypoint(carMarker.coordinate);
                     routeQuery.addWaypoint(endMarker.coordinate);
