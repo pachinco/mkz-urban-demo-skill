@@ -193,7 +193,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.log.info("total time: %d seconds / %d meters",self.gui["routeTime"],self.gui["routeDistance"])
         self.log.info("position: %f,%f -> %f,%f",self.gui["routePositionLat"],self.gui["routePositionLon"],self.gui["routeNextPositionLat"],self.gui["routeNextPositionLon"])
         self.log.info("segments: %d/%d",self.gui["routeSegment"],self.gui["routeSegments"])
-        self.log.info("next: %s in %d seconds",(self.gui["routeNext"]?"yes":"no"),self.gui["routeTimeToNext"])
+        self.log.info("next: %d in %d seconds",(self.gui["routeNext"]?1:0),self.gui["routeTimeToNext"])
         #self.path = ast.literal_eval(self.gui["routePath"])
         #self.log.info("path: %d",len(self.path))
         #self.log.info(self.path[self.route_path])
