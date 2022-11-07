@@ -222,7 +222,7 @@ Mycroft.Delegate {
             return
         var distance = routeModel.get(0).segments[routeSegment].distance;
         var time = routeModel.get(0).segments[routeSegment].travelTime;
-        console.log("route "+routeSegment+"/"+routePath+" coordinate: "+routeModel.get(0).segments[routeSegment].path[routePath].latitude+","routeModel.get(0).segments[routeSegment].path[routePath].longitude);
+        console.log("route "+routeSegment+"/"+routePath+" coordinate: "+routeModel.get(0).segments[routeSegment].path[routePath].latitude+","+routeModel.get(0).segments[routeSegment].path[routePath].longitude);
 //         console.log("segment #"+routeSegment+" distance: ",distance);
 //         console.log("segment #"+routeSegment+" time: ",time);
         carAnimateSpeed = distance/time;
