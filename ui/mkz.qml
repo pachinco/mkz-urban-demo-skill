@@ -330,10 +330,10 @@ Mycroft.Delegate {
                     easing.type: Easing.Linear
                 }
             }
-//             onCenterChanged: {
-//                 if (modeFollow && !carAnimate)
-//                     center = carLocation.coordinate
-//             }
+            onCenterChanged: {
+                if (modeFollow && !carAnimate)
+                    center = carLocation.coordinate
+            }
 //             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
 //             tilt: 60
@@ -423,11 +423,13 @@ Mycroft.Delegate {
                     CoordinateAnimation {
                         id: carMarkerAnimator
                         duration: (carAnimateTime>1) ? carAnimateTime : 1
-                        alwaysRunToEnd: true
+                        alwaysRunToEnd: false
                         easing.type: Easing.Linear
                         onRunningChanged: {
-                            if (!carMarkerAnimator)
+                            if (!carMarkerAnimator) {
+                                console.log("carMarkerAnimator finished.");
                                 carAnimateNextStep(false)
+                            }
                         }
                     }
                 }
