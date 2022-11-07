@@ -810,7 +810,7 @@ Mycroft.Delegate {
                 id: iconAnimate
                 signal clicked
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: (carAnimate) ? "../images/music-stop.png" : "../images/music-play.png"
+                source: (carAnimate) ? "../images/mode-animate.png" : "../images/mode-car.png"
                 height: 30
                 width: 30
                 mipmap: true
