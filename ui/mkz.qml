@@ -307,21 +307,25 @@ Mycroft.Delegate {
             tilt: mode3D ? 60 : 0
             
             Behavior on tilt {
-                NumberAnimation { duration: 1000 }
+                NumberAnimation { duration: 500 }
             }
             Behavior on bearing {
                 RotationAnimation {
-                    duration: 1000
+                    duration: 500
                     alwaysRunToEnd: false
                     direction: RotationAnimation.Shortest
                 }
             }
             Behavior on center {
                 CoordinateAnimation {
-                    duration: 1000
+                    duration: 500
                     alwaysRunToEnd: false
                     easing.type: Easing.Linear
                 }
+            }
+            onCenterChanged] {
+                if (modeFollow)
+                    center = carLocation.coordinate
             }
 //             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
