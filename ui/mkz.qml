@@ -54,7 +54,6 @@ Mycroft.Delegate {
 //     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
 
     onRouteSegmentNextChanged: {
-//         sessionData.routeSegmentNext = false;
         if (routeSegment<routeModel.get(0).segments.length-1) {
             routePath=0;
             routeSegment = routeSegment+1;
@@ -345,6 +344,7 @@ Mycroft.Delegate {
                 }
             }
             Behavior on center {
+                id: centerFollower
                 enabled: (carAnimate) ? false : true
                 CoordinateAnimation {
                     duration: 500
@@ -352,10 +352,14 @@ Mycroft.Delegate {
                     easing.type: Easing.Linear
                 }
             }
-            onCenterChanged: {
-                if (modeFollow && !carAnimate)
-                    center = carMarker.coordinate
-            }
+//             onCenterChanged: {
+//                 if (!carAnimate) {
+//                     if (modeFollow)
+//                         center = carMarker.coordinate;
+//                     else
+//                         centerFollower.enabled = true;
+//                 }
+//             }
 //             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
 //             tilt: 60
@@ -434,6 +438,7 @@ Mycroft.Delegate {
                         carBearing = oldLocation.coordinate.azimuthTo(newLocation.coordinate);
                         var distance = oldLocation.coordinate.distanceTo(newLocation.coordinate);
                         carAnimateTime = distance*1000/carAnimateSpeed;
+                        carMarkerAnimator.duration = (carAnimateTime>1) ? carAnimateTime : 1;
 //                         console.log("carAnimateTime: ",carAnimateTime);
                         carMarkerAnimator.from = oldLocation.coordinate;
                         carMarkerAnimator.to = newLocation.coordinate;
@@ -453,19 +458,19 @@ Mycroft.Delegate {
 //             }
             CoordinateAnimation {
                 id: carMarkerAnimator
-                duration: (carAnimateTime>1) ? carAnimateTime : 1
                 target: carMarker
                 property: "coordinate"
+//                 duration: (carAnimateTime>1) ? carAnimateTime : 1
 //                 from: oldLocation.coordinate
 //                 to: newLocation.coordinate
-                alwaysRunToEnd: true
+                alwaysRunToEnd: false
                 easing.type: Easing.Linear
                 onRunningChanged: {
                     if (!carMarkerAnimator.running) {
                         oldLocation.coordinate = newLocation.coordinate;
 //                         sessionData.carPositionLat = newLocation.coordinate.latitude;
 //                         sessionData.carPositionLon = newLocation.coordinate.longitude;
-                        triggerGuiEvent("mkz-urban-demo-skill.route_position", {"lat": newLocation.coordinate.latitude, "lon": newLocation.coordinate.longitude});
+                        triggerGuiEvent("mkz-urban-demo-skill.route_position", {"lat": newLocation.coordinate.latitude, "lon": newLocation.coordinate.longitude, "segment": routeSegment, "path": routePath});
 //                         carLocation.coordinate = newLocation.coordinate;
 //                         console.log("carMarkerAnimator finished.");
                         carAnimateNextStep(true);

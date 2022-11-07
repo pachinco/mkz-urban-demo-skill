@@ -195,13 +195,15 @@ class MkzUrbanDemo(MycroftSkill):
         self.log.info("position: %f %f",self.gui["routePositionLat"],self.gui["routePositionLon"])
         self.log.info("next position: %f %f",self.gui["routeNextPositionLat"],self.gui["routeNextPositionLon"])
         self.log.info("segments: %d",self.gui["routeSegments"])
+        self.log.info("segment: %d",self.gui["routeSegment"])
+        self.log.info("next: ",self.gui["routeNext"])
         #self.path = ast.literal_eval(self.gui["routePath"])
         #self.log.info("path: %d",len(self.path))
         #self.log.info(self.path[self.route_path])
         #self.gui["carPosition"] = {"lat": self.path[self.route_path]["lat"], "lon": self.path[self.route_path]["lon"]}
         if (self.gui["routeNext"]):
-            if (self.gui["routeTimeToNext"]>5):
-                self.schedule_event(self._route_next_instruction, 3)
+            if (self.gui["routeTimeToNext"]>=2):
+                self.schedule_event(self._route_next_instruction, self.gui["routeTimeToNext"]/2)
             else:
                 self._route_next_instruction()
 
