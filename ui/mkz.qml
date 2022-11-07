@@ -45,6 +45,8 @@ Mycroft.Delegate {
     property real carBearing: 0
     property int routeSegment: sessionData.routeSegment
     property int routePath: sessionData.routePath
+    property real carPositionLat: sessionData.carPositionLat
+    property real carPositionLon: sessionData.carPositionLon
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
@@ -76,7 +78,13 @@ Mycroft.Delegate {
     }
     onCarPositionChanged: {
         console.log("onCarPositionChanged: Lat="+carPosition.lat+" Lon="+carPosition.lon);
-        carLocation.coordinate = QtPositioning.coordinate(carPosition.lat, carPosition.lon);
+        newLocation.coordinate = QtPositioning.coordinate(carPosition.lat, carPosition.lon);
+    }
+    onCarPositionLatChanged: {
+        sessionData.carPositionLat = carPositionLat;
+    }
+    onCarPositionLonChanged: {
+        sessionData.carPositionLon = carPositionLon;
     }
     onRouteSegmentChanged: {
         sessionData.routeSegment = routeSegment;
@@ -213,13 +221,18 @@ Mycroft.Delegate {
         if (routeModel.status != RouteModel.Ready) return
         console.log("segment #"+routeSegment+"/",routeModel.get(0).segments.length);
         console.log("path #"+routePath+"/",routeModel.get(0).segments[routeSegment].path.length);
+        if (routePath===0) {
+        }
         if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
             routePath = routePath+1;
         } else if (routeSegment<routeModel.get(0).segments.length-1) {
             routePath = 1;
             routeSegment = routeSegment+1;
-        } else
+//             sessionGetManeuver(0, routeSegment);
+        } else {
+            carAnimate = false;
             return
+        }
         var distance = routeModel.get(0).segments[routeSegment].distance;
         var time = routeModel.get(0).segments[routeSegment].travelTime;
         console.log("route "+routeSegment+"/"+routePath+" coordinate: "+routeModel.get(0).segments[routeSegment].path[routePath].latitude+","+routeModel.get(0).segments[routeSegment].path[routePath].longitude);
@@ -315,7 +328,7 @@ Mycroft.Delegate {
             Behavior on bearing {
 //                 enabled: (carAnimate) ? false : true
                 RotationAnimation {
-                    duration: 500
+                    duration: 1000
                     alwaysRunToEnd: false
                     direction: RotationAnimation.Shortest
                 }
@@ -330,7 +343,7 @@ Mycroft.Delegate {
             }
             onCenterChanged: {
                 if (modeFollow && !carAnimate)
-                    center = carLocation.coordinate
+                    center = carMarker.coordinate
             }
 //             center: QtPositioning.coordinate(37.3963974,-122.034) // UPower Sunnyvale
 //             zoomLevel: 3
@@ -420,13 +433,13 @@ Mycroft.Delegate {
                     }
                 }
             }
-            Location {
-                id: carLocation
-                coordinate: QtPositioning.coordinate(37.3964,-122.034)
+//             Location {
+//                 id: carLocation
+//                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
 //                 Behavior on coordinate {
 //                     enabled: carAnimate
 //                 }
-            }
+//             }
             CoordinateAnimation {
                 id: carMarkerAnimator
                 duration: (carAnimateTime>1) ? carAnimateTime : 1
@@ -437,14 +450,16 @@ Mycroft.Delegate {
                 alwaysRunToEnd: true
                 easing.type: Easing.Linear
                 onRunningChanged: {
-                    if (carMarkerAnimator.running) {
-                        console.log("carMarkerAnimator from: "+oldLocation.coordinate);
-                        console.log("carMarkerAnimator to: "+newLocation.coordinate);
-                    } else {
+                    if (!carMarkerAnimator.running) {
                         oldLocation.coordinate = newLocation.coordinate;
-                        carLocation.coordinate = newLocation.coordinate;
-                        console.log("carMarkerAnimator finished.");
+                        carPositionLat = newLocation.coordinate.latitude;
+                        carPositionLon = newLocation.coordinate.longitude;
+//                         carLocation.coordinate = newLocation.coordinate;
+//                         console.log("carMarkerAnimator finished.");
                         carAnimateNextStep(false)
+//                     } else {
+//                         console.log("carMarkerAnimator from: "+oldLocation.coordinate);
+//                         console.log("carMarkerAnimator to: "+newLocation.coordinate);
                     }
                 }
             }
@@ -510,7 +525,7 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
-                coordinate: carLocation.coordinate
+                coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 anchorPoint.x: dotMarker.width/2
                 anchorPoint.y: dotMarker.height/2
                 zoomLevel: 17
@@ -1035,20 +1050,20 @@ Mycroft.Delegate {
             return inst;
     }
 
-//     function sessionGetManeuver(route, man) {
-//         sessionData.routeNum = route;
-//         sessionData.routeSegment = man;
-//         sessionData.routeSegments = routeModel.get(route).segments.length;
-//         sessionData.routeTotalTime = routeModel.get(route).travelTime;
-//         sessionData.routeTotalDistance = routeModel.get(route).distance;
-//         sessionData.routeDistance = routeModel.get(route).segments[man].distance;
-//         sessionData.routePositionLat = routeModel.get(route).segments[man].maneuver.position.latitude;
-//         sessionData.routePositionLon = routeModel.get(route).segments[man].maneuver.position.longitude;
-//         sessionData.routeTime = routeModel.get(route).segments[man].travelTime;
-//         sessionData.routeDirection = routeModel.get(route).segments[man].maneuver.direction;
-//         sessionData.routeInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
-//         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
-//         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
+    function sessionGetManeuver(route, man) {
+        sessionData.routeNum = route;
+        sessionData.routeSegment = man;
+        sessionData.routeSegments = routeModel.get(route).segments.length;
+        sessionData.routeTotalTime = routeModel.get(route).travelTime;
+        sessionData.routeTotalDistance = routeModel.get(route).distance;
+        sessionData.routeDistance = routeModel.get(route).segments[man].distance;
+        sessionData.routePositionLat = routeModel.get(route).segments[man].maneuver.position.latitude;
+        sessionData.routePositionLon = routeModel.get(route).segments[man].maneuver.position.longitude;
+        sessionData.routeTime = routeModel.get(route).segments[man].travelTime;
+        sessionData.routeDirection = routeModel.get(route).segments[man].maneuver.direction;
+        sessionData.routeInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
+        sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
+        sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
 //         var routePath = "[{'lat':"+routeModel.get(route).segments[man].path[0].latitude+",'lon':"+routeModel.get(route).segments[man].path[0].longitude+"}";
 //         for (let i = 1; i < routeModel.get(route).segments[man].path.length; i++) {
 //             routePath = routePath+",{'lat':"+routeModel.get(route).segments[man].path[i].latitude+",'lon':"+routeModel.get(route).segments[man].path[i].longitude+"}";
@@ -1056,20 +1071,20 @@ Mycroft.Delegate {
 //         }
 //         sessionData.routePath = routePath+"]";
 //         console.log("route path: "+routePath+"]");
-//         if (man+1<routeModel.get(route).segments.length) {
-//             man=man+1;
-//             sessionData.routeNext = true;
-//             sessionData.routeNextSegment = man;
-//             sessionData.routeNextDistance = routeModel.get(route).segments[man].distance;
-//             sessionData.routeNextPositionLat = routeModel.get(route).segments[man].maneuver.position.latitude;
-//             sessionData.routeNextPositionLon = routeModel.get(route).segments[man].maneuver.position.longitude;
-//             sessionData.routeNextTime = routeModel.get(route).segments[man].travelTime;
-//             sessionData.routeNextDirection = routeModel.get(route).segments[man].maneuver.direction;
-//             sessionData.routeNextInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
-//         } else {
-//             sessionData.routeNext = false;
-//         }
-//     }
+        if (man+1<routeModel.get(route).segments.length) {
+            man=man+1;
+            sessionData.routeNext = true;
+            sessionData.routeNextSegment = man;
+            sessionData.routeNextDistance = routeModel.get(route).segments[man].distance;
+            sessionData.routeNextPositionLat = routeModel.get(route).segments[man].maneuver.position.latitude;
+            sessionData.routeNextPositionLon = routeModel.get(route).segments[man].maneuver.position.longitude;
+            sessionData.routeNextTime = routeModel.get(route).segments[man].travelTime;
+            sessionData.routeNextDirection = routeModel.get(route).segments[man].maneuver.direction;
+            sessionData.routeNextInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
+        } else {
+            sessionData.routeNext = false;
+        }
+    }
 
     RouteModel {
         id: routeModel
@@ -1097,9 +1112,10 @@ Mycroft.Delegate {
                 routePath = 0;
                 routeList.currentIndex = 0;
                 carAnimateNextStep(true);
-//                 sessionGetManeuver(0, 0);
-//                 triggerGuiEvent("mkz-urban-demo-skill.route_update", {"string": routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText)});
-//                 console.log("RouteModel onStatusChanged: "+routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText));
+                sessionGetManeuver(0, 0);
+//                 triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText)});
+                triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": "")});
+                console.log("RouteModel onStatusChanged: "+routeAdaptDriver(routeModel.get(0).segments[0].maneuver.instructionText));
 //             } else {
 //                 console.log("RouteModel onStatusChanged: not ready");
             }

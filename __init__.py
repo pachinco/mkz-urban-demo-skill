@@ -43,8 +43,8 @@ class MkzUrbanDemo(MycroftSkill):
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
-        self.gui.register_handler('mkz-urban-demo-skill.route_update', self._route_update)
-        self.gui.register_handler('mkz-urban-demo-skill.route_next_segment', self._route_next_segment)
+        self.gui.register_handler('mkz-urban-demo-skill.route_new', self._route_new)
+        #self.gui.register_handler('mkz-urban-demo-skill.route_next_segment', self._route_next_segment)
         self.gui["uiIdx"] = -2
         self.gui["routeReady"] = False
         self.gui["routeTotalTime"] = 0
@@ -52,8 +52,8 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeNum"] = 0
         self.gui["routeSegments"] = 0
         self.gui["routeSegment"] = 0
-        self.gui["routePath"] = 0
-        self.gui["routePath"] = []
+        #self.gui["routePath"] = 0
+        #self.gui["routePath"] = []
         self.gui["routeDistance"] = 0
         self.gui["routePositionLat"] = 0
         self.gui["routePositionLon"] = 0
@@ -78,6 +78,8 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["mode3D"] = True
         self.gui["modeTraffic"] = False
         self.gui["modeNight"] = False
+        self.gui["carPositionLat"] = 0
+        self.gui["carPositionLon"] = 0
         self.gui["carPosition"] = {"lat": 37.3964, "lon": -122.034}
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
                                   {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
@@ -180,41 +182,55 @@ class MkzUrbanDemo(MycroftSkill):
         #hh_mm = nice_time(dt, speech=False, use_24hour=False)
         self.gui["datetime"] = dt_str
 
-    def _route_update(self, message):
-        self.route_path = 0
-        self.speak(message.data["string"])
+    def _route_new(self, message):
+        #self.route_path = 0
+        #self.speak(message.data["string"])
+        self.speak(self.gui["routeInstruction"])
         self.log.info("total time: %d seconds",self.gui["routeTime"])
         self.log.info("total distance: %d meters",self.gui["routeDistance"])
         self.log.info("position: %f %f",self.gui["routePositionLat"],self.gui["routePositionLon"])
         self.log.info("next position: %f %f",self.gui["routeNextPositionLat"],self.gui["routeNextPositionLon"])
         self.log.info("segments: %d",self.gui["routeSegments"])
-        self.path = ast.literal_eval(self.gui["routePath"])
-        self.log.info("path: %d",len(self.path))
-        self.log.info(self.path[self.route_path])
-        self.gui["carPosition"] = {"lat": self.path[self.route_path]["lat"], "lon": self.path[self.route_path]["lon"]}
-        if (len(self.path)>0):
-            self.schedule_event(self._route_next_path, 1)
+        #self.path = ast.literal_eval(self.gui["routePath"])
+        #self.log.info("path: %d",len(self.path))
+        #self.log.info(self.path[self.route_path])
+        #self.gui["carPosition"] = {"lat": self.path[self.route_path]["lat"], "lon": self.path[self.route_path]["lon"]}
+        if (self.gui["routeNext"]):
+            if (self.gui["routeTimeToNext"]>5):
+                self.schedule_event(self._route_next_instruction, 3)
+            else:
+                self._route_next_instruction()
 
-    def _route_next_path(self):
-        self.route_path = self.route_path+1
-        self.log.info("route_path=%d",self.route_path)
-        if (self.route_path<len(self.path)):
-            self.log.info(self.path[self.route_path])
-            self.gui["carPosition"] = {"lat": self.path[self.route_path]["lat"], "lon": self.path[self.route_path]["lon"]}
-            self.schedule_event(self._route_next_path, 1)
+    def _route_next_instruction(self):
+        if (self.gui["modeAutonomous"]):
+            self.speak("Next, "+self.gui["routeNextInstruction"])
         else:
-            route_segment = self.gui["routeSegment"]+1
-            if (route_segment<self.gui["routeSegments"]):
-                self.gui["routeSegment"] = route_segment
+            self.speak("In "+str(round(self.gui["routeDistanceToNext"]))+" meters. "+self.gui["routeNextInstruction"])
+        self.schedule_event(self._route_wait_next_position, 1)
+
+    def _route_wait_next_position(self):
+        
+
+    #def _route_next_path(self):
+        #self.route_path = self.route_path+1
+        #self.log.info("route_path=%d",self.route_path)
+        #if (self.route_path<len(self.path)):
+            #self.log.info(self.path[self.route_path])
+            #self.gui["carPosition"] = {"lat": self.path[self.route_path]["lat"], "lon": self.path[self.route_path]["lon"]}
+            #self.schedule_event(self._route_next_path, 1)
+        #else:
+            #route_segment = self.gui["routeSegment"]+1
+            #if (route_segment<self.gui["routeSegments"]):
+                #self.gui["routeSegment"] = route_segment
             #if (self.gui["routeNext"]):
                 #self.schedule_event(self._route_next_segment, 2)
             
-    def _route_next_segment(self):
+    #def _route_next_segment(self):
         #self.gui["carPosition"] = {"latitude": self.gui["routeNextPositionLat"], "longitude": self.gui["routeNextPositionLon"]}
-        if (self.gui["modeAutonomous"]):
-            self.speak("Next, "+self.gui["routeNextInstruction"], wait=True)
-        else:
-            self.speak("In "+str(round(self.gui["routeDistanceToNext"]))+" meters. "+self.gui["routeNextInstruction"], wait=True)
+        #if (self.gui["modeAutonomous"]):
+            #self.speak("Next, "+self.gui["routeNextInstruction"], wait=True)
+        #else:
+            #self.speak("In "+str(round(self.gui["routeDistanceToNext"]))+" meters. "+self.gui["routeNextInstruction"], wait=True)
 
 def create_skill():
     return MkzUrbanDemo()
