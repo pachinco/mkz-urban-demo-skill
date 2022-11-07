@@ -211,11 +211,9 @@ Mycroft.Delegate {
 
     function carAnimateNextStep(init) {
         if (routeModel.status != RouteModel.Ready) return
-        if (init) {
+        if (init===true) {
             routeSegment = 0;
             routePath = 0;
-//             if (routeModel.get(0).segments.length<1) return
-//             if (routeModel.get(0).segments[routeSegment].path.length<2) return
         }
         if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
             routePath = routePath+1;
@@ -417,7 +415,7 @@ Mycroft.Delegate {
                         var distance = oldLocation.coordinate.distanceTo(carLocation.coordinate);
                         console.log("carLocation distance: ",distance);
                         console.log("carLocation speed: ",carAnimateSpeed);
-                        carAnimateTime = (distance<1) ? 10: distance*1000/carAnimateSpeed;
+                        carAnimateTime = distance*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
                     }
@@ -425,7 +423,7 @@ Mycroft.Delegate {
                 Behavior on coordinate {
                     enabled: carAnimate
                     CoordinateAnimation {
-                        duration: (carAnimateTime>0) ? carAnimateTime : 10
+                        duration: (carAnimateTime>10) ? carAnimateTime : 10
                         alwaysRunToEnd: false
                         easing.type: Easing.Linear
                         onRunningChanged: {
