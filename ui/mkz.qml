@@ -223,8 +223,6 @@ Mycroft.Delegate {
         var distance = routeModel.get(0).segments[routeSegment].distance;
         var time = routeModel.get(0).segments[routeSegment].travelTime;
         console.log("route "+routeSegment+"/"+routePath+" coordinate: "+routeModel.get(0).segments[routeSegment].path[routePath].latitude+","+routeModel.get(0).segments[routeSegment].path[routePath].longitude);
-//         console.log("segment #"+routeSegment+" distance: ",distance);
-//         console.log("segment #"+routeSegment+" time: ",time);
         carAnimateSpeed = distance/time;
 //         console.log("carAnimateSpeed: ",carAnimateSpeed);
         carLocation.coordinate = routeModel.get(0).segments[routeSegment].path[routePath];
@@ -315,7 +313,7 @@ Mycroft.Delegate {
                 NumberAnimation { duration: 500 }
             }
             Behavior on bearing {
-                enabled: (carAnimate) ? false : true
+//                 enabled: (carAnimate) ? false : true
                 RotationAnimation {
                     duration: 500
                     alwaysRunToEnd: false
@@ -323,7 +321,7 @@ Mycroft.Delegate {
                 }
             }
             Behavior on center {
-                enabled: (carAnimate) ? false : true
+//                 enabled: (carAnimate) ? false : true
                 CoordinateAnimation {
                     duration: 500
                     alwaysRunToEnd: false
@@ -426,7 +424,7 @@ Mycroft.Delegate {
                         alwaysRunToEnd: false
                         easing.type: Easing.Linear
                         onRunningChanged: {
-                            if (!carMarkerAnimator) {
+                            if (!carMarkerAnimator.running) {
                                 console.log("carMarkerAnimator finished.");
                                 carAnimateNextStep(false)
                             }
