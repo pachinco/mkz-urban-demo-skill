@@ -411,8 +411,6 @@ Mycroft.Delegate {
                     if (oldLocation.coordinate != carLocation.coordinate) {
                         carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
                         var distance = oldLocation.coordinate.distanceTo(carLocation.coordinate);
-//                         console.log("carLocation distance: ",distance);
-//                         console.log("carLocation speed: ",carAnimateSpeed);
                         carAnimateTime = distance*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
@@ -425,11 +423,10 @@ Mycroft.Delegate {
                     enabled: carAnimate
                     CoordinateAnimation {
                         duration: (carAnimateTime>1) ? carAnimateTime : 1
-//                         alwaysRunToEnd: false
+                        alwaysRunToEnd: true
                         easing.type: Easing.Linear
-                        onRunningChanged: {
-                            if (!running)
-                                carAnimateNextStep(false)
+                        onFinished: {
+                            carAnimateNextStep(false)
                         }
                     }
                 }
