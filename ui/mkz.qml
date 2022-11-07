@@ -415,7 +415,7 @@ Mycroft.Delegate {
                         console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
                         if (carAnimate)
-                            center = carLocation.coordinate;
+                            map.center = carLocation.coordinate;
                     }
                 }
                 Behavior on coordinate {
