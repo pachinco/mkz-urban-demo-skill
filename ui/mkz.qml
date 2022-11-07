@@ -411,8 +411,8 @@ Mycroft.Delegate {
                         var distance = oldLocation.coordinate.distanceTo(carLocation.coordinate);
                         carAnimateTime = distance*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
-                        oldLocation.coordinate = carLocation.coordinate;
                         carMarkerAnimator.start();
+                        oldLocation.coordinate = carLocation.coordinate;
 //                         if (carAnimate && modeFollow) map.center = carLocation.coordinate;
 //                         if (carAnimate && !modeNorth) map.bearing = carBearing;
                     }
