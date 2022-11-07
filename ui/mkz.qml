@@ -495,8 +495,8 @@ Mycroft.Delegate {
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                     transform: [
-                        Rotation { origin.x: 25; origin.y: 25;  angle: carBearing-map.bearing }
-//                         Rotation { origin.x: 25; origin.y: 25; axis: { x: 1; y: 0; z: 0 } angle: -map.tilt }
+//                         Rotation { origin.x: 18; origin.y: 25;  angle: carBearing-map.bearing }
+                        Rotation { origin.x: 18; origin.y: 25; axis: { x: 1; y: 0; z: 0 } angle: map.tilt }
                     ]
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
