@@ -211,10 +211,10 @@ Mycroft.Delegate {
 
     function carAnimateNextStep(init) {
         if (routeModel.status != RouteModel.Ready) return
-        if (init===true) {
-            routeSegment = 0;
-            routePath = 0;
-        }
+//         if (init===true) {
+//             routeSegment = 0;
+//             routePath = 0;
+//         }
         if (routePath<routeModel.get(0).segments[routeSegment].path.length-1) {
             routePath = routePath+1;
         } else if (routeSegment<routeModel.get(0).segments.length) {
@@ -1077,8 +1077,8 @@ Mycroft.Delegate {
         }
         onStatusChanged: {
             if (routeModel.status === RouteModel.Ready) {
-//                 routeSegment = 0;
-//                 routePath = 0;
+                routeSegment = 0;
+                routePath = 0;
                 routeList.currentIndex = 0;
                 carAnimateNextStep(true);
 //                 sessionGetManeuver(0, 0);
