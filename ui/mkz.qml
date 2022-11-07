@@ -38,7 +38,7 @@ Mycroft.Delegate {
     property bool mode3D: sessionData.mode3D
     property bool modeTraffic: sessionData.modeTraffic
     property bool modeNight: sessionData.modeNight
-    property bool carAnimate: false
+    property bool carAnimate: true
     property real carAnimateTime: 1
     property real carAnimateSpeed: 1
     property bool mapOn: false
