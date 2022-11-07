@@ -315,6 +315,7 @@ Mycroft.Delegate {
                 NumberAnimation { duration: 500 }
             }
             Behavior on bearing {
+                enabled: (carAnimate) ? false : true
                 RotationAnimation {
                     duration: 500
                     alwaysRunToEnd: false
@@ -415,15 +416,15 @@ Mycroft.Delegate {
                         carAnimateTime = distance*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
-//                         if (carAnimate && modeFollow)
-//                             map.center = carLocation.coordinate;
+                        if (carAnimate && modeFollow) map.center = carLocation.coordinate;
+                        if (carAnimate && !modeNorth) map.bearing = carBearing;
                     }
                 }
                 Behavior on coordinate {
                     id: carMarkerAnimator
                     enabled: carAnimate
                     CoordinateAnimation {
-                        duration: (carAnimateTime>10) ? carAnimateTime : 10
+                        duration: (carAnimateTime>1) ? carAnimateTime : 1
 //                         alwaysRunToEnd: false
                         easing.type: Easing.Linear
                         onRunningChanged: {
