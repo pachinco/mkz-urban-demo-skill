@@ -89,7 +89,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
         #self.speak_dialog('demo.urban.mkz', wait=True)
         self.schedule_repeating_event(self._update_display_time, None, 10)
-        #self.schedule_event(self._whats_next, 3)
+        self.schedule_event(self._whats_next, 3)
 
     @intent_file_handler('status.ad.mkz.intent')
     def handle_ad_status_mkz(self, message):
@@ -135,7 +135,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.speak("What's next?", expect_response=True, wait=True)
         #self.gui.show_page(str(self.mkz_list_ui))
         self.gui["uiIdx"] = -1
-        self.schedule_event(self._switch_config, 3)
+        #self.schedule_event(self._switch_config, 3)
 
     def _switch_config(self):
         self.gui["actionsList"] = []
