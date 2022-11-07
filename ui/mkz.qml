@@ -405,30 +405,31 @@ Mycroft.Delegate {
                 id: carLocation
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 onCoordinateChanged: {
-                    if (carMarkerAnimator.running) return
+//                     if (carMarkerAnimator.running) return
                     if (oldLocation.coordinate != carLocation.coordinate) {
                         carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
                         var distance = oldLocation.coordinate.distanceTo(carLocation.coordinate);
                         carAnimateTime = distance*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
+                        carMarkerAnimator.start();
 //                         if (carAnimate && modeFollow) map.center = carLocation.coordinate;
 //                         if (carAnimate && !modeNorth) map.bearing = carBearing;
                     }
                 }
-                Behavior on coordinate {
-                    enabled: carAnimate
-                    CoordinateAnimation {
-                        id: carMarkerAnimator
-                        duration: (carAnimateTime>1) ? carAnimateTime : 1
-                        alwaysRunToEnd: true
-                        easing.type: Easing.Linear
-                        onRunningChanged: {
-                            if (!carMarkerAnimator.running) {
-//                                 console.log("carMarkerAnimator finished.");
-                                carAnimateNextStep(false)
-                            }
-                        }
+//                 Behavior on coordinate {
+//                     enabled: carAnimate
+//                 }
+            }
+            CoordinateAnimation {
+                id: carMarkerAnimator
+                duration: (carAnimateTime>1) ? carAnimateTime : 1
+                alwaysRunToEnd: true
+                easing.type: Easing.Linear
+                onRunningChanged: {
+                    if (!carMarkerAnimator.running) {
+                                console.log("carMarkerAnimator finished.");
+                        carAnimateNextStep(false)
                     }
                 }
             }
