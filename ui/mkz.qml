@@ -410,7 +410,7 @@ Mycroft.Delegate {
                 onCoordinateChanged: {
                     if (oldLocation.coordinate != carLocation.coordinate) {
                         carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
-                        carAnimateTime = abs(oldLocation.coordinate.distanceTo(carLocation.coordinate))*1000/carAnimateSpeed;
+                        carAnimateTime = oldLocation.coordinate.distanceTo(carLocation.coordinate)*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
                         oldLocation.coordinate = carLocation.coordinate;
                     }
