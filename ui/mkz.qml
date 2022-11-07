@@ -45,8 +45,8 @@ Mycroft.Delegate {
     property real carBearing: 0
     property int routeSegment: sessionData.routeSegment
     property int routePath: sessionData.routePath
-    property real carPositionLat: sessionData.carPositionLat
-    property real carPositionLon: sessionData.carPositionLon
+//     property real carPositionLat: sessionData.carPositionLat
+//     property real carPositionLon: sessionData.carPositionLon
 
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
@@ -80,12 +80,12 @@ Mycroft.Delegate {
         console.log("onCarPositionChanged: Lat="+carPosition.lat+" Lon="+carPosition.lon);
         newLocation.coordinate = QtPositioning.coordinate(carPosition.lat, carPosition.lon);
     }
-    onCarPositionLatChanged: {
-        sessionData.carPositionLat = carPositionLat;
-    }
-    onCarPositionLonChanged: {
-        sessionData.carPositionLon = carPositionLon;
-    }
+//     onCarPositionLatChanged: {
+//         sessionData.carPositionLat = carPositionLat;
+//     }
+//     onCarPositionLonChanged: {
+//         sessionData.carPositionLon = carPositionLon;
+//     }
     onRouteSegmentChanged: {
         sessionData.routeSegment = routeSegment;
         routeList.currentIndex = routeSegment;
@@ -452,8 +452,9 @@ Mycroft.Delegate {
                 onRunningChanged: {
                     if (!carMarkerAnimator.running) {
                         oldLocation.coordinate = newLocation.coordinate;
-                        carPositionLat = newLocation.coordinate.latitude;
-                        carPositionLon = newLocation.coordinate.longitude;
+//                         sessionData.carPositionLat = newLocation.coordinate.latitude;
+//                         sessionData.carPositionLon = newLocation.coordinate.longitude;
+                        triggerGuiEvent("mkz-urban-demo-skill.route_position", {"lat": newLocation.coordinate.latitude, "lon": newLocation.coordinate.longitude});
 //                         carLocation.coordinate = newLocation.coordinate;
 //                         console.log("carMarkerAnimator finished.");
                         carAnimateNextStep(false)

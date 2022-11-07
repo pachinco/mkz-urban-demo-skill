@@ -44,6 +44,7 @@ class MkzUrbanDemo(MycroftSkill):
     def handle_demo_urban_mkz(self, message):
         self.gui.clear()
         self.gui.register_handler('mkz-urban-demo-skill.route_new', self._route_new)
+        self.gui.register_handler('mkz-urban-demo-skill.route_position', self._route_position)
         #self.gui.register_handler('mkz-urban-demo-skill.route_next_segment', self._route_next_segment)
         self.gui["uiIdx"] = -2
         self.gui["routeReady"] = False
@@ -78,8 +79,8 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["mode3D"] = True
         self.gui["modeTraffic"] = False
         self.gui["modeNight"] = False
-        self.gui["carPositionLat"] = 0
-        self.gui["carPositionLon"] = 0
+        #self.gui["carPositionLat"] = 0
+        #self.gui["carPositionLon"] = 0
         self.gui["carPosition"] = {"lat": 37.3964, "lon": -122.034}
         self.gui["uiButtons"] = [{"ui": "config", "idx": 0, "image": "../images/LightningIcon.png"},
                                   {"ui": "map", "idx": 1, "image": "../images/NavigationIcon.png"},
@@ -208,10 +209,11 @@ class MkzUrbanDemo(MycroftSkill):
             self.speak("In "+str(round(self.gui["routeDistanceToNext"]))+" meters. "+self.gui["routeNextInstruction"])
         #self.schedule_event(self._route_wait_next_position, 1)
 
-    #def _route_wait_next_position(self):
-        #if ((abs(self.gui["carPositionLat"]-self.gui["routeNextPositionLat"])<0.0001)\
-            #&& (abs(self.gui["carPositionLon"]-self.gui["routeNextPositionLon"])<0.0001)):
-            #self.speak(self.gui["routeNextInstruction"])
+    def _route_position(self, message):
+        lat = message.data["lat"]
+        lon = message.data["lon"]
+        if ((abs(self.gui["routeNextPositionLat"]-lat)<0.0001) && (abs(self.gui["routeNextPositionLon"]-lon)<0.0001)):
+            self.speak(self.gui["routeNextInstruction"])
         #else:
             #self.schedule_event(self._route_wait_next_position, 1)
 
