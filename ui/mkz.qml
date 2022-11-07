@@ -411,6 +411,8 @@ Mycroft.Delegate {
                         var distance = oldLocation.coordinate.distanceTo(newLocation.coordinate);
                         carAnimateTime = distance*1000/carAnimateSpeed;
                         console.log("carAnimateTime: ",carAnimateTime);
+                        carMarkerAnimator.from = oldLocation.coordinate;
+                        carMarkerAnimator.to = newLocation.coordinate;
                         carMarkerAnimator.start();
 //                             oldLocation.coordinate = newLocation.coordinate;
 //                         if (carAnimate && modeFollow) map.center = carLocation.coordinate;
@@ -428,10 +430,10 @@ Mycroft.Delegate {
             CoordinateAnimation {
                 id: carMarkerAnimator
                 duration: (carAnimateTime>1) ? carAnimateTime : 1
-                target: carLocation
+                target: carMarker
                 property: "coordinate"
-                from: oldLocation.coordinate
-                to: newLocation.coordinate
+//                 from: oldLocation.coordinate
+//                 to: newLocation.coordinate
                 alwaysRunToEnd: true
                 easing.type: Easing.Linear
                 onRunningChanged: {
@@ -440,6 +442,7 @@ Mycroft.Delegate {
                         console.log("carMarkerAnimator to: "+newLocation.coordinate);
                     } else {
                         oldLocation.coordinate = newLocation.coordinate;
+                        carLocation.coordinate = newLocation.coordinate;
                         console.log("carMarkerAnimator finished.");
                         carAnimateNextStep(false)
                     }
