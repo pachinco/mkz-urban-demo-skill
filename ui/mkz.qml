@@ -313,7 +313,7 @@ Mycroft.Delegate {
                 NumberAnimation { duration: 500 }
             }
             Behavior on bearing {
-                enabled: (carAnimate) ? false : true
+//                 enabled: (carAnimate) ? false : true
                 RotationAnimation {
                     duration: 500
                     alwaysRunToEnd: false
