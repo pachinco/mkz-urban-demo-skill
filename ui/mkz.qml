@@ -225,7 +225,7 @@ Mycroft.Delegate {
         console.log("segment #"+routeSegment+" time: ",time);
         carAnimateSpeed = distance/time;
         console.log("carAnimateSpeed: ",carAnimateSpeed);
-        carLocation.coordinate = QtPositioning.coordinate();
+        carLocation.coordinate = routeModel.get(0).segments[routeSegment].path[routePath];
     }
     onCarAnimateChanged: {
         if (carAnimate)
