@@ -39,6 +39,8 @@ Mycroft.Delegate {
     property bool modeTraffic: sessionData.modeTraffic
     property bool modeNight: sessionData.modeNight
     property bool carAnimate: true
+    property real carAnimateTime: 1
+    property real carAnimateSpeed: 1
     property bool mapOn: false
     property real carBearing: 0
     property int routeSegment: sessionData.routeSegment
@@ -232,7 +234,7 @@ Mycroft.Delegate {
     }
     onCarAnimateChanged: {
         if (carAnimate)
-            mapMap.map.carAnimateNextStep(-1);
+            carAnimateNextStep(-1);
     }
 
 
@@ -407,7 +409,7 @@ Mycroft.Delegate {
                 onCoordinateChanged: {
                     if (oldLocation.coordinate != carLocation.coordinate) {
                         carBearing = oldLocation.coordinate.azimuthTo(carLocation.coordinate);
-                        carAnimateTime = oldLocation.coordinate.distanceTo(carLocation.coordinate)*1000/carSpeed;
+                        carAnimateTime = oldLocation.coordinate.distanceTo(carLocation.coordinate)*1000/carAnimateSpeed;
                         oldLocation.coordinate = carLocation.coordinate;
                     }
                 }
