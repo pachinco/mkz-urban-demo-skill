@@ -227,7 +227,7 @@ Mycroft.Delegate {
                 } else
                     return
         }
-        carSpeed = routeModel.get(0).segments[segment].distane/routeModel.get(0).segments[segment].travelTime;
+        carSpeed = routeModel.get(0).segments[routeSegment].distane/routeModel.get(0).segments[routeSegment].travelTime;
         carLocation.coordinate = QtPositioning.coordinate();
     }
     onCarAnimateChanged: {
