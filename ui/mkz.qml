@@ -229,9 +229,16 @@ Mycroft.Delegate {
                 } else
                     return
         }
-        console.log("segment #"+routeSegment+" distance: ",routeModel.get(0).segments[routeSegment].distane);
-        console.log("segment #"+routeSegment+" time: ",routeModel.get(0).segments[routeSegment].travelTime);
-        carAnimateSpeed = routeModel.get(0).segments[routeSegment].distane/routeModel.get(0).segments[routeSegment].travelTime;
+        var distance = routeModel.get(0).segments[routeSegment].distance;
+        var time = routeModel.get(0).segments[routeSegment].travelTime;
+        console.log("segment #"+routeSegment+" distance: ",distance);
+        console.log("segment #"+routeSegment+" time: ",time);
+//         if (distance<1) {
+//             distance = 0;
+//             for (let i = 1; i < routeModel.get(route).segments[man].path.length; i++)
+//                 distance = distance+routeModel.get(0).segments[routeSegment].path[i-1].distanceTo(routeModel.get(0).segments[routeSegment].path[i]);
+//         }
+        carAnimateSpeed = distane/time;
         console.log("carAnimateSpeed: ",carAnimateSpeed);
         if (carAnimateSpeed>0)
             carLocation.coordinate = QtPositioning.coordinate();
