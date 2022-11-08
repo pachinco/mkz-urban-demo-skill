@@ -509,8 +509,8 @@ Mycroft.Delegate {
                     {
                         transparentBorder: true
                         color: "#80000000"
-                        horizontalOffset: 10
-                        verticalOffset: 10
+                        horizontalOffset: 10*Math.cos((map.bearing-carBearing)
+                        verticalOffset: 10*Math.cos((map.bearing-carBearing)
 //                         horizontalOffset: 8*Math.cos((map.bearing-carBearing)*Math.PI/180)*Math.cos(map.tilt*Math.PI/180)
 //                         verticalOffset: 8*Math.sin((map.bearing-carBearing)*Math.PI/180)+8*Math.sin(map.tilt*Math.PI/180)
                     }
