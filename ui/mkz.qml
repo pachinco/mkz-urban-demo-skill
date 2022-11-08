@@ -517,7 +517,7 @@ Mycroft.Delegate {
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 anchorPoint.x: locationMarker.width/2
                 anchorPoint.y: locationMarker.height/2
-                visible: modeMarker
+//                 visible: modeMarker
                 MouseArea  {
                     drag.target: parent
                     anchors.fill: parent
