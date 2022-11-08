@@ -503,11 +503,10 @@ Mycroft.Delegate {
                     layer.effect: DropShadow
                     {
                         transparentBorder: true
+                        opacity: 0.5
 
-                        horizontalOffset: baseOffset
-                        verticalOffset: baseOffset
-//                         horizontalOffset: baseOffset + Math.cos(-angleRad)*imgSpinner.width
-//                         verticalOffset: baseOffset + Math.sin(-angleRad)*imgSpinner.height
+                        horizontalOffset: baseOffset*Math.cos(-map.bearing)//*imgSpinner.width
+                        verticalOffset: baseOffset*Math.sin(-map.bearing)//*imgSpinner.height
 
                         property real baseOffset: 8
 //                         property real angleRad: imgSpinner.rotation*(2* Math.PI/360)
