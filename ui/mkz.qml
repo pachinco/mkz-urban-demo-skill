@@ -491,7 +491,8 @@ Mycroft.Delegate {
                 id: carMarker
                 sourceItem: Image {
                     id: locationMarker
-                    source: "../images/circle-pink-arrow.png"
+//                     source: "../images/circle-pink-arrow.png"
+                    source: "../images/marker-arrow-blue.png"
                     height: 60
                     fillMode: Image.PreserveAspectFit
                     opacity: (modeNight) ? 0.8 : 1.0
@@ -536,16 +537,16 @@ Mycroft.Delegate {
                 id: endMarker
 
                 sourceItem: Image {
-                    id: redMarker
+                    id: destinationMarker
                     source: "../images/Map_marker_pink.png"
-                    height: 50
+                    height: 60
                     mipmap: true
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
                 coordinate : QtPositioning.coordinate(37.4,-122.03)
-                anchorPoint.x: redMarker.width/2
-                anchorPoint.y: redMarker.height
+                anchorPoint.x: destinationMarker.width/2
+                anchorPoint.y: destinationMarker.height
                 visible: modeMarker
                 MouseArea  {
                     drag.target: parent
