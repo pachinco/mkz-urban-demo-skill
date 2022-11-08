@@ -494,7 +494,7 @@ Mycroft.Delegate {
                     source: "../images/circle-pink-arrow.png"
                     height: 60
                     fillMode: Image.PreserveAspectFit
-                    opacity: (modeNight) ? 0.8 : 1.0
+                    opacity: 0.8
                     mipmap: true
                     transform: [
                         Rotation {
