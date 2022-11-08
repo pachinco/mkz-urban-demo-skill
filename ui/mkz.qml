@@ -490,7 +490,7 @@ Mycroft.Delegate {
                 id: carMarker
                 sourceItem: Image {
                     id: locationMarker
-                    source: "../images/circle-ring-arrow.png"
+                    source: "../images/circle-pink-arrow.png"
                     height: 80
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
@@ -499,6 +499,19 @@ Mycroft.Delegate {
                         Rotation { origin.x: 40; origin.y: 40; angle: carBearing-map.bearing },
                         Rotation { origin.x: 40; origin.y: 40; axis.x: 1; axis.y: 0; axis.z: 0; angle: map.tilt }
                     ]
+                    layer.enabled: true
+                    layer.effect: DropShadow
+                    {
+                        transparentBorder: true
+
+                        horizontalOffset: baseOffset
+                        verticalOffset: baseOffset
+//                         horizontalOffset: baseOffset + Math.cos(-angleRad)*imgSpinner.width
+//                         verticalOffset: baseOffset + Math.sin(-angleRad)*imgSpinner.height
+
+                        property real baseOffset: 8
+//                         property real angleRad: imgSpinner.rotation*(2* Math.PI/360)
+                    }
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
                 anchorPoint.x: locationMarker.width/2
