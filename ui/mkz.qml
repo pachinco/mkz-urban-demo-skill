@@ -491,13 +491,13 @@ Mycroft.Delegate {
                 sourceItem: Image {
                     id: locationMarker
                     source: "../images/circle-pink-arrow.png"
-                    height: 80
+                    height: 60
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                     mipmap: true
                     transform: [
-                        Rotation { origin.x: 40; origin.y: 40; angle: carBearing-map.bearing },
-                        Rotation { origin.x: 40; origin.y: 40; axis.x: 1; axis.y: 0; axis.z: 0; angle: map.tilt }
+                        Rotation { origin.x: 30; origin.y: 30; angle: carBearing-map.bearing },
+                        Rotation { origin.x: 30; origin.y: 30; axis.x: 1; axis.y: 0; axis.z: 0; angle: map.tilt }
                     ]
                     layer.enabled: true
                     layer.effect: DropShadow
