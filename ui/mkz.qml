@@ -512,8 +512,12 @@ Mycroft.Delegate {
                         color: "#80000000"
                         horizontalOffset: 10*Math.sin((carBearing-map.bearing)*Math.PI/180)
                         verticalOffset: 10*Math.cos((carBearing-map.bearing)*Math.PI/180)
-//                         horizontalOffset: 8*Math.cos((map.bearing-carBearing)*Math.PI/180)*Math.cos(map.tilt*Math.PI/180)
-//                         verticalOffset: 8*Math.sin((map.bearing-carBearing)*Math.PI/180)+8*Math.sin(map.tilt*Math.PI/180)
+                        Behavior on horizontalOffset {
+                            PropertyAnimation { duration: 500 }
+                        }
+                        Behavior on verticalOffset {
+                            PropertyAnimation { duration: 500 }
+                        }
                     }
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
