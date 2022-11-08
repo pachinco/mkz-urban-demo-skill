@@ -490,7 +490,7 @@ Mycroft.Delegate {
                 id: carMarker
                 sourceItem: Image {
                     id: locationMarker
-                    source: "../images/circle-arrow-shadow.png"
+                    source: "../images/circle-ring-arrow.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
