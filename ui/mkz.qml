@@ -382,7 +382,7 @@ Mycroft.Delegate {
                 property var layer: "3d-buildings"
                 property var fillExtrusionColor: "#00617f"
                 property var fillExtrusionOpacity: 0.5
-                property var fillExtrusionHeight: { return 10*{ type: "identity", property: "height" } }
+                property var fillExtrusionHeight: { return { type: "identity", property: "height*10" } }
                 property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
             }
 
