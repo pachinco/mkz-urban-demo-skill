@@ -382,8 +382,10 @@ Mycroft.Delegate {
                 property var layer: "3d-buildings"
                 property var fillExtrusionColor: "#00617f"
                 property var fillExtrusionOpacity: 0.5
-                property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
-                property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
+//                 property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
+                property var fillExtrusionHeight: { return { property: "height", type: "interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "height"] } }
+//                 property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
+                property var fillExtrusionBase: { return { property: "min_height", type: "interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "min_height"] } }
             }
 
 //             Component.onCompleted: {
@@ -518,10 +520,10 @@ Mycroft.Delegate {
                 anchorPoint.x: locationMarker.width/2
                 anchorPoint.y: locationMarker.height/2
 //                 visible: modeMarker
-                MouseArea  {
-                    drag.target: parent
-                    anchors.fill: parent
-                }
+//                 MouseArea  {
+//                     drag.target: parent
+//                     anchors.fill: parent
+//                 }
 //                 onCoordinateChanged: {
 //                     map.routeUpdate();
 //                 }
