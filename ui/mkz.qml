@@ -259,6 +259,7 @@ Mycroft.Delegate {
     Item {
         id: mapMap
         anchors.fill: parent
+        anchors.topMargin: topFrame.height
         z: -5
         state: ((sessionData.uiIdx===1) || mapOn) ? "ACTIVE" : "INACTIVE"
         states: [
