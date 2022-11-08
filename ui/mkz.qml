@@ -507,7 +507,7 @@ Mycroft.Delegate {
 //                         horizontalOffset: 5
 //                         verticalOffset: -5
                         horizontalOffset: 8*Math.cos((map.bearing-carBearing)*Math.PI/180)
-                        verticalOffset: 8*Math.sin((map.bearing-carBearing)*Math.PI/180)
+                        verticalOffset: -8*Math.sin((map.bearing-carBearing)*Math.PI/180)
                     }
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
