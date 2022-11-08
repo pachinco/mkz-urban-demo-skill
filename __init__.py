@@ -215,8 +215,9 @@ class MkzUrbanDemo(MycroftSkill):
     def _route_position(self, message):
         lat = message.data["lat"]
         lon = message.data["lon"]
-        self.log.info("route position: %f %f",lat,lon)
-        self.log.info("segment: %d / path: %d",message.data["segment"],message.data["path"])
+        #self.log.info("route position: %f %f",lat,lon)
+        self.log.info("route position: %f,%f -> %f,%f",lat,lon,self.gui["routeNextPositionLat"],self.gui["routeNextPositionLon"])
+        self.log.info("segment: %d(%d) / path: %d",message.data["segment"],message.data["segments"],message.data["path"])
         if (self.gui["routeNext"]\
             and not self.gui["routeNextAnnouced"]\
             and (abs(self.gui["routeNextPositionLat"]-lat)<0.0001)\
