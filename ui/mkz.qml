@@ -503,13 +503,9 @@ Mycroft.Delegate {
                     layer.effect: DropShadow
                     {
                         transparentBorder: true
-                        opacity: 0.5
-
-                        horizontalOffset: baseOffset*Math.cos(-map.bearing)//*imgSpinner.width
-                        verticalOffset: baseOffset*Math.sin(-map.bearing)//*imgSpinner.height
-
-                        property real baseOffset: 8
-//                         property real angleRad: imgSpinner.rotation*(2* Math.PI/360)
+                        color: "#80000000"
+                        horizontalOffset: 8*Math.cos(-map.bearing*Math.PI/180)//*imgSpinner.width
+                        verticalOffset: 8*Math.sin(-map.bearing*Math.PI/180)//*imgSpinner.height
                     }
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
