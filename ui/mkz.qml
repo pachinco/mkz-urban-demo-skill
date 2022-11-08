@@ -339,7 +339,7 @@ Mycroft.Delegate {
             Behavior on bearing {
 //                 enabled: (carAnimate) ? false : true
                 RotationAnimation {
-                    duration: 1000
+                    duration: 500
                     alwaysRunToEnd: false
                     direction: RotationAnimation.Shortest
                 }
