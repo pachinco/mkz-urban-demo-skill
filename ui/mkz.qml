@@ -370,7 +370,7 @@ Mycroft.Delegate {
                 property var source: "composite"
                 property var sourceLayer: "building"
                 property var layerType: "fill-extrusion"
-                property var minzoom: 15.0
+                property var minzoom: 12.0
             }
             MapParameter {
                 type: "filter"
@@ -382,7 +382,7 @@ Mycroft.Delegate {
                 property var layer: "3d-buildings"
                 property var fillExtrusionColor: "#00617f"
                 property var fillExtrusionOpacity: 0.5
-                property var fillExtrusionHeight: { return { type: "identity", property: "height*10" } }
+                property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
                 property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
             }
 
