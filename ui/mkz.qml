@@ -504,8 +504,8 @@ Mycroft.Delegate {
                     {
                         transparentBorder: true
                         color: "#80000000"
-                        horizontalOffset: 8*Math.cos(-map.bearing*Math.PI/180)//*imgSpinner.width
-                        verticalOffset: 8*Math.sin(-map.bearing*Math.PI/180)//*imgSpinner.height
+                        horizontalOffset: 8*Math.cos(map.bearing*Math.PI/180)//*imgSpinner.width
+                        verticalOffset: 8*Math.sin(map.bearing*Math.PI/180)//*imgSpinner.height
                     }
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
