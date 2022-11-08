@@ -489,8 +489,8 @@ Mycroft.Delegate {
             MapQuickItem {
                 id: carMarker
                 sourceItem: Image {
-                    id: greenMarker
-                    source: "../images/marker-arrow-blue.png"
+                    id: locationMarker
+                    source: "../images/circle-arrow-shadow.png"
                     height: 50
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
@@ -500,8 +500,8 @@ Mycroft.Delegate {
                     ]
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
-                anchorPoint.x: greenMarker.width/2
-                anchorPoint.y: greenMarker.height/2
+                anchorPoint.x: locationMarker.width/2
+                anchorPoint.y: locationMarker.height/2
                 visible: modeMarker
                 MouseArea  {
                     drag.target: parent
