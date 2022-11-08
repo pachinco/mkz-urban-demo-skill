@@ -491,13 +491,13 @@ Mycroft.Delegate {
                 sourceItem: Image {
                     id: locationMarker
                     source: "../images/circle-ring-arrow.png"
-                    height: 50
+                    height: 100
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                     mipmap: true
                     transform: [
-                        Rotation { origin.x: 25; origin.y: 25; angle: carBearing-map.bearing },
-                        Rotation { origin.x: 25; origin.y: 25; axis.x: 1; axis.y: 0; axis.z: 0; angle: map.tilt }
+                        Rotation { origin.x: 50; origin.y: 50; angle: carBearing-map.bearing },
+                        Rotation { origin.x: 50; origin.y: 50; axis.x: 1; axis.y: 0; axis.z: 0; angle: map.tilt }
                     ]
                 }
                 coordinate: QtPositioning.coordinate(37.3964,-122.034)
