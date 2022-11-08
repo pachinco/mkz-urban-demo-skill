@@ -382,8 +382,8 @@ Mycroft.Delegate {
                 property var layer: "3d-buildings"
                 property var fillExtrusionColor: "#00617f"
                 property var fillExtrusionOpacity: 0.5
-//                 property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
-                property var fillExtrusionHeight: { return { property: "height", type: "interpolate", { type: "linear"}, { type: "zoom" }, { addArgument: "stops", { addArgument: [15, 0, 15.05, { return { type: "get", property: "height"} } ] } } } }
+                property var fillExtrusionHeight: { return { type: "identity", property: "height" } }
+//                 property var fillExtrusionHeight: { return { property: "height", type: "interpolate", { type: "linear"}, { type: "zoom" }, { addArgument: "stops", { addArgument: [15, 0, 15.05, { return { type: "get", property: "height"} } ] } } } }
                 property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
 //                 property var fillExtrusionBase: { return { property: "min_height", type: "interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "min_height"] } }
             }
