@@ -494,7 +494,7 @@ Mycroft.Delegate {
                     source: "../images/circle-pink-arrow.png"
                     height: 60
                     fillMode: Image.PreserveAspectFit
-                    opacity: 0.8
+                    opacity: 0.9
                     mipmap: true
                     transform: [
                         Rotation {
@@ -535,7 +535,7 @@ Mycroft.Delegate {
                     height: 60
                     mipmap: true
                     fillMode: Image.PreserveAspectFit
-                    opacity: 1.0
+                    opacity: 0.9
                 }
                 coordinate : QtPositioning.coordinate(37.4,-122.03)
                 anchorPoint.x: destinationMarker.width/2
