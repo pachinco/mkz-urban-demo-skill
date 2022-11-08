@@ -493,13 +493,13 @@ Mycroft.Delegate {
                     source: "../images/circle-pink-arrow.png"
                     height: 60
                     fillMode: Image.PreserveAspectFit
-                    opacity: 1.0
+                    opacity: (modeNight) ? 0.8 : 1.0
                     mipmap: true
                     transform: [
                         Rotation {
                             origin.x: 30; origin.y: 30; angle: carBearing-map.bearing
                             Behavior on angle {
-                                PropertyAnimation { duration: 100 }
+                                PropertyAnimation { duration: 500 }
                             }
                         },
                         Rotation { origin.x: 30; origin.y: 30; axis.x: 1; axis.y: 0; axis.z: 0; angle: map.tilt }
