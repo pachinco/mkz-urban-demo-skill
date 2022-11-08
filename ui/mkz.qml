@@ -494,6 +494,7 @@ Mycroft.Delegate {
                     height: 50
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
+                    mipmap: true
                     transform: [
                         Rotation { origin.x: 25; origin.y: 25; angle: carBearing-map.bearing },
                         Rotation { origin.x: 25; origin.y: 25; axis.x: 1; axis.y: 0; axis.z: 0; angle: map.tilt }
@@ -518,6 +519,7 @@ Mycroft.Delegate {
                     id: redMarker
                     source: "../images/Map_marker_pink.png"
                     height: 50
+                    mipmap: true
                     fillMode: Image.PreserveAspectFit
                     opacity: 1.0
                 }
