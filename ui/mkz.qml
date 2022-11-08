@@ -496,7 +496,12 @@ Mycroft.Delegate {
                     opacity: 1.0
                     mipmap: true
                     transform: [
-                        Rotation { origin.x: 30; origin.y: 30; angle: carBearing-map.bearing },
+                        Rotation {
+                            origin.x: 30; origin.y: 30; angle: carBearing-map.bearing
+                            Behavior on angle {
+                                PropertyAnimation { duration: 200 }
+                            }
+                        },
                         Rotation { origin.x: 30; origin.y: 30; axis.x: 1; axis.y: 0; axis.z: 0; angle: map.tilt }
                     ]
                     layer.enabled: true
