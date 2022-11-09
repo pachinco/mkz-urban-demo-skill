@@ -370,7 +370,7 @@ Mycroft.Delegate {
                 property var source: "composite"
                 property var sourceLayer: "building"
                 property var layerType: "fill-extrusion"
-                property var minzoom: 12.0
+                property var minzoom: 14.0
             }
             MapParameter {
                 type: "filter"
