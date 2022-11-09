@@ -382,7 +382,7 @@ Mycroft.Delegate {
                 type: "paint"
                 property var layer: "3d-buildings"
                 property var fillExtrusionColor: (modeNight) ? "#60818a" : "#c2af94" //"#00617f"
-                property var fillExtrusionOpacity: 0.5
+                property var fillExtrusionOpacity: 0.8
                 property var fillExtrusionHeight: [ "*", 2, ["get", "height"] ]
 //                 property var fillExtrusionHeight: [ "*", map.buildingZoom, ["get", "height"] ]
 //                 property var fillExtrusionHeightTransition: { "duration": 1000, "delay": 0 }
