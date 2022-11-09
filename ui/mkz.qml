@@ -377,7 +377,7 @@ Mycroft.Delegate {
                 property var layer: "3d-buildings"
                 property var filter: [ "==", "extrude", "true" ]
             }
-//             property real buildingZoom: (zoomLevel-14)*(zoomLevel-14)
+            property real buildingZoom: (zoomLevel-14)*(zoomLevel-14)
             MapParameter {
                 type: "paint"
                 property var layer: "3d-buildings"
