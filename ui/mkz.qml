@@ -370,7 +370,7 @@ Mycroft.Delegate {
                 property var source: "composite"
                 property var sourceLayer: "building"
                 property var layerType: "fill-extrusion"
-                property var minzoom: 15.0
+                property var minzoom: 12.0
             }
             MapParameter {
                 type: "filter"
@@ -382,9 +382,8 @@ Mycroft.Delegate {
                 property var layer: "3d-buildings"
                 property var fillExtrusionColor: "#00617f"
                 property var fillExtrusionOpacity: 0.5
-//                 property var fillExtrusionHeight: 100
-                property var fillExtrusionHeight: { return { property: "height", type: "identity" } }
-//                 property var fillExtrusionHeight: { return { property: "height", type: "interpolate", interpolation: ["linear"], input: ["zoom"], stop_input_1: 15, stop_output_1: 0, stop_input_n: 15.05, stop_output_2: { type: "get", property: "height" } } }
+//                 property var fillExtrusionHeight: { return { property: "height", type: "identity" } }
+                property var fillExtrusionHeight: { return { type: "interpolate", interpolation: ["linear"], input: ["zoom"], stop_input_1: 15, stop_output_1: 0, stop_input_n: 15.05, stop_output_2: { type: "get", property: "height" } } }
                 property var fillExtrusionBase: 0
 //                 property var fillExtrusionBase: { return { type: "identity", property: "min_height" } }
 //                 property var fillExtrusionBase: { return { property: "min_height", type: "interpolate", interpolation: ["linear"], input: ["zoom"], stop_input_1: 15, stop_output_1: 0, stop_input_n: 15.05, stop_output_2: { type: "get", property: "min_height"} } }
