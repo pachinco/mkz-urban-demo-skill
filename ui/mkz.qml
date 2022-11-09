@@ -385,8 +385,8 @@ Mycroft.Delegate {
                 property var fillExtrusionHeight: [ "interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "height"] ]
 //                 property var fillExtrusionHeight: { return { property: "height", type: "identity" } }
 //                 property var fillExtrusionHeight: { return { type: "interpolate", interpolation: "linear", input: "zoom", stop_input_1: 15, stop_output_1: 0, stop_input_2: 15.05, stop_output_2: 10 } }
-//                 property var fillExtrusionBase: 0
-                property var fillExtrusionBase: { return { property: "min_height", type: "identity" } }
+                property var fillExtrusionBase: [ "interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "min_height"] ]
+//                 property var fillExtrusionBase: { return { property: "min_height", type: "identity" } }
 //                 property var fillExtrusionBase: { return { property: "min_height", type: "interpolate", interpolation: ["linear"], input: ["zoom"], stop_input_1: 15, stop_output_1: 0, stop_input_n: 15.05, stop_output_2: { type: "get", property: "min_height"} } }
             }
 
