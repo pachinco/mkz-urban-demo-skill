@@ -1018,6 +1018,7 @@ Mycroft.Delegate {
 
     function routeAdaptDriver(inst) {
         if (modeAutonomous) {
+            inst=inst.replace(" your ", " our ");
             if (inst.slice(0,4)==="Your") {
                 return inst.replace("Your", "Our");
             } else if (inst.slice(0,3)==="You") {
