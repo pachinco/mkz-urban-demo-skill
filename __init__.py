@@ -89,6 +89,9 @@ class MkzUrbanDemo(MycroftSkill):
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
                                   {"ui": "music", "idx": 3, "image": "../images/MediaIcon.png"},
                                   {"ui": "weather", "idx": 4, "image": "../images/CloudIcon.png"}]
+        self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
+                                    {"text": "Drive", "image": "../images/Start-button.png"},
+                                    {"text": "Setting", "image": "../images/Settings-symbol.png"}]
         self.gui["statusList"] = [{"text": "▾ Vehicle ❌"},
                                   {"text": "  ▾ Doors ❌"},
                                   {"text": "      Front Left ❌"},
@@ -160,9 +163,6 @@ class MkzUrbanDemo(MycroftSkill):
         
     def _add_config(self):
         self.gui["uiIdx"] = 2
-        self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
-                                    {"text": "Drive", "image": "../images/Start-button.png"},
-                                    {"text": "Setting", "image": "../images/Settings-symbol.png"}]
         self.schedule_event(self._back_map, 5)
 
     def _back_map(self):
