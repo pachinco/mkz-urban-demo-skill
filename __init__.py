@@ -89,6 +89,7 @@ class MkzUrbanDemo(MycroftSkill):
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
                                   {"ui": "music", "idx": 3, "image": "../images/MediaIcon.png"},
                                   {"ui": "weather", "idx": 4, "image": "../images/CloudIcon.png"}]
+        self.gui["actionsList"] = []
         self.gui["statusList"] = [{"text": "▾ Vehicle ❌"},
                                   {"text": "  ▾ Doors ❌"},
                                   {"text": "      Front Left ❌"},
