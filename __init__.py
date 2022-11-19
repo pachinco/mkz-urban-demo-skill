@@ -160,7 +160,7 @@ class MkzUrbanDemo(MycroftSkill):
                                     {"text": "Drive", "image": "../images/Start-button.png"},
                                     {"text": "Setting", "image": "../images/Settings-symbol.png"}]
         #self.gui["uiIdx"] = 2
-        self.schedule_event(self._add_config, 1)
+        #self.schedule_event(self._add_config, 1)
         
     def _add_config(self):
         self.gui["uiIdx"] = 2
