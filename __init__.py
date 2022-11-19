@@ -89,9 +89,6 @@ class MkzUrbanDemo(MycroftSkill):
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
                                   {"ui": "music", "idx": 3, "image": "../images/MediaIcon.png"},
                                   {"ui": "weather", "idx": 4, "image": "../images/CloudIcon.png"}]
-        self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
-                                    {"text": "Drive", "image": "../images/Start-button.png"},
-                                    {"text": "Setting", "image": "../images/Settings-symbol.png"}]
         self.gui["statusList"] = [{"text": "▾ Vehicle ❌"},
                                   {"text": "  ▾ Doors ❌"},
                                   {"text": "      Front Left ❌"},
@@ -154,11 +151,14 @@ class MkzUrbanDemo(MycroftSkill):
         #self.speak("What's next?", expect_response=True, wait=True)
         #self.gui.show_page(str(self.mkz_list_ui))
         self.gui["uiIdx"] = -1
-        #self.schedule_event(self._switch_config, 3)
+        self.schedule_event(self._switch_config, 3)
 
     def _switch_config(self):
-        self.gui["actionsList"] = []
-        self.gui["uiIdx"] = 2
+        #self.gui["actionsList"] = []
+        self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
+                                    {"text": "Drive", "image": "../images/Start-button.png"},
+                                    {"text": "Setting", "image": "../images/Settings-symbol.png"}]
+        #self.gui["uiIdx"] = 2
         self.schedule_event(self._add_config, 1)
         
     def _add_config(self):
