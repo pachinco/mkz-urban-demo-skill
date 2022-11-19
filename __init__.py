@@ -55,7 +55,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["routeSegment"] = 0
         self.gui["routeSegmentNext"] = False
         #self.gui["routePath"] = 0
-        #self.gui["routePath"] = []
+        self.gui["routeModel"] = []
         self.gui["routeDistance"] = 0
         self.gui["routePositionLat"] = 0
         self.gui["routePositionLon"] = 0
@@ -89,6 +89,17 @@ class MkzUrbanDemo(MycroftSkill):
                                   {"ui": "car", "idx": 2, "image": "../images/CarIcon.png"},
                                   {"ui": "music", "idx": 3, "image": "../images/MediaIcon.png"},
                                   {"ui": "weather", "idx": 4, "image": "../images/CloudIcon.png"}]
+        self.gui["statusList"] = [{"text": "▾ Vehicle ❌"},
+                                  {"text": "  ▾ Doors ❌"},
+                                  {"text": "      Front Left ❌"},
+                                  {"text": "      Front Right ✓"},
+                                  {"text": "      Rear Left ✓"},
+                                  {"text": "      Rear Right ✓"},
+                                    {"text": "▸ Sensors ✓"},
+                                    {"text": "▸ Driver ✓"},
+                                    {"text": "▸ Compute ✓"},
+                                    {"text": "▸ Communication ✓"},
+                                    {"text": "▸ Environment ✓"}]
         #self.enclosure.display_manager.remove_active()
         #play_proc = play_wav(str(self.sound_file_path))
         self.gui.show_page(str(self.mkz_home_ui), override_idle=True)
@@ -161,17 +172,6 @@ class MkzUrbanDemo(MycroftSkill):
     def _back_config(self):
         self.gui["uiIdx"] = 0
         self.schedule_event(self._back_home, 5)
-        self.gui["statusList"] = [{"text": "▾ Vehicle ❌"},
-                                  {"text": "  ▾ Doors ❌"},
-                                  {"text": "      Front Left ❌"},
-                                  {"text": "      Front Right ✓"},
-                                  {"text": "      Rear Left ✓"},
-                                  {"text": "      Rear Right ✓"},
-                                    {"text": "▸ Sensors ✓"},
-                                    {"text": "▸ Driver ✓"},
-                                    {"text": "▸ Compute ✓"},
-                                    {"text": "▸ Communication ✓"},
-                                    {"text": "▸ Environment ✓"}]
 
     def _back_home(self):
         self.gui["uiIdx"] = -1

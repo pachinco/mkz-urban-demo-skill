@@ -849,6 +849,7 @@ Mycroft.Delegate {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
+            color: (modeNight) ? "#275660" : "#ffffff"
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
@@ -1029,6 +1030,16 @@ Mycroft.Delegate {
             return inst;
     }
 
+    function sessionGetRoute(route) {
+        var routePath = "[{'lat':"+routeModel.get(route).segments[man].path[0].latitude+",'lon':"+routeModel.get(route).segments[man].path[0].longitude+"}";
+        for (let i = 1; i < routeModel.get(route).segments[man].path.length; i++) {
+            routePath = routePath+",{'lat':"+routeModel.get(route).segments[man].path[i].latitude+",'lon':"+routeModel.get(route).segments[man].path[i].longitude+"}";
+            console.log("maneuver path #"+i+": Lat="+routeModel.get(route).segments[man].path[i].latitude+" Lon="+routeModel.get(route).segments[man].path[i].longitude);
+        }
+        routePath = routePath+"]";
+        console.log("route path: "+routePath);
+    }
+
     function sessionGetManeuver(route, man) {
         sessionData.routeNum = route;
         sessionData.routeSegment = man;
@@ -1043,13 +1054,6 @@ Mycroft.Delegate {
         sessionData.routeInstruction = routeAdaptDriver(routeModel.get(route).segments[man].maneuver.instructionText);
         sessionData.routeDistanceToNext = routeModel.get(route).segments[man].maneuver.distanceToNextInstruction;
         sessionData.routeTimeToNext = routeModel.get(route).segments[man].maneuver.timeToNextInstruction;
-//         var routePath = "[{'lat':"+routeModel.get(route).segments[man].path[0].latitude+",'lon':"+routeModel.get(route).segments[man].path[0].longitude+"}";
-//         for (let i = 1; i < routeModel.get(route).segments[man].path.length; i++) {
-//             routePath = routePath+",{'lat':"+routeModel.get(route).segments[man].path[i].latitude+",'lon':"+routeModel.get(route).segments[man].path[i].longitude+"}";
-//             console.log("maneuver path #"+i+": Lat="+routeModel.get(route).segments[man].path[i].latitude+" Lon="+routeModel.get(route).segments[man].path[i].longitude);
-//         }
-//         sessionData.routePath = routePath+"]";
-//         console.log("route path: "+routePath+"]");
         if (man+1<routeModel.get(route).segments.length) {
             man=man+1;
             sessionData.routeNext = true;
