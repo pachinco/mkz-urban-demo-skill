@@ -25,7 +25,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["uiIdx"] = -2
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
-        self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked"}
+        self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked", "gear": "in park"}
         self.ad["operation"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
         #self.ad["exceptions"] = {}
         self.ad_status_announce = True
@@ -157,9 +157,9 @@ class MkzUrbanDemo(MycroftSkill):
 
     def _switch_config(self):
         #self.gui["actionsList"] = []
-        self.gui["actionsList"] = [{"text": "Activate", "image": "../images/Power-button.png"},
-                                    {"text": "Drive", "image": "../images/Start-button.png"},
-                                    {"text": "Setting", "image": "../images/Settings-symbol.png"}]
+        self.gui["actionsList"] = [{"text": "Power", "image": "../images/Power-button.png"},
+                                    {"text": "Activate", "image": "../images/Start-button.png"},
+                                    {"text": "Autonomy", "image": "../images/Settings-symbol.png"}]
         #self.gui["uiIdx"] = 2
         #self.schedule_event(self._add_config, 1)
         
