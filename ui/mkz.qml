@@ -1585,7 +1585,7 @@ Mycroft.Delegate {
 //             anchors.bottom: parent.bottom
 //             anchors.verticalCenter: parent.verticalCenter
 //             width: parent.width*0.7
-//             height: parent.height*0.6
+            height: 0
             model: sessionData.actionsList
             delegate: actionDelegate
             path: Path {
