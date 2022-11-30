@@ -1559,6 +1559,7 @@ Mycroft.Delegate {
                         anchors.margins: Kirigami.Units.gridUnit
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: model.status
+                        font.bold: true
                         color: (modeNight) ? "#e8fffc" : "#c0000000"
                         font.pointSize: Kirigami.Units.gridUnit*1.5
                     }
@@ -1590,7 +1591,7 @@ Mycroft.Delegate {
                 PathAttribute { name: "iconOpacity"; value: 1.0 }
                 PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.35; controlX: actionsView.width*-0.2; controlY: actionsView.height*0.55 }
                 PathAttribute { name: "iconScale"; value: 0.3 }
-                PathAttribute { name: "iconOpacity"; value: 1.0 }
+                PathAttribute { name: "iconOpacity"; value: 0.5 }
                 PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.6; controlX: actionsView.width*1.2; controlY: actionsView.height*0.55 }
             }
 //             cellWidth: width/3
