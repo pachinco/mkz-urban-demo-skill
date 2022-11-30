@@ -1505,7 +1505,7 @@ Mycroft.Delegate {
             Item {
                 z: 1
                 width: 300
-                height: 300
+                height: 250
 //                 width: actionsView.cellWidth
 //                 height: actionsView.cellHeight
 //                 anchors.bottom: parent.bottom
@@ -1529,15 +1529,19 @@ Mycroft.Delegate {
                         radius: 10
                         samples: 21
                     }
-                    Item {
-                        id: actionSpacer1
-                        anchors.top: parent.top
+                    Text {
+                        id: actionsLabel
+                        anchors.top: actionsButton.top
+                        anchors.margins: Kirigami.Units.gridUnit
                         anchors.horizontalCenter: parent.horizontalCenter
-                        height: Kirigami.Units.gridUnit * 3
+                        text: model.text
+                        color: (modeNight) ? "#e8fffc" : "#c0000000"
+                        font.pointSize: Kirigami.Units.gridUnit*1.5
                     }
                     Image {
                         id: actionIcon
-                        anchors.top: actionSpacer1.bottom
+                        anchors.top: actionsLabel.bottom
+                        anchors.margins: Kirigami.Units.gridUnit
                         anchors.horizontalCenter: parent.horizontalCenter
                         mipmap: true
                         source: Qt.resolvedUrl(model.image)
@@ -1549,17 +1553,12 @@ Mycroft.Delegate {
                             color: (modeNight) ? "#401e373a" : "#00000000"
                         }
                     }
-                    Item {
-                        id: actionSpacer2
-                        anchors.top: actionIcon.bottom
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        height: Kirigami.Units.gridUnit
-                    }
                     Text {
-                        id: actionsLabel
-                        anchors.top: actionSpacer2.bottom
+                        id: actionsStatus
+                        anchors.top: actionIcon.bottom
+                        anchors.margins: Kirigami.Units.gridUnit
                         anchors.horizontalCenter: parent.horizontalCenter
-                        text: model.text
+                        text: model.status
                         color: (modeNight) ? "#e8fffc" : "#c0000000"
                         font.pointSize: Kirigami.Units.gridUnit*1.5
                     }
@@ -1592,7 +1591,7 @@ Mycroft.Delegate {
                 PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.3; controlX: actionsView.width*0.0; controlY: actionsView.height*0.5 }
                 PathAttribute { name: "iconScale"; value: 0.3 }
                 PathAttribute { name: "iconOpacity"; value: 0.5 }
-                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.6; controlX: actionsView.width*1.0; controlY: actionsView.height*0.4 }
+                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.6; controlX: actionsView.width*1.0; controlY: actionsView.height*0.5 }
             }
 //             cellWidth: width/3
 //             cellHeight: height

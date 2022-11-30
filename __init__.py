@@ -157,9 +157,11 @@ class MkzUrbanDemo(MycroftSkill):
 
     def _switch_config(self):
         #self.gui["actionsList"] = []
-        self.gui["actionsList"] = [{"text": "Power", "image": "../images/Power-button.png"},
-                                    {"text": "Activate", "image": "../images/Start-button.png"},
-                                    {"text": "Autonomy", "image": "../images/Settings-symbol.png"}]
+        self.gui["actionsList"] = [{"text": "Power", "status": "off", "image": "../images/Power-button.png"},
+                                    {"text": "System", "status": "off", "image": "../images/Start-button.png"},
+                                    {"text": "Autonomy", "status": "disabled", "image": "../images/Settings-symbol.png"},
+                                    {"text": "Doors", "status": "closed", "image": "../images/Settings-symbol.png"},
+                                    {"text": "Gear", "status": "park", "image": "../images/Settings-symbol.png"}]
         #self.gui["uiIdx"] = 2
         #self.schedule_event(self._add_config, 1)
         
