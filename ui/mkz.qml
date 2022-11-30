@@ -1152,7 +1152,7 @@ Mycroft.Delegate {
             anchors.left: parent.left
             anchors.right: parent.right
             source: (modeNight) ? "../images/mkz_frame_top_night.png" : "../images/mkz_frame_top_day.png"
-            fillMode: Image.PreserveAspectFit
+            fillMode: Image.Image.PreserveAspectCrop // PreserveAspectFit
             Text {
                 id: lTime
                 anchors.left: parent.left
@@ -1366,7 +1366,7 @@ Mycroft.Delegate {
             anchors.left: parent.left
             anchors.right: parent.right
             source: Qt.resolvedUrl("../images/mkz_frame_bottom_day.png")
-            fillMode: Image.PreserveAspectFit
+            fillMode: Image.Image.PreserveAspectCrop // PreserveAspectFit
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
