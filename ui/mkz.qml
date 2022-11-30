@@ -1504,9 +1504,11 @@ Mycroft.Delegate {
             id: actionDelegate
             Item {
                 z: 1
-                width: actionsView.cellWidth
-                height: actionsView.cellHeight
-                anchors.bottom: parent.bottom
+                width: 200
+                height: 200
+//                 width: actionsView.cellWidth
+//                 height: actionsView.cellHeight
+//                 anchors.bottom: parent.bottom
                 Rectangle {
                     id: actionsButton
                     color: (modeNight) ? "#ff1e373a" : "#f0f0f0f0"
@@ -1572,11 +1574,12 @@ Mycroft.Delegate {
 //         GridView {
         PathView {
             id: actionsView
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.fill: parent
+//             anchors.horizontalCenter: parent.horizontalCenter
 //             anchors.bottom: parent.bottom
-            anchors.verticalCenter: parent.verticalCenter
-            width: parent.width*0.7
-            height: parent.height*0.6
+//             anchors.verticalCenter: parent.verticalCenter
+//             width: parent.width*0.7
+//             height: parent.height*0.6
             model: sessionData.actionsList
             delegate: actionDelegate
             path: Path {
