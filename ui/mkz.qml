@@ -1586,13 +1586,13 @@ Mycroft.Delegate {
             model: sessionData.actionsList
             delegate: actionDelegate
             path: Path {
-                startX: parent.width*0.5; startY: parent.height*0.6
+                startX: actionsView.width*0.5; startY: actionsView.height*0.6
                 PathAttribute { name: "iconScale"; value: 1.0 }
                 PathAttribute { name: "iconOpacity"; value: 1.0 }
-                PathQuad { x: parent.width*0.5; y: parent.height*0.3; controlX: parent.width*0.0; controlY: parent.height*0.5 }
+                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.3; controlX: actionsView.width*0.0; controlY: actionsView.height*0.5 }
                 PathAttribute { name: "iconScale"; value: 0.3 }
                 PathAttribute { name: "iconOpacity"; value: 0.5 }
-                PathQuad { x: parent.width*0.5; y: parent.height*0.6; controlX: parent.width*1.0; controlY: parent.height*0.4 }
+                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.6; controlX: actionsView.width*1.0; controlY: actionsView.height*0.4 }
             }
 //             cellWidth: width/3
 //             cellHeight: height
