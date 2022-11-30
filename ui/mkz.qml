@@ -1504,12 +1504,14 @@ Mycroft.Delegate {
             id: actionDelegate
             Item {
                 z: 1
-                width: 400
-                height: 400
+                width: 300
+                height: 300
 //                 width: actionsView.cellWidth
 //                 height: actionsView.cellHeight
 //                 anchors.bottom: parent.bottom
-                opacity: PathView.isCurrentItem ? 1 : 0.5
+//                 opacity: PathView.isCurrentItem ? 1 : 0.5
+                scale: PathView.iconScale
+                opacity: PathView.iconOpacity
                 Rectangle {
                     id: actionsButton
                     color: (modeNight) ? "#ff1e373a" : "#f0f0f0f0"
@@ -1559,7 +1561,7 @@ Mycroft.Delegate {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: model.text
                         color: (modeNight) ? "#e8fffc" : "#c0000000"
-                        font.pointSize: Kirigami.Units.gridUnit*2
+                        font.pointSize: Kirigami.Units.gridUnit*1.5
                     }
                     MouseArea {
                         id: actionsMouse
@@ -1585,8 +1587,12 @@ Mycroft.Delegate {
             delegate: actionDelegate
             path: Path {
                 startX: parent.width*0.5; startY: parent.height*0.6
-                PathQuad { x: parent.width*0.5; y: parent.height*0.3; controlX: parent.width*0.2; controlY: parent.height*0.5 }
-                PathQuad { x: parent.width*0.5; y: parent.height*0.6; controlX: parent.width*0.8; controlY: parent.height*0.4 }
+                PathAttribute { name: "iconScale"; value: 1.0 }
+                PathAttribute { name: "iconOpacity"; value: 1.0 }
+                PathQuad { x: parent.width*0.5; y: parent.height*0.3; controlX: parent.width*0.0; controlY: parent.height*0.5 }
+                PathAttribute { name: "iconScale"; value: 0.3 }
+                PathAttribute { name: "iconOpacity"; value: 0.5 }
+                PathQuad { x: parent.width*0.5; y: parent.height*0.6; controlX: parent.width*1.0; controlY: parent.height*0.4 }
             }
 //             cellWidth: width/3
 //             cellHeight: height
