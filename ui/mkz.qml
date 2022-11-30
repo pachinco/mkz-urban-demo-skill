@@ -1503,7 +1503,7 @@ Mycroft.Delegate {
         Component {
             id: actionDelegate
             Item {
-                z: 1
+//                 z: 1
                 width: 300
                 height: 260
 //                 width: actionsView.cellWidth
