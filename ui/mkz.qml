@@ -1585,8 +1585,8 @@ Mycroft.Delegate {
             delegate: actionDelegate
             path: Path {
                 startX: parent.width*0.5; startY: parent.height*0.6
-                PathQuad { x: parent.width*0.5;; y: parent.height*0.3; controlX: parent.width*0.2; controlY: parent.height*0.5 }
-                PathQuad { x: parent.width*0.5;; y: parent.height*0.6; controlX: parent.width*0.8; controlY: parent.height*0.4 }
+                PathQuad { x: parent.width*0.5; y: parent.height*0.3; controlX: parent.width*0.2; controlY: parent.height*0.5 }
+                PathQuad { x: parent.width*0.5; y: parent.height*0.6; controlX: parent.width*0.8; controlY: parent.height*0.4 }
             }
 //             cellWidth: width/3
 //             cellHeight: height
