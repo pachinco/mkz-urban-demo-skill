@@ -1443,7 +1443,7 @@ Mycroft.Delegate {
                 name: "ACTIVE"
                 PropertyChanges {
                     target: actionsView
-                    height: parent.height*0.75
+                    height: parent.height
                 }
                 PropertyChanges {
                     target: carBackshade
@@ -1577,7 +1577,10 @@ Mycroft.Delegate {
 //         GridView {
         PathView {
             id: actionsView
-            anchors.fill: parent
+//             anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            nachors.bottom: parent.bottom
 //             anchors.horizontalCenter: parent.horizontalCenter
 //             anchors.bottom: parent.bottom
 //             anchors.verticalCenter: parent.verticalCenter
