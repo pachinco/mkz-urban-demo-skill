@@ -1504,11 +1504,12 @@ Mycroft.Delegate {
             id: actionDelegate
             Item {
                 z: 1
-                width: 200
-                height: 200
+                width: 400
+                height: 400
 //                 width: actionsView.cellWidth
 //                 height: actionsView.cellHeight
 //                 anchors.bottom: parent.bottom
+                opacity: PathView.isCurrentItem ? 1 : 0.5
                 Rectangle {
                     id: actionsButton
                     color: (modeNight) ? "#ff1e373a" : "#f0f0f0f0"
@@ -1583,9 +1584,9 @@ Mycroft.Delegate {
             model: sessionData.actionsList
             delegate: actionDelegate
             path: Path {
-                startX: 500; startY: 500
-                PathQuad { x: 500; y: 100; controlX: 700; controlY: 250 }
-                PathQuad { x: 500; y: 500; controlX: -200; controlY: 250 }
+                startX: parent.width*0.5; startY: parent.height*0.6
+                PathQuad { x: parent.width*0.5;; y: parent.height*0.3; controlX: parent.width*0.2; controlY: parent.height*0.5 }
+                PathQuad { x: parent.width*0.5;; y: parent.height*0.6; controlX: parent.width*0.8; controlY: parent.height*0.4 }
             }
 //             cellWidth: width/3
 //             cellHeight: height
