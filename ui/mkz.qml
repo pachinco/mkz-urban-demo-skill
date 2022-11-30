@@ -1580,9 +1580,9 @@ Mycroft.Delegate {
             model: sessionData.actionsList
             delegate: actionDelegate
             path: Path {
-                startX: 120; startY: 100
-                PathQuad { x: 120; y: 25; controlX: 260; controlY: 75 }
-                PathQuad { x: 120; y: 100; controlX: -20; controlY: 75 }
+                startX: 500; startY: 500
+                PathQuad { x: 500; y: 100; controlX: 700; controlY: 250 }
+                PathQuad { x: 500; y: 500; controlX: -200; controlY: 250 }
             }
 //             cellWidth: width/3
 //             cellHeight: height
