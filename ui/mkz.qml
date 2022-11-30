@@ -1507,7 +1507,6 @@ Mycroft.Delegate {
                 width: actionsView.cellWidth
                 height: actionsView.cellHeight
                 anchors.bottom: parent.bottom
-//                 visible: false
                 Rectangle {
                     id: actionsButton
                     color: (modeNight) ? "#ff1e373a" : "#f0f0f0f0"
@@ -1570,33 +1569,39 @@ Mycroft.Delegate {
                 }
             }
         }
-        GridView {
+//         GridView {
+        PathView {
             id: actionsView
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
+//             anchors.bottom: parent.bottom
+            anchors.verticalCenter: parent.verticalCenter
             width: parent.width*0.7
-            height: parent.height*0.75
-//             height: 0
+            height: parent.height*0.6
             model: sessionData.actionsList
             delegate: actionDelegate
-            cellWidth: width/3
-            cellHeight: height
-            add: Transition {
-                id: actionsTrans1
-                SequentialAnimation {
-                    PauseAnimation { duration: actionsTrans1.ViewTransition.index * 200 }
-                    PropertyAction { property: "visible"; value: true }
-                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-                }
+            path: Path {
+                startX: 120; startY: 100
+                PathQuad { x: 120; y: 25; controlX: 260; controlY: 75 }
+                PathQuad { x: 120; y: 100; controlX: -20; controlY: 75 }
             }
-            populate: Transition {
-                id: actionsTrans2
-                SequentialAnimation {
-                    PauseAnimation { duration: actionsTrans2.ViewTransition.index * 200 }
-                    PropertyAction { property: "visible"; value: true }
-                    NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
-                }
-            }
+//             cellWidth: width/3
+//             cellHeight: height
+//             add: Transition {
+//                 id: actionsTrans1
+//                 SequentialAnimation {
+//                     PauseAnimation { duration: actionsTrans1.ViewTransition.index * 200 }
+//                     PropertyAction { property: "visible"; value: true }
+//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+//                 }
+//             }
+//             populate: Transition {
+//                 id: actionsTrans2
+//                 SequentialAnimation {
+//                     PauseAnimation { duration: actionsTrans2.ViewTransition.index * 200 }
+//                     PropertyAction { property: "visible"; value: true }
+//                     NumberAnimation { property: "height"; from: 0; to: parent.height*0.75; duration: 500 }
+//                 }
+//             }
         }
     }
     
