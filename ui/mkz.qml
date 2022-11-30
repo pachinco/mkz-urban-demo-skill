@@ -1588,10 +1588,10 @@ Mycroft.Delegate {
                 startX: actionsView.width*0.5; startY: actionsView.height*0.6
                 PathAttribute { name: "iconScale"; value: 1.0 }
                 PathAttribute { name: "iconOpacity"; value: 1.0 }
-                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.4; controlX: actionsView.width*-0.2; controlY: actionsView.height*0.6 }
+                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.3; controlX: actionsView.width*-0.2; controlY: actionsView.height*0.55 }
                 PathAttribute { name: "iconScale"; value: 0.3 }
                 PathAttribute { name: "iconOpacity"; value: 0.5 }
-                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.6; controlX: actionsView.width*1.2; controlY: actionsView.height*0.6 }
+                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.6; controlX: actionsView.width*1.2; controlY: actionsView.height*0.55 }
             }
 //             cellWidth: width/3
 //             cellHeight: height
