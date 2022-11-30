@@ -1503,7 +1503,7 @@ Mycroft.Delegate {
         Component {
             id: actionDelegate
             Item {
-//                 z: 1
+                z: PathView.isCurrentItem ? 10 : 5
                 width: 300
                 height: 260
 //                 width: actionsView.cellWidth
