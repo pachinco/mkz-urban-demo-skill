@@ -1580,7 +1580,7 @@ Mycroft.Delegate {
 //             anchors.fill: parent
             anchors.left: parent.left
             anchors.right: parent.right
-            nachors.bottom: parent.bottom
+            anchors.bottom: parent.bottom
 //             anchors.horizontalCenter: parent.horizontalCenter
 //             anchors.bottom: parent.bottom
 //             anchors.verticalCenter: parent.verticalCenter
