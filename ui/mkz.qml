@@ -194,7 +194,7 @@ Mycroft.Delegate {
                         value: true
                     }
                     ParallelAnimation {
-                        NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
+//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
                         NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.OutQuad; duration: 500 }
                     }
                 }
