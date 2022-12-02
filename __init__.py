@@ -23,9 +23,10 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["foreground"] = str(self.mkzdemo_over)
         self.gui["datetime"] = ""
         self.gui["uiIdx"] = -2
+        self.gui["controlIdx"] = 0
         #self.log.info("backgroundimage: "+str(self.mkzdemo_img))
         self.ad={}
-        self.ad["control"] = {"power": "off", "engine": "off", "autonomy": "disabled", "doors": "locked", "gear": "in park"}
+        self.ad["control"] = {"power": "off", "system": "off", "autonomy": "disabled", "doors": "locked", "gear": "in park"}
         self.ad["operation"] = {"power": "okay", "compute": "okay", "vehicle": "okay", "sensors": "okay", "tires": "okay", "network": "okay"}
         #self.ad["exceptions"] = {}
         self.ad_status_announce = True
@@ -141,7 +142,10 @@ class MkzUrbanDemo(MycroftSkill):
                 self.speak("there is no "+ad_type+" to report.", wait=True)
         else:
             self.speak("here is the "+ad_type+" status report.", wait=True)
+            idx=0
             for ad_item, ad_value in self.ad[ad_type].items():
+                self.gui["controlIdx"] = idx
+                idx=idx+1
                 if (ad_item[-1]=="s"):
                     self.speak("the "+ad_item+" are "+ad_value+".", wait=True)
                 else:
@@ -160,7 +164,7 @@ class MkzUrbanDemo(MycroftSkill):
         self.gui["actionsList"] = [{"text": "Power", "status": "off", "image": "../images/Power-button.png"},
                                     {"text": "System", "status": "off", "image": "../images/Start-button.png"},
                                     {"text": "Autonomy", "status": "disabled", "image": "../images/Settings-symbol.png"},
-                                    {"text": "Doors", "status": "closed", "image": "../images/Settings-symbol.png"},
+                                    {"text": "Doors", "status": "locked", "image": "../images/Settings-symbol.png"},
                                     {"text": "Gear", "status": "park", "image": "../images/Settings-symbol.png"}]
         #self.gui["uiIdx"] = 2
         #self.schedule_event(self._add_config, 1)

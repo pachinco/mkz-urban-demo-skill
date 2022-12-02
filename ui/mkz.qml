@@ -46,6 +46,7 @@ Mycroft.Delegate {
     property int routeSegment: sessionData.routeSegment
     property int routePath: sessionData.routePath
     property bool routeSegmentNext: sessionData.routeSegmentNext
+    property int controlIdx: sessionData.controlIdx
 //     property real carPositionLat: sessionData.carPositionLat
 //     property real carPositionLon: sessionData.carPositionLon
 
@@ -53,6 +54,9 @@ Mycroft.Delegate {
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
 
+    onControlIdxChanged: {
+        actionsView.positionViewAtIndex(controlIdx, PathView.Beginning);
+    }
     onRouteSegmentNextChanged: {
         if (routeSegment<routeModel.get(0).segments.length-1) {
             routePath=0;
