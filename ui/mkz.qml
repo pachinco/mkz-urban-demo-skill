@@ -1598,8 +1598,12 @@ Mycroft.Delegate {
             }
 //             cellWidth: width/3
 //             cellHeight: height
+            move: Transition {
+                id: actionsTransMove
+                NumberAnimation { properties: "x,y"; duration: 500 }
+            }
 //             add: Transition {
-//                 id: actionsTrans1
+//                 id: actionsTransAdd
 //                 SequentialAnimation {
 //                     PauseAnimation { duration: actionsTrans1.ViewTransition.index * 200 }
 //                     PropertyAction { property: "visible"; value: true }
@@ -1607,7 +1611,7 @@ Mycroft.Delegate {
 //                 }
 //             }
 //             populate: Transition {
-//                 id: actionsTrans2
+//                 id: actionsTransPopulate
 //                 SequentialAnimation {
 //                     PauseAnimation { duration: actionsTrans2.ViewTransition.index * 200 }
 //                     PropertyAction { property: "visible"; value: true }
