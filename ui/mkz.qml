@@ -193,19 +193,14 @@ Mycroft.Delegate {
                         property: "visible"
                         value: true
                     }
-                    ParallelAnimation {
-//                         NumberAnimation { target: uiStage; properties: "opacity"; duration: 500 }
-                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.OutQuad; duration: 500 }
-                    }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.OutQuad; duration: 500 }
                 }
             },
             Transition {
                 from: "ACTIVE"
                 to: "INACTIVE"
                 SequentialAnimation {
-                    ParallelAnimation {
-                        NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.InQuad; duration: 500 }
-                    }
+                    NumberAnimation { target: mkzImage; properties: "opacity,x,y,width,height"; easing.type: Easing.InQuad; duration: 500 }
                     PropertyAction {
                         target: bgHome
                         property: "visible"
@@ -1592,10 +1587,10 @@ Mycroft.Delegate {
                 startX: actionsView.width*0.5; startY: actionsView.height*0.6
                 PathAttribute { name: "iconScale"; value: 1.0 }
                 PathAttribute { name: "iconOpacity"; value: 1.0 }
-                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.35; controlX: actionsView.width*-0.2; controlY: actionsView.height*0.55 }
+                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.2; controlX: actionsView.width*-0.2; controlY: actionsView.height*0.5 }
                 PathAttribute { name: "iconScale"; value: 0.3 }
                 PathAttribute { name: "iconOpacity"; value: 0.5 }
-                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.6; controlX: actionsView.width*1.2; controlY: actionsView.height*0.55 }
+                PathQuad { x: actionsView.width*0.5; y: actionsView.height*0.6; controlX: actionsView.width*1.2; controlY: actionsView.height*0.5 }
             }
 //             cellWidth: width/3
 //             cellHeight: height

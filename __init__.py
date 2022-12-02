@@ -128,7 +128,7 @@ class MkzUrbanDemo(MycroftSkill):
     def handle_query_status_mkz(self, message):
         #self.gui.clear()
         #self.enclosure.display_manager.remove_active()
-        self.gui["uiIdx"] = 0
+        self.gui["uiIdx"] = 2
         s=message.data["utterance"][10:]
         ad_type = message.data.get('type')
         self.log.info("query status: type="+ad_type)
