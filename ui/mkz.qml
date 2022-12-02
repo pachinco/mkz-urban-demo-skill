@@ -1587,6 +1587,8 @@ Mycroft.Delegate {
             height: 0
             model: sessionData.actionsList
             delegate: actionDelegate
+            preferredHighlightBegin: 0
+            preferredHighlightEnd: 1
             path: Path {
                 startX: actionsView.width*0.5; startY: actionsView.height*0.6
                 PathAttribute { name: "iconScale"; value: 1.0 }
