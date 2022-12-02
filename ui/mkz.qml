@@ -1600,10 +1600,10 @@ Mycroft.Delegate {
             }
 //             cellWidth: width/3
 //             cellHeight: height
-            move: Transition {
-                id: actionsTransMove
-                NumberAnimation { properties: "x,y"; duration: 500 }
-            }
+//             move: Transition {
+//                 id: actionsTransMove
+//                 NumberAnimation { properties: "x,y"; duration: 500 }
+//             }
 //             add: Transition {
 //                 id: actionsTransAdd
 //                 SequentialAnimation {
