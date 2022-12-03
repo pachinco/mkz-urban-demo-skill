@@ -56,9 +56,9 @@ Mycroft.Delegate {
 
     onControlIdxChanged: {
         if (controlIdx == (actionsView.currentIndex+1)%actionsView.count) {
-            actionsView.incrementCurrentIndex();
-        } else if (controlIdx == (actionsView.currentIndex-1)%actionsView.count) {
             actionsView.decrementCurrentIndex();
+        } else if (controlIdx == (actionsView.currentIndex-1)%actionsView.count) {
+            actionsView.incrementCurrentIndex();
         } else {
             actionsView.positionViewAtIndex(controlIdx, PathView.Beginning);
         }
