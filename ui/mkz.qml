@@ -55,7 +55,13 @@ Mycroft.Delegate {
 //     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
 
     onControlIdxChanged: {
-//         actionsView.positionViewAtIndex(controlIdx, PathView.Beginning);
+        if (controlIdx == (actionsView.currentIndex+1)%actionsView.count) {
+            actionsView.incrementCurrentIndex();
+        } else if (controlIdx == (actionsView.currentIndex-1)%actionsView.count) {
+            actionsView.decrementCurrentIndex();
+        } else {
+            actionsView.positionViewAtIndex(controlIdx, PathView.Beginning);
+        }
         actionsView.incrementCurrentIndex();
     }
     onRouteSegmentNextChanged: {
