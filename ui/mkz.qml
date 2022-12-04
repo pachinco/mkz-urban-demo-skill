@@ -89,7 +89,7 @@ Mycroft.Delegate {
             routePath=0;
             routeSegment = routeSegment+1;
             sessionGetManeuver(0, routeSegment);
-            console.log("onRouteSegmentNextChanged: "+routeAdaptDriver(routeModel.get(0).segments[routeSegment].maneuver.instructionText));
+//             console.log("onRouteSegmentNextChanged: "+routeAdaptDriver(routeModel.get(0).segments[routeSegment].maneuver.instructionText));
             triggerGuiEvent("mkz-urban-demo-skill.route_new", {"string": ""});
             carAnimateNextStep(true);
         }
