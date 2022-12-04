@@ -1510,7 +1510,7 @@ Mycroft.Delegate {
             id: actionDelegate
             Item {
                 z: 5+PathView.iconOpacity*10
-                width: 350
+                width: 400
                 height: 400
 //                 width: actionsView.cellWidth
 //                 height: actionsView.cellHeight
@@ -1551,7 +1551,7 @@ Mycroft.Delegate {
                         anchors.horizontalCenter: parent.horizontalCenter
                         mipmap: true
                         source: Qt.resolvedUrl(model.image)
-                        height: Kirigami.Units.gridUnit * 10
+                        height: Kirigami.Units.gridUnit * 8
                         fillMode: Image.PreserveAspectFit
                         ColorOverlay {
                             anchors.fill: actionIcon
