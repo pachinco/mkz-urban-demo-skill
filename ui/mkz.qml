@@ -1542,7 +1542,7 @@ Mycroft.Delegate {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: model.text
                         color: (modeNight) ? "#e8fffc" : "#c0000000"
-                        font.pointSize: Kirigami.Units.gridUnit*2
+                        font.pointSize: Kirigami.Units.gridUnit*2.5
                     }
                     Image {
                         id: actionIcon
@@ -1551,7 +1551,7 @@ Mycroft.Delegate {
                         anchors.horizontalCenter: parent.horizontalCenter
                         mipmap: true
                         source: Qt.resolvedUrl(model.image)
-                        height: Kirigami.Units.gridUnit * 6
+                        height: Kirigami.Units.gridUnit * 10
                         fillMode: Image.PreserveAspectFit
                         ColorOverlay {
                             anchors.fill: actionIcon
@@ -1567,7 +1567,7 @@ Mycroft.Delegate {
                         text: model.status
                         font.bold: true
                         color: (modeNight) ? "#e8fffc" : "#c0000000"
-                        font.pointSize: Kirigami.Units.gridUnit*2
+                        font.pointSize: Kirigami.Units.gridUnit*2.5
                     }
                     MouseArea {
                         id: actionsMouse
