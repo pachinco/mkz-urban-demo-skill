@@ -10,6 +10,26 @@ import QtLocation 5.12
 import Qt.labs.folderlistmodel 2.1
 import QtMultimedia 5.0
 
+// Base element, provides basic features needed for all kirigami applications
+Kirigami.ApplicationWindow {
+    // ID provides unique identifier to reference this element
+    id: root2
+
+    // Window title
+    // i18nc is useful for adding context for translators, also lets strings be changed for different languages
+    title: i18nc("@title:window", "Hello World")
+
+    // Initial page to be loaded on app load
+    pageStack.initialPage: Kirigami.Page {
+
+        Controls.Label {
+            // Center label horizontally and vertically within parent element
+            anchors.centerIn: parent
+            text: i18n("Hello World!")
+        }
+    }
+}
+
 Mycroft.Delegate {
     id: homescreen
 //     skillBackgroundSource: Qt.resolvedUrl("../images/mkz_background_stage_day.png")
