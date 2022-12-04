@@ -1510,8 +1510,8 @@ Mycroft.Delegate {
             id: actionDelegate
             Item {
                 z: 5+PathView.iconOpacity*10
-                width: 300
-                height: 260
+                width: 400
+                height: 300
 //                 width: actionsView.cellWidth
 //                 height: actionsView.cellHeight
 //                 anchors.bottom: parent.bottom
@@ -1542,7 +1542,7 @@ Mycroft.Delegate {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: model.text
                         color: (modeNight) ? "#e8fffc" : "#c0000000"
-                        font.pointSize: Kirigami.Units.gridUnit*1.5
+                        font.pointSize: Kirigami.Units.gridUnit*2
                     }
                     Image {
                         id: actionIcon
@@ -1551,7 +1551,7 @@ Mycroft.Delegate {
                         anchors.horizontalCenter: parent.horizontalCenter
                         mipmap: true
                         source: Qt.resolvedUrl(model.image)
-                        height: Kirigami.Units.gridUnit * 5
+                        height: Kirigami.Units.gridUnit * 6
                         fillMode: Image.PreserveAspectFit
                         ColorOverlay {
                             anchors.fill: actionIcon
@@ -1567,7 +1567,7 @@ Mycroft.Delegate {
                         text: model.status
                         font.bold: true
                         color: (modeNight) ? "#e8fffc" : "#c0000000"
-                        font.pointSize: Kirigami.Units.gridUnit*1.5
+                        font.pointSize: Kirigami.Units.gridUnit*2
                     }
                     MouseArea {
                         id: actionsMouse
