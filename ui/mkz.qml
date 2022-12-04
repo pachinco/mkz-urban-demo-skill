@@ -1510,8 +1510,8 @@ Mycroft.Delegate {
             id: actionDelegate
             Item {
                 z: 5+PathView.iconOpacity*10
-                width: 400
-                height: 300
+                width: 350
+                height: 400
 //                 width: actionsView.cellWidth
 //                 height: actionsView.cellHeight
 //                 anchors.bottom: parent.bottom
