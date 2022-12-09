@@ -1166,7 +1166,7 @@ Mycroft.Delegate {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: parent.height*0.35
                 color: (modeNight) ? "#a9cac9" : "#000000"
-                font.pixelSize: 28
+                font.pixelSize: 48
                 font.capitalization: Font.SmallCaps
                 font.bold: true
                 text: sessionData.datetime.substring(0,5)
@@ -1178,7 +1178,7 @@ Mycroft.Delegate {
                 anchors.leftMargin: 2
                 anchors.bottom: lTime.bottom
                 color: (modeNight) ? "#a9cac9" : "#000000"
-                font.pixelSize: 28
+                font.pixelSize: 48
                 font.capitalization: Font.SmallCaps
                 font.bold: false
                 font.weight: Font.Thin
@@ -1191,7 +1191,7 @@ Mycroft.Delegate {
                 anchors.bottom: lTime.bottom
                 anchors.leftMargin: Kirigami.Units.gridUnit*1.5
                 color: (modeNight) ? "#a9cac9" : "#000000"
-                font.pixelSize: 28
+                font.pixelSize: 48
                 font.capitalization: Font.SmallCaps
                 font.bold: true
                 text: sessionData.datetime.substring(8,11)
@@ -1203,7 +1203,7 @@ Mycroft.Delegate {
                 anchors.bottom: lTime.bottom
                 anchors.leftMargin: Kirigami.Units.gridUnit*0.8
                 color: (modeNight) ? "#a9cac9" : "#000000"
-                font.pixelSize: 28
+                font.pixelSize: 48
                 font.capitalization: Font.SmallCaps
                 font.bold: false
                 font.weight: Font.Thin
@@ -1219,8 +1219,8 @@ Mycroft.Delegate {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: parent.height*0.4
                 source: (modeNight) ? "../images/moon-solid.png" : "../images/sun-solid.png"
-                height: 30
-                width: 30
+                height: 48
+                width: 48
                 opacity: 0.7
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
@@ -1244,8 +1244,8 @@ Mycroft.Delegate {
                 anchors.rightMargin: Kirigami.Units.gridUnit
                 anchors.verticalCenter: dayNightIcon.verticalCenter
                 source: (modeAutonomous) ? "../images/mode-autonomous.png" : "../images/mode-manual.png"
-                height: 30
-                width: 30
+                height: 48
+                width: 48
                 mipmap: true
                 fillMode: Image.PreserveAspectFit
                 opacity: 0.7
