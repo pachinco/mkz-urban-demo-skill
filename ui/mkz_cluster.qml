@@ -131,7 +131,7 @@ Mycroft.Delegate {
             from: 0
             to: 360
 
-            loops: QQ2.Animation.Infinite
+            loops: Animation.Infinite
             running: true
         }
 
