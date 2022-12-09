@@ -3,7 +3,12 @@ import QtQuick.Layouts 1.4
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
-import QtQuick3D 1.15
+// import QtQuick3D 1.15
+// import QtQuick 2.2 as QQ2
+import Qt3D.Core 2.0
+import Qt3D.Render 2.0
+import Qt3D.Input 2.0
+import Qt3D.Extras 2.15
 import org.kde.kirigami 2.9 as Kirigami
 import Mycroft 1.0 as Mycroft
 
@@ -48,59 +53,87 @@ Mycroft.Delegate {
 //     property string maptiler_key: "nGqcqqyYOrE4VtKI6ftl"
 //     property string mapboxToken: "pk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b2RkN2plMGZnMTNvcDg3ZmF0YWdkMSJ9.vzH21tcuxbMkqCKOIbGwkw"
 //     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
-    View3D {
-        id: view
-        anchors.fill: parent
+    Camera {
+        id: camera
+        projectionType: CameraLens.PerspectiveProjection
+        fieldOfView: 45
+        aspectRatio: 16/9
+        nearPlane : 0.1
+        farPlane : 1000.0
+        position: Qt.vector3d( 0.0, 0.0, -40.0 )
+        upVector: Qt.vector3d( 0.0, 1.0, 0.0 )
+        viewCenter: Qt.vector3d( 0.0, 0.0, 0.0 )
+    }
 
-        environment: SceneEnvironment {
-            clearColor: "skyblue"
-            backgroundMode: SceneEnvironment.Color
-        }
+    OrbitCameraController {
+        camera: camera
+    }
 
-        PerspectiveCamera {
-            position: Qt.vector3d(0, 200, 300)
-            eulerRotation.x: -30
-        }
-
-        DirectionalLight {
-            eulerRotation.x: -30
-            eulerRotation.y: -70
-        }
-
-        Model {
-            position: Qt.vector3d(0, -200, 0)
-            source: "#Cylinder"
-            scale: Qt.vector3d(2, 0.2, 1)
-            materials: [ DefaultMaterial {
-                    diffuseColor: "red"
-                }
-            ]
-        }
-
-        Model {
-            position: Qt.vector3d(0, 150, 0)
-            source: "#Sphere"
-
-            materials: [ DefaultMaterial {
-                    diffuseColor: "blue"
-                }
-            ]
-
-            SequentialAnimation on y {
-                loops: Animation.Infinite
-                NumberAnimation {
-                    duration: 3000
-                    to: -150
-                    from: 150
-                    easing.type:Easing.InQuad
-                }
-                NumberAnimation {
-                    duration: 3000
-                    to: 150
-                    from: -150
-                    easing.type:Easing.OutQuad
-                }
+    components: [
+        RenderSettings {
+            activeFrameGraph: ForwardRenderer {
+                clearColor: Qt.rgba(0, 0.5, 1, 1)
+                camera: camera
+                showDebugOverlay: true
             }
+        },
+        // Event Source will be set by the Qt3DQuickWindow
+        InputSettings { }
+    ]
+
+    PhongMaterial {
+        id: material
+    }
+
+    TorusMesh {
+        id: torusMesh
+        radius: 5
+        minorRadius: 1
+        rings: 100
+        slices: 20
+    }
+
+
+    Transform {
+        id: torusTransform
+        scale3D: Qt.vector3d(1.5, 1, 0.5)
+        rotation: fromAxisAndAngle(Qt.vector3d(1, 0, 0), 45)
+    }
+
+    Entity {
+        id: torusEntity
+        components: [ torusMesh, material, torusTransform ]
+    }
+
+    SphereMesh {
+        id: sphereMesh
+        radius: 3
+    }
+
+    Transform {
+        id: sphereTransform
+        property real userAngle: 0.0
+        matrix: {
+            var m = Qt.matrix4x4();
+            m.rotate(userAngle, Qt.vector3d(0, 1, 0));
+            m.translate(Qt.vector3d(20, 0, 0));
+            return m;
         }
+    }
+
+    NumberAnimation {
+        target: sphereTransform
+        property: "userAngle"
+        duration: 10000
+        from: 0
+        to: 360
+
+        loops: QQ2.Animation.Infinite
+        running: true
+    }
+
+    Entity {
+        id: sphereEntity
+        components: [ sphereMesh, material, sphereTransform ]
     }
 }
