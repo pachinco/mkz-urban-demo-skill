@@ -1163,8 +1163,9 @@ Mycroft.Delegate {
                 id: lTime
                 anchors.left: parent.left
                 anchors.leftMargin: Kirigami.Units.gridUnit*1.5
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: parent.height*0.35
+//                 anchors.bottom: parent.bottom
+//                 anchors.bottomMargin: parent.height*0.35
+                anchors.verticalCenter: parent.verticalCenter
                 color: (modeNight) ? "#a9cac9" : "#000000"
                 font.pixelSize: 48
                 font.capitalization: Font.SmallCaps
