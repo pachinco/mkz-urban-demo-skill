@@ -1167,7 +1167,7 @@ Mycroft.Delegate {
 //                 anchors.bottomMargin: parent.height*0.35
                 anchors.verticalCenter: parent.verticalCenter
                 color: (modeNight) ? "#a9cac9" : "#000000"
-                font.pixelSize: 48
+                font.pixelSize: 40
                 font.capitalization: Font.SmallCaps
                 font.bold: true
                 text: sessionData.datetime.substring(0,5)
@@ -1179,7 +1179,7 @@ Mycroft.Delegate {
                 anchors.leftMargin: 2
                 anchors.bottom: lTime.bottom
                 color: (modeNight) ? "#a9cac9" : "#000000"
-                font.pixelSize: 48
+                font.pixelSize: 40
                 font.capitalization: Font.SmallCaps
                 font.bold: false
                 font.weight: Font.Thin
@@ -1192,7 +1192,7 @@ Mycroft.Delegate {
                 anchors.bottom: lTime.bottom
                 anchors.leftMargin: Kirigami.Units.gridUnit*1.5
                 color: (modeNight) ? "#a9cac9" : "#000000"
-                font.pixelSize: 48
+                font.pixelSize: 40
                 font.capitalization: Font.SmallCaps
                 font.bold: true
                 text: sessionData.datetime.substring(8,11)
@@ -1204,7 +1204,7 @@ Mycroft.Delegate {
                 anchors.bottom: lTime.bottom
                 anchors.leftMargin: Kirigami.Units.gridUnit*0.8
                 color: (modeNight) ? "#a9cac9" : "#000000"
-                font.pixelSize: 48
+                font.pixelSize: 40
                 font.capitalization: Font.SmallCaps
                 font.bold: false
                 font.weight: Font.Thin
@@ -1217,8 +1217,9 @@ Mycroft.Delegate {
                 signal clicked
                 anchors.right: parent.right
                 anchors.rightMargin: Kirigami.Units.gridUnit*1.5
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: parent.height*0.4
+//                 anchors.bottom: parent.bottom
+//                 anchors.bottomMargin: parent.height*0.4
+                anchors.verticalCenter: parent.verticalCenter
                 source: (modeNight) ? "../images/moon-solid.png" : "../images/sun-solid.png"
                 height: 48
                 width: 48
