@@ -55,6 +55,7 @@ Mycroft.Delegate {
 //     property string mapboxToken_mkz: "sk.eyJ1IjoicGFjaGluY28iLCJhIjoiY2w5b21lazFxMGgyMDQwbXprcHZlYzRuZiJ9.zEfn2HsyB0VyMXS93xAcow"
     Entity {
         id: sceneRoot
+        anchors.fill: parent
 
         Camera {
             id: camera
