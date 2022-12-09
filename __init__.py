@@ -18,6 +18,7 @@ class MkzUrbanDemo(MycroftSkill):
         #self.mkz_9grid_ui = Path(__file__).parent.joinpath("ui", "mkz-9grid-buttons.qml")
         self.mkz_list_ui = Path(__file__).parent.joinpath("ui", "mkz-line-buttons.qml")
         self.mkz_home_ui = Path(__file__).parent.joinpath("ui", "mkz.qml")
+        self.mkz_cluster = Path(__file__).parent.joinpath("ui", "mkz_cluster.qml")
         self.gui["actionsList"] = []
         self.gui["background"] = str(self.mkzdemo_img)
         self.gui["foreground"] = str(self.mkzdemo_over)
@@ -40,6 +41,12 @@ class MkzUrbanDemo(MycroftSkill):
         #self.enclosure.display_manager.remove_active()
         self.log.info('Activating MKZ homescreen')
         self.gui.show_image("image/mkz_background_stage_day.png", override_idle=True, override_animations=True)
+
+    @intent_file_handler('cluster.show.mkz.intent')
+    def handle_show_cluster(self,message):
+        self.gui.clear()
+        self.enclosure.display_manager.remove_active()
+        self.gui.show_page(str(self.mkz_cluster), override_idle=True)
 
     @intent_file_handler('demo.urban.mkz.intent')
     def handle_demo_urban_mkz(self, message):
